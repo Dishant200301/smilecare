@@ -52,20 +52,23 @@
 }
 
 @layer base {
+  /* Excon Font Registration */
+  @font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&family=Space+Mono&display=swap');    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  html {
-    scroll-behavior: smooth;
+    font-family: 'Excon', sans-serif;
   }
 }
-
 @layer components {
   /* Hero animations */
   .hero-text-gradient {

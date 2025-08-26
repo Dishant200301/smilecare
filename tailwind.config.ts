@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+      heading: "Sora, sans-serif",
+      body: "Inter, sans-serif",
+      mono: "Space Mono, monospace"
+    },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

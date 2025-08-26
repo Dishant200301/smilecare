@@ -1,132 +1,131 @@
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { Bot, Stethoscope, Dumbbell, Briefcase, Code, Scissors, Home, Heart, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { useState } from "react";
+import ProjectCard from "@/components/ProjectCard";
 
 const Services = () => {
-  const services = [
+  // Projects data
+  const projects = [
     {
-      icon: Bot,
+      imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=60",
+      category: "Beauty",
       title: "Botox & Skin Care",
       description: "AI-powered appointment booking and customer engagement for beauty clinics",
-      link: "/botox-skincare",
-      features: ["Automated Booking", "Customer Reminders", "Treatment Tracking"]
+      link: "/botox-skincare"
     },
     {
-      icon: Stethoscope,
+      imageUrl: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&auto=format&fit=crop&q=60",
+      category: "Healthcare",
       title: "Clinics and Dentist",
       description: "Automated patient management and appointment scheduling systems",
-      link: "/clinics-dentist",
-      features: ["Patient Management", "Appointment Scheduling", "Medical Records"]
+      link: "/clinics-dentist"
     },
     {
-      icon: Dumbbell,
+      imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=60",
+      category: "Fitness",
       title: "Gym & Health Coach",
       description: "Member management and fitness consultation automation",
-      link: "/gym-health-coach",
-      features: ["Member Management", "Workout Tracking", "Nutrition Plans"]
+      link: "/gym-health-coach"
     },
     {
-      icon: Briefcase,
+      imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop&q=60",
+      category: "Consulting",
       title: "Business Consultation",
       description: "Professional consulting services with AI-driven client management",
-      link: "/business-consultation",
-      features: ["Client Management", "Project Tracking", "Automated Reports"]
+      link: "/business-consultation"
     },
     {
-      icon: Code,
+      imageUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=60",
+      category: "Technology",
       title: "IT & SAAS Services",
       description: "Technology solutions with automated customer support and onboarding",
-      link: "/it-saas",
-      features: ["Customer Support", "User Onboarding", "Technical Documentation"]
+      link: "/it-saas"
     },
     {
-      icon: Scissors,
+      imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=60",
+      category: "Beauty",
       title: "Salons & Spa",
       description: "Beauty service automation with smart booking and customer care",
-      link: "/salons-spa",
-      features: ["Smart Booking", "Service Management", "Customer Care"]
+      link: "/salons-spa"
     },
     {
-      icon: Home,
+      imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=60",
+      category: "Real Estate",
       title: "Real Estate Agents",
       description: "Property showing automation and lead management systems",
-      link: "/real-estate-agents",
-      features: ["Lead Management", "Property Listings", "Client Communication"]
+      link: "/real-estate-agents"
     },
     {
-      icon: Heart,
+      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=60",
+      category: "Mental Health",
       title: "Therapists & Counselors",
       description: "Mental health practice automation with secure patient communications",
-      link: "/therapists-counselors",
-      features: ["Secure Communications", "Session Scheduling", "Progress Tracking"]
+      link: "/therapists-counselors"
     },
     {
-      icon: Wrench,
+      imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=60",
+      category: "Finance",
       title: "Insurance & Financial",
       description: "Financial services automation with claim processing and client management",
-      link: "/insurance",
-      features: ["Claim Processing", "Client Management", "Policy Management"]
+      link: "/insurance"
     }
   ];
+  
+
+  // Filter categories
+  const categories = ["All", "Beauty", "Healthcare", "Fitness", "Consulting", "Technology", "Real Estate", "Mental Health", "Finance"];
+  // State for active filter
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  // Filtered projects
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Navbar />
-      
+
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our <span className="hero-text-gradient">Services</span>
+        <section className="py-20 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+              Our <span className="text-purple-400">Projects</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive AI automation solutions tailored for every industry. 
-              Transform your business operations with our specialized services.
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Explore our diverse portfolio of architectural and design
+              projects, transforming visions into reality.
             </p>
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Filter Bar */}
+        <section className="mb-12">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-wrap gap-4 justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2 rounded-full font-semibold transition ${
+                  activeCategory === cat
+                    ? "bg-white text-black shadow-md"
+                    : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Showcase */}
         <section className="pb-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div 
-                  key={index}
-                  className="service-card group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center mb-6">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors mr-4">
-                      <service.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">{service.title}</h3>
-                  </div>
-
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link to={service.link}>
-                    <Button className="btn-primary w-full">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
           </div>
         </section>
       </main>

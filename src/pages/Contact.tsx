@@ -1,9 +1,14 @@
+// app/contact/page.tsx (Main Contact Page)
+'use client'; // Assuming Next.js App Router and client component
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, Calendar, Briefcase, LifeBuoy } from 'lucide-react'; // Added Calendar, Briefcase, LifeBuoy for other sections
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
+import React from 'react';
 
 const Contact = () => {
   const contactInfo = [
@@ -35,184 +40,185 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    // Handle form submission logic here
     console.log('Form submitted');
+    alert('Thank you for your message! We will get back to you shortly.');
+    // You might clear the form or show a success message
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground font-body">
       <Navbar />
       
-      <main className="pt-16">
+      <main className="pt-24 md:pt-32 bg-black"> {/* Adjust padding for sticky nav */}
         {/* Hero Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28 lg:py-32 bg-black-to-br from-background via-card to-background"> {/* Added subtle background gradient */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Get in <span className="hero-text-gradient">Touch</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Ready to transform your business with AI automation? We're here to help you 
-              get started and answer any questions you might have.
-            </p>
+            <AnimateOnScroll animation="fade-in-up" delay={0}>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"> {/* Larger text, tighter line-height */}
+              Contact <span className="hero-text-gradient">Us</span>
+              </h1>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-up" delay={150}>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"> {/* Slightly larger text, improved line-height */}
+                Ready to transform your business with AI automation? We're here to help you 
+                get started and answer any questions you might have.
+              </p>
+            </AnimateOnScroll>
           </div>
         </section>
 
         {/* Contact Info Cards */}
-        <section className="py-20">
+        <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-20"> {/* Reduced gap slightly for compactness */}
               {contactInfo.map((info, index) => (
-                <div 
-                  key={index}
-                  className="service-card text-center"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <info.icon className="w-8 h-8 text-primary" />
+                <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 100 + 300}>
+                  <div 
+                    className="
+                      bg-card border border-border rounded-2xl p-6 md:p-8 text-center h-full flex flex-col items-center justify-center
+                      transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 {/* Added hover effects, full height, flex for centering */}
+                    "
+                    role="listitem"
+                  >
+                    <div className="flex justify-center mb-4">
+                      <div className="p-4 bg-primary/10 rounded-full inline-flex items-center justify-center"> {/* Larger, rounded icon container */}
+                        <info.icon className="w-7 h-7 text-primary" aria-hidden="true" /> {/* Slightly smaller icon inside larger container */}
+                      </div>
                     </div>
+                    <h3 className="text-xl font-heading font-semibold mb-2">{info.title}</h3>
+                    <p className="text-primary font-body font-medium mb-2 break-words">{info.details}</p> {/* break-words for long details */}
+                    <p className="text-muted-foreground font-body text-sm leading-relaxed">{info.description}</p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
-                  <p className="text-primary font-medium mb-2">{info.details}</p>
-                  <p className="text-muted-foreground text-sm">{info.description}</p>
-                </div>
+                </AnimateOnScroll>
               ))}
             </div>
 
-            {/* Contact Form & Map */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form & Additional Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"> {/* Adjusted gap */}
               {/* Contact Form */}
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-bold mb-6 hero-text-gradient">
-                  Send us a Message
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">First Name</label>
-                      <Input placeholder="John" required />
+              <AnimateOnScroll animation="slide-in-left" delay={500}>
+                <div className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-xl"> {/* Rounded-3xl, increased padding, added stronger shadow */}
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 hero-text-gradient"> {/* Larger heading, more bottom margin */}
+                    Send us a Message
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="firstName" className="block text-sm font-body font-medium mb-2 text-muted-foreground">First Name</label>
+                        <Input id="firstName" placeholder="John" required className="py-2.5 px-4" /> {/* Slightly taller input */}
+                      </div>
+                      <div>
+                        <label htmlFor="lastName" className="block text-sm font-body font-medium mb-2 text-muted-foreground">Last Name</label>
+                        <Input id="lastName" placeholder="Doe" required className="py-2.5 px-4" />
+                      </div>
                     </div>
+                    
                     <div>
-                      <label className="block text-sm font-medium mb-2">Last Name</label>
-                      <Input placeholder="Doe" required />
+                      <label htmlFor="email" className="block text-sm font-body font-medium mb-2 text-muted-foreground">Email</label>
+                      <Input id="email" type="email" placeholder="john@example.com" required className="py-2.5 px-4" />
                     </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="john@example.com" required />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Phone</label>
-                    <Input type="tel" placeholder="+1 (555) 123-4567" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Company</label>
-                    <Input placeholder="Your Company Name" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
-                    <Textarea 
-                      placeholder="Tell us about your business and how we can help..." 
-                      rows={6}
-                      required 
-                    />
-                  </div>
-                  
-                  <Button type="submit" className="btn-primary w-full group">
-                    Send Message
-                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </form>
-              </div>
-
-              {/* Additional Info */}
-              <div className="space-y-8">
-                <div className="bg-card border border-border rounded-2xl p-8">
-                  <h3 className="text-xl font-semibold mb-4 hero-text-gradient">
-                    Schedule a Free Consultation
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Book a 30-minute consultation with our experts to discuss your 
-                    business needs and see how our AI automation can help you grow.
-                  </p>
-                  <Button className="btn-primary w-full">
-                    Book Free Consultation
-                  </Button>
+                    
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-body font-medium mb-2 text-muted-foreground">Phone</label>
+                      <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" className="py-2.5 px-4" />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-body font-medium mb-2 text-muted-foreground">Company</label>
+                      <Input id="company" placeholder="Your Company Name" className="py-2.5 px-4" />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-body font-medium mb-2 text-muted-foreground">Message</label>
+                      <Textarea 
+                        id="message"
+                        placeholder="Tell us about your business and how we can help..." 
+                        rows={6}
+                        required 
+                        className="py-2.5 px-4 min-h-[120px]" // Min-height for consistency
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="w-full group bg-white text-black hover:bg-[#eaeaea]">
+                      Send Message
+                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </form>
                 </div>
+              </AnimateOnScroll>
 
-                <div className="bg-card border border-border rounded-2xl p-8">
-                  <h3 className="text-xl font-semibold mb-4 hero-text-gradient">
-                    Enterprise Sales
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Looking for enterprise solutions? Our dedicated sales team can 
-                    help you with custom pricing and implementation plans.
-                  </p>
-                  <Button variant="outline" className="btn-outline w-full">
-                    Contact Sales Team
-                  </Button>
-                </div>
+              {/* Additional Info Cards */}
+              <div className="space-y-6 lg:space-y-8"> {/* Adjusted space-y */}
+                <AnimateOnScroll animation="slide-in-right" delay={600}>
+                  <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm {/* Added shadow, slightly reduced padding */}
+                    transition-all duration-300 ease-in-out hover:shadow-md">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-primary/10 rounded-full mr-3">
+                        <Calendar className="w-6 h-6 text-primary" /> {/* New icon */}
+                      </div>
+                      <h3 className="text-xl font-heading font-semibold hero-text-gradient">
+                        Schedule a Free Consultation
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground font-body mb-6 leading-relaxed">
+                      Book a 30-minute consultation with our experts to discuss your 
+                      business needs and see how our AI automation can help you grow.
+                    </p>
+                    <Button variant="zeniq-primary" size="zeniq-lg" className="w-full">
+                      Book Free Consultation
+                    </Button>
+                  </div>
+                </AnimateOnScroll>
 
-                <div className="bg-card border border-border rounded-2xl p-8">
-                  <h3 className="text-xl font-semibold mb-4 hero-text-gradient">
-                    Technical Support
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Need help with your existing ZenIQ setup? Our technical support 
-                    team is here to assist you.
-                  </p>
-                  <Button variant="outline" className="btn-outline w-full">
-                    Get Support
-                  </Button>
-                </div>
+                <AnimateOnScroll animation="slide-in-right" delay={700}>
+                  <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm
+                    transition-all duration-300 ease-in-out hover:shadow-md">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-primary/10 rounded-full mr-3">
+                        <Briefcase className="w-6 h-6 text-primary" /> {/* New icon */}
+                      </div>
+                      <h3 className="text-xl font-heading font-semibold hero-text-gradient">
+                        Enterprise Sales
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground font-body mb-6 leading-relaxed">
+                      Looking for enterprise solutions? Our dedicated sales team can 
+                      help you with custom pricing and implementation plans.
+                    </p>
+                    <Button variant="zeniq-outline" size="zeniq-lg" className="w-full">
+                      Contact Sales Team
+                    </Button>
+                  </div>
+                </AnimateOnScroll>
+
+                <AnimateOnScroll animation="slide-in-right" delay={800}>
+                  <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm
+                    transition-all duration-300 ease-in-out hover:shadow-md ">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-primary/10 rounded-full mr-3">
+                        <LifeBuoy className="w-6 h-6 text-primary" /> {/* New icon */}
+                      </div>
+                      <h3 className="text-xl font-heading font-semibold hero-text-gradient">
+                        Technical Support
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground font-body mb-6 leading-relaxed">
+                      Need help with your existing ZenIQ setup? Our technical support 
+                      team is here to assist you.
+                    </p>
+                    <Button variant="zeniq-outline" size="zeniq-lg" className="w-full">
+                      Get Support
+                    </Button>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-card">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Common <span className="hero-text-gradient">Questions</span>
-              </h2>
-              <p className="text-muted-foreground">
-                Quick answers to questions you might have before reaching out.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[
-                {
-                  question: "How quickly can I get started?",
-                  answer: "Most clients are up and running within 24-48 hours. Our setup process is designed to be quick and seamless."
-                },
-                {
-                  question: "Do you offer custom integrations?",
-                  answer: "Yes, we can integrate with most existing business tools and software. Our team will work with you to ensure smooth integration."
-                },
-                {
-                  question: "What kind of support do you provide?",
-                  answer: "We offer 24/7 technical support, dedicated account managers for enterprise clients, and comprehensive training resources."
-                },
-                {
-                  question: "Is my data secure?",
-                  answer: "Absolutely. We use bank-level encryption and are compliant with GDPR, HIPAA, and other major security standards."
-                }
-              ].map((faq, index) => (
-                <div key={index} className="bg-background border border-border rounded-lg p-6">
-                  <h3 className="font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+       
       </main>
 
       <Footer />

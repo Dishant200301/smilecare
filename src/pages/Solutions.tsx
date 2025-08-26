@@ -1,9 +1,17 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Bot, Calendar, MessageSquare, BarChart3, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRef, useEffect } from 'react';
 
 const Solutions = () => {
+  const solutionRefs = useRef([]);
+  const industryRefs = useRef([]);
+  const ctaRef = useRef(null);
+  const spotlightRefs = useRef([]);
+
   const solutions = [
     {
       icon: Bot,
@@ -14,7 +22,9 @@ const Solutions = () => {
         "Reduces response time from hours to seconds",
         "Available in multiple languages",
         "Learns from every interaction"
-      ]
+      ],
+      gradient: "rgba(59, 130, 246, 0.15)",
+      accentColor: "rgb(59, 130, 246)"
     },
     {
       icon: Calendar,
@@ -25,7 +35,9 @@ const Solutions = () => {
         "Optimizes calendar for maximum efficiency",
         "Handles rescheduling automatically",
         "Integrates with existing calendar systems"
-      ]
+      ],
+      gradient: "rgba(34, 197, 94, 0.15)",
+      accentColor: "rgb(34, 197, 94)"
     },
     {
       icon: MessageSquare,
@@ -36,7 +48,9 @@ const Solutions = () => {
         "Personalized content for each customer",
         "Follow-up sequences that convert",
         "Multi-channel campaign management"
-      ]
+      ],
+      gradient: "rgba(168, 85, 247, 0.15)",
+      accentColor: "rgb(168, 85, 247)"
     },
     {
       icon: BarChart3,
@@ -47,7 +61,9 @@ const Solutions = () => {
         "Customer behavior analysis",
         "Revenue optimization recommendations",
         "Predictive analytics for forecasting"
-      ]
+      ],
+      gradient: "rgba(245, 158, 11, 0.15)",
+      accentColor: "rgb(245, 158, 11)"
     },
     {
       icon: Shield,
@@ -58,7 +74,9 @@ const Solutions = () => {
         "GDPR and HIPAA compliance",
         "Regular security audits",
         "Secure data backup and recovery"
-      ]
+      ],
+      gradient: "rgba(239, 68, 68, 0.15)",
+      accentColor: "rgb(239, 68, 68)"
     },
     {
       icon: Zap,
@@ -69,7 +87,9 @@ const Solutions = () => {
         "No technical expertise required",
         "Seamless integration with existing tools",
         "Dedicated onboarding support"
-      ]
+      ],
+      gradient: "rgba(245, 101, 101, 0.15)",
+      accentColor: "rgb(245, 101, 101)"
     }
   ];
 
@@ -77,30 +97,79 @@ const Solutions = () => {
     {
       name: "Healthcare",
       description: "Patient management, appointment scheduling, and medical communication automation",
-      stats: "87% reduction in missed appointments"
+      stats: "87% reduction in missed appointments",
+      gradient: "rgba(16, 185, 129, 0.12)",
+      accentColor: "rgb(16, 185, 129)"
     },
     {
       name: "Beauty & Wellness", 
       description: "Treatment booking, customer care, and service reminders for salons and spas",
-      stats: "65% increase in repeat bookings"
+      stats: "65% increase in repeat bookings",
+      gradient: "rgba(236, 72, 153, 0.12)",
+      accentColor: "rgb(236, 72, 153)"
     },
     {
       name: "Professional Services",
       description: "Client management, consultation booking, and follow-up automation",
-      stats: "52% improvement in client retention"
+      stats: "52% improvement in client retention",
+      gradient: "rgba(99, 102, 241, 0.12)",
+      accentColor: "rgb(99, 102, 241)"
     },
     {
       name: "Fitness & Sports",
       description: "Member management, class booking, and wellness tracking",
-      stats: "73% increase in member engagement"
+      stats: "73% increase in member engagement",
+      gradient: "rgba(251, 146, 60, 0.12)",
+      accentColor: "rgb(251, 146, 60)"
     }
   ];
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // Solutions spotlight effect
+      solutionRefs.current.forEach((container, index) => {
+        if (container && spotlightRefs.current[index]) {
+          const rect = container.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          spotlightRefs.current[index].style.background = 
+            `radial-gradient(circle at ${x}px ${y}px, ${solutions[index].gradient}, transparent 120%)`;
+        }
+      });
+
+      // Industries spotlight effect
+      industryRefs.current.forEach((container, index) => {
+        if (container && spotlightRefs.current[solutions.length + index]) {
+          const rect = container.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          spotlightRefs.current[solutions.length + index].style.background = 
+            `radial-gradient(circle at ${x}px ${y}px, ${industries[index].gradient}, transparent 150%)`;
+        }
+      });
+
+      // CTA spotlight effect
+      if (ctaRef.current && spotlightRefs.current[solutions.length + industries.length]) {
+        const rect = ctaRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        spotlightRefs.current[solutions.length + industries.length].style.background = 
+          `radial-gradient(circle at ${x}px ${y}px, rgba(99, 102, 241, 0.08), transparent 200%)`;
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-16">
+      <main className="pt-16 bg-black">
         {/* Hero Section */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -114,32 +183,74 @@ const Solutions = () => {
           </div>
         </section>
 
-        {/* Solutions Grid */}
+        {/* Solutions Grid with Spotlight */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {solutions.map((solution, index) => (
                 <div 
                   key={index}
-                  className="service-card"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  ref={(el) => solutionRefs.current[index] = el}
+                  className="relative overflow-hidden bg-card/60 border border-border/50 rounded-xl p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 group"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    boxShadow: `0 0 0 1px ${solution.accentColor}20`
+                  }}
                 >
-                  <div className="flex items-center mb-6">
-                    <div className="p-3 bg-primary/10 rounded-lg mr-4">
-                      <solution.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">{solution.title}</h3>
-                  </div>
+                  {/* Spotlight overlay */}
+                  <div 
+                    ref={(el) => spotlightRefs.current[index] = el}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ zIndex: 1 }}
+                  ></div>
 
-                  <p className="text-muted-foreground mb-6">{solution.description}</p>
+                  {/* Animated border glow */}
+                  <div 
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ 
+                      background: `linear-gradient(90deg, transparent, ${solution.accentColor}40, transparent)`,
+                      zIndex: 0
+                    }}
+                  ></div>
 
-                  <div className="space-y-3">
-                    {solution.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                        <span>{benefit}</span>
+                  {/* Card content */}
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-6">
+                      <div 
+                        className="p-3 bg-primary/20 rounded-lg mr-4 backdrop-blur-sm border transition-all duration-300 group-hover:scale-110"
+                        style={{ borderColor: `${solution.accentColor}30` }}
+                      >
+                        <solution.icon 
+                          className="w-8 h-8 transition-colors duration-300"
+                          style={{ color: solution.accentColor }}
+                        />
                       </div>
-                    ))}
+                      <h3 className="text-xl font-semibold group-hover:text-white transition-colors duration-300">
+                        {solution.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-muted-foreground mb-6 group-hover:text-gray-300 transition-colors duration-300">
+                      {solution.description}
+                    </p>
+
+                    <div className="space-y-3">
+                      {solution.benefits.map((benefit, idx) => (
+                        <div 
+                          key={idx} 
+                          className="flex items-start text-sm group-hover:text-gray-200 transition-colors duration-300"
+                        >
+                          <div 
+                            className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 transition-all duration-300 group-hover:shadow-lg"
+                            style={{ 
+                              backgroundColor: solution.accentColor,
+                              boxShadow: `0 0 8px ${solution.accentColor}60`
+                            }}
+                          ></div>
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -147,8 +258,8 @@ const Solutions = () => {
           </div>
         </section>
 
-        {/* Industries Section */}
-        <section className="py-20 bg-card">
+        {/* Industries Section with Spotlight */}
+        <section className="py-20 bg-card/30 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -164,21 +275,43 @@ const Solutions = () => {
               {industries.map((industry, index) => (
                 <div 
                   key={index}
-                  className="bg-background border border-border rounded-xl p-8 hover:shadow-lg transition-all duration-300"
-                  style={{ animationDelay: `${index * 0.15}s` }}
+                  ref={(el) => industryRefs.current[index] = el}
+                  className="relative overflow-hidden bg-background/80 border border-border/50 rounded-xl p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 group"
+                  style={{ 
+                    animationDelay: `${index * 0.15}s`,
+                    boxShadow: `0 0 0 1px ${industry.accentColor}15`
+                  }}
                 >
-                  <h3 className="text-2xl font-semibold mb-4 hero-text-gradient">
-                    {industry.name}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {industry.description}
-                  </p>
-                  <div className="bg-primary/10 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-primary mb-1">
-                      {industry.stats}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Average improvement across our clients
+                  {/* Spotlight overlay */}
+                  <div 
+                    ref={(el) => spotlightRefs.current[solutions.length + index] = el}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ zIndex: 1 }}
+                  ></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-semibold mb-4 hero-text-gradient group-hover:scale-105 transition-transform duration-300">
+                      {industry.name}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                      {industry.description}
+                    </p>
+                    <div 
+                      className="rounded-lg p-6 backdrop-blur-sm border transition-all duration-300 group-hover:scale-105"
+                      style={{ 
+                        backgroundColor: `${industry.accentColor}10`,
+                        borderColor: `${industry.accentColor}20`
+                      }}
+                    >
+                      <div 
+                        className="text-3xl font-bold mb-2 transition-all duration-300"
+                        style={{ color: industry.accentColor }}
+                      >
+                        {industry.stats}
+                      </div>
+                      <div className="text-sm text-muted-foreground group-hover:text-gray-400 transition-colors duration-300">
+                        Average improvement across our clients
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -187,24 +320,41 @@ const Solutions = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section with Spotlight */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-card border border-border rounded-2xl p-12 glow-effect">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Transform Your <span className="hero-text-gradient">Business</span>?
-              </h2>
-              <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
-                Join thousands of businesses that have automated their operations and 
-                increased their revenue with our AI solutions.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <Button className="btn-primary">
-                  Schedule Free Consultation
-                </Button>
-                <Button variant="outline" className="btn-outline">
-                  View Live Demo
-                </Button>
+            <div 
+              ref={ctaRef}
+              className="relative overflow-hidden bg-card/80 border border-border/50 rounded-2xl p-12 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:border-primary/30 group"
+            >
+              {/* Spotlight overlay */}
+              <div 
+                ref={(el) => spotlightRefs.current[solutions.length + industries.length] = el}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ zIndex: 1 }}
+              ></div>
+
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 group-hover:scale-105 transition-transform duration-300">
+                  Ready to Transform Your <span className="hero-text-gradient">Business</span>?
+                </h2>
+                <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto group-hover:text-gray-300 transition-colors duration-300">
+                  Join thousands of businesses that have automated their operations and 
+                  increased their revenue with our AI solutions.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                  <Button className="relative overflow-hidden group/btn bg-primary hover:bg-primary/90 transition-all duration-300">
+                    <span className="relative z-10">Schedule Free Consultation</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="relative overflow-hidden group/btn border-primary/30 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <span className="relative z-10">View Live Demo</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
