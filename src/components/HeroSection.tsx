@@ -1,73 +1,96 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import GradientBlinds from './GradientBlinds'; // Adjust path if necessary
+import { ArrowUpRight } from 'lucide-react';
+import LightRays from './LightRays';
 
 const HeroSection:React.FC= () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background effects container */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+{/* Background effects container */}
       <div className="absolute inset-0 z-0">
         {/* GradientBlinds component as background */}
-        <GradientBlinds
-          className="absolute inset-0" // Makes it cover the entire parent div
-          gradientColors={['#200055', '#400080', '#6000B0']} // Example colors, adjust as desired
-          angle={20} // Example angle
-          noise={0.5}
-          blindCount={16}
-          blindMinWidth={60}
-          spotlightRadius={0.5}
-          spotlightSoftness={1.5}
-          spotlightOpacity={0.8}
-          mouseDampening={0.15}
-          distortAmount={0} // Slight distortion
-          shineDirection="left"
-          mixBlendMode="screen" // Blends nicely, experiment with "lighten", "overlay", etc.
-        />
+
+        <div className="absolute inset-0 w-full h-full">  <LightRays
+    raysOrigin="top-center"
+    raysColor="#00ffff"
+    raysSpeed={1.5}
+    lightSpread={0.8}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="w-full h-full"  />
+</div>
 
         {/* Existing Background glow effects, now layered on top of GradientBlinds */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow-gradient rounded-full blur-3xl animate-glow-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glow-gradient rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
       {/* Content of the Hero Section, placed on top with z-index */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-[100px] sm:px-6 lg:px-8 text-center">
         {/* Small intro text */}
-        <div className="flex items-center justify-center space-x-2 mb-6 animate-fade-in-up">
-          <Sparkles className="w-5 h-5 text-primary" />
-          <span className="text-sm font-medium text-muted-foreground bg-card px-4 py-2 rounded-full border border-border">
-            Get 24/7 AI Employee That
-          </span>
-        </div>
+        <div className="flex items-center justify-center space-x-2 mb-6 mt-10 animate-fade-in-up ">
+  {/* <Sparkles className="w-5 h-5 text-primary" /> */}
+  <span className="text-sm font-medium text-muted-foreground bg-transparent px-4 py-2 rounded-full border border-[#61615f]">
+    Get 24/7 AI Employee That
+  </span>
+</div>
+
 
         {/* Main heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 animate-fade-in-up text-white leading-tight" 
-              style={{ animationDelay: '0.2s' }}>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
-              Automate
-            </span> Your Booking<br />
-            And <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-              Maximize
-            </span> Your Profit
-          </h1>
+        <h1
+  className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide mb-8 animate-fade-in-up leading-tight"
+  style={{ animationDelay: '0.2s', fontFamily: 'Figtree' }}
+>
+  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+    Automate
+  </span>{" "}
+  Your Booking
+  <br />
+  And{" "}
+  <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient special-font">
+  Maximize
+</span>
+
+  Your Profit
+</h1>
+
 
         {/* Enhanced subtitle */}
                   <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up" 
-                     style={{ animationDelay: '0.4s' }}>
+                     style={{ animationDelay: '0.4s', fontFamily: 'Figtree'}}>
                     We automate your entire business journey from leads, outreach and reminders 
                     that save your time and boosting revenue.
                   </p>
         
                   {/* Enhanced CTA Buttons with glassmorphism */}
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up" 
-                       style={{ animationDelay: '0.6s' }}>
-                    <button className="group bg-white/10 backdrop-blur-xl text-white border border-white/20 rounded-full px-8 py-4 font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center">
-                      SCHEDULE FREE MEETING
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="rounded-full border border-white/20 bg-black/30 backdrop-blur-xl text-white px-8 py-4 font-semibold transition-all duration-300 hover:bg-black/50 hover:border-white/30 hover:scale-105">
-                      View Demo
-                    </button>
-                  </div>
+         style={{ animationDelay: '0.6s' }}>
+      
+      {/* Primary Button - Framer Style */}
+      <button className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out">
+      
+      {/* Expanding circle background */}
+      <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#f0ff8b] text-black z-10 
+        transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
+
+      {/* Text */}
+      <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
+                  style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
+
+      SCHEDULE FREE MEETING
+      </span>
+
+      {/* Arrow icon */}
+      <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+        <ArrowUpRight className="w-4 h-4 text-black duration-700 ease-in-out group-hover:text-black" />
+      </span>
+    </button>
+
+      {/* Secondary Button */}
+      {/* <button className="rounded-full border border-white/20 bg-black/30 backdrop-blur-xl text-white px-8 py-4 font-semibold transition-all duration-300 hover:bg-black/50 hover:border-white/30 hover:scale-105">
+        View Demo
+      </button> */}
+    </div>
       </div>
     </section>
   );

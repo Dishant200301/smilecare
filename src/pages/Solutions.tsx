@@ -2,9 +2,10 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Bot, Calendar, MessageSquare, BarChart3, Shield, Zap } from 'lucide-react';
+import { Bot, Calendar, MessageSquare, BarChart3, Shield, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRef, useEffect } from 'react';
+import LightRays from '@/components/LightRays';
 
 const Solutions = () => {
   const solutionRefs = useRef([]);
@@ -171,17 +172,36 @@ const Solutions = () => {
       
       <main className="pt-16 bg-black">
         {/* Hero Section */}
-        <section className="py-20">
+        <div className="absolute inset-0 w-full h-full">  <LightRays
+            raysOrigin="top-center"
+            raysColor="#00ffff"
+            raysSpeed={1.5}
+            lightSpread={0.8}
+            rayLength={1.2}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="w-full h-full"  />
+        </div>
+        <section className="py-20 mt-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
+                <Sparkles className="w-4 h-4 text-purple-400" />
+                <span>Simple, Solutions</span>
+              </div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6"
+            style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
               Powerful <span className="hero-text-gradient">Solutions</span> for Every Business
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto"
+            style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
               Our comprehensive AI automation platform adapts to your industry needs, 
               delivering measurable results that transform your business operations.
             </p>
           </div>
         </section>
+        
 
         {/* Solutions Grid with Spotlight */}
         <section className="py-20">
@@ -259,9 +279,9 @@ const Solutions = () => {
         </section>
 
         {/* Industries Section with Spotlight */}
-        <section className="py-20 bg-card/30 backdrop-blur-sm">
+        <section className="py-20 bg-black backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-6 mt-20">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Trusted by <span className="hero-text-gradient">Leading Industries</span>
               </h2>

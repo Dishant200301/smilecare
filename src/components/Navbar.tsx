@@ -33,10 +33,10 @@ const Navbar = () => {
   const isActive = (name: string) => activeItem === name;
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/20">
-          <div className="flex items-center justify-between h-20 px-8">
+<nav className="fixed left-0 right-0 z-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div className="relative bg-white/5 backdrop-blur-2xl rounded-br-sm rounded-bl-sm border border-white/10 shadow-2xl shadow-black/20">
+      <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
 
             {/* Logo */}
             <div 
@@ -76,18 +76,27 @@ const Navbar = () => {
 
             {/* CTA Button for Desktop */}
             <div className="hidden lg:block">
-              <button 
-                onClick={() => handleNavigation('/contact', 'Contact')}
-                className="group relative px-8 py-3 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative flex items-center space-x-2">
-                  <span>BOOK DEMO</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </div>
-              </button>
-            </div>
+  <button
+    onClick={() => handleNavigation('/contact', 'Contact')}
+    className="relative inline-flex items-center justify-center px-8 py-3 
+               rounded-full border border-white/30
+               text-sm font-semibold tracking-wide cursor-pointer 
+               overflow-hidden group"
+  >
+    {/* Backdrop fill effect */}
+    <span className="absolute inset-0 bg-[#ffffff] rounded-full 
+                     origin-right scale-x-0 group-hover:scale-x-100 
+                     transition-transform duration-500 ease-out"></span>
+
+    {/* Text */}
+    <span className="relative text-[#ffffff]] group-hover:text-[#000000] transition-colors duration-300"
+                style={{fontFamily: 'Figtree',animationDelay: '0.2s'}}>
+
+      Book Demo
+    </span>
+  </button>
+</div>
+
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
@@ -130,11 +139,9 @@ const Navbar = () => {
                   }}
                   className="group w-full relative px-6 py-4 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative flex items-center justify-center space-x-2">
                     <span>BOOK DEMO</span>
-                    <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                   </div>
                 </button>
               </div>

@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Stethoscope, Calendar, FileText, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LightRaySection from '@/components/LightRaySection';
 
 const ClinicsDentist = () => {
   const features = [
@@ -40,8 +41,9 @@ const ClinicsDentist = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-16">
+      <main className="pt-16 bg-black">
         {/* Hero Section */}
+        <LightRaySection />
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -75,7 +77,7 @@ const ClinicsDentist = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 bg-card">
+        <section className="py-20 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -157,7 +159,7 @@ const ClinicsDentist = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-card">
+        <section className="py-20 bg-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="bg-background border border-border rounded-2xl p-12 glow-effect">
               <Stethoscope className="w-16 h-16 text-primary mx-auto mb-6" />

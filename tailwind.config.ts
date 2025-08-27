@@ -19,10 +19,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-      heading: "Sora, sans-serif",
-      body: "Inter, sans-serif",
-      mono: "Space Mono, monospace"
-    },
+				satoshi: ["Satoshi", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+        figtree: ["Figtree", "sans-serif"],
+instrument: ['"Instrument Serif"', 'serif'],	    },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -147,7 +149,8 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
-				}
+				},
+				
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',

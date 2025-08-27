@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Users, Target, Award, TrendingUp, Sparkles, Handshake, ShieldCheck, Zap } from 'lucide-react'; // Added more icons for values section
 import AnimateOnScroll from '@/components/AnimateOnScroll'; // Assuming this component is available
 import React from 'react'; // Import React for component definition
+import LightRays from '@/components/LightRays';
 
 const About = () => {
   const stats = [
@@ -70,15 +71,29 @@ const About = () => {
       
       <main className="pt-24 md:pt-32 bg-black"> {/* Adjust padding for sticky nav */}
         {/* Hero Section */}
+        <div className="absolute inset-0 w-full h-full">  <LightRays
+    raysOrigin="top-center"
+    raysColor="#00ffff"
+    raysSpeed={1.5}
+    lightSpread={0.8}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="w-full h-full"  />
+</div>
         <section className="py-20 md:py-28 lg:py-32 bg-black-to-br from-background via-card to-background"> {/* Added subtle background gradient */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <AnimateOnScroll animation="fade-in-up" delay={0}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"> {/* Larger text, tighter line-height */}
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"
+                          style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
                 About <span className="hero-text-gradient">TryzenIQ</span>
               </h1>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in-up" delay={150}>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"> {/* Slightly larger text, improved line-height */}
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"
+                          style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
                 We're on a mission to revolutionize how businesses operate by making 
                 AI automation accessible, powerful, and profitable for everyone.
               </p>

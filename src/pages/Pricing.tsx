@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Check, Star, Sparkles, ArrowRight, Users, Zap, Shield } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import LightRays from '@/components/LightRays';
 
 const Pricing = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -112,17 +113,31 @@ const Pricing = () => {
         {/* Hero Section */}
         <div className="min-h-screen bg-black text-white">
           {/* Hero Section */}
+            <div className="absolute inset-0 w-full h-full">  <LightRays
+    raysOrigin="top-center"
+    raysColor="#00ffff"
+    raysSpeed={1.5}
+    lightSpread={0.8}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="w-full h-full"  />
+</div>
           <section className="relative py-20 lg:py-32">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 blur-3xl"></div>
+            <div className="absolute inset-0 bg-black blur-3xl"></div>
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2  bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 text-purple-400" />
                 <span>Simple, Transparent Pricing</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold  mb-6 leading-tight"
+                 style={{fontFamily: 'Playfair Display',animationDelay: '0.2s'}}>
                 Choose Your
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
+                style={{fontFamily: 'Playfair Display',animationDelay: '0.2s'}}>
                   Perfect Plan
                 </span>
               </h1>
