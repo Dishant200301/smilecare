@@ -3,6 +3,10 @@ import Footer from '@/components/Footer';
 import { Scissors, Calendar, MessageSquare, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import ScheduleButton from '@/components/ScheduleButton';
+import DemoButton from '@/components/DemoButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const SalonsSpa = () => {
   const features = [
@@ -39,6 +43,13 @@ const SalonsSpa = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Salon & Spa Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -55,14 +66,8 @@ const SalonsSpa = () => {
                   Transform your beauty business with AI-powered booking management, 
                   client communication, and staff optimization systems.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-primary">
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="btn-outline">
-                    View Success Stories
-                  </Button>
-                </div>
+                <ScheduleButton label="Schedule a Demo" to="/contact" />              
+
               </div>
               <div className="relative">
                 <img 
@@ -169,15 +174,16 @@ const SalonsSpa = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join successful salons and spas that have automated their operations and enhanced client satisfaction.
               </p>
-              <Button className="btn-primary">
-                Start Free Trial
-              </Button>
+              <DemoButton label='Start Free Trial'/>
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

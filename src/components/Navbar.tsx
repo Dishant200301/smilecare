@@ -60,7 +60,7 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavigation(item.path, item.name)}
-                  className={`relative px-6 py-3 rounded-2xl font-medium transition-all duration-300 group ${
+                  className={`relative px-6 py-3 rounded-full font-medium transition-all duration-300 group ${
                     isActive(item.name)
                       ? 'text-white bg-white/10'
                       : 'text-white/70 hover:text-white hover:bg-white/5'
@@ -68,7 +68,7 @@ const Navbar = () => {
                 >
                   <span className="relative z-10">{item.name}</span>
                   {isActive(item.name) && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-2xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full" />
                   )}
                 </button>
               ))}

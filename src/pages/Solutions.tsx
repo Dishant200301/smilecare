@@ -6,6 +6,10 @@ import { Bot, Calendar, MessageSquare, BarChart3, Shield, Zap, Sparkles } from '
 import { Button } from '@/components/ui/button';
 import { useRef, useEffect } from 'react';
 import LightRays from '@/components/LightRays';
+import ScheduleButton from '@/components/ScheduleButton';
+import DemoButton from '@/components/DemoButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Solutions = () => {
   const solutionRefs = useRef([]);
@@ -168,6 +172,13 @@ const Solutions = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Solutions — TryzenIQ</title>
+        <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+        <meta property="og:title" content="Solutions — TryzenIQ" />
+        <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -184,7 +195,7 @@ const Solutions = () => {
             distortion={0.05}
             className="w-full h-full"  />
         </div>
-        <section className="py-20 mt-4">
+        <section className="mt-[150px]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 text-purple-400" />
@@ -362,19 +373,8 @@ const Solutions = () => {
                   Join thousands of businesses that have automated their operations and 
                   increased their revenue with our AI solutions.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                  <Button className="relative overflow-hidden group/btn bg-primary hover:bg-primary/90 transition-all duration-300">
-                    <span className="relative z-10">Schedule Free Consultation</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="relative overflow-hidden group/btn border-primary/30 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300"
-                  >
-                    <span className="relative z-10">View Live Demo</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                  </Button>
-                </div>
+                <DemoButton label='Schedule Free Consultation' to='/contact'/>
+
               </div>
             </div>
           </div>
@@ -382,6 +382,8 @@ const Solutions = () => {
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

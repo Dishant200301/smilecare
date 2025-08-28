@@ -33,13 +33,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-black border-t border-gray-800 overflow-hidden">
+    <section className='pt-13'>
+  <footer className="relative   border-t border-gray-800 overflow-hidden bg-[radial-gradient(50%_50%_at_50%_3.4%,rgba(129,74,200,0.3)_0%,rgba(171,171,171,0)_100%)]"
+    >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-black to-transparent opacity-60" />
+      {/* <div className="absolute inset-0 bg-black to-transparent opacity-60" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-black rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-black rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-black rounded-full blur-3xl" /> */}
       
-      <div className="relative pt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative pt-[84px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
@@ -171,6 +173,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </section>
   );
 };
 

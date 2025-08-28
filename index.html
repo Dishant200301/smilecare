@@ -6,6 +6,14 @@
     <title>TryzenIQ</title>
     <meta name="description" content="Lovable Generated Project" />
     <meta name="author" content="Lovable" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Critical inline CSS to prevent white flash before Tailwind loads -->
+    <style>
+      html, body, #root { background: #000; }
+      /* Helps consistent dark UI elements pre-hydration */
+      :root { color-scheme: dark; }
+    </style>
 
     <meta property="og:title" content="zenlight-clone-site" />
     <meta property="og:description" content="Lovable Generated Project" />
@@ -17,7 +25,7 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
 
-  <body>
+  <body style="background:#000;">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

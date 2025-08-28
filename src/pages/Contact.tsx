@@ -18,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import LightRays from "@/components/LightRays";
+import { Helmet } from "react-helmet-async";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -80,9 +82,15 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
+      <Helmet>
+        <title>Contact — TryzenIQ</title>
+        <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+        <meta property="og:title" content="Solutions — TryzenIQ" />
+        <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
-
-      <main className="pt-24 md:pt-32 bg-black">
+      <main className="pt-26 md:pt-32 bg-black">
         {" "}
         {/* Adjust padding for sticky nav */}
         {/* Hero Section */}
@@ -101,13 +109,13 @@ const Contact = () => {
             className="w-full h-full"
           />
         </div>
-        <section className="py-20 md:py-28 lg:py-32 bg-black">
+        <section className="pt-[130px] md:py-2 lg:py-5 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <AnimateOnScroll animation="fade-in-up" delay={0}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+              <h3 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
                 Contact{" "}
                 <span className="hero-text-gradient special-font">Us</span>
-              </h1>
+              </h3>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in-up" delay={150}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
@@ -234,12 +242,15 @@ const Contact = () => {
 </div>
 
 
-                  <button
-                    onClick={handleSubmit}
-                    className="w-full md:w-auto px-8 py-3 bg-white text-black hover:to-cyan-700  rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25"
-                  >
-                    Send Message <Send className="w-4 h-4" />
-                  </button>
+<div className="absolute flex flex-col justify-center items-center gap-2 p-4 md:p-6  rounded-lg">
+  <button
+    onClick={handleSubmit}
+    className="w-full md:w-auto px-8 py-3 bg-black text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-white/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.9)]"
+  >
+    Send Message <Send className="w-4 h-4" />
+  </button>
+</div>
+
                 </div>
               </div>
 
@@ -294,6 +305,8 @@ const Contact = () => {
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

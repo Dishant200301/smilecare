@@ -3,6 +3,10 @@ import Footer from '@/components/Footer';
 import { Shield, FileText, Calculator, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import DemoButton from '@/components/DemoButton';
+import ScheduleButton from '@/components/ScheduleButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Insurance = () => {
   const features = [
@@ -39,6 +43,13 @@ const Insurance = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Insurance & Financial Services Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -55,14 +66,8 @@ const Insurance = () => {
                   Transform your insurance operations with AI-powered claim processing, 
                   customer service automation, and intelligent policy management.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-primary">
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="btn-outline">
-                    View Case Studies
-                  </Button>
-                </div>
+                <ScheduleButton label="Schedule a Demo" to="/contact" />              
+
               </div>
               <div className="relative">
                 <img 
@@ -169,15 +174,16 @@ const Insurance = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join leading insurance companies that have transformed their operations with our AI automation platform.
               </p>
-              <Button className="btn-primary">
-                Get Started Today
-              </Button>
+              <DemoButton label='Start Free Trial'/>
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

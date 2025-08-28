@@ -3,6 +3,10 @@ import Footer from '@/components/Footer';
 import { Heart, Calendar, Shield, MessageSquare, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import ScheduleButton from '@/components/ScheduleButton';
+import DemoButton from '@/components/DemoButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const TherapistsCounselors = () => {
   const features = [
@@ -39,6 +43,13 @@ const TherapistsCounselors = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Therapist & Counselor Practice Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -55,14 +66,8 @@ const TherapistsCounselors = () => {
                   Enhance your mental health practice with secure, HIPAA-compliant automation 
                   for scheduling, client communication, and progress tracking.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-primary">
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="btn-outline">
-                    HIPAA Compliance Info
-                  </Button>
-                </div>
+                <ScheduleButton label="Schedule a Demo" to="/contact" />              
+
               </div>
               <div className="relative">
                 <img 
@@ -209,15 +214,16 @@ const TherapistsCounselors = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join mental health professionals who have enhanced their practice with secure, compliant automation.
               </p>
-              <Button className="btn-primary">
-                Start Free Trial
-              </Button>
+              <DemoButton label='Start Free Trial'/>
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

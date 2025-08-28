@@ -1,11 +1,27 @@
-'use client'; // Assuming Next.js App Router and client component
+'use client';
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Users, Target, Award, TrendingUp, Sparkles, Handshake, ShieldCheck, Zap } from 'lucide-react'; // Added more icons for values section
-import AnimateOnScroll from '@/components/AnimateOnScroll'; // Assuming this component is available
-import React from 'react'; // Import React for component definition
+import { Users, Target, Award, TrendingUp, Sparkles, Handshake, ShieldCheck, Zap } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import LightRays from '@/components/LightRays';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+
+// Animation Variants
+const fadeInUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+      delay: delay / 1000,
+    },
+  },
+});
 
 const About = () => {
   const stats = [
@@ -19,7 +35,7 @@ const About = () => {
     {
       name: "Sarah Johnson",
       role: "CEO & Founder",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxybaUaqtLxUbBoOU5L89nfEiq9YhGphPINg&s", // Added face detection for better crop
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxybaUaqtLxUbBoOU5L89nfEiq9YhGphPINg&s",
       bio: "Former AI researcher at Google with 15+ years in automation technology."
     },
     {
@@ -43,34 +59,25 @@ const About = () => {
   ];
 
   const values = [
-    {
-      icon: Sparkles, // New icon
-      title: "Innovation First",
-      description: "We constantly push the boundaries of what's possible with AI automation, staying ahead of industry trends."
-    },
-    {
-      icon: Handshake, // New icon
-      title: "Customer Success",
-      description: "Your success is our success. We're committed to delivering measurable results for every client."
-    },
-    {
-      icon: ShieldCheck, // New icon
-      title: "Transparency", 
-      description: "Clear communication, honest pricing, and transparent processes in everything we do."
-    },
-    {
-      icon: Zap, // New icon
-      title: "Reliability",
-      description: "Our systems are built for 99.9% uptime, ensuring your business operations never stop."
-    }
+    { icon: Sparkles, title: "Innovation First", description: "We constantly push the boundaries of what's possible with AI automation, staying ahead of industry trends." },
+    { icon: Handshake, title: "Customer Success", description: "Your success is our success. We're committed to delivering measurable results for every client." },
+    { icon: ShieldCheck, title: "Transparency", description: "Clear communication, honest pricing, and transparent processes in everything we do." },
+    { icon: Zap, title: "Reliability", description: "Our systems are built for 99.9% uptime, ensuring your business operations never stop." }
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
+      <Helmet>
+        <title>About — TryzenIQ</title>
+        <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+        <meta property="og:title" content="Solutions — TryzenIQ" />
+        <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
       
-      <main className="pt-24 md:pt-32 bg-black"> {/* Adjust padding for sticky nav */}
-        {/* Hero Section */}
+      <main className="pt-20 md:pt-32 bg-black ">
+        {/* Background Rays */}
         <div className="absolute inset-0 w-full h-full">  <LightRays
     raysOrigin="top-center"
     raysColor="#00ffff"
@@ -83,171 +90,144 @@ const About = () => {
     distortion={0.05}
     className="w-full h-full"  />
 </div>
-        <section className="py-20 md:py-28 lg:py-32 bg-black-to-br from-background via-card to-background"> {/* Added subtle background gradient */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <AnimateOnScroll animation="fade-in-up" delay={0}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"
-                          style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
-                About <span className="hero-text-gradient">TryzenIQ</span>
-              </h1>
-            </AnimateOnScroll>
-            <AnimateOnScroll animation="fade-in-up" delay={150}>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"
-                          style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
-                We're on a mission to revolutionize how businesses operate by making 
-                AI automation accessible, powerful, and profitable for everyone.
-              </p>
-            </AnimateOnScroll>
+
+        {/* Hero Section */}
+        <section className="pt-[100px] md:py-10 lg:py-5 bg-black-to-br from-background via-card to-background">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <motion.h3
+              variants={fadeInUp(0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"
+              style={{ fontFamily: 'inter' }}
+            >
+              About <span className="hero-text-gradient">TryzenIQ</span>
+            </motion.h3>
+
+            <motion.p
+              variants={fadeInUp(150)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"
+              style={{ fontFamily: 'inter' }}
+            >
+              We're on a mission to revolutionize how businesses operate by making 
+              AI automation accessible, powerful, and profitable for everyone.
+            </motion.p>
           </div>
         </section>
 
         {/* Stats Section */}
         <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-20"> {/* Adjusted gap for compactness */}
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
               {stats.map((stat, index) => (
-                <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 100 + 300}>
-                  <div 
-                    className="
-                      bg-card border border-border rounded-2xl p-6 md:p-8 text-center h-full flex flex-col items-center justify-center
-                      transition-all duration-300 ease-in-out hover:shadow-lg  hover:-translate-y-1 {/* Added hover effects, full height, flex for centering */}
-                    "
-                  >
-                    <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-primary/10 rounded-full inline-flex items-center justify-center"> {/* Larger, rounded icon container */}
-                        <stat.icon className="w-7 h-7 text-primary" aria-hidden="true" /> {/* Slightly smaller icon inside larger container */}
-                      </div>
-                    </div>
-                    <div className="text-3xl md:text-4xl font-heading font-bold hero-text-gradient mb-2">{stat.number}</div> {/* Larger, bolder number */}
-                    <div className="text-muted-foreground font-body text-sm md:text-base">{stat.label}</div> {/* Slightly larger label */}
+                <motion.div
+                  key={index}
+                  variants={fadeInUp(index * 100 + 200)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="bg-card border border-border rounded-2xl p-6 md:p-8 text-center h-full flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  <div className="p-4 bg-primary/10 rounded-full inline-flex items-center justify-center mb-4">
+                    <stat.icon className="w-7 h-7 text-primary" />
                   </div>
-                </AnimateOnScroll>
+                  <div className="text-3xl md:text-4xl font-heading font-bold hero-text-gradient mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-muted-foreground font-body text-sm md:text-base">
+                    {stat.label}
+                  </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Story Section */}
-        <section className="py-16 md:py-24 bg-black"> {/* Main section background changed to 'bg-card' for contrast */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"> {/* Adjusted gap */}
-              <AnimateOnScroll animation="slide-in-left" delay={0}>
-                <div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 leading-tight"> {/* Larger heading */}
-                    Our <span className="hero-text-gradient">Story</span>
-                  </h2>
-                  <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed"> {/* Larger text, better line-height */}
-                    <p>
-                      TryzenIQ was born from a simple observation: small and medium businesses 
-                      were struggling to compete with large enterprises that had access to 
-                      advanced automation technologies.
-                    </p>
-                    <p>
-                      Founded in 2020 by a team of AI researchers and business automation 
-                      experts, we set out to democratize AI technology and make it accessible 
-                      to businesses of all sizes.
-                    </p>
-                    <p>
-                      Today, we're proud to serve over 10,000 businesses worldwide, helping 
-                      them automate their operations, reduce costs, and increase revenue 
-                      through intelligent automation solutions.
-                    </p>
-                  </div>
-                </div>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="slide-in-right" delay={150}>
-                <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
-                    alt="Team collaboration"
-                    className="rounded-3xl shadow-2xl w-full h-auto object-cover" // Rounded-3xl
-                  />
-                  {/* Subtle overlay for depth, could be interactive on hover too */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl"></div> 
-                </div>
-              </AnimateOnScroll>
             </div>
           </div>
         </section>
 
         {/* Values Section */}
         <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimateOnScroll animation="fade-in-up" delay={0}>
-              <div className="text-center mb-12 md:mb-16"> {/* Adjusted margin */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 leading-tight"> {/* Larger heading */}
-                  Our <span className="hero-text-gradient">Values</span>
-                </h2>
-                <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto leading-relaxed">
-                  The principles that guide everything we do and every decision we make.
-                </p>
-              </div>
-            </AnimateOnScroll>
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              variants={fadeInUp(0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
+                Our <span className="hero-text-gradient">Values</span>
+              </h2>
+              <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
+                The principles that guide everything we do and every decision we make.
+              </p>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"> {/* Changed to 4 columns on large, adjusted gap */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
-                <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 100 + 200}>
-                  <div 
-                    className="
-                      bg-card border border-border rounded-2xl p-6 md:p-8 text-center h-full flex flex-col items-center justify-start {/* Centered and full height */}
-                      transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 {/* Added hover effects */}
-                    "
-                  >
-                    <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-primary/10 rounded-full inline-flex items-center justify-center">
-                        <value.icon className="w-7 h-7 text-primary" aria-hidden="true" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-heading font-semibold mb-3 hero-text-gradient"> {/* Stronger heading */}
-                      {value.title}
-                    </h3>
-                    <p className="text-muted-foreground font-body leading-relaxed">
-                      {value.description}
-                    </p>
+                <motion.div
+                  key={index}
+                  variants={fadeInUp(index * 100 + 200)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="bg-card border border-border rounded-2xl p-6 md:p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  <div className="p-4 bg-primary/10 rounded-full inline-flex items-center justify-center mb-4">
+                    <value.icon className="w-7 h-7 text-primary" />
                   </div>
-                </AnimateOnScroll>
+                  <h3 className="text-xl font-heading font-semibold mb-3 hero-text-gradient">
+                    {value.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body">{value.description}</p>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Team Section */}
-        <section className="py-16 md:py-24 bg-black"> {/* Main section background changed to 'bg-card' for contrast */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimateOnScroll animation="fade-in-up" delay={0}>
-              <div className="text-center mb-12 md:mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 leading-tight">
-                  Meet Our <span className="hero-text-gradient">Team</span>
-                </h2>
-                <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto leading-relaxed">
-                  The brilliant minds behind TryzenIQ's innovative automation solutions.
-                </p>
-              </div>
-            </AnimateOnScroll>
+        <section className="py-16 md:py-24 bg-black">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              variants={fadeInUp(0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
+                Meet Our <span className="hero-text-gradient">Team</span>
+              </h2>
+              <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
+                The brilliant minds behind TryzenIQ's innovative automation solutions.
+              </p>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"> {/* Adjusted gap */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, index) => (
-                <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 100 + 200}>
-                  <div 
-                    className="
-                      bg-card border border-border rounded-2xl p-6 text-center h-full flex flex-col items-center
-                      transition-all duration-300 ease-in-out hover:shadow-lg  hover:-translate-y-1 group {/* Apply card styling to entire member block */}
-                    "
-                  >
-                    <div className="relative mb-6 w-36 h-36 overflow-hidden rounded-full border-4 border-primary/20 shadow-md"> {/* Circular image with border */}
-                      <img 
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                      {/* Optional: Add a subtle overlay for effect */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-                    </div>
-                    <h3 className="text-xl font-heading font-semibold mb-2">{member.name}</h3>
-                    <p className="text-primary font-body font-medium mb-3">{member.role}</p>
-                    <p className="text-muted-foreground font-body text-sm leading-relaxed">{member.bio}</p>
+                <motion.div
+                  key={index}
+                  variants={fadeInUp(index * 100 + 200)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="bg-card border border-border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
+                >
+                  <div className="relative mb-6 w-36 h-36 mx-auto overflow-hidden rounded-full border-4 border-primary/20 shadow-md">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                   </div>
-                </AnimateOnScroll>
+                  <h3 className="text-xl font-heading font-semibold mb-2">{member.name}</h3>
+                  <p className="text-primary font-medium mb-3">{member.role}</p>
+                  <p className="text-muted-foreground text-sm">{member.bio}</p>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -255,6 +235,8 @@ const About = () => {
       </main>
 
       <Footer />
+            <ScrollToTopButton />
+      
     </div>
   );
 };

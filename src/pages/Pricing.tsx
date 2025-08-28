@@ -1,8 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from "framer-motion";
 import { Check, Star, Sparkles, ArrowRight, Users, Zap, Shield } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LightRays from '@/components/LightRays';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Pricing = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -22,8 +25,8 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Starter",
-      price: "$99",
+      name: "Free",
+      price: "$0",
       period: "/month",
       description: "Perfect for small businesses getting started with AI automation",
       icon: Users,
@@ -62,7 +65,7 @@ const Pricing = () => {
     },
     {
       name: "Enterprise",
-      price: "$699",
+      price: "$399",
       period: "/month",
       description: "For large organizations requiring enterprise-level features and support",
       icon: Shield,
@@ -110,34 +113,48 @@ const Pricing = () => {
       <Navbar />
 
       <main className="pt-16">
-        {/* Hero Section */}
+        <Helmet>
+          <title>Pricing — TryzenIQ</title>
+          <meta name="description" content="Simple, transparent pricing for AI automation. Choose Free, Professional, or Enterprise to match your scale." />
+          <meta property="og:title" content="Pricing — TryzenIQ" />
+          <meta property="og:description" content="Plans for every stage: from getting started to enterprise-grade automation." />
+        </Helmet>
         <div className="min-h-screen bg-black text-white">
+          {/* Light Rays BG */}
+          <div className="absolute inset-0 w-full h-full">
+            <LightRays
+              raysOrigin="top-center"
+              raysColor="#00ffff"
+              raysSpeed={1.5}
+              lightSpread={0.8}
+              rayLength={1.2}
+              followMouse={true}
+              mouseInfluence={0.1}
+              noiseAmount={0.1}
+              distortion={0.05}
+              className="w-full h-full"
+            />
+          </div>
+
           {/* Hero Section */}
-            <div className="absolute inset-0 w-full h-full">  <LightRays
-    raysOrigin="top-center"
-    raysColor="#00ffff"
-    raysSpeed={1.5}
-    lightSpread={0.8}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="w-full h-full"  />
-</div>
           <section className="relative py-20 lg:py-32">
             <div className="absolute inset-0 bg-black blur-3xl"></div>
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+            >
               <div className="inline-flex items-center gap-2 px-4 py-2  bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 text-purple-400" />
                 <span>Simple, Transparent Pricing</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold  mb-6 leading-tight"
-                 style={{fontFamily: 'Playfair Display',animationDelay: '0.2s'}}>
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+                style={{ fontFamily: 'Playfair Display' }}>
                 Choose Your
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
-                style={{fontFamily: 'Playfair Display',animationDelay: '0.2s'}}>
+                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                   Perfect Plan
                 </span>
               </h1>
@@ -155,7 +172,7 @@ const Pricing = () => {
                   Yearly (Save 20%)
                 </button>
               </div>
-            </div>
+            </motion.div>
           </section>
 
           {/* Pricing Cards */}
@@ -165,18 +182,20 @@ const Pricing = () => {
                 {plans.map((plan, index) => {
                   const IconComponent = plan.icon;
                   return (
-                    <div
+                    <motion.div
                       key={index}
                       ref={(el) => (cardRefs.current[index] = el)}
-                      className={`relative group cursor-pointer transition-all duration-500 ${plan.popular ? 'lg:scale-105 lg:-mt-8' : ''
-                        }`}
+                      className={`relative group cursor-pointer transition-all duration-500 ${plan.popular ? 'lg:scale-105' : ''}`}
                       onMouseEnter={() => setHoveredCard(index)}
                       onMouseLeave={() => setHoveredCard(null)}
                       onMouseMove={(e) => handleMouseMove(e, index)}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       {/* Card Background with Spotlight Effect */}
                       <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-10 overflow-hidden">
-                        {/* Spotlight Effect */}
                         {hoveredCard === index && (
                           <div
                             className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
@@ -219,8 +238,19 @@ const Pricing = () => {
                             <p className="text-gray-300 text-sm lg:text-base leading-relaxed">{plan.description}</p>
                           </div>
 
+                          {/* CTA Button */}
+                          <button className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 group/btn ${plan.popular
+                            ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02]'
+                            : 'bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-white/30'
+                            }`}>
+                            <span className="flex items-center justify-center space-x-2">
+                              <span>Get Started</span>
+                              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                            </span>
+                          </button>
+
                           {/* Features List */}
-                          <div className="space-y-4 mb-10">
+                          <div className="space-y-4 mb-10 mt-5">
                             {plan.features.map((feature, idx) => (
                               <div key={idx} className="flex items-start space-x-3 group/feature">
                                 <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center mt-0.5">
@@ -233,78 +263,21 @@ const Pricing = () => {
                             ))}
                           </div>
 
-                          {/* CTA Button */}
-                          <button className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 group/btn ${plan.popular
-                              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02]'
-                              : 'bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-white/30'
-                            }`}>
-                            <span className="flex items-center justify-center space-x-2">
-                              <span>Get Started</span>
-                              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                            </span>
-                          </button>
+                          
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
             </div>
           </section>
 
-          {/* FAQ Section */}
-          <section className="relative py-20 lg:py-32">
-            <div className="absolute inset-0 bg-black blur-3xl"></div>
-            <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-                  Frequently Asked
-                  <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Questions
-                  </span>
-                </h2>
-                <p className="text-lg lg:text-xl text-gray-300">
-                  Get answers to common questions about our pricing and features.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {faqs.map((faq, index) => (
-                  <div
-                    key={index}
-                    className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                  >
-                    <h3 className="text-lg lg:text-xl font-semibold mb-3 text-white group-hover:text-purple-300 transition-colors">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed lg:text-lg">
-                      {faq.answer}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Bottom CTA */}
-          <section className="relative py-20 lg:py-32">
-            <div className="absolute inset-0 bg-vlack blur-3xl"></div>
-            <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="text-lg lg:text-xl text-gray-300 mb-10">
-                Join thousands of businesses already using our AI automation platform.
-              </p>
-              <button className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300">
-                <span className="text-lg">Start Your Free Trial</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </section>
         </div>
-        </main>
-        <Footer />
+      </main>
+      <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

@@ -51,28 +51,10 @@
   }
 }
 
-@layer base {
-  /* Excon Font Registration */
-  @font-face {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&family=Space+Mono&display=swap');    font-weight: 100 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground antialiased font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Excon', sans-serif;
-  }
-}
 
 @layer base {
   h1 {
-    @apply font-satoshi text-4xl md:text-6xl lg:text-7xl font-bold;
+    @apply font-figtree text-4xl md:text-6xl lg:text-7xl font-bold;
   }
   h2 {
     @apply font-inter text-3xl md:text-5xl font-semibold;

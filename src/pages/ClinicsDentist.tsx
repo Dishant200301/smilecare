@@ -3,6 +3,10 @@ import Footer from '@/components/Footer';
 import { Stethoscope, Calendar, FileText, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import ScheduleButton from '@/components/ScheduleButton';
+import DemoButton from '@/components/DemoButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const ClinicsDentist = () => {
   const features = [
@@ -39,6 +43,13 @@ const ClinicsDentist = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Medical Clinic & Dental Practice Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -55,14 +66,8 @@ const ClinicsDentist = () => {
                   Streamline your healthcare practice with AI-powered patient management, 
                   appointment scheduling, and automated communication systems.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-primary">
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="btn-outline">
-                    HIPAA Compliance Info
-                  </Button>
-                </div>
+                <ScheduleButton label="Schedule a Demo" to="/contact" />              
+
               </div>
               <div className="relative">
                 <img 
@@ -169,15 +174,16 @@ const ClinicsDentist = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join leading healthcare providers who have transformed their patient care with our HIPAA-compliant automation platform.
               </p>
-              <Button className="btn-primary">
-                Start Free Trial
-              </Button>
+              <DemoButton label='Start Free Trial'/>
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

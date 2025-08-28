@@ -20,6 +20,10 @@ export default defineConfig(({ mode }) => {
       // Only run componentTagger in development
       mode === "development" && componentTagger(),
     ].filter(Boolean),
+    optimizeDeps: {
+      include: ['react', 'react-dom'], // ensure these are pre-bundled
+      exclude: [], // No need to exclude specific framer-motion internals
+    },
     build: {
       outDir: "dist",      // Ensure deployment looks here
       emptyOutDir: true,   // Clear old builds before building
@@ -38,6 +42,7 @@ export default defineConfig(({ mode }) => {
           replacement: path.resolve(__dirname, "src") + "/$1",
         },
       ],
+      dedupe: ['react', 'react-dom'],
     },
   };
 });

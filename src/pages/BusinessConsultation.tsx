@@ -3,6 +3,9 @@ import Footer from '@/components/Footer';
 import { Briefcase, Calendar, FileText, BarChart3, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import ScheduleButton from '@/components/ScheduleButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const BusinessConsultation = () => {
   const features = [
@@ -39,6 +42,13 @@ const BusinessConsultation = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Business Consultation Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -169,15 +179,16 @@ const BusinessConsultation = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join leading consultants who have automated their operations and scaled their impact with our platform.
               </p>
-              <Button className="btn-primary">
-                Start Free Trial
-              </Button>
+              <ScheduleButton label="Schedule a Demo" to="/contact" />              
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };

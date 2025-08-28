@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 
 import Index from "./pages/Index";
@@ -39,28 +40,30 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/insurance" element={<Insurance />} />
-          <Route path="/botox-skincare" element={<BotoxSkinCare />} />
-          <Route path="/clinics-dentist" element={<ClinicsDentist />} />
-          <Route path="/gym-health-coach" element={<GymHealthCoach />} />
-          <Route path="/business-consultation" element={<BusinessConsultation />} />
-          <Route path="/it-saas" element={<ITSaaS />} />
-          <Route path="/salons-spa" element={<SalonsSpa />} />
-          <Route path="/real-estate-agents" element={<RealEstateAgents />} />
-          <Route path="/therapists-counselors" element={<TherapistsCounselors />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/botox-skincare" element={<BotoxSkinCare />} />
+            <Route path="/clinics-dentist" element={<ClinicsDentist />} />
+            <Route path="/gym-health-coach" element={<GymHealthCoach />} />
+            <Route path="/business-consultation" element={<BusinessConsultation />} />
+            <Route path="/it-saas" element={<ITSaaS />} />
+            <Route path="/salons-spa" element={<SalonsSpa />} />
+            <Route path="/real-estate-agents" element={<RealEstateAgents />} />
+            <Route path="/therapists-counselors" element={<TherapistsCounselors />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

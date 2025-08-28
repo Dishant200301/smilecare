@@ -3,6 +3,10 @@ import Footer from '@/components/Footer';
 import { Dumbbell, Calendar, TrendingUp, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LightRaySection from '@/components/LightRaySection';
+import DemoButton from '@/components/DemoButton';
+import ScheduleButton from '@/components/ScheduleButton';
+import { Helmet } from 'react-helmet-async';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const GymHealthCoach = () => {
   const features = [
@@ -39,6 +43,13 @@ const GymHealthCoach = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+              <title>Gym & Health Coach Automation — TryzenIQ</title>
+              <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+              <meta property="og:title" content="Solutions — TryzenIQ" />
+              <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+              <meta property="og:type" content="website" />
+            </Helmet>
       <Navbar />
       
       <main className="pt-16 bg-black">
@@ -55,15 +66,8 @@ const GymHealthCoach = () => {
                   Transform your fitness business with AI-powered member management, 
                   automated scheduling, and personalized coaching systems.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-primary">
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="btn-outline">
-                    View Success Stories
-                  </Button>
-                </div>
-              </div>
+<ScheduleButton label="Schedule a Demo" to="/contact" />              
+</div>
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=60"
@@ -169,15 +173,16 @@ const GymHealthCoach = () => {
               <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                 Join successful gyms and coaches who have automated their operations and boosted member satisfaction.
               </p>
-              <Button className="btn-primary">
-                Start Free Trial
-              </Button>
+              <DemoButton label='Start Free Trial'/>
+
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <ScrollToTopButton />
+
     </div>
   );
 };
