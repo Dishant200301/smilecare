@@ -6,7 +6,7 @@ import Services from '@/components/ServicesSection'; // ✅ Use Services.tsx dir
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet-async';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import FAQSection from '@/components/FaqSection';
+import FAQSection from '@/components/FAQSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import PricingSection from '@/components/PricingSection';
 
@@ -27,7 +27,7 @@ const Home = () => {
         <StatsSection />
         <Services limit={6} /> {/* ✅ Works now */}
       <FAQSection/>
-      {/* <TestimonialsSection/> */}
+      <TestimonialsSection/>
       <PricingSection/>
       </main>
       <Footer />

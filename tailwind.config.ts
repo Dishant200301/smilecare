@@ -27,7 +27,8 @@ export default {
         instrument: ['"Instrument Serif"', "serif"],
 		Figtree: ['"Figtree Variable"', "sans-serif"],
     sans: ['"Clash Display"', 'sans-serif'],
-		
+    Poppins: ['"Poppins"', 'sans-serif'],
+		Inter: ['"Inter Placeholder"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
