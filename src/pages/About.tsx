@@ -94,7 +94,7 @@ const About = () => {
         {/* Hero Section */}
         <section className="pt-[100px] md:py-10 lg:py-5 bg-black-to-br from-background via-card to-background">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <motion.h3
+            <h3
               variants={fadeInUp(0)}
               initial="hidden"
               whileInView="show"
@@ -103,9 +103,9 @@ const About = () => {
               style={{ fontFamily: 'inter' }}
             >
               About <span className="hero-text-gradient">TryzenIQ</span>
-            </motion.h3>
+            </h3>
 
-            <motion.p
+            <p
               variants={fadeInUp(150)}
               initial="hidden"
               whileInView="show"
@@ -115,7 +115,7 @@ const About = () => {
             >
               We're on a mission to revolutionize how businesses operate by making 
               AI automation accessible, powerful, and profitable for everyone.
-            </motion.p>
+            </p>
           </div>
         </section>
 
@@ -124,7 +124,7 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
               {stats.map((stat, index) => (
-                <motion.div
+                <div
                   key={index}
                   variants={fadeInUp(index * 100 + 200)}
                   initial="hidden"
@@ -141,7 +141,7 @@ const About = () => {
                   <div className="text-muted-foreground font-body text-sm md:text-base">
                     {stat.label}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -150,7 +150,7 @@ const About = () => {
         {/* Values Section */}
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4">
-            <motion.div
+            <div
               variants={fadeInUp(0)}
               initial="hidden"
               whileInView="show"
@@ -163,11 +163,11 @@ const About = () => {
               <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
                 The principles that guide everything we do and every decision we make.
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
-                <motion.div
+                <div
                   key={index}
                   variants={fadeInUp(index * 100 + 200)}
                   initial="hidden"
@@ -182,7 +182,7 @@ const About = () => {
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground font-body">{value.description}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -191,7 +191,7 @@ const About = () => {
         {/* Team Section */}
         <section className="py-16 md:py-24 bg-black">
           <div className="max-w-7xl mx-auto px-4">
-            <motion.div
+            <div
               variants={fadeInUp(0)}
               initial="hidden"
               whileInView="show"
@@ -204,11 +204,11 @@ const About = () => {
               <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
                 The brilliant minds behind TryzenIQ's innovative automation solutions.
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, index) => (
-                <motion.div
+                <div
                   key={index}
                   variants={fadeInUp(index * 100 + 200)}
                   initial="hidden"
@@ -227,7 +227,7 @@ const About = () => {
                   <h3 className="text-xl font-heading font-semibold mb-2">{member.name}</h3>
                   <p className="text-primary font-medium mb-3">{member.role}</p>
                   <p className="text-muted-foreground text-sm">{member.bio}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

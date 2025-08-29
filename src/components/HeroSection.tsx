@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
       {/* Content of the Hero Section, placed on top with z-index */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-[100px] sm:px-6 lg:px-8 text-center">
         {/* Small intro text */}
-        <div className="flex items-center justify-center space-x-2 mb-6 mt-10 animate-fade-in-up ">
+        <div className="flex items-center justify-center space-x-2 mb-6 mt-10  ">
           {/* <Sparkles className="w-5 h-5 text-primary" /> */}
           <span className="text-sm font-medium text-muted-foreground bg-transparent px-4 py-2 rounded-full border border-[#61615f]">
             Get 24/7 AI Employee That
@@ -40,14 +40,14 @@ const HeroSection: React.FC = () => {
         </div>
 
        <h1
-  className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide mb-8 leading-tight animate-fade-in-up"
-  style={{ animationDelay: "0.2s", fontFamily: "Figtree" }}
+  className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide mb-8 leading-tight autoShow"
+  style={{ fontFamily: "Figtree" }}
 >
   <ShinyText
     text="Automate"
     disabled={false}
     speed={2}
-    className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text animate-gradient inline-block"
+    className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text animate-gradient inline-block "
   />{" "}
   Your Booking
   <br />
@@ -66,7 +66,7 @@ const HeroSection: React.FC = () => {
 
         {/* Enhanced subtitle */}
         <p
-          className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up"
+          className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed animate-none"
           style={{ animationDelay: "0.4s", fontFamily: "Figtree" }}
         >
           We automate your entire business journey from leads, outreach and
@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
 
         {/* Enhanced CTA Buttons with glassmorphism */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up"
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-none"
           style={{ animationDelay: "0.6s" }}
         >
           {/* Primary Button - Framer Style */}

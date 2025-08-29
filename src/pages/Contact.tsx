@@ -1,4 +1,4 @@
-// app/contact/page.tsx (Main Contact Page)
+// app/ /page.tsx (Main Contact Page)
 "use client"; // Assuming Next.js App Router and client component
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
@@ -111,18 +111,14 @@ const Contact = () => {
         </div>
         <section className="pt-[130px] md:py-2 lg:py-5 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <AnimateOnScroll animation="fade-in-up" delay={0}>
               <h3 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
                 Contact{" "}
                 <span className="hero-text-gradient special-font">Us</span>
               </h3>
-            </AnimateOnScroll>
-            <AnimateOnScroll animation="fade-in-up" delay={150}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
                 Ready to transform your business with AI automation? We're here
                 to help you get started and answer any questions you might have.
               </p>
-            </AnimateOnScroll>
           </div>
         </section>
         <section className="relative py-20 bg-black">
@@ -245,7 +241,7 @@ const Contact = () => {
 <div className="absolute flex flex-col justify-center items-center gap-2 p-4 md:p-6  rounded-lg">
   <button
     onClick={handleSubmit}
-    className="w-full md:w-auto px-8 py-3 bg-black text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-white/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.9)]"
+    className="w-full md:w-auto px-8 py-3 bg-black text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 "
   >
     Send Message <Send className="w-4 h-4" />
   </button>
@@ -256,7 +252,7 @@ const Contact = () => {
 
               {/* Right: Contact Info */}
               <div className="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 p-8 md:p-10 flex flex-col justify-center space-y-8 rounded-3xl shadow-2xl">
-                <div className="text-center group hover:bg-zinc-800/50 rounded-2xl p-6 transition-all duration-300">
+                <div className="text-center group  rounded-2xl p-6 transition-all duration-300">
                   <Mail className="mx-auto w-8 h-8 text-purple-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="font-semibold text-lg text-white mb-2">
                     Email
@@ -264,7 +260,7 @@ const Contact = () => {
                   <p className="text-gray-300 break-all">tryzeniq@gmail.com</p>
                 </div>
 
-                <div className="text-center group hover:bg-zinc-800/50 rounded-2xl p-6 transition-all duration-300">
+                <div className="text-center  rounded-2xl p-6 transition-all duration-300">
                   <Phone className="mx-auto w-8 h-8 text-cyan-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="font-semibold text-lg text-white mb-2">
                     Phone
@@ -272,7 +268,7 @@ const Contact = () => {
                   <p className="text-gray-300">+91 63591 85945</p>
                 </div>
 
-                <div className="text-center group hover:bg-zinc-800/50 rounded-2xl p-6 transition-all duration-300">
+                <div className="text-center grouprounded-2xl p-6 transition-all duration-300">
                   <MapPin className="mx-auto w-8 h-8 text-green-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="font-semibold text-lg text-white mb-2">
                     Address
@@ -284,7 +280,7 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <div className="text-center group hover:bg-zinc-800/50 rounded-2xl p-6 transition-all duration-300">
+                <div className="text-center group rounded-2xl p-6 transition-all duration-300">
                   <Clock className="mx-auto w-8 h-8 text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="font-semibold text-lg text-white mb-2">
                     Business Hours

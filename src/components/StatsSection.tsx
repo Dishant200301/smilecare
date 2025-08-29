@@ -31,10 +31,10 @@ const StatsSection = () => {
   return (
     <div className="bg-black">
 <section className="py-20 relative">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
+          <div className="text-center mb-16 ">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent ">
               Proven Results That Speak For Themselves
             </h2>
             <p className="text-lg text-white/70 max-w-3xl mx-auto">
@@ -47,22 +47,22 @@ const StatsSection = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className="group relative bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-black/40 hover:border-white/20 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+                className="group relative bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all"
                 style={{ 
                   animationDelay: `${index * 0.2}s`,
                   animation: 'fadeInUp 0.8s ease-out forwards'
                 }}
               >
                 {/* Subtle glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-white/5 backdrop-blur-sm rounded-xl group-hover:bg-blue-500/20 transition-all duration-300 border border-white/10">
-                      <stat.icon className="w-6 h-6 text-blue-400 group-hover:text-blue-300" />
+                    <div className="p-3 bg-white/5 backdrop-blur-sm rounded-xl  transition-all duration-300 border border-white/10">
+                      <stat.icon className="w-6 h-6 text-blue-400 " />
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                      <div className="text-3xl md:text-4xl font-bold text-white transition-colors duration-300">
                         {stat.number}
                       </div>
                     </div>
@@ -88,8 +88,8 @@ const StatsSection = () => {
                 </div>
 
                 {/* Animated border effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-transparent to-purple-500/20 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 hover:border-white/30 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-2xl animate-pulse"></div>
                 </div>
               </div>
             ))}

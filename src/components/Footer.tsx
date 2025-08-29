@@ -34,7 +34,7 @@ const Footer = () => {
 
   return (
     <section className='pt-13'>
-  <footer className="relative   border-t border-gray-800 overflow-hidden bg-[radial-gradient(50%_50%_at_50%_3.4%,rgba(129,74,200,0.3)_0%,rgba(171,171,171,0)_100%)]"
+  <footer className="relative   border-t border-gray-800 overflow-hidden bg-[#111827]"
     >
       {/* Background Effects */}
       {/* <div className="absolute inset-0 bg-black to-transparent opacity-60" />
@@ -47,12 +47,12 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Logo */}
             <a href="/" className="inline-flex items-center space-x-3 group">
-              <div className="relative">
+              {/* <div className="relative">
                 <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center">
                   <Sparkles className="w-5 h-5 text-white" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
-              </div>
+              </div> */}
               <div className="text-3xl font-bold bg-white bg-clip-text text-transparent">
                 TryzenIQ
               </div>
@@ -78,7 +78,7 @@ const Footer = () => {
                     className="w-full h-12 px-4 pr-32 rounded-2xl border border-gray-700 bg-gray-900/50 backdrop-blur-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
                   />
                   <button 
-                    className="absolute right-2 top-2 h-8 px-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105"
+                    className="absolute right-2 top-2 h-8 px-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium rounded-xl transition-all duration-300 transform hover:scale-105"
                   >
                     Subscribe
                   </button>

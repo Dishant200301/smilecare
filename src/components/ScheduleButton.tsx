@@ -30,7 +30,6 @@ const ScheduleButton: React.FC<ScheduleButtonProps> = ({ to, label, onClick }) =
       <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
 
       {/* Fix overlay background */}
-      <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></span>
     </button>
   );
 };

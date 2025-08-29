@@ -6,12 +6,15 @@ import Services from '@/components/ServicesSection'; // ✅ Use Services.tsx dir
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet-async';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import FAQSection from '@/components/FaqSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import PricingSection from '@/components/PricingSection';
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Helmet>
-        <title>TryzenIQ — Automate Bookings and Maximize Revenue</title>
+        <title>TryzenIQ</title>
         <meta name="description" content="Automate your business with AI: leads, outreach, reminders, and scheduling. TryzenIQ helps boost revenue and save time." />
         <meta property="og:title" content="TryzenIQ — Automate Bookings and Maximize Revenue" />
         <meta property="og:description" content="AI automation for bookings, reminders, and customer engagement to scale your business." />
@@ -23,9 +26,13 @@ const Home = () => {
         <HeroSection />
         <StatsSection />
         <Services limit={6} /> {/* ✅ Works now */}
+      <FAQSection/>
+      {/* <TestimonialsSection/> */}
+      <PricingSection/>
       </main>
       <Footer />
       <ScrollToTopButton />
+
     </div>
   );
 };

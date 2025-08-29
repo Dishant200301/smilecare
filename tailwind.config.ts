@@ -26,6 +26,7 @@ export default {
         figtree: ["Figtree", "sans-serif"],
         instrument: ['"Instrument Serif"', "serif"],
 		Figtree: ['"Figtree Variable"', "sans-serif"],
+    sans: ['"Clash Display"', 'sans-serif'],
 		
       },
       colors: {
@@ -70,6 +71,12 @@ export default {
         "service-card-hover": "hsl(var(--service-card-hover))",
         "glow-primary": "hsl(var(--glow-primary))",
         "glow-secondary": "hsl(var(--glow-secondary))",
+
+        'dark-bg': '#1a1a2e', // A deep dark blue/purple from the video
+        'light-green': '#d0ff70', // The yellowish-green for Basic/Pro cards
+        'dark-green': '#4f6c44', // The dark green for the Light card
+        'dark-hover': '#2a0a38', // Dark purple on hover for Basic/Pro
+        'light-hover-bg': '#3a4e33', // Slightly darker green on hover for Light
       },
       backgroundImage: {
         "hero-gradient":
@@ -155,6 +162,11 @@ export default {
             opacity: "1",
           },
         },
+        blob: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -165,8 +177,12 @@ export default {
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         float: "float 3s ease-in-out infinite",
         "scale-in": "scale-in 0.3s ease-out",
+
+        blob: 'blob 7s infinite ease-in-out',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-scrollbar-hide"),
+  ],} satisfies Config;

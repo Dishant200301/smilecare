@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import LightRays from '@/components/LightRays';
 import { Helmet } from 'react-helmet-async';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import PricingSection from '@/components/PricingSection';
 
 const Pricing = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -137,141 +138,10 @@ const Pricing = () => {
           </div>
 
           {/* Hero Section */}
-          <section className="relative py-20 lg:py-32">
-            <div className="absolute inset-0 bg-black blur-3xl"></div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2  bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <span>Simple, Transparent Pricing</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
-                style={{ fontFamily: 'Playfair Display' }}>
-                Choose Your
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  Perfect Plan
-                </span>
-              </h1>
-
-              <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-                Unlock the power of AI automation for your business. All plans include our core features
-                with varying levels of support and customization.
-              </p>
-
-              <div className="inline-flex items-center space-x-1 bg-white/5 border border-white/10 rounded-full p-1">
-                <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25">
-                  Monthly
-                </button>
-                <button className="px-6 py-3 text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                  Yearly (Save 20%)
-                </button>
-              </div>
-            </motion.div>
-          </section>
+          
 
           {/* Pricing Cards */}
-          <section className="relative pb-20 bg-black">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
-                {plans.map((plan, index) => {
-                  const IconComponent = plan.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      ref={(el) => (cardRefs.current[index] = el)}
-                      className={`relative group cursor-pointer transition-all duration-500 ${plan.popular ? 'lg:scale-105' : ''}`}
-                      onMouseEnter={() => setHoveredCard(index)}
-                      onMouseLeave={() => setHoveredCard(null)}
-                      onMouseMove={(e) => handleMouseMove(e, index)}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                    >
-                      {/* Card Background with Spotlight Effect */}
-                      <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-10 overflow-hidden">
-                        {hoveredCard === index && (
-                          <div
-                            className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
-                            style={{
-                              background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(147, 51, 234, 0.1), transparent 40%)`,
-                            }}
-                          />
-                        )}
-
-                        {/* Gradient Border Effect */}
-                        <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${plan.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
-                          style={{ padding: '1px' }}>
-                          <div className="h-full w-full bg-slate-900 rounded-3xl"></div>
-                        </div>
-
-                        {/* Popular Badge */}
-                        {plan.popular && (
-                          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
-                            <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center space-x-2 shadow-lg">
-                              <Star className="w-4 h-4 fill-current" />
-                              <span>Most Popular</span>
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Card Content */}
-                        <div className="relative z-10">
-                          {/* Plan Header */}
-                          <div className="text-center mb-8">
-                            <div className="inline-flex items-center justify-center mt-[30px] w-16 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                              <IconComponent className="w-8 h-8 text-purple-400" />
-                            </div>
-                            <h3 className="text-2xl lg:text-3xl font-bold mb-2">{plan.name}</h3>
-                            <div className="flex items-baseline justify-center mb-4">
-                              <span className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                                {plan.price}
-                              </span>
-                              <span className="text-gray-400 ml-2 text-lg">{plan.period}</span>
-                            </div>
-                            <p className="text-gray-300 text-sm lg:text-base leading-relaxed">{plan.description}</p>
-                          </div>
-
-                          {/* CTA Button */}
-                          <button className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 group/btn ${plan.popular
-                            ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02]'
-                            : 'bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-white/30'
-                            }`}>
-                            <span className="flex items-center justify-center space-x-2">
-                              <span>Get Started</span>
-                              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                            </span>
-                          </button>
-
-                          {/* Features List */}
-                          <div className="space-y-4 mb-10 mt-5">
-                            {plan.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-start space-x-3 group/feature">
-                                <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center mt-0.5">
-                                  <Check className="w-3 h-3 text-white" />
-                                </div>
-                                <span className="text-sm lg:text-base text-gray-300 leading-relaxed group-hover/feature:text-white transition-colors">
-                                  {feature}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-
-                          
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+          <PricingSection/>
 
         </div>
       </main>

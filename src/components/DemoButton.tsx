@@ -26,11 +26,11 @@ const DemoButton: React.FC<DemoButtonProps> = ({ to, label, onClick }) => {
                  text-sm font-semibold tracking-wide cursor-pointer 
                  overflow-hidden group"
     >
-      <span
+      {/* <span
         className="absolute inset-0 bg-[#b3da70] rounded-full 
                    origin-right scale-x-0 group-hover:scale-x-100 
                    transition-transform duration-500 ease-out"
-      ></span>
+      ></span> */}
 
       <span
         className="relative text-black group-hover:text-black  transition-colors duration-300"

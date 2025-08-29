@@ -114,10 +114,10 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
               What We Offer
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6 animate-fade-in-up delay-20">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6 animate-none">
             Our Premium Services
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-40">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-none">
             Discover our comprehensive range of digital solutions designed to transform your business and drive growth in the modern world.
           </p>
         </div>

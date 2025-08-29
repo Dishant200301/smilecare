@@ -205,3 +205,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+html, body {
+  overflow-y: scroll;   
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; 
+}
+}
