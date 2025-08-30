@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
 
         {/* Enhanced CTA Buttons with glassmorphism */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-none"
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
           style={{ animationDelay: "0.6s" }}
         >
           {/* Primary Button - Framer Style */}

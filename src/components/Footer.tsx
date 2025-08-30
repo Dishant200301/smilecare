@@ -31,17 +31,14 @@ const Footer = () => {
     { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-400 hover:shadow-pink-400/30' },
     { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-500 hover:shadow-blue-500/30' },
   ];
-
+{/* <footer className="w-full px-4 mb-6">
+<div className="max-w-7xl mx-auto bg-black rounded-2xl border border-gray-800 shadow-lg overflow-hidden px-6 py-12"> */}
   return (
     <section className='pt-13'>
-  <footer className="relative   border-t border-gray-800 overflow-hidden bg-[#111827]"
+  <footer className="relative  px-4 my-5 mx-5 rounded-3xl border border-gray-800 overflow-hidden bg-[#202020]"
     >
-      {/* Background Effects */}
-      {/* <div className="absolute inset-0 bg-black to-transparent opacity-60" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-black rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-black rounded-full blur-3xl" /> */}
-      
-      <div className="relative pt-[84px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div className="relative pt-[84px] bg-[#202020] max-w-7xl px-6  mx-auto  sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
@@ -75,10 +72,10 @@ const Footer = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full h-12 px-4 pr-32 rounded-2xl border border-gray-700 bg-gray-900/50 backdrop-blur-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+                    className="w-full h-12 px-4 pr-32 rounded-full border border-gray-700 bg-gray-900/50 backdrop-blur-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
                   />
                   <button 
-                    className="absolute right-2 top-2 h-8 px-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium rounded-xl transition-all duration-300 transform hover:scale-105"
+                    className="absolute right-2 top-2 h-8 px-4 text-center bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium rounded-full transition-all duration-300 transform hover:scale-105"
                   >
                     Subscribe
                   </button>
@@ -153,7 +150,7 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  className={`group relative p-3 text-gray-400 ${social.color} transition-all duration-300 bg-gray-900/50 hover:bg-gray-800 rounded-xl backdrop-blur-sm hover:shadow-lg transform hover:scale-110`}
+                  className={`group relative p-3 text-gray-400 ${social.color} transition-all duration-300 bg-gray-900/50 hover:bg-gray-800 rounded-full backdrop-blur-sm hover:shadow-lg transform hover:scale-110`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -169,7 +166,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom Accent Line */}
-          <div className="mt-8 h-px bg-black to-transparent" />
+          <div className="mt-8 h-px bg-[#202020] to-transparent" />
         </div>
       </div>
     </footer>

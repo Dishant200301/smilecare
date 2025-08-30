@@ -26,9 +26,9 @@ const Home = () => {
         <HeroSection />
         <StatsSection />
         <Services limit={6} /> {/* ✅ Works now */}
-      <FAQSection/>
-      <TestimonialsSection/>
       <PricingSection/>
+      <FAQSection/>
+      {/* <TestimonialsSection/> */}
       </main>
       <Footer />
       <ScrollToTopButton />

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  animate,
-} from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 // Features data
 const features = {
@@ -72,11 +67,11 @@ export default function PricingSection() {
           </h1>
 
           <h1
-            className="text-5xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-red-400 to-purple-400 bg-clip-text text-transparent mb-6"
+            className="text-2xl sm:text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-red-400 to-purple-400 bg-clip-text text-transparent mb-6"
             style={{ fontFamily: "Satoshi" }}
           >
-            Affordable plans to unlock{" "}
-            <br className="hidden md:block" /> premium content and features
+            Affordable plans to unlock <br className="hidden md:block" />{" "}
+            premium content and features
           </h1>
 
           <p className="text-base md:text-lg text-gray-400 text-center max-w-2xl mb-12">
@@ -85,19 +80,29 @@ export default function PricingSection() {
           </p>
 
           {/* Toggle Switch */}
-          
-          <div className="flex items-center gap-2 bg-[#1e1e2e] border border-[#f0ff8b] origin-left transition-all duration-300 rounded-full mb-12">
+          <div className="relative flex items-center bg-[#1e1e2e] border border-[#f0ff8b] rounded-full mb-12">
+            {/* Sliding Indicator */}
+            <motion.div
+              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[#f0ff8b]"
+              initial={false}
+              animate={{ x: isAnnual ? "100%" : "0%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            />
+
+            {/* Monthly Button */}
             <button
-              className={`px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                !isAnnual ? "bg-[#f0ff8b] text-black" : "text-white"
+              className={`relative  px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                !isAnnual ? "text-black" : "text-white"
               }`}
               onClick={() => setIsAnnual(false)}
             >
               Monthly
             </button>
+
+            {/* Annually Button */}
             <button
-              className={`px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                isAnnual ? "bg-[#f0ff8b] text-black" : "text-white"
+              className={`relative px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                isAnnual ? "text-black" : "text-white"
               }`}
               onClick={() => setIsAnnual(true)}
             >
@@ -129,7 +134,7 @@ export default function PricingSection() {
             title="Enterprise"
             price={pricing.enterprise}
             features={features.basic}
-            color="bg-slate-700"
+            color="bg-[#202633]"
           />
         </div>
       </div>
