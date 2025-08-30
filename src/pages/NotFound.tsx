@@ -1,24 +1,17 @@
 // src/pages/NotFound.tsx
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import LightRaySection from "@/components/LightRaySection";
 
-const navItems = [
-  { name: "Return to Home", path: "/" },
-];
+const navItems = [{ name: "Return to Home", path: "/" }];
 
 const NotFound = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [activeItem, setActiveItem] = useState("Home");
-
-  useEffect(() => {
-    const current = navItems.find((item) => item.path === location.pathname);
-    if (current) setActiveItem(current.name);
-  }, [location.pathname]);
+  const [activeItem, setActiveItem] = useState("");
 
   const isActive = (name: string) => activeItem === name;
 
@@ -28,10 +21,7 @@ const NotFound = () => {
   };
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
+    console.error("404 Error: Tried to access:", location.pathname);
   }, [location.pathname]);
 
   return (
@@ -57,7 +47,9 @@ const NotFound = () => {
       <div className="flex flex-1 items-center justify-center">
         <div className="text-center px-4">
           <h1 className="text-6xl font-bold mb-4">404</h1>
-          <p className="text-xl text-gray-400 mb-6">Oops! Page not found</p>
+          <p className="text-xl text-gray-400 mb-6">
+            Oops! Page not found
+          </p>
 
           {/* Gradient Button */}
           <div className="flex items-center justify-center">
@@ -65,16 +57,20 @@ const NotFound = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavigation(item.path, item.name)}
-                className={`relative px-6 py-3 rounded-full font-medium transition-all duration-300 group ${
-                  isActive(item.name)
-                    ? "text-white bg-white/10"
-                    : "text-white/70 hover:text-white bg-white/5"
-                }`}
+                className="relative px-6 py-3 bg-white/10 rounded-full font-medium transition-all duration-300 overflow-hidden"
               >
-                <span className="relative z-10">{item.name}</span>
                 {isActive(item.name) && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
+                  <div className="absolute inset-0  rounded-full z-0" />
                 )}
+                <span
+                  className={`relative z-10 ${
+                    isActive(item.name)
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </span>
               </button>
             ))}
           </div>
