@@ -9,22 +9,37 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(({ mode }) => {
   return {
+    // Dev server config
     server: {
       host: "::",
       port: 8080,
-      fs: { strict: false }
+      fs: { strict: false },
     },
+
+    // Preview (vite preview)
     preview: {
       port: 8080,
     },
+
+    // Plugins
     plugins: [
       react(),
-      mode === "development" && componentTagger(),
+      mode === "development" && componentTagger(), // only in dev
     ].filter(Boolean),
+
+    // Build config
     build: {
       outDir: "dist",
       emptyOutDir: true,
+      sourcemap: false,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
     },
+
+    // Path alias
     resolve: {
       alias: [
         {
@@ -32,6 +47,10 @@ export default defineConfig(({ mode }) => {
           replacement: path.resolve(__dirname, "src") + "/$1",
         },
       ],
+      dedupe: ["react", "react-dom"],
     },
+
+    // Important for SPA routing (fixes /services/... redirect issue on Render/Netlify)
+    base: "/", 
   };
 });
