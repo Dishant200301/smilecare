@@ -60,7 +60,7 @@ const App = () => (
             <Route path="/real-estate-agents" element={<RealEstateAgents />} />
             <Route path="/therapists-counselors" element={<TherapistsCounselors />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="/not-found" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </HelmetProvider>
