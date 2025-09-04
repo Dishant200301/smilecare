@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import LightRays from "@/components/LightRays";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ShinyText from "@/components/ShinyText";
 
 const services = [
   {
@@ -162,7 +163,9 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
       </Helmet>
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <div className="absolute inset-0 z-0">
+
+        <div className="absolute inset-0 w-full h-full">
           <LightRays
             raysOrigin="top-center"
             raysColor="#00ffff"
@@ -176,6 +179,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
             className="w-full h-full"
           />
         </div>
+      </div>
 
         <div className="text-center mb-16 pt-[150px]">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -184,9 +188,17 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
               What We Offer
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6">
-            Our Premium Services
-          </h2>
+          <h1
+  className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6"
+  style={{ fontFamily: "Playfair Display" }}
+>
+  Our Premium{" "}
+  <ShinyText
+    text="Services"
+    className="bg-gradient-to-r from-[#F472B6] via-[#C084FC] to-[#818CF8] bg-clip-text text-transparent"
+  />
+</h1>
+
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive range of digital solutions designed to
             transform your business and drive growth in the modern world.

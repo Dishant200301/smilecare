@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import ShinyText from "./ShinyText";
 
 // Features data
 const features = {
@@ -60,19 +61,33 @@ export default function PricingSection() {
         {/* Heading */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
           <h1
-            className="text-4xl md:text-5xl font-bold text-[#f0ff8b] mb-6"
-            style={{ fontFamily: "Playfair Display" }}
-          >
-            PRICING
-          </h1>
+  className="text-4xl md:text-5xl font-bold text-[#fafafa]  mb-6"
+  style={{ fontFamily: "Playfair Display" }}
+>
+  PRICING
+</h1>
 
-          <h1
-            className="text-2xl sm:text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-red-400 to-purple-400 bg-clip-text text-transparent mb-6"
-            style={{ fontFamily: "Satoshi" }}
-          >
-            Affordable plans to unlock <br className="hidden md:block" />{" "}
-            premium content and features
-          </h1>
+<h3
+  className="text-2xl sm:text-4xl md:text-5xl text-center font-light mb-6 font-roboto"
+>
+  <ShinyText
+    text="Affordable"
+    disabled={false}
+    speed={2}
+    className="hero-text-gradient
+ bg-clip-text animate-gradient inline-block"
+  />{" "}
+  plans to unlock <br className="hidden md:block" />{" "}
+  <ShinyText
+    text="premium"
+    disabled={false}
+    speed={2}
+    className="hero-text-gradient
+bg-clip-text animate-gradient inline-block"
+  />{" "}
+  content and features
+</h3>
+
 
           <p className="text-base md:text-lg text-gray-400 text-center max-w-2xl mb-12">
             Whether you're looking for one-time access or ongoing benefits, we

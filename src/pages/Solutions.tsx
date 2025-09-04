@@ -47,7 +47,7 @@ const Solutions = () => {
     {
       icon: MessageSquare,
       title: "Automated Communication",
-      description: "Personalized messaging across all channels",
+      description: "Personalized messaging across all channels sleeps",
       benefits: [
         "SMS, email, and voice message automation",
         "Personalized content for each customer",
@@ -206,8 +206,7 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background overflow-y-scroll scrollbar-hide">
-      <Helmet>
+<div className="min-h-screen bg-black text-white">      <Helmet>
         <title>Solutions — TryzenIQ</title>
         <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
         <meta property="og:title" content="Solutions — TryzenIQ" />
@@ -216,30 +215,40 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </Helmet>
       <Navbar />
       
-      <main className="pt-16 bg-black">
+      <main className="pt-16">
         {/* Hero Section */}
-        <div className="absolute inset-0 w-full h-full">  <LightRays
-            raysOrigin="top-center"
-            raysColor="#00ffff"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="w-full h-full"  />
-        </div>
-        <section className="mt-[150px]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Light Rays BG */}
+          <div className="absolute inset-0 w-full h-full">
+            <LightRays
+              raysOrigin="top-center"
+              raysColor="#00ffff"
+              raysSpeed={1.5}
+              lightSpread={0.8}
+              rayLength={1.2}
+              followMouse={true}
+              mouseInfluence={0.1}
+              noiseAmount={0.1}
+              distortion={0.05}
+              className="w-full h-full"
+            />
+          </div>
+        <section className="mt-[100px]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 text-purple-400" />
                 <span>Simple, Solutions</span>
               </div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6"
-            style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
-              Powerful <span className="hero-text-gradient">Solutions</span> for Every Business
-            </h2>
+            <h1
+  className="text-4xl md:text-6xl font-extralight mb-6 text-white font-playfair"
+  style={{ fontFamily: "Playfair Display" }}
+>
+  Powerful{" "}
+  <span className="bg-gradient-to-r from-[#F472B6] via-[#C084FC] to-[#818CF8] bg-clip-text text-transparent">
+    Solutions
+  </span>{" "}
+  for Every Business
+</h1>
+
             <p className="text-lg text-muted-foreground max-w-xl mx-auto"
             style={{fontFamily: 'inter',animationDelay: '0.2s'}}>
               Our comprehensive AI automation platform adapts to your industry needs, 
@@ -265,11 +274,11 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }}
     >
       {/* Spotlight overlay */}
-      <div
+      {/* <div
         ref={(el) => (spotlightRefs.current[index] = el)}
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ zIndex: 1 }}
-      ></div>
+      ></div> */}
 
       {/* Animated border glow */}
       <div
@@ -327,7 +336,7 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </section>
 
         {/* Industries Section with Spotlight */}
-        <section className="py-20 bg-black backdrop-blur-sm">
+        <section className="py-20 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6 mt-20">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">

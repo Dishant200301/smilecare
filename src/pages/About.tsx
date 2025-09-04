@@ -1,13 +1,22 @@
-'use client';
+"use client";
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { Users, Target, Award, TrendingUp, Sparkles, Handshake, ShieldCheck, Zap } from 'lucide-react';
-import React from 'react';
-import { motion } from 'framer-motion';
-import LightRays from '@/components/LightRays';
-import { Helmet } from 'react-helmet-async';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import {
+  Users,
+  Target,
+  Award,
+  TrendingUp,
+  Sparkles,
+  Handshake,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import LightRays from "@/components/LightRays";
+import { Helmet } from "react-helmet-async";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 // Animation Variants
 const fadeInUp = (delay = 0) => ({
@@ -28,82 +37,115 @@ const About = () => {
     { icon: Users, number: "10,000+", label: "Active Clients" },
     { icon: Target, number: "95%", label: "Customer Satisfaction" },
     { icon: Award, number: "50+", label: "Industry Awards" },
-    { icon: TrendingUp, number: "300%", label: "Average ROI Increase" }
+    { icon: TrendingUp, number: "300%", label: "Average ROI Increase" },
   ];
 
   const team = [
     {
       name: "Sarah Johnson",
       role: "CEO & Founder",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxybaUaqtLxUbBoOU5L89nfEiq9YhGphPINg&s",
-      bio: "Former AI researcher at Google with 15+ years in automation technology."
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxybaUaqtLxUbBoOU5L89nfEiq9YhGphPINg&s",
+      bio: "Former AI researcher at Google with 15+ years in automation technology.",
     },
     {
       name: "Michael Chen",
       role: "CTO",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop&faceea",
-      bio: "Lead engineer who built scalable AI systems for Fortune 500 companies."
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop&faceea",
+      bio: "Lead engineer who built scalable AI systems for Fortune 500 companies.",
     },
     {
       name: "Emily Rodriguez",
       role: "Head of Customer Success",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop&faceea",
-      bio: "Customer experience expert ensuring our clients achieve maximum value."
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop&faceea",
+      bio: "Customer experience expert ensuring our clients achieve maximum value.",
     },
     {
       name: "David Kim",
       role: "VP of Engineering",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop&faceea",
-      bio: "Full-stack developer passionate about creating intuitive automation tools."
-    }
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop&faceea",
+      bio: "Full-stack developer passionate about creating intuitive automation tools.",
+    },
   ];
 
   const values = [
-    { icon: Sparkles, title: "Innovation First", description: "We constantly push the boundaries of what's possible with AI automation, staying ahead of industry trends." },
-    { icon: Handshake, title: "Customer Success", description: "Your success is our success. We're committed to delivering measurable results for every client." },
-    { icon: ShieldCheck, title: "Transparency", description: "Clear communication, honest pricing, and transparent processes in everything we do." },
-    { icon: Zap, title: "Reliability", description: "Our systems are built for 99.9% uptime, ensuring your business operations never stop." }
+    {
+      icon: Sparkles,
+      title: "Innovation First",
+      description:
+        "We constantly push the boundaries of what's possible with AI automation, staying ahead of industry trends.",
+    },
+    {
+      icon: Handshake,
+      title: "Customer Success",
+      description:
+        "Your success is our success. We're committed to delivering measurable results for every client.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Transparency",
+      description:
+        "Clear communication, honest pricing, and transparent processes in everything we do.",
+    },
+    {
+      icon: Zap,
+      title: "Reliability",
+      description:
+        "Our systems are built for 99.9% uptime, ensuring your business operations never stop.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-body">
+    <div className="min-h-screen bg-background text-foreground font-body bg-black text-white relative overflow-hidden">
       <Helmet>
         <title>About — TryzenIQ</title>
-        <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
+        <meta
+          name="description"
+          content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ."
+        />
         <meta property="og:title" content="Solutions — TryzenIQ" />
-        <meta property="og:description" content="AI solutions for automation, analytics, and business growth. Trusted by leading industries." />
+        <meta
+          property="og:description"
+          content="AI solutions for automation, analytics, and business growth. Trusted by leading industries."
+        />
         <meta property="og:type" content="website" />
       </Helmet>
       <Navbar />
-      
-      <main className="pt-20 md:pt-32 bg-black ">
+
+      <main className="pt-20 md:pt-32 ">
         {/* Background Rays */}
-        <div className="absolute inset-0 w-full h-full">  <LightRays
-    raysOrigin="top-center"
-    raysColor="#00ffff"
-    raysSpeed={1.5}
-    lightSpread={0.8}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="w-full h-full"  />
-</div>
+        <div className="absolute inset-0 w-full h-full">
+          {" "}
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#00ffff"
+            raysSpeed={1.5}
+            lightSpread={0.8}
+            rayLength={1.2}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="w-full h-full"
+          />
+        </div>
 
         {/* Hero Section */}
-        <section className="pt-[100px] md:py-10 lg:py-5 bg-black-to-br from-background via-card to-background">
+        <section className="pt-[100px] md:py-10 lg:py-5 ">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h3
+            <h1
               variants={fadeInUp(0)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"
-              style={{ fontFamily: 'inter' }}
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-extralight mb-6 font-figtree leading-tight text-[#ffffff]"
+              style={{ fontFamily: "Playfair Display" }}
             >
               About <span className="hero-text-gradient">TryzenIQ</span>
-            </h3>
+            </h1>
 
             <p
               variants={fadeInUp(150)}
@@ -111,10 +153,11 @@ const About = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"
-              style={{ fontFamily: 'inter' }}
+              style={{ fontFamily: "inter" }}
             >
-              We're on a mission to revolutionize how businesses operate by making 
-              AI automation accessible, powerful, and profitable for everyone.
+              We're on a mission to revolutionize how businesses operate by
+              making AI automation accessible, powerful, and profitable for
+              everyone.
             </p>
           </div>
         </section>
@@ -161,7 +204,8 @@ const About = () => {
                 Our <span className="hero-text-gradient">Values</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-                The principles that guide everything we do and every decision we make.
+                The principles that guide everything we do and every decision we
+                make.
               </p>
             </div>
 
@@ -181,7 +225,9 @@ const About = () => {
                   <h3 className="text-xl font-heading font-semibold mb-3 hero-text-gradient">
                     {value.title}
                   </h3>
-                  <p className="text-muted-foreground font-body">{value.description}</p>
+                  <p className="text-muted-foreground font-body">
+                    {value.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -189,7 +235,7 @@ const About = () => {
         </section>
 
         {/* Team Section */}
-        <section className="py-16 md:py-24 bg-black">
+        <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div
               variants={fadeInUp(0)}
@@ -202,7 +248,8 @@ const About = () => {
                 Meet Our <span className="hero-text-gradient">Team</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-                The brilliant minds behind TryzenIQ's innovative automation solutions.
+                The brilliant minds behind TryzenIQ's innovative automation
+                solutions.
               </p>
             </div>
 
@@ -224,7 +271,9 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-2">{member.name}</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-2">
+                    {member.name}
+                  </h3>
                   <p className="text-primary font-medium mb-3">{member.role}</p>
                   <p className="text-muted-foreground text-sm">{member.bio}</p>
                 </div>
@@ -235,8 +284,7 @@ const About = () => {
       </main>
 
       <Footer />
-            <ScrollToTopButton />
-      
+      <ScrollToTopButton />
     </div>
   );
 };

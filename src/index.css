@@ -54,7 +54,7 @@
 
 @layer base {
   h1 {
-    @apply font-figtree text-4xl md:text-6xl lg:text-7xl font-bold;
+    @apply font-inter text-4xl md:text-6xl lg:text-7xl font-bold;
   }
   h2 {
     @apply font-inter text-3xl md:text-5xl font-semibold;
@@ -74,11 +74,12 @@
 }
 @layer base {
   span {
-    @apply font-instrument;
+    @apply font-instrument ;
   }
   .special-font {
     @apply font-instrument;
   }
+  
   
 }
 
@@ -217,3 +218,20 @@ body::-webkit-scrollbar {
   display: none; 
 }
 }
+
+ @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+        @media (max-width: 768px) {
+          .animate-scroll {
+            animation: scroll 40s linear infinite;
+          }
+        }

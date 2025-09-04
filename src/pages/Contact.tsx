@@ -81,7 +81,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-body">
+    <div className="min-h-screen bg-background text-foreground font-body bg-black text-white relative overflow-hidden">
       <Helmet>
         <title>Contact — TryzenIQ</title>
         <meta name="description" content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ." />
@@ -90,7 +90,7 @@ const Contact = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <Navbar />
-      <main className="pt-26 md:pt-32 bg-black">
+      <main className="pt-26 md:pt-32">
         {" "}
         {/* Adjust padding for sticky nav */}
         {/* Hero Section */}
@@ -109,19 +109,20 @@ const Contact = () => {
             className="w-full h-full"
           />
         </div>
-        <section className="pt-[130px] md:py-2 lg:py-5 bg-black">
+        <section className="pt-[130px] md:py-2 lg:py-5 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h3 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extralight mb-6 leading-tight"style={{ fontFamily: "Playfair Display" }}>
                 Contact{" "}
-                <span className="hero-text-gradient special-font">Us</span>
-              </h3>
+                <span className="hero-text-gradient
+hero-text-gradient special-font">Us</span>
+              </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
                 Ready to transform your business with AI automation? We're here
                 to help you get started and answer any questions you might have.
               </p>
           </div>
         </section>
-        <section className="relative py-20 bg-black">
+        <section className="relative py-20 ">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Left: Contact Form */}

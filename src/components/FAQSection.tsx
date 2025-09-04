@@ -30,7 +30,7 @@ export default function FAQSection() {
   return (
     <section className="bg-black py-16 px-6">
          <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold bg-[#f0ff8b] bg-clip-text text-transparent mb-6 animate-fade-in-up delay-20">
+          <h2 className="text-4xl md:text-5xl font-bold bg-[#fafafa] bg-clip-text text-transparent mb-6 font-playfair">
             FAQ
           </h2>
           
@@ -54,7 +54,7 @@ export default function FAQSection() {
               <h5 className="text-lg font-medium text-white">
                 {faq.question}
               </h5>
-              <span className="ml-4 flex items-center justify-center w-8 h-8 rounded-full border border-[#f0ff8b] text-white hover:bg-[#f0ff8b] hover:text-black ">
+              <span className="ml-4 flex items-center justify-center w-8 h-8 rounded-full border border-[#f0ff8b] text-white  ">
                 {openIndex === index ? (
                   <X className="w-4 h-4" />
                 ) : (

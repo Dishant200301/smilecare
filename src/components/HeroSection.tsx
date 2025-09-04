@@ -40,14 +40,13 @@ const HeroSection: React.FC = () => {
         </div>
 
        <h1
-  className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide mb-8 leading-tight autoShow"
-  style={{ fontFamily: "Figtree" }}
+  className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal uppercase tracking-wide mb-8 leading-tight autoShow"
 >
   <ShinyText
     text="Automate"
     disabled={false}
     speed={2}
-    className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text animate-gradient inline-block "
+    className="hero-text-gradient bg-clip-text animate-gradient inline-block "
   />{" "}
   Your Booking
   <br />
@@ -56,7 +55,7 @@ const HeroSection: React.FC = () => {
     text="Maximize"
     disabled={false}
     speed={2}
-    className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text animate-gradient inline-block"
+    className="hero-text-gradientbg-clip-text animate-gradient inline-block"
   />{" "}
   Your Profit
 </h1>
