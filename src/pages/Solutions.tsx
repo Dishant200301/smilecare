@@ -19,7 +19,6 @@ const Solutions = () => {
 
   const solutions = [
     {
-      icon: Bot,
       title: "AI Virtual Assistant",
       description: "24/7 intelligent customer service that never sleeps",
       benefits: [
@@ -32,7 +31,6 @@ const Solutions = () => {
       accentColor: "rgb(59, 130, 246)"
     },
     {
-      icon: Calendar,
       title: "Smart Scheduling",
       description: "Automated appointment booking and management system",
       benefits: [
@@ -45,7 +43,6 @@ const Solutions = () => {
       accentColor: "rgb(34, 197, 94)"
     },
     {
-      icon: MessageSquare,
       title: "Automated Communication",
       description: "Personalized messaging across all channels sleeps",
       benefits: [
@@ -58,7 +55,6 @@ const Solutions = () => {
       accentColor: "rgb(168, 85, 247)"
     },
     {
-      icon: BarChart3,
       title: "Advanced Analytics",
       description: "Data-driven insights to grow your business",
       benefits: [
@@ -71,7 +67,6 @@ const Solutions = () => {
       accentColor: "rgb(245, 158, 11)"
     },
     {
-      icon: Shield,
       title: "Enterprise Security",
       description: "Bank-level security for your business data",
       benefits: [
@@ -84,7 +79,6 @@ const Solutions = () => {
       accentColor: "rgb(239, 68, 68)"
     },
     {
-      icon: Zap,
       title: "Lightning Fast Setup",
       description: "Get up and running in minutes, not months",
       benefits: [
@@ -218,32 +212,16 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <main className="pt-16">
         {/* Hero Section */}
           {/* Light Rays BG */}
-          <div className="absolute inset-0 w-full h-full">
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#00ffff"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-              className="w-full h-full"
-            />
-          </div>
+          
         <section className="mt-[100px]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <span>Simple, Solutions</span>
-              </div>
+          
             <h1
   className="text-4xl md:text-6xl font-extralight mb-6 text-white font-playfair"
   style={{ fontFamily: "Playfair Display" }}
 >
   Powerful{" "}
-  <span className="bg-gradient-to-r from-[#F472B6] via-[#C084FC] to-[#818CF8] bg-clip-text text-transparent">
+  <span className="bg-[#8caac8] bg-clip-text text-transparent">
     Solutions
   </span>{" "}
   for Every Business
@@ -267,7 +245,7 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   >
     <div
       ref={(el) => (solutionRefs.current[index] = el)}
-      className="relative overflow-hidden bg-card/60 border border-border/50 rounded-xl p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:border-primary/30 group"
+      className="relative overflow-hidden bg-card/60 border border-border/10 rounded-xl p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:border-[#515151] "
       style={{
         animationDelay: `${index * 0.1}s`,
         boxShadow: `0 0 0 1px ${solution.accentColor}20`,
@@ -292,7 +270,7 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Card content */}
       <div className="relative z-10">
         <div className="flex items-center mb-6">
-          <div
+          {/* <div
             className="p-3 bg-primary/20 rounded-lg mr-4 backdrop-blur-sm border transition-all duration-300 group-hover:scale-110"
             style={{ borderColor: `${solution.accentColor}30` }}
           >
@@ -300,7 +278,7 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               className="w-8 h-8 transition-colors duration-300"
               style={{ color: solution.accentColor }}
             />
-          </div>
+          </div> */}
           <h3 className="text-xl font-semibold group-hover:text-white transition-colors duration-300">
             {solution.title}
           </h3>
@@ -317,12 +295,13 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               className="flex items-start text-sm group-hover:text-gray-200 transition-colors duration-300"
             >
               <div
-                className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 transition-all duration-300 group-hover:shadow-lg"
-                style={{
-                  backgroundColor: solution.accentColor,
-                  boxShadow: `0 0 8px ${solution.accentColor}60`,
-                }}
-              ></div>
+  className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 transition-all duration-300 group-hover:shadow-lg"
+  style={{
+    backgroundColor: "#8caac8",
+    boxShadow: "0 0 8px #8caac860",
+  }}
+></div>
+
               <span>{benefit}</span>
             </div>
           ))}
@@ -381,8 +360,8 @@ const TiltCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       }}
                     >
                       <div 
-                        className="text-3xl font-bold mb-2 transition-all duration-300"
-                        style={{ color: industry.accentColor }}
+                        className="text-2xl font-normal font-serif mb-2 transition-all duration-300"
+                        
                       >
                         {industry.stats}
                       </div>

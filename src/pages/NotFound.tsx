@@ -41,7 +41,7 @@ const NotFound = () => {
       </Helmet>
 
       <Navbar />
-      <LightRaySection />
+      {/* <LightRaySection /> */}
 
       {/* Center Content */}
       <div className="flex flex-1 items-center justify-center">

@@ -9,6 +9,8 @@ import ScrollToTopButton from '@/components/ScrollToTopButton';
 import FAQSection from '@/components/FAQSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import PricingSection from '@/components/PricingSection';
+import TestimonialSection from '@/components/Testimonials';
+import CTASection from '@/components/CTASection';
 
 const Home = () => {
   return (
@@ -27,8 +29,10 @@ const Home = () => {
         <StatsSection />
         <Services limit={6} /> {/* ✅ Works now */}
       <PricingSection/>
-      <FAQSection/>
       {/* <TestimonialsSection/> */}
+      <TestimonialSection/>
+      <FAQSection/>
+      {/* <CTASection/> */}
       </main>
       <Footer />
       <ScrollToTopButton />

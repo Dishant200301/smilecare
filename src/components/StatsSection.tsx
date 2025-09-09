@@ -73,9 +73,9 @@ const StatsSection = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div
                     className="p-3 rounded-xl border border-cyan-500/20 bg-cyan-500/10 
-                    group-hover:bg-cyan-500/20 transition-all duration-300"
+                    transition-all duration-300"
                   >
-                    <stat.icon className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300" />
+                    <stat.icon className="w-6 h-6 text-[#8caac8] group-hover:text-[#8caac8]" />
                   </div>
                   <div className="text-right">
                     <div className="text-4xl font-bold text-white group-hover:text-cyan-200 transition-colors duration-300">
@@ -92,7 +92,7 @@ const StatsSection = () => {
                 </p>
 
                 <div className="border-t border-white/10 pt-4">
-                  <span className="text-green-400 font-semibold text-sm bg-green-400/10 px-3 py-1 rounded-full border border-green-400/20 group-hover:bg-green-400/20 transition-colors">
+                  <span className="text-[#8caac8] font-semibold text-sm  px-3 py-1 rounded-full border border-[#4d4d4c] group-hover:bg-[#0d0d0d] transition-colors">
                     {stat.growth}
                   </span>
                   <p className="mt-2 text-xs text-white/50 leading-relaxed group-hover:text-white/70">

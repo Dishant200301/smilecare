@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
-  const navigate = useNavigate();
   const location = useLocation();
 
   const navItems = [
@@ -23,67 +22,76 @@ const Navbar = () => {
     if (current) setActiveItem(current.name);
   }, [location.pathname]);
 
-  const handleNavigation = (path: string, name: string) => {
-    navigate(path);
-    setActiveItem(name);
-  };
-
   const isActive = (name: string) => activeItem === name;
 
   return (
-    <nav className="fixed left-0 right-0 z-50">
+    <nav className="fixed left-0 right-0 z-50 pt-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 w-full">
-        <div className="relative bg-white/5 backdrop-blur-2xl rounded-br-sm rounded-bl-sm border border-white/10 shadow-2xl shadow-black/20">
+        <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-2xl shadow-black/20">
           <div className="flex items-center justify-between h-20 gap-4">
 
             {/* Logo */}
-            <div
-              className="flex items-center space-x-3 cursor-pointer group flex-shrink-0"
-              onClick={() => handleNavigation('/', 'Home')}
-            >
-             
-              <div className="ml-8 text-2xl font-bold bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                TryzenIQ
-              </div>
+            <div className="flex items-center space-x-3 cursor-pointer group flex-shrink-0">
+              <Link
+                to="/"
+                onClick={() => setActiveItem('Home')}
+                className="ml-8"
+              >
+                <img
+                  src="/svgviewer-png-output.svg"
+                  alt="TryzenIQ Logo"
+                  className="h-40 w-auto invert"
+                />
+              </Link>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation (exclude Home) */}
             <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavigation(item.path, item.name)}
-                  className={`relative px-5 py-3 rounded-full font-medium transition-all duration-300 group ${
-                    isActive(item.name)
-                      ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  <span className="relative z-10">{item.name}</span>
-                  {isActive(item.name) && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full" />
-                  )}
-                </button>
-              ))}
+              {navItems
+                .filter(item => item.name !== 'Home')
+                .map(item => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setActiveItem(item.name)}
+                    className={`text-lg relative px-5 py-3 rounded-full font-medium font-serif transition-all duration-300 group overflow-hidden ${
+                      isActive(item.name)
+                        ? "text-black"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    <div
+                      className={`absolute inset-0 rounded-full transition-all duration-500 ease-in-out ${
+                        isActive(item.name)
+                          ? "bg-[#8bafd2] scale-100 opacity-100"
+                          : "bg-white/5 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                      }`}
+                    />
+                  </Link>
+                ))}
             </div>
 
             {/* CTA Button for Desktop */}
-            {/* <div className="hidden lg:block flex-shrink-0">
-              <button
-                onClick={() => handleNavigation('/contact', 'Contact')}
-                className="relative inline-flex items-center justify-center mr-5 px-5 lg:px-6 py-2.5
-                           rounded-full border border-white/30
-                           text-sm font-semibold tracking-wide cursor-pointer 
-                           overflow-hidden group"
+            <div className="hidden lg:block flex-shrink-0">
+              <Link
+                to="/contact"
+                onClick={() => setActiveItem('Contact')}
+                className="group relative inline-flex items-center justify-between 
+                           border border-gray-500 text-white font-semibold 
+                           mr-6 pl-5 pr-5 py-2 rounded-full overflow-hidden 
+                           transition-all duration-500 ease-in-out"
               >
-                <span className="absolute inset-0 bg-[#ffffff] rounded-full 
-                                 origin-right scale-x-0 group-hover:scale-x-100 
-                                 transition-transform duration-500 ease-out"></span>
-                <span className="relative text-white group-hover:text-black transition-colors duration-300">
+                <span
+                  className="absolute flex items-center justify-center 
+                             w-1 h-1 rounded-full bg-[#8caac8] text-black z-10 
+                             transition-transform duration-500 ease-in-out group-hover:scale-[95]"
+                />
+                <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
                   Book Demo
                 </span>
-              </button>
-            </div> */}
+              </Link>
+            </div>
 
             {/* Mobile menu button */}
             <div className="lg:hidden p-2 flex-shrink-0">
@@ -96,43 +104,29 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}>
+          {/* Mobile Navigation (include Home) */}
+          <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="px-6 pb-6 space-y-2">
-              {navItems.map((item) => (
-                <button
+              {navItems.map(item => (
+                <Link
                   key={item.name}
+                  to={item.path}
                   onClick={() => {
-                    handleNavigation(item.path, item.name);
+                    setActiveItem(item.name);
                     setIsOpen(false);
                   }}
                   className={`block w-full text-left px-6 py-4 rounded-2xl font-medium transition-all duration-300 ${
-                    isActive(item.name) 
-                      ? 'text-white bg-white/10' 
+                    isActive(item.name)
+                      ? 'text-white bg-white/10'
                       : 'text-white/70 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
-
-              <div className="pt-4">
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    handleNavigation('/contact', 'Contact');
-                  }}
-                  className="group w-full relative px-6 py-4 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
-                >
-                  <div className="relative flex items-center justify-center space-x-2">
-                    <span>BOOK DEMO</span>
-                  </div>
-                </button>
-              </div>
             </div>
           </div>
+
         </div>
       </div>
     </nav>

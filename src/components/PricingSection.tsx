@@ -60,34 +60,31 @@ export default function PricingSection() {
       <div className="mx-auto max-w-6xl px-4 md:px-8 py-16 md:py-24">
         {/* Heading */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-          <h1
-  className="text-4xl md:text-5xl font-bold text-[#fafafa]  mb-6"
-  style={{ fontFamily: "Playfair Display" }}
+          {/* <h1
+  className="text-4xl md:text-5xl font-normal text-[#fafafa]  mb-6"
+  style={{ fontFamily: "serif" }}
 >
   PRICING
-</h1>
+</h1> */}
 
-<h3
-  className="text-2xl sm:text-4xl md:text-5xl text-center font-light mb-6 font-roboto"
->
-  <ShinyText
-    text="Affordable"
-    disabled={false}
-    speed={2}
-    className="hero-text-gradient
+          <h3 className="text-2xl sm:text-4xl md:text-5xl text-center font-light mb-6 font-serif">
+            <ShinyText
+              text="Affordable"
+              disabled={false}
+              speed={2}
+              className="hero-text-gradient
  bg-clip-text animate-gradient inline-block"
-  />{" "}
-  plans to unlock <br className="hidden md:block" />{" "}
-  <ShinyText
-    text="premium"
-    disabled={false}
-    speed={2}
-    className="hero-text-gradient
+            />{" "}
+            plans to unlock <br className="hidden md:block" />{" "}
+            <ShinyText
+              text="premium"
+              disabled={false}
+              speed={2}
+              className="hero-text-gradient
 bg-clip-text animate-gradient inline-block"
-  />{" "}
-  content and features
-</h3>
-
+            />{" "}
+            content and features
+          </h3>
 
           <p className="text-base md:text-lg text-gray-400 text-center max-w-2xl mb-12">
             Whether you're looking for one-time access or ongoing benefits, we
@@ -95,10 +92,10 @@ bg-clip-text animate-gradient inline-block"
           </p>
 
           {/* Toggle Switch */}
-          <div className="relative flex items-center bg-[#1e1e2e] border border-[#f0ff8b] rounded-full mb-12">
+          <div className="relative flex items-center bg-[#1e1e2e] border border-[#8caac8] rounded-full mb-12">
             {/* Sliding Indicator */}
             <motion.div
-              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[#f0ff8b]"
+              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[#8caac8]"
               initial={false}
               animate={{ x: isAnnual ? "100%" : "0%" }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -133,7 +130,7 @@ bg-clip-text animate-gradient inline-block"
             title="Light"
             price={pricing.light}
             features={features.light}
-            color="bg-[#374a34]"
+            color="bg-[#000000]"
           />
 
           {/* Pro */}
@@ -141,7 +138,7 @@ bg-clip-text animate-gradient inline-block"
             title="Pro"
             price={pricing.pro}
             features={features.pro}
-            color="bg-[#451930]"
+            color="bg-[#000000]"
           />
 
           {/* Enterprise */}
@@ -149,7 +146,7 @@ bg-clip-text animate-gradient inline-block"
             title="Enterprise"
             price={pricing.enterprise}
             features={features.basic}
-            color="bg-[#202633]"
+            color="bg-[#000000]"
           />
         </div>
       </div>
@@ -172,7 +169,7 @@ function Card({
   return (
     <div className="group relative md:col-span-2 lg:col-span-1 h-[360px]">
       {/* Default view */}
-      <div className="absolute inset-0 bg-[#f0ff8b] border border-transparent rounded-3xl pl-8 pr-6 pt-8 pb-6 flex flex-col transition-all duration-500 ease-out transform group-hover:opacity-0">
+      <div className="absolute inset-0 bg-[#8caac8] border border-transparent rounded-3xl pl-8 pr-6 pt-8 pb-6 flex flex-col transition-all duration-500 ease-out transform group-hover:opacity-0">
         <span className="inline-flex w-fit items-center rounded-full bg-transparent border border-black text-black px-4 py-2 text-xs font-medium mb-8">
           {title}
         </span>
@@ -201,8 +198,8 @@ function Card({
       </div>
 
       {/* Hover view */}
-      <div className="absolute inset-0 bg-[#202633] border border-[#f0ff8b] rounded-3xl pl-8 pr-6 pt-8 pb-6 flex flex-col opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">
-        <span className="inline-flex w-fit items-center rounded-full border border-lime-300 text-lime-400 px-4 py-2 text-xs font-medium mb-8">
+      <div className="absolute inset-0 bg-[#000000] border border-[#8caac8] rounded-3xl pl-8 pr-6 pt-8 pb-6 flex flex-col opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">
+        <span className="inline-flex w-fit items-center rounded-full border border-[#8caac8] text-[#8caac8] px-4 py-2 text-xs font-medium mb-8">
           {title}
         </span>
 
@@ -224,7 +221,7 @@ function Card({
         </p>
 
         <div className="mt-auto flex justify-end">
-          <button className="w-12 h-12 rounded-full border border-lime-300 flex items-center justify-center transition-all duration-300">
+          <button className="w-12 h-12 rounded-full border border-[#8caac8] flex items-center justify-center transition-all duration-300">
             <ArrowIcon className="w-5 h-5" />
           </button>
         </div>

@@ -23,6 +23,7 @@ import SalonsSpa from "./pages/SalonsSpa";
 import RealEstateAgents from "./pages/RealEstateAgents";
 import TherapistsCounselors from "./pages/TherapistsCounselors";
 import NotFound from "./pages/NotFound";
+import ServiceDetail from "./pages/ServiceDetail";
 
 const queryClient = new QueryClient();
 
@@ -46,19 +47,12 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/insurance" element={<Insurance />} />
-            <Route path="/botox-skincare" element={<BotoxSkinCare />} />
-            <Route path="/clinics-dentist" element={<ClinicsDentist />} />
-            <Route path="/gym-health-coach" element={<GymHealthCoach />} />
-            <Route path="/business-consultation" element={<BusinessConsultation />} />
-            <Route path="/it-saas" element={<ITSaaS />} />
-            <Route path="/salons-spa" element={<SalonsSpa />} />
-            <Route path="/real-estate-agents" element={<RealEstateAgents />} />
-            <Route path="/therapists-counselors" element={<TherapistsCounselors />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

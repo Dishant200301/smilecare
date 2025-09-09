@@ -1,9 +1,9 @@
 // src/components/Services.tsx
-import React, { useRef, useEffect, useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import ShinyText from "./ShinyText";
 
+// Dummy services data
 const services = [
   {
     imageUrl:
@@ -12,7 +12,7 @@ const services = [
     title: "Botox & Skin Care",
     description:
       "AI-powered appointment booking and customer engagement for beauty clinics",
-    link: "/botox-skincare",
+    link: "/services/botox-skincare",
   },
   {
     imageUrl:
@@ -21,7 +21,7 @@ const services = [
     title: "Clinics and Dentist",
     description:
       "Automated patient management and appointment scheduling systems",
-    link: "/clinics-dentist",
+    link: "/services/clinics-dentist",
   },
   {
     imageUrl:
@@ -29,7 +29,7 @@ const services = [
     category: "Fitness",
     title: "Gym & Health Coach",
     description: "Member management and fitness consultation automation",
-    link: "/gym-health-coach",
+    link: "/services/gym-health-coach",
   },
   {
     imageUrl:
@@ -38,7 +38,7 @@ const services = [
     title: "Business Consultation",
     description:
       "Professional consulting services with AI-driven client management",
-    link: "/business-consultation",
+    link: "/services/business-consultation",
   },
   {
     imageUrl:
@@ -47,7 +47,7 @@ const services = [
     title: "IT & SAAS Services",
     description:
       "Technology solutions with automated customer support and onboarding",
-    link: "/it-saas",
+    link: "/services/it-saas",
   },
   {
     imageUrl:
@@ -56,7 +56,7 @@ const services = [
     title: "Salons & Spa",
     description:
       "Beauty service automation with smart booking and customer care",
-    link: "/salons-spa",
+    link: "/services/salons-spa",
   },
 ];
 
@@ -64,48 +64,6 @@ type ServicesProps = {
   limit?: number;
 };
 
-// Tilt Card
-const TiltCard: React.FC<{ children: React.ReactNode; isMobile: boolean }> = ({
-  children,
-  isMobile,
-}) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current || isMobile) return;
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current || isMobile) return;
-    cardRef.current.style.transform =
-      "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transformStyle: "preserve-3d",
-        transition: "transform 0.3s ease-out",
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-// Main Services
 const Services: React.FC<ServicesProps> = ({ limit }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -118,33 +76,14 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
 
   const visibleServices = limit ? services.slice(0, limit) : services;
 
-  const categoryColors: Record<string, string> = {
-    Beauty: "bg-pink-500/20 text-pink-300 border-pink-500/30",
-    Healthcare: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    Fitness: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-    Consulting: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-    Technology: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-    Development: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-    Design: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-    Marketing: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    Infrastructure: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-    Analytics: "bg-pink-500/20 text-pink-300 border-pink-500/30",
-  };
-
   return (
     <div className="min-h-screen bg-black text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-cyan-400" />
-            <span className="text-cyan-400 font-semibold uppercase tracking-wide text-sm">
-              What We Offer
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-extralight bg-[#fafafa] bg-clip-text  mb-6 font-playfair">
-            Our Premium {" "}
-            <ShinyText text="Services" className="hero-text-gradient"/>
+          <h1 className="text-4xl md:text-5xl font-extralight bg-[#fafafa] bg-clip-text mb-6 font-playfair">
+            Our Premium{" "}
+            <ShinyText text="Services" className="hero-text-gradient" />
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive range of digital solutions designed to
@@ -153,58 +92,53 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
         </div>
 
         {/* 🔁 Smooth Infinite Scroll Container */}
-        <div className="overflow-hidden relative py-8">
-          <div className="flex gap-8 w-max animate-scroll">
-            {[...visibleServices, ...visibleServices].map((service, index) => (
-              <div key={index} className="w-[350px] flex-shrink-0 snap-start">
-                <TiltCard isMobile={isMobile}>
-                  <a
-                    href={service.link}
-                    className="group relative block bg-gray-900/50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-cyan-500/30"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={service.imageUrl}
-                        alt={service.title}
-                        className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
-                      />
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" /> */}
-                      <div className="absolute top-4 left-4">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-medium border backdrop-blur-sm ${
-                            categoryColors[service.category] ||
-                            categoryColors.Development
-                          }`}
-                        >
-                          {service.category}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-300 leading-relaxed mb-6">
-                        {service.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-2 text-cyan-400 font-semibold group-hover:gap-3 transition-all duration-300">
-                          <span>Learn More</span>
-                          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </span>
-                        <div className="w-2 h-2 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                    </div>
-                  </a>
-                </TiltCard>
-              </div>
-            ))}
+        <div className="overflow-hidden relative py-8 ">
+                  {/* Side gradient fade */}
+        <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
+        <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
+
+  <div className="flex gap-8 w-max animate-scroll">
+    {[...visibleServices, ...visibleServices].map((service, index) => (
+      <div key={index} className="w-[350px] flex-shrink-0 snap-start">
+        <a
+          href={service.link}
+          className="group relative block bg-gray-900/50 backdrop-blur-sm rounded-3xl 
+                     overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 
+                     transition-all duration-150 ease-in-out transform  
+                     border border-gray-800 hover:border-cyan-500/30"
+        >
+          <div className="relative overflow-hidden">
+            <img
+              src={service.imageUrl}
+              alt={service.title}
+              className="w-full h-48 object-cover transition-transform duration-200 ease-in-out
+                         group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+            />
           </div>
-        </div>
+          <div className="p-6 transition-colors duration-150 ease-in-out">
+            <h3 className="text-xl font-bold text-white mb-3 
+                           group-hover:text-[#8caac8] transition-colors duration-150 ease-in-out">
+              {service.title}
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              {service.description}
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="inline-flex items-center gap-2 text-[#8caac8] 
+                               font-semibold group-hover:gap-3 transition-all duration-150 ease-in-out">
+                <span>Learn More</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-150 ease-in-out group-hover:translate-x-1" />
+              </span>
+              <div className="w-2 h-2 rounded-full bg-[#8caac8] opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-150 ease-in-out" />
+            </div>
+          </div>
+        </a>
+      </div>
+    ))}
+  </div>
+</div>
+
 
         {/* Explore Button */}
         {limit && (
@@ -213,18 +147,18 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
               href="/services"
               className="group relative inline-flex items-center justify-between border border-gray-500 
                        text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
-                       transition-all duration-500 ease-in-out"
+                       transition-all duration-200 ease-out"
             >
               <span
                 className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                         w-9 h-9 rounded-full bg-[#f0ff8b] text-black z-10 
-                         transition-transform duration-500 ease-in-out group-hover:scale-[45]"
+                         w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+                         transition-transform duration-300 ease-out group-hover:scale-[45]"
               />
-              <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
+              <span className="relative z-20 transition-colors duration-200 ease-out group-hover:text-black">
                 Explore All Services
               </span>
               <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black duration-500 ease-in-out group-hover:text-black" />
+                <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
               </span>
             </a>
           </div>

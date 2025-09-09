@@ -15,7 +15,7 @@ const services = [
     title: "Botox & Skin Care",
     description:
       "AI-powered appointment booking and customer engagement for beauty clinics",
-    link: "/botox-skincare",
+    link: "/services/botox-skincare",
   },
   {
     imageUrl:
@@ -24,7 +24,7 @@ const services = [
     title: "Clinics and Dentist",
     description:
       "Automated patient management and appointment scheduling systems",
-    link: "/clinics-dentist",
+    link: "/services/clinics-dentist",
   },
   {
     imageUrl:
@@ -32,7 +32,7 @@ const services = [
     category: "Fitness",
     title: "Gym & Health Coach",
     description: "Member management and fitness consultation automation",
-    link: "/gym-health-coach",
+    link: "/services/gym-health-coach",
   },
   {
     imageUrl:
@@ -41,7 +41,7 @@ const services = [
     title: "Business Consultation",
     description:
       "Professional consulting services with AI-driven client management",
-    link: "/business-consultation",
+    link: "/services/business-consultation",
   },
   {
     imageUrl:
@@ -50,7 +50,7 @@ const services = [
     title: "IT & SAAS Services",
     description:
       "Technology solutions with automated customer support and onboarding",
-    link: "/it-saas",
+    link: "/services/it-saas",
   },
   {
     imageUrl:
@@ -59,7 +59,7 @@ const services = [
     title: "Salons & Spa",
     description:
       "Beauty service automation with smart booking and customer care",
-    link: "/salons-spa",
+    link: "/services/salons-spa",
   },
   {
     imageUrl:
@@ -67,7 +67,7 @@ const services = [
     category: "Real Estate",
     title: "Real Estate Agents",
     description: "Property showing automation and lead management systems",
-    link: "/real-estate-agents",
+    link: "/services/real-estate-agents",
   },
   {
     imageUrl:
@@ -76,7 +76,7 @@ const services = [
     title: "Therapists & Counselors",
     description:
       "Mental health practice automation with secure patient communications",
-    link: "/therapists-counselors",
+    link: "/services/therapists-counselors",
   },
   {
     imageUrl:
@@ -85,7 +85,7 @@ const services = [
     title: "Insurance & Financial",
     description:
       "Financial services automation with claim processing and client management",
-    link: "/insurance-financial",
+    link: "/services/insurance-financial",
   },
 ];
 
@@ -165,29 +165,11 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="absolute inset-0 z-0">
 
-        <div className="absolute inset-0 w-full h-full">
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#00ffff"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="w-full h-full"
-          />
-        </div>
+        
       </div>
 
         <div className="text-center mb-16 pt-[150px]">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-cyan-400" />
-            <span className="text-cyan-400 font-semibold px-4 py-2 bg-white/5 border border-white/10 rounded-full tracking-wide text-sm">
-              What We Offer
-            </span>
-          </div>
+         
           <h1
   className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6"
   style={{ fontFamily: "Playfair Display" }}
@@ -195,7 +177,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
   Our Premium{" "}
   <ShinyText
     text="Services"
-    className="bg-gradient-to-r from-[#F472B6] via-[#C084FC] to-[#818CF8] bg-clip-text text-transparent"
+    className="hero-text-gradient bg-clip-text text-transparent"
   />
 </h1>
 
@@ -241,10 +223,10 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {visibleServices.map((service, i) => (
-            <TiltCard key={`${service.category}-${i}`}>
+            // <TiltCard key={`${service.category}-${i}`}>
               <a
                 href={service.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-cyan-500/30"
+                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform border border-gray-800 hover:border-cyan-500/30"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -252,26 +234,26 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                     alt={service.title}
                     className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
                   />
-                  <div className="absolute top-4 left-4">
+                  {/* <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 rounded-full text-xs font-medium border backdrop-blur-sm bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
                       {service.category}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#8caac8] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <div className="flex items-center gap-2 text-cyan-400 font-semibold transition-all duration-300">
+                  <div className="flex items-center gap-2 text-[#8caac8] font-semibold transition-all duration-300">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </a>
-            </TiltCard>
+            // </TiltCard>
           ))}
         </div>
 

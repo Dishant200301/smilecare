@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import LightRays from "./LightRays";
 import ShinyText from "./ShinyText";
+import Galaxy from "./Galaxy";
+import DotGrid from "./Theme/DotGrid";
 
 const HeroSection: React.FC = () => {
   return (
@@ -11,19 +13,18 @@ const HeroSection: React.FC = () => {
         {/* GradientBlinds component as background */}
 
         <div className="absolute inset-0 w-full h-full">
-          {" "}
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#00ffff"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="w-full h-full"
-          />
+          <Galaxy className="absolute inset-0" />
+          {/* <DotGrid
+            dotSize={5}
+            gap={15}
+            baseColor="#271E37"
+            activeColor="#5227FF"
+    proximity={120}
+    shockRadius={250}
+    shockStrength={5}
+    resistance={750}
+    returnDuration={1.5}
+  /> */}
         </div>
         
         {/* Existing Background glow effects, now layered on top of GradientBlinds */}
@@ -34,13 +35,13 @@ const HeroSection: React.FC = () => {
         {/* Small intro text */}
         <div className="flex items-center justify-center space-x-2 mb-6 mt-10  ">
           {/* <Sparkles className="w-5 h-5 text-primary" /> */}
-          <span className="text-sm font-medium text-muted-foreground bg-transparent px-4 py-2 rounded-full border border-[#61615f]">
+          {/* <span className="text-sm font-medium text-muted-foreground bg-transparent px-4 py-2 rounded-full border border-[#61615f]">
             Get 24/7 AI Employee That
-          </span>
+          </span> */}
         </div>
 
        <h1
-  className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal uppercase tracking-wide mb-8 leading-tight autoShow"
+  className="text-4xl md:text-6xl lg:text-7xl font-playfair font-normal uppercase tracking-wide mb-8 leading-tight autoShow"
 >
   <ShinyText
     text="Automate"
@@ -81,7 +82,7 @@ const HeroSection: React.FC = () => {
           <button className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out">
             {/* Expanding circle background */}
             <span
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#f0ff8b] text-black z-10 
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
         transition-transform duration-700 ease-in-out group-hover:scale-[45]"
             />
 
@@ -95,7 +96,7 @@ const HeroSection: React.FC = () => {
 
             {/* Arrow icon */}
             <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-              <ArrowUpRight className="w-4 h-4 text-black duration-700 ease-in-out group-hover:text-black" />
+              <ArrowRight className="w-4 h-4 text-black duration-700 ease-in-out group-hover:text-black" />
             </span>
           </button>
 

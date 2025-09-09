@@ -30,8 +30,8 @@ const ScrollToTopButton: React.FC = () => {
         <button
           onClick={scrollToTop}
           className="fixed bottom-5 right-5 z-50 p-4 rounded-full 
-                     bg-gradient-to-r from-purple-600 to-pink-600 
-                     text-white shadow-lg hover:scale-110 
+                     bg-[#8caac8]
+                     text-black shadow-lg hover:scale-110 
                      transition-transform duration-300 flex items-center justify-center"
         >
           <ArrowUp className="w-5 h-5" />
