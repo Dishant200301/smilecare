@@ -13,15 +13,7 @@ import Pricing from "./pages/Pricing";
 import Solutions from "./pages/Solutions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Insurance from "./pages/Insurance";
-import BotoxSkinCare from "./pages/BotoxSkinCare";
-import ClinicsDentist from "./pages/ClinicsDentist";
-import GymHealthCoach from "./pages/GymHealthCoach";
-import BusinessConsultation from "./pages/BusinessConsultation";
-import ITSaaS from "./pages/ITSaaS";
-import SalonsSpa from "./pages/SalonsSpa";
-import RealEstateAgents from "./pages/RealEstateAgents";
-import TherapistsCounselors from "./pages/TherapistsCounselors";
+
 import NotFound from "./pages/NotFound";
 import ServiceDetail from "./pages/ServiceDetail";
 

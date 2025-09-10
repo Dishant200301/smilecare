@@ -75,11 +75,11 @@ const StatsSection = () => {
                 {/* Top Row */}
                 <div className="flex items-center justify-between mb-6">
                   <div
-                    className="relative p-3 rounded-xl border border-cyan-500/20 bg-[140, 170, 200]
-                    before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-tr before:from-cyan-400/30 before:to-transparent 
+                    className="relative p-3 rounded-xl border border-cyan-500/20 bg-[#8caac8]
+                    before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-tr before:from-cyan-400/30 before:to-transparent 
                     before:opacity-0 before:transition-opacity before:duration-200 group-hover:before:opacity-100"
                   >
-                    <stat.icon className="w-6 h-6 text-[#8caac8] transition-colors duration-200 group-hover:text-[#8caac8]" />
+                    <stat.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-black" />
                   </div>
                   <div className="text-right">
                     <div className="text-4xl font-bold text-transparent bg-clip-text bg-[#8caac8] animate-pulse-slow">
