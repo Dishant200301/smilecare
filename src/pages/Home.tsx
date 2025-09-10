@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import StatsSection from '@/components/StatsSection';
-import Services from '@/components/ServicesSection'; // ✅ Use Services.tsx directly
+import Services from '@/components/ServicesSection'; 
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet-async';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
