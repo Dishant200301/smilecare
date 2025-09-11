@@ -166,10 +166,10 @@ const TestimonialSection: React.FC = () => {
     <section className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative gap-[60px] font-sans">
       {/* Title */}
       <div className="flex flex-col items-center gap-6 text-center w-full">
-        <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair ">
+        <h1 className="text-4xl md:text-5xl font-extralight bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair ">
           Our <span className="hero-text-gradient ">Clients</span>
         </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-4 leading-relaxed">
           Protect your assets and transactions with our advanced encryption
           technology and decentralized infrastructure.
         </p>

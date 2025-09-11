@@ -52,9 +52,12 @@ const ServiceDetail = () => {
           <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-extralight font-playfair mb-6">
-                <span className="hero-text-gradient">{title}</span> <br />{subtitle}
+                <span className="hero-text-gradient">{title}</span> <br />
+                {subtitle}
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">{heroDescription}</p>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                {heroDescription}
+              </p>
               <a
                 href="/contact"
                 className="group relative inline-flex items-center justify-between border border-gray-500 
@@ -89,100 +92,97 @@ const ServiceDetail = () => {
         <section className="py-20 px-5">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="mb-10 text-4xl md:text-5xl font-extralight font-playfair text-white text-center">
-            Explore
-            <span className="hero-text-gradient"> Features</span>
+              Explore
+              <span className="hero-text-gradient"> Features</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-  {features.map((f, i) => (
-    
-      <div
-        className="group relative bg-gray-900/50 backdrop-blur-sm 
+              {features.map((f, i) => (
+                <div
+                  className="group relative bg-gray-900/50 backdrop-blur-sm 
           rounded-3xl overflow-hidden shadow-xl 
           border border-gray-800 transition-all duration-300 ease-in-out 
           hover:shadow-2xl hover:shadow-cyan-500/20 
           hover:border-cyan-500/30"
-      >
-        {/* Feature Image */}
-        {f.imageUrl && (
-          <div className="relative overflow-hidden">
-            <img
-              src={f.imageUrl}
-              alt={f.title}
-              className="w-full h-48 object-cover transition-all duration-300 ease-in-out 
+                >
+                  {/* Feature Image */}
+                  {f.imageUrl && (
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={f.imageUrl}
+                        alt={f.title}
+                        className="w-full h-48 object-cover transition-all duration-300 ease-in-out 
                 filter grayscale group-hover:grayscale-0 group-hover:scale-105"
-            />
-          </div>
-        )}
+                      />
+                    </div>
+                  )}
 
-        {/* Content */}
-        <div className="p-6 transition-colors duration-300 ease-in-out">
-          <div className="flex items-center mb-4">
-            <div className="p-2 bg-[#8caac8] rounded-md mr-4">
-              <f.icon className="w-6 h-6 text-black" />
-            </div>
-            <h3
-              className="text-lg font-bold text-white 
+                  {/* Content */}
+                  <div className="p-6 transition-colors duration-300 ease-in-out">
+                    <div className="flex items-center mb-4">
+                      <div className="p-2 bg-[#8caac8] rounded-md mr-4">
+                        <f.icon className="w-6 h-6 text-black" />
+                      </div>
+                      <h3
+                        className="text-lg font-bold text-white 
                 group-hover:text-[#8caac8] transition-colors duration-300 ease-in-out"
-            >
-              {f.title}
-            </h3>
-          </div>
-          <p className="text-gray-300 leading-relaxed">{f.description}</p>
-        </div>
-      </div>
-    
-  ))}
-</div>
+                      >
+                        {f.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed">
+                      {f.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-      {/* Benefits + Metrics - Dark Theme */}
-<section className="py-24 px-6 bg-black">
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
-    
-    {/* Benefits */}
-    <div>
-    <h2 className="text-4xl font-light mb-8 font-playfair">
-    Considerable <span className="hero-text-gradient">Benefits</span>
-</h2>
+        {/* Benefits + Metrics - Dark Theme */}
+        <section className="py-24 px-[20px] sm:px-[30px] md:px-[60px] lg:px-[160px] bg-black">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            {/* Benefits */}
+            <div>
+              <h2 className="text-4xl font-light mb-8 font-playfair">
+                Considerable{" "}
+                <span className="hero-text-gradient">Benefits</span>
+              </h2>
 
-      <div className="grid sm:grid-cols-2 gap-6">
-        {benefits.map((b, i) => (
-          <div
-            key={i}
-            className="flex items-start gap-3 p-4 rounded-2xl bg-zinc-900 shadow-sm hover:shadow-lg transition-shadow"
-          >
-            <CheckCircle className="w-6 h-6 text-[#8caac8] flex-shrink-0 mt-1" />
-            <span className="text-gray-300">{b}</span>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {benefits.map((b, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-4 rounded-2xl bg-zinc-900 "
+                  >
+                    <CheckCircle className="w-6 h-6 text-[#8caac8] flex-shrink-0 mt-1" />
+                    <span className="text-gray-300">{b}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Metrics */}
+            <div className="bg-zinc-900 shadow-bottom rounded-2xl p-8 hover:shadow-md transition-shadow shadow-[#8caac8] hover:shadow-[#8caac8]">
+              <h3 className="text-3xl font-light font-playfair mb-8 text-white">
+                Considerable <span className="hero-text-gradient">Metrics</span>
+              </h3>
+              <div className="space-y-6">
+                {metrics.map((m, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none last:pb-0 "
+                  >
+                    <span className="text-white">{m.label}</span>
+                    <span className="text-2xl font-playfair font-light text-[#8caac8]">
+                      {m.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Metrics */}
-    <div className="bg-zinc-900 shadow-md rounded-2xl p-8">
-      <h3 className="text-3xl font-light font-playfair mb-8 text-white">
-      Considerable <span className="hero-text-gradient">Metrics</span>
-      </h3>
-      <div className="space-y-6">
-        {metrics.map((m, i) => (
-          <div
-            key={i}
-            className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none last:pb-0"
-          >
-            <span className="text-white">{m.label}</span>
-            <span className="text-2xl font-playfair font-light text-[#8caac8]">
-              {m.value}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
+        </section>
 
         {/* CTA */}
         <section className="py-20 text-center">
@@ -190,11 +190,10 @@ const ServiceDetail = () => {
             {CtaIcon && (
               <CtaIcon className="w-16 h-16 text-white mx-auto mb-6" />
             )}
-            <HighlightedTitle 
-              text={ctaTitle} 
-              highlight={ctaHighlight || ""} 
-            />
-            <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto group-hover:text-gray-300 transition-colors duration-300 ">{ctaDescription}</p>
+            <HighlightedTitle text={ctaTitle} highlight={ctaHighlight || ""} />
+            <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto group-hover:text-gray-300 transition-colors duration-300 ">
+              {ctaDescription}
+            </p>
             <a
               href="/services"
               className="group relative inline-flex items-center justify-between border border-gray-500 

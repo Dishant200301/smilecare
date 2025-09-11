@@ -4,6 +4,7 @@ import ShinyText from "../components/ShinyText";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 // Features data
 const features = {
@@ -152,6 +153,7 @@ export default function PricingSection() {
         </div>
       </div>
       <Footer />
+      <ScrollToTopButton />
     </section>
   );
 }

@@ -165,6 +165,14 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "infinite-scroll-ltr": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "infinite-scroll-rtl": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
         
       },
       animation: {
@@ -181,6 +189,8 @@ const config: Config = {
         "infinite-scroll-reverse":
           "infinite-scroll-reverse var(--duration) linear infinite",
         scroll: "scroll 30s linear infinite",
+        "infinite-scroll-ltr": "infinite-scroll-ltr 30s linear infinite",
+        "infinite-scroll-rtl": "infinite-scroll-rtl 30s linear infinite",
       },
     },
   },

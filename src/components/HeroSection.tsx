@@ -1,109 +1,64 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import LightRays from "./LightRays";
-import ShinyText from "./ShinyText";
+import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import Galaxy from "./Galaxy";
-import DotGrid from "./Theme/DotGrid";
 
 const HeroSection: React.FC = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background effects container */}
-      <div className="absolute inset-0 z-0">
-        {/* GradientBlinds component as background */}
+  const [isLoaded, setIsLoaded] = useState(false);
 
-        <div className="absolute inset-0 w-full h-full">
-          <Galaxy className="absolute inset-0" />
-          {/* <DotGrid
-            dotSize={5}
-            gap={15}
-            baseColor="#271E37"
-            activeColor="#5227FF"
-    proximity={120}
-    shockRadius={250}
-    shockStrength={5}
-    resistance={750}
-    returnDuration={1.5}
-  /> */}
-        </div>
-        
-        {/* Existing Background glow effects, now layered on top of GradientBlinds */}
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 10);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Fixed Galaxy background */}
+      <div className="absolute inset-0 w-full h-full bg-black z-0">
+          {/* Only render Galaxy after component is loaded to prevent flash */}
+          <Galaxy className="absolute inset-0 z-0" />
       </div>
 
-      {/* Content of the Hero Section, placed on top with z-index */}
+      {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-[100px] sm:px-6 lg:px-8 text-center">
-        {/* Small intro text */}
-        <div className="flex items-center justify-center space-x-2 mb-6 mt-10  ">
-          {/* <Sparkles className="w-5 h-5 text-primary" /> */}
-          {/* <span className="text-sm font-medium text-muted-foreground bg-transparent px-4 py-2 rounded-full border border-[#61615f]">
-            Get 24/7 AI Employee That
-          </span> */}
-        </div>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-normal uppercase tracking-wide mb-8 leading-tight">
+          <span className="hero-text-gradient text-[#8caac8] inline-block">
+            Automate{" "}
+          </span>
+          {" "}
+          Your Booking
+          <br />
+          And{" "}
+          <span className="hero-text-gradient text-[#8caac8] inline-block">
+            {" "}
+            Maximize
+          </span>
+          {" "}
+          Your Profit
+        </h1>
 
-       <h1
-  className="text-4xl md:text-6xl lg:text-7xl font-playfair font-normal uppercase tracking-wide mb-8 leading-tight autoShow"
->
-  <ShinyText
-    text="Automate"
-    disabled={false}
-    speed={2}
-    className="hero-text-gradient bg-clip-text animate-gradient inline-block "
-  />{" "}
-  Your Booking
-  <br />
-  And{" "}
-  <ShinyText
-    text="Maximize"
-    disabled={false}
-    speed={2}
-    className="hero-text-gradientbg-clip-text animate-gradient inline-block"
-  />{" "}
-  Your Profit
-</h1>
-
-
-
-
-        {/* Enhanced subtitle */}
         <p
-          className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed animate-none"
-          style={{ animationDelay: "0.4s", fontFamily: "Figtree" }}
+          className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed"
+          style={{ fontFamily: "Figtree" }}
         >
-          We automate your entire business journey from leads, outreach and
-          reminders that save your time and boosting revenue.
+          We automate your entire business journey from leads, outreach, and
+          reminders that save time and boost revenue.
         </p>
 
-        {/* Enhanced CTA Buttons with glassmorphism */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
-          style={{ animationDelay: "0.6s" }}
-        >
-          {/* Primary Button - Framer Style */}
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <button className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out">
-            {/* Expanding circle background */}
-            <span
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
-        transition-transform duration-700 ease-in-out group-hover:scale-[45]"
-            />
-
-            {/* Text */}
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
             <span
               className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
-              style={{ fontFamily: "inter", animationDelay: "0.2s" }}
+              style={{ fontFamily: "inter" }}
             >
               SCHEDULE FREE MEETING
             </span>
-
-            {/* Arrow icon */}
             <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-              <ArrowRight className="w-4 h-4 text-black duration-700 ease-in-out group-hover:text-black" />
+              <ArrowRight className="w-4 h-4 text-black" />
             </span>
           </button>
-
-          {/* Secondary Button */}
-          {/* <button className="rounded-full border border-white/20 bg-black/30 backdrop-blur-xl text-white px-8 py-4 font-semibold transition-all duration-300 hover:bg-black/50 hover:border-white/30 hover:scale-105">
-        View Demo
-      </button> */}
         </div>
       </div>
     </section>

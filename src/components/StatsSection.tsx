@@ -3,44 +3,44 @@ import { TrendingUp, Calendar, Users } from "lucide-react";
 import ShinyText from "./ShinyText";
 import Tilt from "react-parallax-tilt";
 
-const StatsSection = () => {
-  const stats = [
-    {
-      icon: TrendingUp,
-      number: "1080",
-      title: "Interested Leads",
-      description: "Send Auto Reminders To Your Customers At Right Time",
-      growth: "+42% increase",
-      subtitle: "More engaged potential patients today",
-    },
-    {
-      icon: Calendar,
-      number: "360",
-      title: "Book Consultation",
-      description: "Send Auto Reminders To Your Customers At Right Time",
-      growth: "+42% increase",
-      subtitle: "Higher consultation booking rate today",
-    },
-    {
-      icon: Users,
-      number: "240",
-      title: "Clinic Visitors",
-      description: "Send Auto Reminders To Your Customers At Right Time",
-      growth: "+30% increase",
-      subtitle: "More patients showing up to clinic today",
-    },
-  ];
+// Yeh ab component ke bahar hai, is wajah se reload ya re-render par bhi same rahega
+const stats = [
+  {
+    icon: TrendingUp,
+    number: "1080",
+    title: "Interested Leads",
+    description: "Send Auto Reminders To Your Customers At Right Time",
+    growth: "+42% increase",
+    subtitle: "More engaged potential patients today",
+  },
+  {
+    icon: Calendar,
+    number: "360",
+    title: "Book Consultation",
+    description: "Send Auto Reminders To Your Customers At Right Time",
+    growth: "+42% increase",
+    subtitle: "Higher consultation booking rate today",
+  },
+  {
+    icon: Users,
+    number: "240",
+    title: "Clinic Visitors",
+    description: "Send Auto Reminders To Your Customers At Right Time",
+    growth: "+30% increase",
+    subtitle: "More patients showing up to clinic today",
+  },
+];
 
+const StatsSection = () => {
   return (
-    <div className="bg-black relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extralight font-playfair mb-6">
               Proven Results{" "}
-              {" "}
-              That Speak {" "}
+              That Speak{" "}
               <ShinyText
                 text="For Themselves"
                 disabled={false}

@@ -19,9 +19,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import LightRays from "@/components/LightRays";
 import { Helmet } from "react-helmet-async";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
 import CountUp from "react-countup";
 import ShinyText from "@/components/ShinyText";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 // Animation Variants
 const fadeInUp = (delay = 0) => ({
@@ -387,7 +387,7 @@ const About = () => {
       </main>
 
       <Footer />
-      <ScrollToTopButton />
+      <ScrollToTopButton/>
     </div>
   );
 };

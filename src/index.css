@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent white flash on page load */
+html {
+  background-color: #000000 !important;
+}
+
+body {
+  background-color: #000000 !important;
+  margin: 0;
+  padding: 0;
+}
+
 /* Apply global styles from Framer's root */
 html,
 body {

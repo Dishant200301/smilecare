@@ -169,7 +169,7 @@ void main() {
 }
 `;
 
-interface GalaxyProps {
+interface GalaxyProps extends React.HTMLAttributes<HTMLDivElement> {
   focal?: [number, number];
   rotation?: [number, number];
   starSpeed?: number;
@@ -225,7 +225,7 @@ export default function Galaxy({
     if (transparent) {
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-      gl.clearColor(0, 0, 0, 0);
+      gl.clearColor(1,1,1,1);
     } else {
       gl.clearColor(0, 0, 0, 1);
     }

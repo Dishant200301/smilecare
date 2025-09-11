@@ -57,7 +57,7 @@ export default function PricingSection() {
 
   return (
     <section className="relative w-full bg-black text-white">
-      <div className="mx-auto max-w-6xl px-4 md:px-8 py-12 md:py-12">
+      <div className="mx-auto max-w-6xl px-4 md:px-8 py-12 md:py-20">
         {/* Heading */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
           {/* <h1

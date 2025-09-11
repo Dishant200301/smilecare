@@ -14,7 +14,7 @@ import CTASection from '@/components/CTASection';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Helmet>
         <title>TryzenIQ</title>
         <meta name="description" content="Automate your business with AI: leads, outreach, reminders, and scheduling. TryzenIQ helps boost revenue and save time." />
@@ -27,11 +27,11 @@ const Home = () => {
       <main>
         <HeroSection />
         <StatsSection />
-        <Services limit={6} /> {/* ✅ Works now */}
+        <Services limit={6} />
       <PricingSection/>
       {/* <TestimonialsSection/> */}
       <TestimonialSection/>
-      <FAQSection/>
+      <FAQSection/> 
       {/* <CTASection/> */}
       </main>
       <Footer />
