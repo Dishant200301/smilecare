@@ -76,6 +76,7 @@ import {
       ctaTitle: "Transform Your Beauty Clinic Today",
       ctaDescription: "Join hundreds of clinics already using our automation platform.",
       ctaButtonLabel: "Start Free Trial",
+      ctaHighlight: "Beauty Clinic",
     },
   
     "clinics-dentist": {
@@ -134,6 +135,7 @@ import {
       ctaTitle: "Modernize Your Medical Practice",
       ctaDescription: "Transform patient care with intelligent automation.",
       ctaButtonLabel: "Schedule Demo",
+      ctaHighlight: "Medical Practice",
     },
   
     "gym-health-coach": {
@@ -192,6 +194,7 @@ import {
       ctaTitle: "Supercharge Your Fitness Business",
       ctaDescription: "Help more clients achieve their goals with automation.",
       ctaButtonLabel: "Get Started",
+      ctaHighlight: "Fitness Business",
     },
   
     "business-consultation": {
@@ -251,6 +254,7 @@ import {
       ctaTitle: "Transform Your Consulting Practice",
       ctaDescription: "Scale your practice with AI-driven automation.",
       ctaButtonLabel: "Schedule a Demo",
+      ctaHighlight: "Consulting Practice",
     },
   
     "it-saas": {
@@ -309,6 +313,7 @@ import {
       ctaTitle: "Elevate Your Tech Services",
       ctaDescription: "Deliver exceptional IT support with automation.",
       ctaButtonLabel: "Start Trial",
+      ctaHighlight: "Tech Services",
     },
   
     "salons-spa": {
@@ -367,6 +372,7 @@ import {
       ctaTitle: "Beautify Your Business Operations",
       ctaDescription: "Create amazing experiences with smart automation.",
       ctaButtonLabel: "Book Demo",
+      ctaHighlight: "Business Operations",
     },
   
     "real-estate-agents": {
@@ -425,6 +431,7 @@ import {
       ctaTitle: "Accelerate Your Real Estate Success",
       ctaDescription: "Close more deals with intelligent automation.",
       ctaButtonLabel: "Get Started",
+      ctaHighlight: "Real Estate",
     },
   
     "therapists-counselors": {
@@ -483,6 +490,7 @@ import {
       ctaTitle: "Enhance Your Mental Health Practice",
       ctaDescription: "Support more patients with secure automation.",
       ctaButtonLabel: "Learn More",
+      ctaHighlight: "Mental Health",
     },
   
     "insurance-financial": {
@@ -541,6 +549,7 @@ import {
       ctaTitle: "Modernize Your Financial Services",
       ctaDescription: "Deliver faster, more accurate financial solutions.",
       ctaButtonLabel: "Request Demo",
+      ctaHighlight: "Financial Services",
     },
   };
   

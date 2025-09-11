@@ -165,6 +165,7 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

@@ -119,11 +119,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType }> = ({
   const { name, title, quote, avatar } = testimonial;
 
   return (
-    <div
-      className="relative flex flex-col justify-between p-6 h-auto min-h-[220px] w-[340px] rounded-2xl border border-white/10 overflow-hidden"
-     
-
-    >
+    <div className="relative flex flex-col justify-between p-6 h-auto min-h-[220px] w-[340px] rounded-2xl border border-white/10 overflow-hidden">
       {/* Grid Blur Overlay */}
       <div
         className="absolute inset-0 rounded-2xl pointer-events-none z-0"
@@ -167,23 +163,23 @@ const TestimonialSection: React.FC = () => {
   const duplicatedRow2 = [...testimonialsRow2, ...testimonialsRow2];
 
   return (
-    <section className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative gap-[60px] font-sans">
+    <section className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative gap-[60px] font-sans">
       {/* Title */}
       <div className="flex flex-col items-center gap-6 text-center w-full">
-        <h2 className="text-5xl font-bold leading-tight font-serif">
-          Our{" "}
-          <span className="bg-clip-text text-transparent bg-[#8caac8]">
-            Clients
-          </span>
-        </h2>
-        <p className="text-base text-gray-400 max-w-2xl">
+        <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair ">
+          Our <span className="hero-text-gradient ">Clients</span>
+        </h1>
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
           Protect your assets and transactions with our advanced encryption
           technology and decentralized infrastructure.
         </p>
       </div>
 
       {/* Rows */}
-      <div className="w-full relative overflow-hidden" style={{ height: "460px" }}>
+      <div
+        className="w-full relative overflow-hidden"
+        style={{ height: "460px" }}
+      >
         {/* Top Row (Right → Left) */}
         <section className="py-2 overflow-hidden">
           <ul className="flex w-fit items-center gap-6 animate-infinite-scroll-ltr">

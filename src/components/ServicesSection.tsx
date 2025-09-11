@@ -77,15 +77,15 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <div className="min-h-screen bg-black text-white py-20">
+    <div className="min-h-screen bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extralight bg-[#fafafa] bg-clip-text mb-6 font-playfair">
+          <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair">
             Our Premium{" "}
             <ShinyText text="Services" className="hero-text-gradient" />
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed ">
             Discover our comprehensive range of digital solutions designed to
             transform your business and drive growth in the modern world.
           </p>
@@ -149,12 +149,16 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
                        text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
                        transition-all duration-200 ease-out"
             >
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                         w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
-                         transition-transform duration-300 ease-out group-hover:scale-[45]"
-              />
-              <span className="relative z-20 transition-colors duration-200 ease-out group-hover:text-black">
+               <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+        transition-transform duration-700 ease-in-out group-hover:scale-[45]"
+            />
+
+            {/* Text */}
+            <span
+              className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
+              style={{ fontFamily: "inter", animationDelay: "0.2s" }}
+            >
                 Explore All Services
               </span>
               <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import ShinyText from "./ShinyText";
+import ShinyText from "../components/ShinyText";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 // Features data
 const features = {
@@ -57,33 +60,40 @@ export default function PricingSection() {
 
   return (
     <section className="relative w-full bg-black text-white">
-      <div className="mx-auto max-w-6xl px-4 md:px-8 py-12 md:py-12">
+    <Helmet>
+        <title>Pricing — TryzenIQ</title>
+        <meta
+          name="description"
+          content="Simple, transparent pricing for AI automation. Choose the plan that suits your business."
+        />
+      </Helmet>
+      <Navbar />
+      <div className="mx-auto  max-w-6xl px-4 md:px-8 py-16 md:py-24">
         {/* Heading */}
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
+        <div className="relative z-10 pt-[110px] max-w-7xl mx-auto flex flex-col items-center">
           {/* <h1
   className="text-4xl md:text-5xl font-normal text-[#fafafa]  mb-6"
   style={{ fontFamily: "serif" }}
 >
   PRICING
 </h1> */}
-
           <h1
-            className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair"
+            className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6 text-center"
             style={{ fontFamily: "Playfair Display" }}
           >
+            {" "}
             Transparent{" "}
             <ShinyText
               text="Pricing"
-              className="hero-text-gradient "
-            />
-          </h1>
-
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
-          Straightforward and transparent pricing designed to deliver real value, offering flexible options that adapt seamlessly to businesses of every size.
+              className="hero-text-gradient bg-clip-text text-transparent"
+            />{" "}
+          </h1>{" "}
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center">
+            {" "}
+            Straightforward and transparent pricing designed to deliver real value, offering flexible options that adapt seamlessly to businesses of every size.{" "}
           </p>
-
           {/* Toggle Switch */}
-          <div className="relative flex items-center bg-[#1e1e2e] border border-[#8caac8] rounded-full mb-12 mt-12">
+          <div className="relative flex items-center bg-[#1e1e2e] border border-[#8caac8] rounded-full mb-16 mt-16">
             {/* Sliding Indicator */}
             <motion.div
               className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[#8caac8]"
@@ -141,6 +151,7 @@ export default function PricingSection() {
           />
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

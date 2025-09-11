@@ -1,6 +1,7 @@
 // src/components/StatsSection.tsx
 import { TrendingUp, Calendar, Users } from "lucide-react";
 import ShinyText from "./ShinyText";
+import Tilt from "react-parallax-tilt";
 
 const StatsSection = () => {
   const stats = [
@@ -32,21 +33,16 @@ const StatsSection = () => {
 
   return (
     <div className="bg-black relative overflow-hidden">
-      <section className="py-20 relative">
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extralight font-serif mb-6">
-              Proven{" "}
+            <h2 className="text-4xl md:text-5xl font-extralight font-playfair mb-6">
+              Proven Results{" "}
+              {" "}
+              That Speak {" "}
               <ShinyText
-                text="Results"
-                disabled={false}
-                speed={2}
-                className="hero-text-gradient inline-block"
-              />{" "}
-              That Speak For{" "}
-              <ShinyText
-                text="Themselves"
+                text="For Themselves"
                 disabled={false}
                 speed={2}
                 className="hero-text-gradient inline-block"
@@ -62,53 +58,65 @@ const StatsSection = () => {
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
-              <div
+              <Tilt
                 key={index}
-                className="group relative rounded-2xl p-8 border border-cyan-500/20 
-                bg-gradient-to-br from-white/5 via-white/0 to-white/5 backdrop-blur-xl
-                shadow-lg shadow-cyan-500/10 transition-all duration-200 hover:scale-105 hover:shadow-cyan-400/30"
-                style={{
-                  animationDelay: `${index * 0.2}s`,
-                  animation: "fadeInUp 0.8s ease-out forwards",
-                }}
+                glareEnable={true}
+                glareColor="#8caac8"
+                glareMaxOpacity={0}
+                glareBorderRadius="16px"
+                tiltMaxAngleX={12}
+                tiltMaxAngleY={12}
+                transitionSpeed={800}
+                className="w-full"
               >
-                {/* Top Row */}
-                <div className="flex items-center justify-between mb-6">
+                <div
+                  className="group relative overflow-hidden rounded-2xl p-8 border border-white/10 bg-[#101010] 
+        transition-all duration-300 hover:bg-[#0d0d0d] hover:shadow-[0_0_25px_#8caac8]/40"
+                  style={{
+                    animationDelay: `${index * 0.2}s`,
+                    animation: "fadeInUp 0.8s ease-out forwards",
+                  }}
+                >
+                  {/* Shining gradient overlay */}
                   <div
-                    className="relative p-3 rounded-xl border border-cyan-500/20 bg-[#8caac8]
-                    before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-tr before:from-cyan-400/30 before:to-transparent 
-                    before:opacity-0 before:transition-opacity before:duration-200 group-hover:before:opacity-100"
-                  >
-                    <stat.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-black" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-[#8caac8] animate-pulse-slow">
-                      {stat.number}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+        -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"
+                  />
+
+                  {/* Top Row */}
+                  <div className="flex items-center justify-between mb-6 relative z-10">
+                    <div className="relative p-3 rounded-xl border border-white/10 bg-[#8caac8]">
+                      <stat.icon className="w-6 h-6 text-black transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                    <div className="text-right">
+                      <div className="text-4xl font-bold text-transparent bg-clip-text bg-[#8caac8]">
+                        {stat.number}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Title & Description */}
-                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-cyan-300 transition-colors duration-200">
-                  {stat.title}
-                </h3>
-                <p className="text-white/60 text-sm mb-6 leading-relaxed group-hover:text-white/80 transition-colors">
-                  {stat.description}
-                </p>
-
-                {/* Bottom Info */}
-                <div className="border-t border-white/10 pt-4">
-                  <span
-                    className="inline-block text-cyan-300 font-semibold text-sm px-3 py-1 rounded-full 
-                    border border-cyan-500/30 bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors"
-                  >
-                    {stat.growth}
-                  </span>
-                  <p className="mt-2 text-xs text-white/50 leading-relaxed group-hover:text-white/70">
-                    {stat.subtitle}
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-semibold mb-3 text-white transition-colors duration-200 group-hover:text-[#8caac8] relative z-10">
+                    {stat.title}
+                  </h3>
+                  <p className="text-white/60 text-sm mb-6 leading-relaxed transition-colors group-hover:text-white/80 relative z-10">
+                    {stat.description}
                   </p>
+
+                  {/* Bottom Info */}
+                  <div className="border-t border-white/10 pt-4 relative z-10">
+                    <span
+                      className="inline-block text-[#8caac8] font-semibold text-sm px-3 py-1 rounded-full 
+            border border-white/10 bg-white/10"
+                    >
+                      {stat.growth}
+                    </span>
+                    <p className="mt-2 text-xs text-white/50 leading-relaxed transition-colors group-hover:text-white/70">
+                      {stat.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Tilt>
             ))}
           </div>
         </div>

@@ -59,14 +59,14 @@ export default function FAQSection(): JSX.Element {
       <div className="relative max-w-4xl mx-auto space-y-20">
         {/*  FAQ Section below */}
         <div className="space-y-6">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 bg-clip-text">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair">
               Frequently Asked {""}
               <span className="text-transparent bg-[#8caac8] bg-clip-text ">
                 Questions
               </span>
-            </h3>
-            <p className="text-lg text-slate-300">
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
               Find quick answers to the most common questions
             </p>
           </div>
@@ -77,8 +77,8 @@ export default function FAQSection(): JSX.Element {
                 key={index}
                 className={`group rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-300 ${
                   openIndex === index
-                    ? "bg-white/10 border-purple-300/30 shadow-2xl shadow-purple-500/10"
-                    : "bg-white/5 border-slate-700/50 hover:bg-white/8 hover:border-purple-300/20"
+                    ? "bg-[#0d0d0d] border-purple-300/30 shadow-2xl shadow-purple-500/10"
+                    : "bg-[#0d0d0d] border-slate-700/50 hover:bg-white/8 hover:border-[#262626]"
                 }`}
               >
                 <button

@@ -2,6 +2,8 @@
 import { useInView } from "react-intersection-observer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Tilt from "react-parallax-tilt";
+
 import {
   Users,
   Target,
@@ -19,6 +21,7 @@ import LightRays from "@/components/LightRays";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import CountUp from "react-countup";
+import ShinyText from "@/components/ShinyText";
 
 // Animation Variants
 const fadeInUp = (delay = 0) => ({
@@ -48,7 +51,12 @@ const About = () => {
     { icon: Users, number: 10000, suffix: "+", label: "Active Clients" },
     { icon: Target, number: 95, suffix: "%", label: "Customer Satisfaction" },
     { icon: Award, number: 50, suffix: "+", label: "Industry Awards" },
-    { icon: TrendingUp, number: 300, suffix: "%", label: "Average ROI Increase" },
+    {
+      icon: TrendingUp,
+      number: 300,
+      suffix: "%",
+      label: "Average ROI Increase",
+    },
   ];
 
   const team = [
@@ -68,7 +76,7 @@ const About = () => {
     },
     {
       name: "Emily Rodriguez",
-      role: "Head of Customer Success",
+      role: "Head of Customer",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop&faceea",
       bio: "Customer experience expert ensuring our clients achieve maximum value.",
@@ -99,7 +107,7 @@ const About = () => {
       icon: ShieldCheck,
       title: "Transparency",
       description:
-        "Clear communication, honest pricing, and transparent processes in everything we do.",
+        "Clear communication, honest pricing, and transparent processes in everything we do result.",
     },
     {
       icon: Zap,
@@ -130,86 +138,74 @@ const About = () => {
         {/* Background Rays */}
 
         {/* Hero Section */}
-        <section className="pt-[100px] md:py-10 lg:py-5 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1
-              variants={fadeInUp(0)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-extralight mb-6 leading-tight"
-              style={{ fontFamily: "Playfair Display" }}
-            >
-              About
-              <span className="hero-text-gradient bg-clip-text text-transparent animate-gradient ml-2">
-                TryzenIQ
-              </span>
-            </h1>
+        <section className="relative z-10">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="hero-section">
+      <h1
+        className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6 text-center"
+        style={{ fontFamily: "Playfair Display" }}
+      >
+        About{" "}
+        <ShinyText
+          text="Us"
+          className="hero-text-gradient bg-clip-text text-transparent"
+        />
+      </h1>
 
-            <p
-              variants={fadeInUp(150)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed"
-            >
-              We're on a mission to revolutionize how businesses operate by
-              making AI automation accessible, powerful, and profitable for
-              everyone.
-            </p>
-          </div>
-        </section>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      Learn more about our inspiring journey and the dedicated team passionately committed to driving growth and lasting success.      </p>
+    </div>
+  </div>
+</section>
 
-        
 
         {/* Values Section */}
-        <section className="py-16 md:py-24 relative z-10">
+        <section className="py-16 md:py-8 relative z-10">
           <div className="max-w-7xl mx-auto px-4">
-            <div
-              variants={fadeInUp(0)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
-                Our <span className="hero-text-gradient">Values</span>
-              </h2>
-              <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-                The principles that guide everything we do and every decision we
-                make.
-              </p>
-            </div>
+            
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
               {values.map((value, index) => (
-                <div
+                <Tilt
                   key={index}
-                  variants={fadeInUp(index * 100 + 200)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  whileHover={{ rotate: -2, scale: 1.02 }}
-                  className="bg-card border border-border rounded-2xl p-6 md:p-8 text-center transition-all duration-300 hover:border-[#515151] "
+                  glareEnable={true}
+                  glareMaxOpacity={0}
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  transitionSpeed={800}
+                  glareBorderRadius="16px"
                 >
-                  <div className="p-4 .hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
-                    <value.icon className="w-7 h-7 " />
+                  <div
+                    key={index}
+                    variants={fadeInUp(index * 100 + 200)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    whileHover={{ rotate: -2, scale: 1.02 }}
+                    className="group border border-border rounded-2xl p-6 bg-[#0c0c0c] md:p-8 text-center transition-all duration-300 hover:border-white/10"
+                  >
+                    <div className="p-4 hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
+                      <value.icon className="w-7 h-7 " />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-heading font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[#8caac8]">
+                      {value.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-white/70 font-body transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
+                      {value.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3 hero-text-gradient">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground font-body">
-                    {value.description}
-                  </p>
-                </div>
+                </Tilt>
               ))}
             </div>
           </div>
         </section>
 
-
-{/* Stats Section */}
-        <section className="py-16 md:py-24 relative z-10">
+        {/* Stats Section */}
+        <section className="py-16 md:py-8 relative z-10">
           <div
             variants={staggerContainer}
             initial="hidden"
@@ -218,109 +214,122 @@ const About = () => {
             className="max-w-7xl mx-auto px-4"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
-  {stats.map((stat, index) => {
-    const { ref, inView } = useInView({
-      triggerOnce: false,   
-      threshold: 0.5,      
-    });
+              {stats.map((stat, index) => {
+                const { ref, inView } = useInView({
+                  triggerOnce: false,
+                  threshold: 0.5,
+                });
 
-    return (
-      <div
-        ref={ref}
-        key={index}
-        className="text-center h-full flex flex-col items-center justify-center transition-all duration-300"
-      >
-        <div className="text-3xl md:text-4xl font-heading font-bold hero-text-gradient mb-2">
-          {inView ? (
-            <CountUp end={stat.number} suffix={stat.suffix} duration={2} />
-          ) : (
-            // 👇 reset when out of view
-            <span>0{stat.suffix}</span>
-          )}
-        </div>
-        <div className="text-muted-foreground font-body text-sm md:text-base">
-          {stat.label}
-        </div>
-      </div>
-    );
-  })}
-</div>
+                return (
+                  <div
+                    ref={ref}
+                    key={index}
+                    className="group relative 
+              transition-all duration-300
+              flex flex-col items-center justify-center text-center"
+                  >
+                    {/* Number */}
+                    <div className="text-3xl md:text-4xl font-heading font-bold hero-text-gradient mb-2 transition-transform duration-300">
+                      {inView ? (
+                        <CountUp
+                          end={stat.number}
+                          suffix={stat.suffix}
+                          duration={2}
+                        />
+                      ) : (
+                        <span>0{stat.suffix}</span>
+                      )}
+                    </div>
+
+                    {/* Label */}
+                    <div className="text-muted-foreground font-body text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
+                      {stat.label}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
+        {/* Enhanced Team Section */}
+        <section className="relative z-10">
+  <div className="max-w-7xl mx-auto px-4">
+    <div
+      className="hero-section"
+      variants={fadeInUp(0)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      <h2 className="font-playfair text-4xl md:text-5xl font-extralight lg:text-5xl font-heading mb-4">
+        Meet Our{" "}
+        <span className="hero-text-gradient bg-clip-text text-transparent">
+          Team
+        </span>
+      </h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-muted-foreground font-body">
+        The brilliant minds behind TryzenIQ's innovative automation solutions.
+      </p>
+    </div>
+  
 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-8 md:pt-10">
+  {team.map((member, index) => (
+    <Tilt
+      key={index}
+      glareEnable={true}
+      glareColor="#8caac8"
+      glareMaxOpacity={0}
+      tiltMaxAngleX={10}
+      tiltMaxAngleY={10}
+      transitionSpeed={800}
+      glareBorderRadius="16px"
+    >
+      <div
+        variants={fadeInUp(index * 100 + 200)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="group relative bg-[#0d0d0d] backdrop-blur-lg border border-white/10 rounded-3xl p-8 text-center 
+        transition-all duration-500 hover:bg-[#0c0c0c] hover:shadow-[0_0_25px_#8caac8]/40 overflow-hidden"
+      >
+        {/* Shine Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+        translate-x-[-150%] opacity-0 group-hover:opacity-100 group-hover:animate-shine pointer-events-none" />
 
-                {/* Enhanced Team Section */}
-        <section className="py-20 md:py-32 relative z-10">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              variants={fadeInUp(0)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Meet Our{" "}
-                <span className="hero-text-gradient bg-clip-text text-transparent">
-                  Team
-                </span>
-              </h2>
-              <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                The brilliant minds behind TryzenIQ's innovative automation solutions.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-8">
-              {team.map((member, index) => (
-                  <div
-                    variants={fadeInUp(index * 100 + 200)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 text-center transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-2xl overflow-hidden"
-                  >
-                    {/* Profile image with enhanced effects */}
-                    <div className="relative mb-6 w-32 h-32 mx-auto">
-                      <div className="absolute inset-0 bg-[#8caac8] rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
-                        <div className="w-full h-full bg-black rounded-full p-1">
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                          />
-                        </div>
-                      </div>
-                      {/* Status indicator */}
-                      <div className="absolute bottom-2 right-2 w-4 h-4 bg-emerald-400 rounded-full border-2 border-black group-hover:scale-125 transition-transform" />
-                    </div>
-
-                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
-                      {member.name}
-                    </h3>
-                    
-                    <p className="text-[#8caac8] font-semibold mb-4 text-sm uppercase tracking-wider">
-                      {member.role}
-                    </p>
-                    
-                    <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                      {member.bio}
-                    </p>
-
-                    {/* Quote section */}
-                    {/* <div className="relative group-hover:opacity-100 transition-opacity">
-                      <Quote className="w-4 h-4 text-cyan-400 mb-2 mx-auto opacity-60" />
-                      <p className="text-slate-400 text-xs italic leading-relaxed">
-                        "{member.quote}"
-                      </p>
-                    </div> */}
-
-                    {/* Decorative elements */}
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all" />
-                    <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all delay-100" />
-                  </div>
-              ))}
+        {/* Profile image */}
+        <div className="relative mb-6 w-32 h-32 mx-auto">
+          <div className="absolute inset-0 bg-[#8caac8] rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-full h-full bg-black rounded-full p-1">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover rounded-full transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+              />
             </div>
+          </div>
+        </div>
+
+        {/* Name */}
+        <h3 className="text-xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-[#8caac8] relative z-10">
+          {member.name}
+        </h3>
+
+        {/* Role */}
+        <p className="text-[#909090] font-semibold mb-4 text-sm uppercase tracking-wider transition-colors duration-300 group-hover:text-white/70 relative z-10">
+          {member.role}
+        </p>
+
+        {/* Bio */}
+        <p className="text-sm leading-relaxed mb-4 text-[#909090] transition-colors duration-300 group-hover:text-[#bbbbbb] relative z-10">
+          {member.bio}
+        </p>
+      </div>
+    </Tilt>
+  ))}
+</div>
+
           </div>
         </section>
 
@@ -332,33 +341,44 @@ const About = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-12 md:p-16 relative overflow-hidden group"
+              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-12 md:p-16 relative overflow-hidden"
             >
               {/* Background gradient */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-blue-500/10 opacity-0 transition-opacity duration-1000" />
-              
+
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                <h2 className="font-playfair text-4xl md:text-5xl font-extralight  lg:text-5xl mb-6">
                   Ready to{" "}
                   <span className="bg-[#8caac8] bg-clip-text text-transparent">
                     Transform
                   </span>{" "}
                   Your Business?
                 </h2>
-                
+
                 <p className="text-slate-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Join thousands of companies already using TryzenIQ to automate their operations and accelerate growth.
+                  Join thousands of companies already using TryzenIQ to automate
+                  their operations and accelerate growth.
                 </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="group inline-flex items-center gap-2 px-8 py-4 text-black bg-[#ffffff]  rounded-full font-medium transition-all duration-300 border border-white/20 hover:border-white/40">
-                    Start Free Trial
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                  {/* Primary Button - Animated */}
+                  <button className="group relative flex items-center justify-between border border-gray-500 text-white font-medium pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-500 ease-out">
+                    <span
+                      className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+    transition-transform duration-700 ease-in-out group-hover:scale-[45]"
+                    />
+                    <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
+                      Start Free Trial
+                    </span>
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+                      <ArrowRight className="w-4 h-4 text-black transition-transform duration-500 ease-in-out group-hover:translate-x-1 group-hover:text-black" />
+                    </span>
                   </button>
-                  
-                  <button className="px-8 py-4 border border-white/20 hover:border-white/40 rounded-full font-medium transition-all duration-300 hover:bg-white/5">
-                    Schedule Demo
-                  </button>
+
+                  {/* Secondary Button
+                  <button className="rounded-full border border-white/20 bg-black/30 backdrop-blur-xl text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-black/50 hover:border-white/30 hover:scale-105">
+                    View Demo
+                  </button> */}
                 </div>
               </div>
             </div>

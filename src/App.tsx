@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import Index from "./pages/Index";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import Pricing from "./pages/Pricing";
+import Pricing from "./pages/PricingPage";
 import Solutions from "./pages/Solutions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";

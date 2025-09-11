@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Tilt from "react-parallax-tilt";
+import ShinyText from "@/components/ShinyText";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,29 +57,32 @@ const Contact = () => {
 
       <main className="pt-28 md:pt-32">
         {/* Hero */}
-        <section className="pt-24 md:py-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-extralight mb-6 leading-tight"
-              style={{ fontFamily: "Playfair Display" }}
-            >
-              Contact{" "}
-              <span className="hero-text-gradient special-font">Us</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your business with AI automation? We're here to
-              help you get started and answer any questions you might have.
-            </p>
-          </div>
-        </section>
+        <section className="hero-section">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1
+      className="text-4xl md:text-5xl lg:text-7xl font-extralight font-playfair bg-[#ffffff] bg-clip-text text-transparent mb-6"
+      style={{ fontFamily: "Playfair Display" }}
+    >
+      Connect{" "}
+      <ShinyText
+        text="Us"
+        className="hero-text-gradient bg-clip-text text-transparent"
+      />
+    </h1>
+
+    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.    </p>
+  </div>
+</section>
+
 
         {/* Contact Section */}
-        <section className="relative py-16 md:py-20">
+        <section className="relative py-16 md:py-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}
               <div className="lg:col-span-2 bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-3xl shadow-2xl flex flex-col">
-                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
+                <h2 className="text-4xl md:text-4xl font-extralight font-playfair  mb-8 text-white">
                   Send us a Message
                 </h2>
                 <form
@@ -215,10 +220,9 @@ const Contact = () => {
                     icon: <MapPin className="w-6 h-6 text-black" />,
                     title: "Visit Us",
                     text: "205, earth plaza, Chapprabhatta, Ganeshpura, Surat, Gujarat 394520",
-                    link: "https://www.google.com/maps/dir/21.2596747,72.8309741/7R5J%2BR9V,+Chapprabhatta,+Ganeshpura,+Surat,+Gujarat+394520/@21.2596887,72.8285513,17z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3be04939b2ef6a81:0x26227e3f62ef1fbe!2m2!1d72.8310308!2d21.2595831?entry=ttu",
+                    link: "https://www.google.com/maps/dir/21.2596747,72.8309741/7R5J%2BR9V,+Chapprabhatta,+Ganeshpura,+Surat,+Gujarat+394520/@21.2596887,72.8285513,17z",
                     linkText: "Get Directions →",
                   },
-
                   {
                     icon: <Clock className="w-6 h-6 text-black" />,
                     title: "Business Hours",
@@ -227,29 +231,34 @@ const Contact = () => {
                     linkText: "Schedule Visit →",
                   },
                 ].map((item, i) => (
-                  <div
+                  <Tilt
                     key={i}
-                    className="flex items-start gap-4 bg-zinc-900/90 border border-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition"
+                    tiltMaxAngleX={10}
+                    tiltMaxAngleY={10}
+                    transitionSpeed={800}
+                    glareEnable={false}
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] flex items-center justify-center rounded-lg">
-                      {item.icon}
+                    <div className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] p-6 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg group-hover:bg-[#0c0c0c]">
+                      <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-1 group-hover:text-[#8caac8]">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70">
+                          {item.text}
+                        </p>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          className="text-[#8caac8] text-sm font-medium inline-flex items-center mt-2"
+                        >
+                          {item.linkText}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1 text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-400 whitespace-pre-line">
-                        {item.text}
-                      </p>
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        className="text-[#8caac8] text-sm font-medium inline-flex items-center mt-2 "
-                      >
-                        {item.linkText}
-                      </a>
-                    </div>
-                  </div>
+                  </Tilt>
                 ))}
               </div>
             </div>

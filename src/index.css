@@ -126,8 +126,8 @@ ul {
   }
   .stats-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 30px hsl(var(--glow-primary) / 0.2);
-  }
+    box-shadow: text-lab(68.38% -3.25 -18.66);
+}
 
   /* Button styles */
   .btn-primary {
@@ -269,6 +269,7 @@ body::-webkit-scrollbar {
   animation: scroll 30s linear infinite;
 }
 
-.animate-scroll:hover {
-  animation-play-state: paused;
+.hero-section {
+  @apply text-center pt-[80px] mb-4;
 }
+
