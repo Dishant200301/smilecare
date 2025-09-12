@@ -54,7 +54,7 @@ const Navbar = () => {
                     key={item.name}
                     to={item.path}
                     onClick={() => setActiveItem(item.name)}
-                    className={`text-lg relative px-5 py-3 rounded-full font-medium font-serif transition-all duration-300 group overflow-hidden ${
+                    className={`text-lg relative px-5 py-3 rounded-full font-extralight font-playfair transition-all duration-300 group overflow-hidden ${
                       isActive(item.name)
                         ? "text-black"
                         : "text-white/70 hover:text-white"

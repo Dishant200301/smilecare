@@ -348,7 +348,7 @@ const Solutions = () => {
                       SCHEDULE FREE MEETING
                     </span>
                     <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                      <ArrowRight className="w-4 h-4 text-black duration-700 ease-in-out group-hover:text-black" />
+                      <ArrowRight className="w-5 h-5 text-black duration-700 ease-in-out group-hover:text-black" />
                     </span>
                   </button>
                 </div>
