@@ -75,7 +75,7 @@ import {
       ctaIcon: Sparkles,
       ctaTitle: "Transform Your Beauty Clinic Today",
       ctaDescription: "Join hundreds of clinics already using our automation platform.",
-      ctaButtonLabel: "Start Free Trial",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Beauty Clinic",
     },
   
@@ -134,7 +134,7 @@ import {
       ctaIcon: Heart,
       ctaTitle: "Modernize Your Medical Practice",
       ctaDescription: "Transform patient care with intelligent automation.",
-      ctaButtonLabel: "Schedule Demo",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Medical Practice",
     },
   
@@ -193,7 +193,7 @@ import {
       ctaIcon: Dumbbell,
       ctaTitle: "Supercharge Your Fitness Business",
       ctaDescription: "Help more clients achieve their goals with automation.",
-      ctaButtonLabel: "Get Started",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Fitness Business",
     },
   
@@ -253,7 +253,7 @@ import {
       ctaIcon: Briefcase,
       ctaTitle: "Transform Your Consulting Practice",
       ctaDescription: "Scale your practice with AI-driven automation.",
-      ctaButtonLabel: "Schedule a Demo",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Consulting Practice",
     },
   
@@ -371,7 +371,7 @@ import {
       ctaIcon: Scissors,
       ctaTitle: "Beautify Your Business Operations",
       ctaDescription: "Create amazing experiences with smart automation.",
-      ctaButtonLabel: "Book Demo",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Business Operations",
     },
   
@@ -430,7 +430,7 @@ import {
       ctaIcon: Home,
       ctaTitle: "Accelerate Your Real Estate Success",
       ctaDescription: "Close more deals with intelligent automation.",
-      ctaButtonLabel: "Get Started",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Real Estate",
     },
   
@@ -439,12 +439,12 @@ import {
       metaTitle: "Therapy & Counseling Practice Automation — TryzenIQ",
       metaDescription:
         "Secure patient management, appointment scheduling, and practice automation for mental health professionals.",
-      title: "Therapists & Counselors",
-      subtitle: "Mental Health Practice",
+      title: "Therapists Counselors",
+      subtitle: "Mental Health Care",
       heroImage:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       heroDescription:
-        "Enhance your mental health practice with secure patient management, automated scheduling, and confidential communication tools.",
+        "Enhance your mental health practice with secure patient management and confidential communication tools.",
       features: [
         {
           icon: Brain,
@@ -489,7 +489,7 @@ import {
       ctaIcon: Brain,
       ctaTitle: "Enhance Your Mental Health Practice",
       ctaDescription: "Support more patients with secure automation.",
-      ctaButtonLabel: "Learn More",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Mental Health",
     },
   
@@ -548,7 +548,7 @@ import {
       ctaIcon: DollarSign,
       ctaTitle: "Modernize Your Financial Services",
       ctaDescription: "Deliver faster, more accurate financial solutions.",
-      ctaButtonLabel: "Request Demo",
+      ctaButtonLabel: "Start Trial",
       ctaHighlight: "Financial Services",
     },
   };

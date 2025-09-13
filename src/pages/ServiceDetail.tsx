@@ -73,11 +73,13 @@ const ServiceDetail = () => {
                 </span>
               </a>
             </div>
-            <div className="relative">
+
+            {/* Hero Image - fixed ratio */}
+            <div className="relative w-full aspect-[16/9]">
               <img
                 src={heroImage}
                 alt={title}
-                className="rounded-3xl shadow-2xl border border-gray-800"
+                className="w-full h-full object-cover rounded-3xl shadow-2xl border border-gray-800"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#8caac8]/10 to-transparent rounded-3xl"></div>
             </div>
@@ -95,17 +97,17 @@ const ServiceDetail = () => {
                 <div
                   key={i}
                   className="group relative bg-gray-900/50 backdrop-blur-sm 
-          rounded-3xl overflow-hidden shadow-xl 
-          border border-gray-800 transition-all duration-300 
-          hover:shadow-2xl hover:shadow-[#8caac8]/20 hover:border-[#8caac8]/40"
+                  rounded-3xl overflow-hidden shadow-xl 
+                  border border-gray-800 transition-all duration-300 
+                  hover:shadow-2xl hover:shadow-[#8caac8]/20 hover:border-[#8caac8]/40"
                 >
                   {f.imageUrl && (
-                    <div className="relative overflow-hidden">
+                    <div className="relative aspect-[16/9] overflow-hidden">
                       <img
                         src={f.imageUrl}
                         alt={f.title}
-                        className="w-full h-48 object-cover transition-transform duration-300 ease-in-out 
-                filter grayscale group-hover:grayscale-0 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out 
+                          filter grayscale group-hover:grayscale-0 group-hover:scale-105"
                       />
                     </div>
                   )}
