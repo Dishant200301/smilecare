@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
       {/* Fixed Galaxy background */}
       <div className="absolute inset-0 w-full h-full bg-black z-0">
           {/* Only render Galaxy after component is loaded to prevent flash */}
-          <Galaxy className="absolute inset-0 z-0" />
+          {/* <Galaxy className="absolute inset-0 z-0" /> */}
       </div>
 
       {/* Hero Content */}

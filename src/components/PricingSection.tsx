@@ -91,7 +91,7 @@ export default function PricingSection() {
 
             {/* Monthly Button */}
             <button
-              className={`relative z-10 w-1/2 px-5 py-5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`relative z-10 w-1/2 px-4 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
                 !isAnnual ? "text-black" : "text-white"
               }`}
               onClick={() => setIsAnnual(false)}
@@ -101,7 +101,7 @@ export default function PricingSection() {
 
             {/* Annually Button */}
             <button
-              className={`relative z-10 w-1/2 px-5 py-5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`relative z-10 w-1/2 px-4 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
                 isAnnual ? "text-black" : "text-white"
               }`}
               onClick={() => setIsAnnual(true)}
