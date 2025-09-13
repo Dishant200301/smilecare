@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ShinyText from "@/components/ShinyText";
+import { useNavigate } from "react-router-dom";
 
 // 🔹 Features data
 const features = {
@@ -179,10 +180,13 @@ function Card({
   features: string[];
   description: string;
   background: string;
-}) {
+}) {  const navigate = useNavigate();
+
   return (
-    <div className="group relative md:col-span-2 lg:col-span-1 h-[360px]">
-      {/* Default view */}
+    <div
+    className="group relative md:col-span-2 lg:col-span-1 h-[360px] cursor-pointer"
+    onClick={() => navigate("/contact")}
+  >      {/* Default view */}
       <div
         className="absolute inset-0 border border-transparent rounded-3xl p-8 flex flex-col transition-all duration-500 ease-out group-hover:opacity-0"
         style={{ background }}
@@ -206,7 +210,10 @@ function Card({
 
         {/* Arrow bottom-right */}
         <div className="absolute bottom-6 right-6">
-          <button className="w-12 h-12 bg-black rounded-full flex items-center justify-center transition-all duration-300">
+          <button
+            onClick={() => navigate("/contact")}
+            className="w-12 h-12 bg-black rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+          >
             <ArrowIcon className="w-5 h-5 text-white" />
           </button>
         </div>
@@ -215,9 +222,9 @@ function Card({
       {/* Hover view */}
       <motion.div
         className="absolute inset-0 bg-[#000000] border border-[#8caac8] rounded-3xl p-8 flex flex-col"
-        initial={{ opacity: 0, y: 20, x: -10 }}
+        initial={{ opacity: 0, y: 20, x: 10 }}
         whileHover={{ opacity: 1, y: 0, x: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
       >
         {/* Title pill */}
         <span className="inline-flex w-fit items-center rounded-full border border-[#8caac8] text-[#8caac8] px-4 py-2 text-xs font-medium mb-6">
@@ -241,7 +248,10 @@ function Card({
 
         {/* Arrow bottom-right */}
         <div className="absolute bottom-6 right-6">
-          <button className="w-12 h-12 border border-[#8caac8] rounded-full flex items-center justify-center transition-all duration-300">
+          <button
+            onClick={() => navigate("/contact")}
+            className="w-12 h-12 border border-[#8caac8] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+          >
             <ArrowIcon className="w-5 h-5 text-white" />
           </button>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import ShinyText from "./ShinyText";
 
 // Features data
@@ -21,7 +22,7 @@ const features = {
   ],
 };
 
-// Arrow Icon (like in screenshot)
+// Arrow Icon
 const ArrowIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
@@ -113,7 +114,6 @@ export default function PricingSection() {
 
         {/* Pricing Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {/* Light */}
           <Card
             title="Light"
             price={pricing.light}
@@ -122,7 +122,6 @@ export default function PricingSection() {
             background="#8caac8"
           />
 
-          {/* Pro */}
           <Card
             title="Pro"
             price={pricing.pro}
@@ -131,7 +130,6 @@ export default function PricingSection() {
             background="#8caac8"
           />
 
-          {/* Enterprise */}
           <Card
             title="Enterprise"
             price={pricing.enterprise}
@@ -159,8 +157,13 @@ function Card({
   description: string;
   background: string;
 }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="group relative md:col-span-2 lg:col-span-1 h-[360px]">
+    <div
+      className="group relative md:col-span-2 lg:col-span-1 h-[360px] cursor-pointer"
+      onClick={() => navigate("/contact")}
+    >
       {/* Default view */}
       <div
         className="absolute inset-0 border border-transparent rounded-3xl p-8 flex flex-col transition-all duration-500 ease-out group-hover:opacity-0"
@@ -185,40 +188,52 @@ function Card({
 
         {/* Arrow bottom-right */}
         <div className="absolute bottom-6 right-6">
-          <button className="w-12 h-12 bg-black rounded-full flex items-center justify-center transition-all duration-300">
+          <button
+            onClick={() => navigate("/contact")}
+            className="w-12 h-12 bg-black rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+          >
             <ArrowIcon className="w-5 h-5 text-white" />
           </button>
         </div>
       </div>
 
       {/* Hover view */}
-      <motion.div 
-  className="group relative rounded-3xl overflow-hidden border border-gray-800"
-  initial={{ opacity: 1 }}
-  whileHover={{ scale: 1.02 }}
-  transition={{ duration: 0.4 }}
->
-  {/* Default view */}
-  <div className="absolute inset-0 bg-[#8caac8] text-black p-6 flex flex-col justify-between transition-opacity duration-500 group-hover:opacity-0">
-    <h3 className="text-xl font-bold">{f.title}</h3>
-    <p className="text-sm">{f.description}</p>
-  </div>
+      <motion.div
+        className="absolute inset-0 bg-[#000000] border border-[#8caac8] rounded-3xl p-8 flex flex-col"
+        initial={{ opacity: 0, y: 20, x: 10 }}
+        whileHover={{ opacity: 1, y: 0, x: 0 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
+      >
+        {/* Title pill */}
+        <span className="inline-flex w-fit items-center rounded-full border border-[#8caac8] text-[#8caac8] px-4 py-2 text-xs font-medium mb-6">
+          {title}
+        </span>
 
-  {/* Hover view */}
-  <motion.div
-    className="absolute inset-0 bg-black p-6 flex flex-col justify-between text-white border border-[#8caac8] rounded-3xl"
-    initial={{ opacity: 0, y: 20 }}
-    whileHover={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-  >
-    <h3 className="text-lg text-[#8caac8]">{f.title}</h3>
-    <ul className="mt-4 space-y-2 text-sm">
-      <li>✔ Feature point 1</li>
-      <li>✔ Feature point 2</li>
-    </ul>
-  </motion.div>
-</motion.div>
+        {/* Features */}
+        <ul className="space-y-4 text-white text-sm flex-1">
+          {features.map((item) => (
+            <li key={item} className="flex items-center gap-2">
+              <span className="text-lg leading-none">✔</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
 
+        {/* Description */}
+        <p className="text-white text-sm leading-relaxed mt-4 pr-12 font-playfair font-extralight">
+          {description}
+        </p>
+
+        {/* Arrow bottom-right */}
+        <div className="absolute bottom-6 right-6">
+          <button
+            onClick={() => navigate("/contact")}
+            className="w-12 h-12 border border-[#8caac8] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+          >
+            <ArrowIcon className="w-5 h-5 text-white" />
+          </button>
+        </div>
+      </motion.div>
     </div>
   );
 }
