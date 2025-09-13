@@ -120,12 +120,12 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-body bg-black text-white relative overflow-hidden">
       <Helmet>
-        <title>About — TryzenIQ</title>
+        <title>About | TryzenIQ</title>
         <meta
           name="description"
           content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ."
         />
-        <meta property="og:title" content="Solutions — TryzenIQ" />
+        <meta property="og:title" content="Solutions TryzenIQ" />
         <meta
           property="og:description"
           content="AI solutions for automation, analytics, and business growth. Trusted by leading industries."

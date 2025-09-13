@@ -22,7 +22,7 @@ import {
   export const servicesData = {
     "botox-skincare": {
       slug: "botox-skincare",
-      metaTitle: "Botox & Skin Care Clinic Automation — TryzenIQ",
+      metaTitle: "Botox & Skin Care Clinic Automation TryzenIQ",
       metaDescription:
         "Automate your beauty clinic with AI-powered booking, analytics, and client engagement.",
       title: "Botox & Skin Care",
@@ -81,7 +81,7 @@ import {
   
     "clinics-dentist": {
       slug: "clinics-dentist",
-      metaTitle: "Dental & Medical Clinic Automation — TryzenIQ",
+      metaTitle: "Dental & Medical Clinic Automation TryzenIQ",
       metaDescription:
         "Streamline patient management, appointments, and medical workflows with AI automation.",
       title: "Clinics & Dentist",
@@ -140,7 +140,7 @@ import {
   
     "gym-health-coach": {
       slug: "gym-health-coach",
-      metaTitle: "Gym & Health Coach Automation — TryzenIQ",
+      metaTitle: "Gym & Health Coach Automation TryzenIQ",
       metaDescription:
         "Automate member management, fitness consultations, and coaching workflows.",
       title: "Gym & Health Coach",
@@ -199,7 +199,7 @@ import {
   
     "business-consultation": {
       slug: "business-consultation",
-      metaTitle: "Business Consultation Automation — TryzenIQ",
+      metaTitle: "Business Consultation Automation TryzenIQ",
       metaDescription:
         "AI-powered solutions for consultants: scheduling, project automation, and analytics.",
       title: "Business Consultation",
@@ -259,7 +259,7 @@ import {
   
     "it-saas": {
       slug: "it-saas",
-      metaTitle: "IT & SaaS Service Automation — TryzenIQ",
+      metaTitle: "IT & SaaS Service Automation TryzenIQ",
       metaDescription:
         "Automate customer support, onboarding, and technical service delivery.",
       title: "IT & SaaS Services",
@@ -318,7 +318,7 @@ import {
   
     "salons-spa": {
       slug: "salons-spa",
-      metaTitle: "Salon & Spa Automation — TryzenIQ",
+      metaTitle: "Salon & Spa Automation TryzenIQ",
       metaDescription:
         "Automate beauty service bookings, client management, and spa operations.",
       title: "Salons & Spa",
@@ -377,7 +377,7 @@ import {
   
     "real-estate-agents": {
       slug: "real-estate-agents",
-      metaTitle: "Real Estate Agent Automation — TryzenIQ",
+      metaTitle: "Real Estate Agent Automation TryzenIQ",
       metaDescription:
         "Automate property showings, lead management, and client communications.",
       title: "Real Estate Agents",
@@ -436,7 +436,7 @@ import {
   
     "therapists-counselors": {
       slug: "therapists-counselors",
-      metaTitle: "Therapy & Counseling Practice Automation — TryzenIQ",
+      metaTitle: "Therapy & Counseling Practice Automation TryzenIQ",
       metaDescription:
         "Secure patient management, appointment scheduling, and practice automation for mental health professionals.",
       title: "Therapists Counselors",
@@ -495,7 +495,7 @@ import {
   
     "insurance-financial": {
       slug: "insurance-financial",
-      metaTitle: "Insurance & Financial Services Automation — TryzenIQ",
+      metaTitle: "Insurance & Financial Services Automation TryzenIQ",
       metaDescription:
         "Automate claim processing, client management, and financial service delivery.",
       title: "Insurance & Financial",

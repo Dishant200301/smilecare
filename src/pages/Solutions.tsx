@@ -199,7 +199,7 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Solutions — TryzenIQ</title>
+        <title>Solutions | TryzenIQ</title>
         <meta
           name="description"
           content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ."

@@ -68,7 +68,7 @@ export default function PricingSection() {
   return (
     <section className="relative w-full bg-black text-white">
       <Helmet>
-        <title>Pricing — TryzenIQ</title>
+        <title>Pricing | TryzenIQ</title>
         <meta
           name="description"
           content="Simple, transparent pricing for AI automation. Choose the plan that suits your business."

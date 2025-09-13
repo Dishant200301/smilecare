@@ -3,7 +3,7 @@ import { Calendar, MessageSquare, BarChart3, Clock, FileText, Briefcase, Sparkle
 
 const servicesData = {
   "botox-skincare": {
-    metaTitle: "Botox & Skin Care Clinic Automation — TryzenIQ",
+    metaTitle: "Botox & Skin Care Clinic Automation TryzenIQ",
     metaDescription: "Automate your beauty clinic with AI-powered booking, analytics, and client engagement.",
     title: "Botox & Skin Care",
     subtitle: "Clinic Automation",
@@ -33,7 +33,7 @@ const servicesData = {
   },
 
   "business-consultation": {
-    metaTitle: "Business Consultation Automation — TryzenIQ",
+    metaTitle: "Business Consultation Automation TryzenIQ",
     metaDescription: "AI-powered solutions for consultants: scheduling, project automation, and analytics.",
     title: "Business Consultation",
     subtitle: "Automation",

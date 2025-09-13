@@ -91,12 +91,12 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Services — TryzenIQ</title>
+        <title>Services | TryzenIQ</title>
         <meta
           name="description"
           content="Explore AI-powered services: booking automation, client engagement, analytics, and more for beauty, healthcare, fitness, real estate, and SaaS."
         />
-        <meta property="og:title" content="Services — TryzenIQ" />
+        <meta property="og:title" content="Services | TryzenIQ" />
         <meta
           property="og:description"
           content="Comprehensive AI automation services tailored to your industry."

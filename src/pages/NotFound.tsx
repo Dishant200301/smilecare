@@ -30,9 +30,9 @@ const NotFound = () => {
         <title>404 Page Not Found</title>
         <meta
           name="description"
-          content="Oops! Page not found — TryzenIQ AI Solutions."
+          content="Oops! Page not found TryzenIQ AI Solutions."
         />
-        <meta property="og:title" content="404 Not Found — TryzenIQ" />
+        <meta property="og:title" content="404 Not Found TryzenIQ" />
         <meta
           property="og:description"
           content="The page you are looking for does not exist."
@@ -46,13 +46,13 @@ const NotFound = () => {
       {/* Center Content */}
       <div className="flex flex-1 items-center justify-center">
         <div className="text-center px-4">
-          <h1 className="text-6xl font-bold mb-4">404</h1>
-          <p className="text-xl text-gray-400 mb-6">
+          <h1 className="text-6xl font-extralight font-playfair mb-4">404</h1>
+          <p className="text-xl font-extralight font-playfair text-gray-400 mb-6 ">
             Oops! Page not found
           </p>
 
           {/* Gradient Button */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center font-extralight font-playfair">
             {navItems.map((item) => (
               <button
                 key={item.name}

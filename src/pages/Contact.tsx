@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-black text-white font-body relative overflow-hidden">
       <Helmet>
-        <title>Contact — TryzenIQ</title>
+        <title>Contact | TryzenIQ</title>
         <meta
           name="description"
           content="Discover AI-powered solutions for every industry: automation, analytics, security, and more. Transform your business with TryzenIQ."
