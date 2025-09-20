@@ -222,7 +222,7 @@ const Solutions = () => {
                   className="hero-text-gradient bg-clip-text text-transparent"
                 />
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center">
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed text-center">
               Discover innovative, practical solutions designed to address real-world challenges, long-term growth with measurable impact.              </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ const Solutions = () => {
                       }}
                     />
                     <div className="relative z-10">
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-[#8caac8] transition-colors duration-300">
+                      <h3 className="text-lg font-semibold mb-2 group-hover:text-[#8caac8] transition-colors duration-300">
                         {solution.title}
                       </h3>
                       <p className="text-muted-foreground mb-4 transition-colors duration-300 group-hover:text-gray-300">
@@ -273,7 +273,7 @@ const Solutions = () => {
         <section className="py-20 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-extralight font-playfair mb-4">
+              <h2 className="text-2xl md:text-5xl font-extralight font-playfair mb-4">
                 Trusted by <span className="hero-text-gradient">Leading Industries</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
@@ -295,20 +295,20 @@ const Solutions = () => {
                     style={{ zIndex: 1 }}
                   ></div>
                   <div className="relative z-10">
-                    <h3 className="text-2xl font-semibold mb-4 hero-text-gradient group-hover:scale-105 transition-transform duration-300">
+                    <h3 className="text-xl font-semibold mb-4 hero-text-gradient transition-transform duration-300">
                       {industry.name}
                     </h3>
                     <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                       {industry.description}
                     </p>
                     <div
-                      className="rounded-lg p-6 backdrop-blur-sm border transition-all duration-300 group-hover:scale-105"
+                      className="rounded-lg p-6 backdrop-blur-sm border transition-all duration-300"
                       style={{
                         backgroundColor: `${industry.accentColor}10`,
                         borderColor: `${industry.accentColor}20`,
                       }}
                     >
-                      <div className="text-2xl font-normal font-serif mb-2">
+                      <div className="text-xl font-normal font-serif mb-2">
                         {industry.stats}
                       </div>
                       <div className="text-sm text-muted-foreground group-hover:text-gray-400">
@@ -323,11 +323,11 @@ const Solutions = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-20 bg-black">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
             <div
               ref={ctaRef}
-              className="relative overflow-hidden bg-card/80 border border-border/50 rounded-2xl p-12 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl"
+              className="relative overflow-hidden rounded-3xl border border-gray-800 p-12 backdrop-blur-sm transition-all duration-500 shadow-lg hover:shadow-[#8caac8]/20 "
             >
               <div
                 ref={(el) => (spotlightRefs.current[solutions.length + industries.length] = el)}
@@ -335,7 +335,7 @@ const Solutions = () => {
                 style={{ zIndex: 1 }}
               />
               <div className="relative z-10">
-                <h2 className="mb-6 text-4xl md:text-5xl font-extralight font-playfair">
+                <h2 className="mb-6 text-xl md:text-5xl font-extralight font-playfair">
                   Ready to Transform Your <span className="hero-text-gradient">Business</span>?
                 </h2>
                 <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto group-hover:text-gray-300 transition-colors duration-300">

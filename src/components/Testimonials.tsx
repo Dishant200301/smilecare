@@ -169,7 +169,7 @@ const TestimonialSection: React.FC = () => {
         <h1 className="text-4xl md:text-5xl font-extralight bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair ">
           Our <span className="hero-text-gradient ">Clients</span>
         </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-4 leading-relaxed">
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
           Protect your assets and transactions with our advanced encryption
           technology and decentralized infrastructure.
         </p>

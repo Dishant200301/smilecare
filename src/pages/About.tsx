@@ -152,7 +152,7 @@ const About = () => {
         />
       </h1>
 
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
       Learn more about our inspiring journey and the dedicated team passionately committed to driving growth and lasting success.      </p>
     </div>
   </div>
@@ -205,7 +205,7 @@ const About = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 md:py-8 relative z-10">
+        <section className="pt-16 md:pt-32 relative z-10">
           <div
             variants={staggerContainer}
             initial="hidden"
@@ -242,7 +242,7 @@ const About = () => {
                     </div>
 
                     {/* Label */}
-                    <div className="text-muted-foreground font-body text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
+                    <div className="text-muted-foreground font-body font-extralight text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
                       {stat.label}
                     </div>
                   </div>
@@ -268,7 +268,7 @@ const About = () => {
           Team
         </span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-muted-foreground font-body">
+      <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed text-muted-foreground font-body">
         The brilliant minds behind TryzenIQ's innovative automation solutions.
       </p>
     </div>
@@ -317,7 +317,7 @@ const About = () => {
         </h3>
 
         {/* Role */}
-        <p className="text-[#909090] font-semibold mb-4 text-sm uppercase tracking-wider transition-colors duration-300 group-hover:text-white/70 relative z-10">
+        <p className="text-[#909090] font-medium mb-4 text-sm uppercase tracking-wider transition-colors duration-300 group-hover:text-white/70 relative z-10">
           {member.role}
         </p>
 
@@ -334,7 +334,7 @@ const About = () => {
         </section>
 
         {/* Call-to-Action Section */}
-        <section className="py-20 md:py-32 relative z-10">
+        <section className="py-20 md:py-40 relative z-10">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <div
               variants={fadeInUp(0)}
@@ -355,7 +355,7 @@ const About = () => {
                   Your Business?
                 </h2>
 
-                <p className="text-slate-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-slate-300 text-lg md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
                   Join thousands of companies already using TryzenIQ to automate
                   their operations and accelerate growth.
                 </p>

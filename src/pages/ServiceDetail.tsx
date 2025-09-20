@@ -173,10 +173,10 @@ const ServiceDetail = () => {
 
         {/* CTA */}
         <section className="py-20 px-6 md:px-12 lg:px-8 xl:px-48 text-center bg-black">
-          <div className="max-w-4xl mx-auto rounded-3xl border border-gray-800 p-12 shadow-lg hover:shadow-[#8caac8]/20 transition font-extralight font-playfair">
+          <div className="max-w-4xl mx-auto rounded-3xl border border-gray-800 p-12 shadow-lg hover:shadow-[#8caac8]/20 transition">
             {CtaIcon && <CtaIcon className="w-16 h-16 text-[#8caac8] mx-auto mb-6" />}
             <HighlightedTitle text={ctaTitle} highlight={ctaHighlight || ""} />
-            <p className="text-gray-400 mb-8 text-lg max-w-2xl mx-auto font-playfair font-extralight">
+            <p className="text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
               {ctaDescription}
             </p>
             <a

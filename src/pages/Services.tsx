@@ -119,7 +119,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                 className="hero-text-gradient bg-clip-text text-transparent"
               />
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Discover our comprehensive range of digital solutions designed to
               transform your business and drive growth in the modern world.
             </p>

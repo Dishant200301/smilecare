@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   Plus,
@@ -60,13 +61,13 @@ export default function FAQSection(): JSX.Element {
         {/*  FAQ Section below */}
         <div className="space-y-6">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair">
+            <h1 className="text-4xl md:text-5xl font-extralight mb-3 pb-2 bg-[#ffffff] bg-clip-text text-transparent text-center font-playfair leading-[1.3]">
               Frequently Asked {""}
               <span className="text-transparent bg-[#8caac8] bg-clip-text ">
                 Questions
               </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
               Find quick answers to the most common questions
             </p>
           </div>
@@ -82,19 +83,18 @@ export default function FAQSection(): JSX.Element {
                 }`}
               >
                 <button
-                  className="w-full flex justify-between items-center px-8 py-4 transition-colors duration-300 focus:outline-none"
+                  className="w-full flex justify-between items-center px-8 py-4 transition-colors duration-300 focus:outline-none group"
                   onClick={() => handleToggle(index)}
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h4 className="text-lg font-semibold text-white text-left group-hover:text-[#8caac8] transition-colors duration-300">
+                  <h4 className="text-lg font-extralight font-playfair text-white text-left group-hover:text-[#8caac8] transition-colors duration-300">
                     {faq.question}
                   </h4>
-                  <div
+
+                  <motion.div
                     className={`ml-4 flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
-                      openIndex === index
-                        ? " text-white rotate-180"
-                        : " text-slate-300 "
+                      openIndex === index ? "text-white" : "text-slate-300"
                     }`}
                   >
                     {openIndex === index ? (
@@ -102,7 +102,7 @@ export default function FAQSection(): JSX.Element {
                     ) : (
                       <ChevronDown className="w-5 h-5" />
                     )}
-                  </div>
+                  </motion.div>
                 </button>
 
                 <div
@@ -118,7 +118,7 @@ export default function FAQSection(): JSX.Element {
                   >
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-[#8caac8] rounded-full mt-2 flex-shrink-0"></div>
-                      <p>{faq.answer}</p>
+                      <p className="font-normal text-gray-300">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
@@ -130,41 +130,39 @@ export default function FAQSection(): JSX.Element {
         {/*  Centered Help CTA */}
 
         <div className="bg-[#0d0d0d] rounded-lg mt-6 mb-4 p-4 sm:px-8 w-full max-w-5xl mx-auto">
-  <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-    {/* Left Content */}
-    <div className="text-white font-medium text-sm text-center sm:text-left">
-      <span className="hidden sm:inline">
-        EXCITED? US TOO. LET'S GET MOVING.
-      </span>
-      <span className="sm:hidden text-base font-semibold">
-        Schedule a call
-      </span>
-    </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Left Content */}
+            <div className="text-white font-medium text-sm text-center sm:text-left">
+              <span className="hidden sm:inline">
+                EXCITED? US TOO. LET'S GET MOVING.
+              </span>
+              <span className="sm:hidden text-base font-semibold">
+                Schedule a call
+              </span>
+            </div>
 
-    {/* Button */}
-    <button className="bg-[#8caac8] text-black px-4 sm:px-6 py-2 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 text-sm">
-      
-      <span className="hidden sm:inline">SCHEDULE A CALL</span>
-      <span className="sm:hidden text-base font-bold">Book</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="lucide lucide-video h-4 w-4"
-      >
-        <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
-        <rect x="2" y="6" width="14" height="12" rx="2"></rect>
-      </svg>
-    </button>
-  </div>
-</div>
-
+            {/* Button */}
+            <button className="bg-[#8caac8] text-black px-4 sm:px-6 py-2 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 text-sm">
+              <span className="hidden sm:inline">SCHEDULE A CALL</span>
+              <span className="sm:hidden text-base font-bold">Book</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-video h-4 w-4"
+              >
+                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

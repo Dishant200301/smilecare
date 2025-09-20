@@ -85,7 +85,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             Our Premium{" "}
             <ShinyText text="Services" className="hero-text-gradient" />
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed ">
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed ">
             Discover our comprehensive range of digital solutions designed to
             transform your business and drive growth in the modern world.
           </p>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Tilt from "react-parallax-tilt";
@@ -70,7 +70,7 @@ const Contact = () => {
       />
     </h1>
 
-    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
     Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.    </p>
   </div>
 </section>
@@ -207,58 +207,52 @@ const Contact = () => {
                     title: "Email Us",
                     text: "tryzeniq@gmail.com",
                     link: "mailto:tryzeniq@gmail.com",
-                    linkText: "Send Email →",
+                    linkText: "Send Email",
                   },
                   {
                     icon: <Phone className="w-6 h-6 text-black" />,
                     title: "Call Us",
-                    text: "+91 63591 85945",
-                    link: "tel:+916359185945",
-                    linkText: "Call Now →",
+                    text: "+91 82381 69574",
+                    link: "tel:+918238169574",
+                    linkText: "Call Now",
                   },
                   {
                     icon: <MapPin className="w-6 h-6 text-black" />,
                     title: "Visit Us",
                     text: "205, earth plaza, Chapprabhatta, Ganeshpura, Surat, Gujarat 394520",
                     link: "https://www.google.com/maps/dir/21.2596747,72.8309741/7R5J%2BR9V,+Chapprabhatta,+Ganeshpura,+Surat,+Gujarat+394520/@21.2596887,72.8285513,17z",
-                    linkText: "Get Directions →",
+                    linkText: "Get Directions",
                   },
                   {
                     icon: <Clock className="w-6 h-6 text-black" />,
                     title: "Business Hours",
                     text: "Mon - Fri: 9am - 6pm IST\nWeekend support available",
                     link: "#",
-                    linkText: "Schedule Visit →",
+                    linkText: "Schedule Visit",
                   },
                 ].map((item, i) => (
-                  <Tilt
-                    key={i}
-                    tiltMaxAngleX={10}
-                    tiltMaxAngleY={10}
-                    transitionSpeed={800}
-                    glareEnable={false}
-                  >
-                    <div className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] p-6 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg group-hover:bg-[#0c0c0c]">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg">
+                  
+                    <div className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] hover:shadow-lg hover:shadow-[#8caac8]/20 p-6 rounded-2xl shadow-md transition-all duration-300 group-hover:bg-[#0c0c0c]">
+                      <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
                         {item.icon}
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg mb-1 group-hover:text-[#8caac8]">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70">
+                        <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70 font-sans">
                           {item.text}
                         </p>
                         <a
                           href={item.link}
                           target="_blank"
-                          className="text-[#8caac8] text-sm font-medium inline-flex items-center mt-2"
+                          className="text-[#8caac8] text-sm font-sans inline-flex items-center mt-2"
                         >
                           {item.linkText}
+                          <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
                       </div>
                     </div>
-                  </Tilt>
                 ))}
               </div>
             </div>
