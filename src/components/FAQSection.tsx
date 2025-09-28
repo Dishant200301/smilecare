@@ -63,12 +63,12 @@ export default function FAQSection(): JSX.Element {
       </div>
 
       <div className="relative max-w-4xl mx-auto space-y-20">
-        {/*  FAQ Section below */}
+        {/* FAQ Section */}
         <div className="space-y-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-extralight mb-3 pb-2 bg-[#ffffff] bg-clip-text text-transparent text-center font-playfair leading-[1.3]">
-              Frequently Asked {""}
-              <span className="text-transparent bg-[#8caac8] bg-clip-text ">
+              Frequently Asked{" "}
+              <span className="text-transparent bg-[#8caac8] bg-clip-text">
                 Questions
               </span>
             </h1>
@@ -93,7 +93,7 @@ export default function FAQSection(): JSX.Element {
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h4 className="text-lg font-extralight font-playfair text-white text-left group-hover:text-[#8caac8] transition-colors duration-300">
+                  <h4 className="text-lg font-extralight font-playfair text-white text-left group-hover:text-[#8caac8] transition-colors duration-300 normal-case">
                     {faq.question}
                   </h4>
 
@@ -112,9 +112,7 @@ export default function FAQSection(): JSX.Element {
 
                 <div
                   className={`overflow-hidden transition-all duration-500 ease-out ${
-                    openIndex === index
-                      ? "max-h-96 opacity-100"
-                      : "max-h-0 opacity-0"
+                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
                   <div
@@ -123,7 +121,7 @@ export default function FAQSection(): JSX.Element {
                   >
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-[#8caac8] rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="font-normal text-gray-300">{faq.answer}</p>
+                      <p className="font-normal text-gray-300 normal-case">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
@@ -132,14 +130,13 @@ export default function FAQSection(): JSX.Element {
           </div>
         </div>
 
-        {/*  Centered Help CTA */}
-
+        {/* Centered Help CTA */}
         <div className="bg-[#0d0d0d] rounded-lg mt-6 mb-4 p-4 sm:px-8 w-full max-w-5xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Left Content */}
-            <div className="text-white font-medium text-sm text-center sm:text-left">
+            <div className="text-white font-medium text-lg text-center sm:text-left">
               <span className="hidden sm:inline">
-                EXCITED? US TOO. LET'S GET MOVING.
+                Excited? Us too. Let's get moving.
               </span>
               <span className="sm:hidden text-base font-semibold">
                 Schedule a call
@@ -148,7 +145,7 @@ export default function FAQSection(): JSX.Element {
 
             {/* Button */}
             <button className="bg-[#8caac8] text-black px-4 sm:px-6 py-2 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 text-sm">
-              <span className="hidden sm:inline">SCHEDULE A CALL</span>
+              <span className="hidden sm:inline">Schedule a call</span>
               <span className="sm:hidden text-base font-bold">Book</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

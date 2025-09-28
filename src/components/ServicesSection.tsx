@@ -2,17 +2,36 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import ShinyText from "./ShinyText";
+import { im } from "mathjs";
+import { services } from "@/data/servicesData";
 
-// Dummy services data
-const services = [
+type Service = {
+  imageUrl: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+  subServices?: string[]; // <-- added optional sub data
+};
+
+type ServicesType = Service[];
+
+const Services1: ServicesType = [
   {
     imageUrl:
       "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=60",
     category: "Beauty",
     title: "Botox & Skin Care",
     description:
-      "AI-powered appointment booking and customer engagement for beauty clinics",
+      "",
     link: "/services/botox-skincare",
+    subServices: [
+      "Auto outreach & follow-ups",
+      "Conversion-ready website", 
+      "Get more member leads",
+      "Book & remind sessions",
+      "Collect Positive Feedback",
+    ],
   },
   {
     imageUrl:
@@ -20,51 +39,132 @@ const services = [
     category: "Healthcare",
     title: "Clinics and Dentist",
     description:
-      "Automated patient management and appointment scheduling systems",
+      "",
     link: "/services/clinics-dentist",
+    subServices: [
+      "Automated outreach system",
+      "Patient-focused website",
+      "Manage public reviews",
+      "Targeted patient leads",
+      "Referral Tracking",
+    ],
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=60",
     category: "Fitness",
     title: "Gym & Health Coach",
-    description: "Member management and fitness consultation automation",
+    description: "",
     link: "/services/gym-health-coach",
+    subServices: [
+      "Auto outreach & follow-ups",
+      "Conversion-ready website",
+      "Get more member leads",
+      "Book & remind sessions",
+      "Collect Positive Feedback",
+    ],
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop&q=60",
     category: "Consulting",
     title: "Business Consultation",
-    description:
-      "Professional consulting services with AI-driven client management",
+    description: "",
     link: "/services/business-consultation",
+    subServices: [
+      "Authority-building website",
+      "Smart outreach & follow-ups",
+      "Auto appointments & reminders",
+      "Client reviews managed",
+      "Hand-picked B2B lead",
+    ],
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=60",
     category: "Technology",
     title: "IT & SAAS Services",
-    description:
-      "Technology solutions with automated customer support and onboarding",
+    description: "",
     link: "/services/it-saas",
+    subServices: [
+      "Sales-driven website",
+      "Online reputation boost",
+      "Demo booking reminders",
+      "Automated cold email",
+      "Qualified B2B leads",
+    ],
+  },
+];
+
+const Services2: ServicesType=[
+  {
+    imageUrl:
+      "https://thumbs.dreamstime.com/b/portrait-man-cleaning-equipment-cleaning-house-30014330.jpg",
+    category: "Cleaning",
+    title: "Cleaning Services",
+    description: "",
+    link: "/services/cleaning-services",
+    subServices: [
+      "Booking-friendly website",
+      "Job scheduling & reminders",
+      "Automatic outreach emails",
+      "Local job leads daily",
+      "Great reviews online",
+    ],
+  },
+  {
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkesjGaPt3CIiJhoOS21uL5lXWcxAFSYXXw&s",
+    category: "Real Estate",
+    title: "Roofing, Solar, Pools",
+    description: "",
+    link: "/services/roofing-solar-pools",
+    subServices: [
+      "Smart outreach & follow-ups",
+      "Lead-generating website",
+      "Reputation management",
+      "Site visit reminders",
+      "Verified local leads",
+    ],
+  },
+  {
+    imageUrl: "https://media.istockphoto.com/id/1827291486/photo/a-dedicated-mentor-is-explaining-mentees-importance-of-project-while-sitting-at-the-boardroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=3PCse04HxmDXn6LsY1MuQsh01AflW_wR0jwF4tYZ8QY=",
+    category: "",
+    title: "Any Business",
+    description: "",
+    link: "/services/any-business",
+    subServices: [
+      "Smart selling website",
+      "Automated outreach flow",
+      "Easy bookings & reminders",
+      "Get new leads faster",
+      "Batter review system",
+    ],
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=60",
-    category: "Beauty",
-    title: "Salons & Spa",
-    description:
-      "Beauty service automation with smart booking and customer care",
-    link: "/services/salons-spa",
-  },
-];
+      "https://plus.unsplash.com/premium_photo-1661776260388-f5d1b14ce8a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdXJhbmNlfGVufDB8fDB8fHww",
+    category: "Insurance",
+    title: "Insurance Agents",
+    description: "",
+    link: "/services/insurance-agents",
+    subServices: [
+      "Trust-building website",
+      "High-quality B2B leads",
+      "Smart email outreach",
+      "5-star review filtering",
+      "Book call easily",],
+  },  
+]
+
 
 type ServicesProps = {
   limit?: number;
 };
 
 const Services: React.FC<ServicesProps> = ({ limit }) => {
+  const duplicatedRow1 = [...Services1, ...Services1];
+  const duplicatedRow2 = [...Services2, ...Services2];
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -82,8 +182,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair">
-            Our Premium{" "}
-            <ShinyText text="Services" className="hero-text-gradient" />
+            Our <ShinyText text="Expertise" className="hero-text-gradient" />
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed ">
             Discover our comprehensive range of digital solutions designed to
@@ -97,8 +196,9 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
           <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
           <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
 
+          {/* Row 1 */}
           <div className="flex gap-8 w-max animate-scrollLtr">
-            {[...visibleServices, ...visibleServices].map((service, index) => (
+            {duplicatedRow1.map((service, index) => (
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">
                 <a
                   href={service.link}
@@ -122,9 +222,22 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-gray-300 leading-relaxed mb-4">
                       {service.description}
                     </p>
+
+                    {/* Sub Services if available */}
+                    {service.subServices && (
+                      <ul className="text-gray-400 text-sm space-y-2 mb-6">
+                        {service.subServices.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-[#8caac8] rounded-full" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
                     <div className="flex items-center justify-between">
                       <span
                         className="inline-flex items-center gap-2 text-[#8caac8] 
@@ -144,8 +257,9 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             ))}
           </div>
 
+          {/* Row 2 */}
           <div className="flex gap-8 mt-10 w-max animate-scrollRtl">
-            {[...visibleServices, ...visibleServices].map((service, index) => (
+            {duplicatedRow2.map((service, index) => (
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">
                 <a
                   href={service.link}
@@ -169,9 +283,22 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-gray-300 leading-relaxed mb-4">
                       {service.description}
                     </p>
+
+                    {/* Sub Services if available */}
+                    {service.subServices && (
+                      <ul className="text-gray-400 text-sm space-y-2 mb-6">
+                        {service.subServices.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-[#8caac8] rounded-full" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
                     <div className="flex items-center justify-between">
                       <span
                         className="inline-flex items-center gap-2 text-[#8caac8] 

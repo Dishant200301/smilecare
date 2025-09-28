@@ -8,68 +8,139 @@ import ShinyText from "@/components/ShinyText";
 
 const services = [
   {
-    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=60",
+    imageUrl:
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=60",
     category: "Beauty",
     title: "Botox & Skin Care",
-    description: "AI-powered appointment booking and customer engagement for beauty clinics",
+    description:
+      "",
     link: "/services/botox-skincare",
+    subServices: [
+      "Auto outreach & follow-ups",
+      "Conversion-ready website",
+      "Get more member leads",
+      "Book & remind sessions",
+      "Collect Positive Feedback",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&auto=format&fit=crop&q=60",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&auto=format&fit=crop&q=60",
     category: "Healthcare",
     title: "Clinics and Dentist",
-    description: "Automated patient management and appointment scheduling systems",
+    description:
+      "",
     link: "/services/clinics-dentist",
+    subServices: [
+      "Automated outreach system",
+      "Patient-focused website",
+      "Manage public reviews",
+      "Targeted patient leads",
+      "Referral Tracking",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=60",
+    imageUrl:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=60",
     category: "Fitness",
     title: "Gym & Health Coach",
-    description: "Member management and fitness consultation automation",
+    description: "",
     link: "/services/gym-health-coach",
+    subServices: [
+      "Auto outreach & follow-ups",
+      "Conversion-ready website",
+      "Get more member leads",
+      "Book & remind sessions",
+      "Collect Positive Feedback",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop&q=60",
+    imageUrl:
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop&q=60",
     category: "Consulting",
     title: "Business Consultation",
-    description: "Professional consulting services with AI-driven client management",
+    description: "",
     link: "/services/business-consultation",
+    subServices: [
+      "Authority-building website",
+      "Smart outreach & follow-ups",
+      "Auto appointments & reminders",
+      "Client reviews managed",
+      "Hand-picked B2B lead",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=60",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=60",
     category: "Technology",
     title: "IT & SAAS Services",
-    description: "Technology solutions with automated customer support and onboarding",
+    description: "",
     link: "/services/it-saas",
+    subServices: [
+      "Sales-driven website",
+      "Online reputation boost",
+      "Demo booking reminders",
+      "Automated cold email",
+      "Qualified B2B leads",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=60",
-    category: "Beauty",
-    title: "Salons & Spa",
-    description: "Beauty service automation with smart booking and customer care",
-    link: "/services/salons-spa",
+    imageUrl:
+      "https://thumbs.dreamstime.com/b/portrait-man-cleaning-equipment-cleaning-house-30014330.jpg",
+    category: "Cleaning",
+    title: "Cleaning Services",
+    description: "",
+    link: "/services/cleaning-services",
+    subServices: [
+      "Booking-friendly website",
+      "Job scheduling & reminders",
+      "Automatic outreach emails",
+      "Local job leads daily",
+      "Great reviews online",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=60",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkesjGaPt3CIiJhoOS21uL5lXWcxAFSYXXw&s",
     category: "Real Estate",
-    title: "Real Estate Agents",
-    description: "Property showing automation and lead management systems",
-    link: "/services/real-estate-agents",
+    title: "Roofing, Solar, Pools",
+    description: "",
+    link: "/services/roofing-solar-pools",
+    subServices: [
+      "Smart outreach & follow-ups",
+      "Lead-generating website",
+      "Reputation management",
+      "Site visit reminders",
+      "Verified local leads",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Mental Health",
-    title: "Therapists & Counselors",
-    description: "Mental health practice automation with secure patient communications",
-    link: "/services/therapists-counselors",
+    imageUrl: "https://media.istockphoto.com/id/1827291486/photo/a-dedicated-mentor-is-explaining-mentees-importance-of-project-while-sitting-at-the-boardroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=3PCse04HxmDXn6LsY1MuQsh01AflW_wR0jwF4tYZ8QY=",
+    category: "",
+    title: "Any Business",
+    description: "",
+    link: "/services/any-business",
+    subServices: [
+      "Smart selling website",
+      "Automated outreach flow",
+      "Easy bookings & reminders",
+      "Get new leads faster",
+      "Batter review system",
+    ],
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=60",
-    category: "Finance",
-    title: "Insurance & Financial",
-    description: "Financial services automation with claim processing and client management",
-    link: "/services/insurance-financial",
-  },
+    imageUrl:
+      "https://plus.unsplash.com/premium_photo-1661776260388-f5d1b14ce8a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdXJhbmNlfGVufDB8fDB8fHww",
+    category: "Insurance",
+    title: "Insurance Agents",
+    description: "",
+    link: "/services/insurance-agents",
+    subServices: [
+      "Trust-building website",
+      "High-quality B2B leads",
+      "Smart email outreach",
+      "5-star review filtering",
+      "Book call easily",],
+  }, 
 ];
 
 type ServicesProps = {
@@ -113,9 +184,9 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
               className="text-4xl md:text-6xl lg:text-7xl font-extralight mb-6"
               style={{ fontFamily: "Playfair Display" }}
             >
-              Our Premium{" "}
+              Our {" "}
               <ShinyText
-                text="Services"
+                text="Expertise"
                 className="hero-text-gradient bg-clip-text text-transparent"
               />
             </h1>
@@ -147,6 +218,17 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                     {service.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
+                  {/* Sub Services if available */}
+                  {service.subServices && (
+                      <ul className="text-gray-400 text-sm space-y-2 mb-6">
+                        {service.subServices.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-[#8caac8] rounded-full" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   <div className="flex items-center gap-2 text-[#8caac8] font-semibold transition-all duration-300">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
