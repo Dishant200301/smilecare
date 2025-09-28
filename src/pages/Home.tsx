@@ -27,8 +27,8 @@ const Home = () => {
       <main>
         <HeroSection />
         <StatsSection />
-        <Services limit={6} />
-      <PricingSection/>
+        <Services />
+      {/* <PricingSection/> */}
       {/* <TestimonialsSection/> */}
       <TestimonialSection/>
       <FAQSection/> 

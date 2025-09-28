@@ -74,20 +74,20 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Facebook,
-      href: "#",
+      href: "https://www.facebook.com/profile.php?id=61576569900601",
       label: "Facebook",
       color: "hover:text-[#8caac8]",
     },
     { icon: XIcon, href: "#", label: "X", color: "hover:text-[#8caac8]" },
     {
       icon: Instagram,
-      href: "#",
+      href: "https://www.instagram.com/tryzen_iq/#",
       label: "Instagram",
       color: "hover:text-[#8caac8]",
     },
     {
       icon: Linkedin,
-      href: "#",
+      href: "https://www.linkedin.com/company/tryzeniq",
       label: "LinkedIn",
       color: "hover:text-[#8caac8]",
     },

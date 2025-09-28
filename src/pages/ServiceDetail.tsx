@@ -7,6 +7,7 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useParams } from "react-router-dom";
 import { servicesData } from "@/data/servicesData";
 import HighlightedTitle from "@/components/HighlightedTitle";
+import TestimonialSingleRow from "@/components/TestimonialSingleRow";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -74,7 +75,7 @@ const ServiceDetail = () => {
               </a>
             </div>
 
-            {/* Hero Image - fixed ratio */}
+            {/* Hero Image */}
             <div className="relative w-full aspect-[16/9]">
               <img
                 src={heroImage}
@@ -107,7 +108,7 @@ const ServiceDetail = () => {
                         src={f.imageUrl}
                         alt={f.title}
                         className="w-full h-full object-cover transition-transform duration-300 ease-in-out 
-                          filter grayscale group-hover:grayscale-0 group-hover:scale-105"
+                          group-hover:scale-105"
                       />
                     </div>
                   )}
@@ -171,6 +172,7 @@ const ServiceDetail = () => {
           </div>
         </section>
 
+        <TestimonialSingleRow />
         {/* CTA */}
         <section className="py-20 px-6 md:px-12 lg:px-8 xl:px-48 text-center bg-black">
           <div className="max-w-4xl mx-auto rounded-3xl border border-gray-800 p-12 shadow-lg hover:shadow-[#8caac8]/20 transition">
@@ -199,6 +201,8 @@ const ServiceDetail = () => {
             </a>
           </div>
         </section>
+
+        {/* Testimonials */}
       </main>
 
       <Footer />

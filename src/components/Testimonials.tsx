@@ -11,104 +11,104 @@ interface TestimonialType {
 // Testimonials Row 1
 const testimonialsRow1: TestimonialType[] = [
   {
-    name: "Michael Anderson",
-    title: "Head of Operations",
+    name: "@callmevlad",
+    title: "Co-founder & CEO @webflow",
     quote:
-      "The level of security Inno offers for our assets is unparalleled. I feel confident that our financial data is in safe hands.",
+      "Wow, this is absolutely incredible – huge props to the @relume_io team for bringing these amazing AI superpowers to more Webflow visual developers!",
     avatar:
       "https://framerusercontent.com/images/Y9KmJAQ4w53hsc4jJojfokLZ7D8.jpg?scale-down-to=512",
   },
   {
-    name: "Emily Johnson",
-    title: "Chief Financial Officer",
+    name: "@rrabrot",
+    title: "Designer & Webflow developer",
     quote:
-      "Inno's services have completely transformed the way we handle our financial operations. Their innovative solutions have made a significant impact on our efficiency.",
+      "Bro what?! Are you telling I was able to produce all of this with just one prompt? As soon as that happened, I signed up for the highest tier plan RIGHT AWAY.",
     avatar:
       "https://framerusercontent.com/images/Ky8xfxIZ6aXUUztI3YWXxaM.jpg?scale-down-to=512",
   },
   {
-    name: "Olivia Taylor",
-    title: "Product Manager",
+    name: "@SoyBalta",
+    title: "Designer & Webflow developer",
     quote:
-      "Inno's services have enabled us to streamline our processes, saving us both time and money. Their team truly understands the needs of modern businesses.",
+      "Finally an AI tool that I will ACTUALLY include as part of my workflow. I love how seamless it is from start to finish.",
     avatar:
-      "https://framerusercontent.com/images/w2hyXovpoCcfHZkjR4Hmr53RA5o.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/HqoHkPp6dpJFdgMqUKIaAXmy7o.jpg?scale-down-to=512",
   },
   {
-    name: "Grace Miller",
-    title: "Operations Manager",
+    name: "@DannPetty",
+    title: "Designer & Content Creator",
     quote:
-      "The transparency and reliability of Inno's services have improved our operational efficiency, allowing us to focus on growth.",
+      "This is pure magic. ✨ → Sitemaps in seconds → Wireframes in minutes → Full copy written with AI → Layered wireframes to Figma.",
     avatar:
       "https://framerusercontent.com/images/d4SpmpLmhUfMZkWsTOukrdAmhg.jpg?scale-down-to=512",
   },
   {
-    name: "Lucas Davis",
-    title: "Strategy Consultant",
+    name: "@gabelopez",
+    title: "Designer",
     quote:
-      "Inno's insights and strategic advice have been invaluable in guiding our financial decisions. They are a trusted partner.",
+      "Very excited for @relume_io's new AI-powered generative website builder. The messaging and positioning: 'to empower you, not replace you'.",
     avatar:
-      "https://framerusercontent.com/images/Q2Af4Sm9MCv82WCNdQDN3ZOYgI.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/w2hyXovpoCcfHZkjR4Hmr53RA5o.jpg?scale-down-to=512",
   },
   {
-    name: "Ava Moore",
-    title: "Business Analyst",
+    name: "@bryant",
+    title: "Co-founder @webflow",
     quote:
-      "The analytics and reporting tools provided by Inno have given us deeper insights into our performance, helping us make informed decisions.",
+      "This is the most exciting AI website product I've seen — great work Relume team!!! Looks especially powerful for serious web professionals.",
     avatar:
-      "https://framerusercontent.com/images/HqoHkPp6dpJFdgMqUKIaAXmy7o.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/Q2Af4Sm9MCv82WCNdQDN3ZOYgI.jpg?scale-down-to=512",
   },
 ];
 
 // Testimonials Row 2
 const testimonialsRow2: TestimonialType[] = [
   {
-    name: "Grace Miller",
-    title: "Operations Manager",
+    name: "@callmevlad",
+    title: "Co-founder & CEO @webflow",
     quote:
-      "The transparency and reliability of Inno's services have improved our operational efficiency, allowing us to focus on growth.",
+      "Wow, this is absolutely incredible – huge props to the @relume_io team for bringing these amazing AI superpowers to more Webflow visual developers!",
     avatar:
-      "https://framerusercontent.com/images/d4SpmpLmhUfMZkWsTOukrdAmhg.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/Y9KmJAQ4w53hsc4jJojfokLZ7D8.jpg?scale-down-to=512",
   },
   {
-    name: "Lucas Davis",
-    title: "Strategy Consultant",
+    name: "@rrabrot",
+    title: "Designer & Webflow developer",
     quote:
-      "Inno's insights and strategic advice have been invaluable in guiding our financial decisions. They are a trusted partner.",
+      "Bro what?! Are you telling I was able to produce all of this with just one prompt? As soon as that happened, I signed up for the highest tier plan RIGHT AWAY.",
     avatar:
-      "https://framerusercontent.com/images/Q2Af4Sm9MCv82WCNdQDN3ZOYgI.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/Ky8xfxIZ6aXUUztI3YWXxaM.jpg?scale-down-to=512",
   },
   {
-    name: "Ava Moore",
-    title: "Business Analyst",
+    name: "@SoyBalta",
+    title: "Designer & Webflow developer",
     quote:
-      "The analytics and reporting tools provided by Inno have given us deeper insights into our performance, helping us make informed decisions.",
+      "Finally an AI tool that I will ACTUALLY include as part of my workflow. I love how seamless it is from start to finish.",
     avatar:
       "https://framerusercontent.com/images/HqoHkPp6dpJFdgMqUKIaAXmy7o.jpg?scale-down-to=512",
   },
   {
-    name: "Grace Miller",
-    title: "Operations Manager",
+    name: "@DannPetty",
+    title: "Designer & Content Creator",
     quote:
-      "The transparency and reliability of Inno's services have improved our operational efficiency, allowing us to focus on growth.",
+      "This is pure magic. ✨ → Sitemaps in seconds → Wireframes in minutes → Full copy written with AI → Layered wireframes to Figma.",
     avatar:
       "https://framerusercontent.com/images/d4SpmpLmhUfMZkWsTOukrdAmhg.jpg?scale-down-to=512",
   },
   {
-    name: "Lucas Davis",
-    title: "Strategy Consultant",
+    name: "@gabelopez",
+    title: "Designer",
     quote:
-      "Inno's insights and strategic advice have been invaluable in guiding our financial decisions. They are a trusted partner.",
+      "Very excited for @relume_io's new AI-powered generative website builder. The messaging and positioning: 'to empower you, not replace you'.",
     avatar:
-      "https://framerusercontent.com/images/Q2Af4Sm9MCv82WCNdQDN3ZOYgI.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/w2hyXovpoCcfHZkjR4Hmr53RA5o.jpg?scale-down-to=512",
   },
   {
-    name: "Ava Moore",
-    title: "Business Analyst",
+    name: "@bryant",
+    title: "Co-founder @webflow",
     quote:
-      "The analytics and reporting tools provided by Inno have given us deeper insights into our performance, helping us make informed decisions.",
+      "This is the most exciting AI website product I've seen — great work Relume team!!! Looks especially powerful for serious web professionals.",
     avatar:
-      "https://framerusercontent.com/images/HqoHkPp6dpJFdgMqUKIaAXmy7o.jpg?scale-down-to=512",
+      "https://framerusercontent.com/images/Q2Af4Sm9MCv82WCNdQDN3ZOYgI.jpg?scale-down-to=512",
   },
 ];
 

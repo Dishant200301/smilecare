@@ -16,24 +16,29 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "About Galao",
+    question: "How does the automation system help my clinic or business?",
     answer:
-      "Galao is a vibrant blog offering insightful content on culture, lifestyle, and personal development. We aim to inspire and empower readers with practical advice, fresh ideas, and engaging stories.",
+      "Our automation platform streamlines your entire workflow — from capturing leads, sending reminders, and managing bookings, to improving patient engagement and maximizing revenue.",
   },
   {
-    question: "Subscriptions",
+    question: "Can the system send automated reminders to my customers?",
     answer:
-      "Stay connected with Galao by subscribing to our newsletter. Receive regular updates on new articles, exclusive content, and special offers.",
+      "Yes! The system sends smart reminders via SMS, email, or WhatsApp at the right time, reducing no-shows and improving appointment attendance.",
   },
   {
-    question: "Contribute to Galao",
+    question: "Is this solution suitable for my industry?",
     answer:
-      "Want to share your voice with Galao? We welcome guest posts, articles, and creative contributions. Visit our Contribute page for guidelines.",
+      "Absolutely. Our services are tailored for multiple industries, including clinics, dentists, gyms, spas, salons, IT & SaaS, and business consultants.",
   },
   {
-    question: "Website Help & Support",
+    question: "Do I need technical knowledge to use it?",
     answer:
-      "If you need help navigating Galao, our Help & Support section is here to assist. You can also reach out via our Contact page.",
+      "Not at all. Our platform is designed to be user-friendly and fully automated. Once set up, it runs seamlessly in the background while you focus on your business.",
+  },
+  {
+    question: "How quickly can I see results after using your system?",
+    answer:
+      "Most clients start noticing improvements within the first few weeks — such as more engaged leads, increased consultation bookings, and higher patient or client attendance rates.",
   },
 ];
 

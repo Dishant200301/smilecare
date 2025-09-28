@@ -97,7 +97,54 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
           <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
           <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
 
-          <div className="flex gap-8 w-max animate-scroll">
+          <div className="flex gap-8 w-max animate-scrollLtr">
+            {[...visibleServices, ...visibleServices].map((service, index) => (
+              <div key={index} className="w-[350px] flex-shrink-0 snap-start">
+                <a
+                  href={service.link}
+                  className="group relative block bg-gray-900/50 backdrop-blur-sm rounded-3xl 
+                     overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 
+                     transition-all duration-150 ease-in-out transform  
+                     border border-gray-800 hover:border-cyan-500/30"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={service.imageUrl}
+                      alt={service.title}
+                      className="w-full h-48 object-cover transition-transform duration-200 ease-in-out
+                         group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                    />
+                  </div>
+                  <div className="p-6 transition-colors duration-150 ease-in-out">
+                    <h3
+                      className="text-xl font-bold text-white mb-3 
+                           group-hover:text-[#8caac8] transition-colors duration-150 ease-in-out"
+                    >
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span
+                        className="inline-flex items-center gap-2 text-[#8caac8] 
+                               font-semibold group-hover:gap-3 transition-all duration-150 ease-in-out"
+                      >
+                        <span>Learn More</span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-150 ease-in-out group-hover:translate-x-1" />
+                      </span>
+                      <div
+                        className="w-2 h-2 rounded-full bg-[#8caac8] opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-150 ease-in-out"
+                      />
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex gap-8 mt-10 w-max animate-scrollRtl">
             {[...visibleServices, ...visibleServices].map((service, index) => (
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">
                 <a

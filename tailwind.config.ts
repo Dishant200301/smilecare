@@ -161,7 +161,11 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(50%)" },
         },
-        scroll: {
+        scrollLtr: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        scrollRtl: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
@@ -173,7 +177,6 @@ const config: Config = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
         },
-        
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -188,7 +191,8 @@ const config: Config = {
         "infinite-scroll": "infinite-scroll var(--duration) linear infinite",
         "infinite-scroll-reverse":
           "infinite-scroll-reverse var(--duration) linear infinite",
-        scroll: "scroll 30s linear infinite",
+        scrollLtr: "scrollLtr 40s linear infinite",
+        scrollRtl: "scrollRtl 40s linear infinite",
         "infinite-scroll-ltr": "infinite-scroll-ltr 30s linear infinite",
         "infinite-scroll-rtl": "infinite-scroll-rtl 30s linear infinite",
       },

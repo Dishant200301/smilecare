@@ -48,13 +48,13 @@ const staggerContainer = {
 
 const About = () => {
   const stats = [
-    { icon: Users, number: 10000, suffix: "+", label: "Active Clients" },
-    { icon: Target, number: 95, suffix: "%", label: "Customer Satisfaction" },
-    { icon: Award, number: 50, suffix: "+", label: "Industry Awards" },
+    { icon: Users, number: 10, suffix: "+", label: "Active Clients" },
+    { icon: Target, number: 100, suffix: "%", label: "Customer Satisfaction" },
+    { icon: Award, number: 10, suffix: "+", label: "Industry Awards" },
     {
       icon: TrendingUp,
-      number: 300,
-      suffix: "%",
+      number: 2,
+      suffix: "x",
       label: "Average ROI Increase",
     },
   ];
@@ -139,31 +139,30 @@ const About = () => {
 
         {/* Hero Section */}
         <section className="relative z-10">
-  <div className="max-w-7xl mx-auto px-4">
-    <div className="hero-section">
-      <h1
-        className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6 text-center"
-        style={{ fontFamily: "Playfair Display" }}
-      >
-        About{" "}
-        <ShinyText
-          text="Us"
-          className="hero-text-gradient bg-clip-text text-transparent"
-        />
-      </h1>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="hero-section">
+              <h1
+                className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6 text-center"
+                style={{ fontFamily: "Playfair Display" }}
+              >
+                About{" "}
+                <ShinyText
+                  text="Us"
+                  className="hero-text-gradient bg-clip-text text-transparent"
+                />
+              </h1>
 
-      <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-      Learn more about our inspiring journey and the dedicated team passionately committed to driving growth and lasting success.      </p>
-    </div>
-  </div>
-</section>
-
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Learn more about our inspiring journey and the dedicated team
+                passionately committed to driving growth and lasting success.{" "}
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Values Section */}
         <section className="py-16 md:py-8 relative z-10">
           <div className="max-w-7xl mx-auto px-4">
-            
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
               {values.map((value, index) => (
                 <Tilt
@@ -253,7 +252,7 @@ const About = () => {
         </section>
 
         {/* Enhanced Team Section */}
-        <section className="relative z-10">
+        {/* <section className="relative z-10">
   <div className="max-w-7xl mx-auto px-4">
     <div
       className="hero-section"
@@ -294,11 +293,11 @@ const About = () => {
         className="group relative bg-[#0d0d0d] backdrop-blur-lg border border-white/10 rounded-3xl p-8 text-center 
         transition-all duration-500 hover:bg-[#0c0c0c] hover:shadow-[0_0_25px_#8caac8]/40 overflow-hidden"
       >
-        {/* Shine Overlay */}
+        
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
         translate-x-[-150%] opacity-0 group-hover:opacity-100 group-hover:animate-shine pointer-events-none" />
 
-        {/* Profile image */}
+        
         <div className="relative mb-6 w-32 h-32 mx-auto">
           <div className="absolute inset-0 bg-[#8caac8] rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
             <div className="w-full h-full bg-black rounded-full p-1">
@@ -311,17 +310,17 @@ const About = () => {
           </div>
         </div>
 
-        {/* Name */}
+        
         <h3 className="text-xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-[#8caac8] relative z-10">
           {member.name}
         </h3>
 
-        {/* Role */}
+        
         <p className="text-[#909090] font-medium mb-4 text-sm uppercase tracking-wider transition-colors duration-300 group-hover:text-white/70 relative z-10">
           {member.role}
         </p>
 
-        {/* Bio */}
+        
         <p className="text-sm leading-relaxed mb-4 text-[#909090] transition-colors duration-300 group-hover:text-[#bbbbbb] relative z-10">
           {member.bio}
         </p>
@@ -331,7 +330,7 @@ const About = () => {
 </div>
 
           </div>
-        </section>
+        </section> */}
 
         {/* Call-to-Action Section */}
         <section className="py-20 md:py-40 relative z-10">
@@ -387,7 +386,7 @@ const About = () => {
       </main>
 
       <Footer />
-      <ScrollToTopButton/>
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -144,12 +144,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Grid */}
-        <div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Light */}
           <Card
             title="Light"
@@ -212,7 +207,7 @@ function Card({
       // whileHover={{ y: -8 }}
       // transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
     >
-      
+       
 
       {/* Glow Effect */}
       <motion.div

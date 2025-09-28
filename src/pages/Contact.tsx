@@ -19,6 +19,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState(""); // Success message state
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,8 +33,14 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Normally, you'd send formData to an API or backend here
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you shortly.");
+
+    // Show inline success message
+    setSuccessMessage("Thank you for your message! We will get back to you shortly.");
+
+    // Reset form fields
     setFormData({
       fullName: "",
       lastName: "",
@@ -41,6 +49,9 @@ const Contact = () => {
       subject: "",
       message: "",
     });
+
+    // Hide success message after 5 seconds
+    setTimeout(() => setSuccessMessage(""), 5000);
   };
 
   return (
@@ -58,23 +69,23 @@ const Contact = () => {
       <main className="pt-28 md:pt-32">
         {/* Hero */}
         <section className="hero-section">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1
-      className="text-4xl md:text-5xl lg:text-7xl font-extralight font-playfair bg-[#ffffff] bg-clip-text text-transparent mb-6"
-      style={{ fontFamily: "Playfair Display" }}
-    >
-      Connect{" "}
-      <ShinyText
-        text="Us"
-        className="hero-text-gradient bg-clip-text text-transparent"
-      />
-    </h1>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1
+              className="text-4xl md:text-5xl lg:text-7xl font-extralight font-playfair bg-[#ffffff] bg-clip-text text-transparent mb-6"
+              style={{ fontFamily: "Playfair Display" }}
+            >
+              Connect{" "}
+              <ShinyText
+                text="Us"
+                className="hero-text-gradient bg-clip-text text-transparent"
+              />
+            </h1>
 
-    <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-    Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.    </p>
-  </div>
-</section>
-
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.
+            </p>
+          </div>
+        </section>
 
         {/* Contact Section */}
         <section className="relative py-16 md:py-12">
@@ -82,7 +93,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}
               <div className="lg:col-span-2 bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-3xl shadow-2xl flex flex-col">
-                <h2 className="text-4xl md:text-4xl font-extralight font-playfair  mb-8 text-white">
+                <h2 className="text-4xl md:text-4xl font-extralight font-playfair mb-8 text-white">
                   Send us a Message
                 </h2>
                 <form
@@ -182,6 +193,13 @@ const Contact = () => {
                     </div>
                   </div>
 
+                  {/* Success Message */}
+                  {successMessage && (
+                    <div className="text-[#8caac8] text-center font-medium mt-4">
+                      {successMessage}
+                    </div>
+                  )}
+
                   <div className="flex justify-center mt-6">
                     <button
                       type="submit"
@@ -231,28 +249,30 @@ const Contact = () => {
                     linkText: "Schedule Visit",
                   },
                 ].map((item, i) => (
-                  
-                    <div className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] hover:shadow-lg hover:shadow-[#8caac8]/20 p-6 rounded-2xl shadow-md transition-all duration-300 group-hover:bg-[#0c0c0c]">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg mb-1 group-hover:text-[#8caac8]">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70 font-sans">
-                          {item.text}
-                        </p>
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          className="text-[#8caac8] text-sm font-sans inline-flex items-center mt-2"
-                        >
-                          {item.linkText}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                      </div>
+                  <div
+                    key={i}
+                    className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] hover:shadow-lg hover:shadow-[#8caac8]/20 p-6 rounded-2xl shadow-md transition-all duration-300"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
+                      {item.icon}
                     </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[#8caac8]">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70 font-sans">
+                        {item.text}
+                      </p>
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        className="text-[#8caac8] text-sm font-sans inline-flex items-center mt-2"
+                      >
+                        {item.linkText}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -262,13 +282,12 @@ const Contact = () => {
         {/* Map Section */}
         <section className="relative py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className=" text-4xl md:text-5xl font-extralight  mb-8 text-center text-white font-serif ">
-              Find Us on the {""}
-              <span className="hero-text-gradient special-font">Map</span>
+            <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-center text-white font-serif">
+              Find Us on the <span className="hero-text-gradient special-font">Map</span>
             </h2>
             <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.269692152255!2d72.8285513!3d21.2596887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04939b2ef6a81%3A0x26227e3f62ef1fbe!2s7R5J%2BR9V%2C%20Chapprabhatta%2C%20Ganeshpura%2C%20Surat%2C%20Gujarat%20394520!5e0!3m2!1sen!2sin!4v1725908440000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.269692152255!2d72.8285513!3d21.2596887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04939b2ef6a81%3A0x26227e3f62ef1fbe!2s7R5J%2BR9V,+Chapprabhatta,+Ganeshpura,+Surat,+Gujarat+394520!5e0!3m2!1sen!2sin!4v1725908440000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 allowFullScreen
