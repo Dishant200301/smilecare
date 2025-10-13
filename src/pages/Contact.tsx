@@ -68,20 +68,14 @@ const Contact = () => {
 
       <main className="pt-28 md:pt-32">
         {/* Hero */}
-        <section className="hero-section">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1
-              className="text-4xl md:text-5xl lg:text-7xl font-extralight font-playfair bg-[#ffffff] bg-clip-text text-transparent mb-6"
-              style={{ fontFamily: "Playfair Display" }}
-            >
+        <section className="">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-HindMadurai font-medium leading-tight mb-6">
               Connect{" "}
-              <ShinyText
-                text="Us"
-                className="hero-text-gradient bg-clip-text text-transparent"
-              />
-            </h1>
+              <span className="font-InstrumentSerif italic">Us</span>
+            </h1> 
 
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
               Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.
             </p>
           </div>
@@ -93,7 +87,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}
               <div className="lg:col-span-2 bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-3xl shadow-2xl flex flex-col">
-                <h2 className="text-4xl md:text-4xl font-extralight font-playfair mb-8 text-white">
+                <h2 className="text-4xl md:text-4xl font-HindMadurai mb-8 text-white">
                   Send us a Message
                 </h2>
                 <form
@@ -113,7 +107,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your first name"
                           required
-                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -127,7 +121,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your last name"
                           required
-                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                         />
                       </div>
                     </div>
@@ -144,7 +138,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your phone number"
                           required
-                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -158,7 +152,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your email address"
                           required
-                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                          className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                         />
                       </div>
                     </div>
@@ -174,7 +168,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Message subject"
                         required
-                        className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                        className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                       />
                     </div>
 
@@ -188,14 +182,14 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Tell us about your business and how we can help..."
                         required
-                        className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 min-h-[50px] focus:border-[#8caac8] focus:ring-2 focus:ring-[#8caac8]/20 outline-none transition-all"
+                        className="w-full bg-zinc-800 border border-zinc-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 min-h-[50px] focus:border-[white] focus:ring-2 focus:ring-[white]/20 outline-none transition-all"
                       />
                     </div>
                   </div>
 
                   {/* Success Message */}
                   {successMessage && (
-                    <div className="text-[#8caac8] text-center font-medium mt-4">
+                    <div className="text-[white] text-center font-medium font-HindMadurai mt-4">
                       {successMessage}
                     </div>
                   )}
@@ -203,9 +197,9 @@ const Contact = () => {
                   <div className="flex justify-center mt-6">
                     <button
                       type="submit"
-                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
+                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold font-HindMadurai pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
                     >
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[white] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
                       <span className="relative z-20 group-hover:text-black">
                         Send Message
                       </span>
@@ -251,22 +245,22 @@ const Contact = () => {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[#8caac8] hover:shadow-lg hover:shadow-[#8caac8]/20 p-6 rounded-2xl shadow-md transition-all duration-300"
+                    className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[white] hover:shadow-lg hover:shadow-[white]/20 p-6 rounded-2xl shadow-md transition-all duration-300"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#8caac8] hover:text-[#8caac8] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[white] hover:text-[white] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[#8caac8]">
+                      <h3 className="font-semibold font-HindMadurai text-lg mb-1 group-hover:text-[white]">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-gray-400 whitespace-pre-line group-hover:text-white/70 font-sans">
+                      <p className="text-sm text-gray-400 font-HindMadurai whitespace-pre-line group-hover:text-white/70">
                         {item.text}
                       </p>
                       <a
                         href={item.link}
                         target="_blank"
-                        className="text-[#8caac8] text-sm font-sans inline-flex items-center mt-2"
+                        className="text-[white] text-sm font-HindMadurai inline-flex items-center mt-2"
                       >
                         {item.linkText}
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -282,8 +276,8 @@ const Contact = () => {
         {/* Map Section */}
         <section className="relative py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-center text-white font-serif">
-              Find Us on the <span className="hero-text-gradient special-font">Map</span>
+            <h2 className="text-4xl md:text-5xl font-HindMadurai mb-8 text-center text-white">
+              Find Us on the <span className="font-InstrumentSerif italic">Map</span>
             </h2>
             <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
               <iframe

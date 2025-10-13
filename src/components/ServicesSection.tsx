@@ -1,9 +1,7 @@
-// src/components/Services.tsx
 import React, { useEffect, useState } from "react";
+import FooterGlobeSection from "./FooterGlobeSection";
 import { ArrowRight } from "lucide-react";
-import ShinyText from "./ShinyText";
 
-// Dummy services data
 const services = [
   {
     imageUrl:
@@ -12,7 +10,7 @@ const services = [
     title: "Botox & Skin Care",
     description:
       "AI-powered appointment booking and customer engagement for beauty clinics",
-    link: "/services/botox-skincare",
+    link: "/business-category/botox-skincare",
   },
   {
     imageUrl:
@@ -21,7 +19,7 @@ const services = [
     title: "Clinics and Dentist",
     description:
       "Automated patient management and appointment scheduling systems",
-    link: "/services/clinics-dentist",
+    link: "/business-category/clinics-dentist",
   },
   {
     imageUrl:
@@ -29,7 +27,7 @@ const services = [
     category: "Fitness",
     title: "Gym & Health Coach",
     description: "Member management and fitness consultation automation",
-    link: "/services/gym-health-coach",
+    link: "/business-category/gym-health-coach",
   },
   {
     imageUrl:
@@ -38,7 +36,7 @@ const services = [
     title: "Business Consultation",
     description:
       "Professional consulting services with AI-driven client management",
-    link: "/services/business-consultation",
+    link: "/business-category/business-consultation",
   },
   {
     imageUrl:
@@ -47,7 +45,7 @@ const services = [
     title: "IT & SAAS Services",
     description:
       "Technology solutions with automated customer support and onboarding",
-    link: "/services/it-saas",
+    link: "/business-category/it-saas",
   },
   {
     imageUrl:
@@ -56,7 +54,7 @@ const services = [
     title: "Salons & Spa",
     description:
       "Beauty service automation with smart booking and customer care",
-    link: "/services/salons-spa",
+    link: "/business-category/salons-spa",
   },
 ];
 
@@ -79,21 +77,22 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   return (
     <div className="min-h-screen bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extralight mb-6 bg-[#ffffff] bg-clip-text text-transparent  text-center font-playfair">
-            Our Premium{" "}
-            <ShinyText text="Services" className="hero-text-gradient" />
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed ">
-            Discover our comprehensive range of digital solutions designed to
-            transform your business and drive growth in the modern world.
-          </p>
+        <FooterGlobeSection />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+              Our Premium{" "}
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-InstrumentSerif italic text-white">
+                business services
+              </span>
+            </h1>
+            <p className="text-md sm:text-xl md:text-2xl lg:text-2xl font-InstrumentSerif text-gray-400 mt-4">
+              Transform your business with smart digital solutions.
+            </p>
+          </div>
         </div>
 
-        {/* 🔁 Smooth Infinite Scroll Container */}
         <div className="overflow-hidden relative py-8 ">
-          {/* Side gradient fade */}
           <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
           <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
 
@@ -102,10 +101,10 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">
                 <a
                   href={service.link}
-                  className="group relative block bg-gray-900/50 backdrop-blur-sm rounded-3xl 
+                  className="group relative block bg-black backdrop-blur-sm rounded-3xl 
                      overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 
                      transition-all duration-150 ease-in-out transform  
-                     border border-gray-800 hover:border-cyan-500/30"
+                     border border-gray-800 hover:border-gray-500"
                 >
                   <div className="relative overflow-hidden">
                     <img
@@ -118,23 +117,23 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
                   <div className="p-6 transition-colors duration-150 ease-in-out">
                     <h3
                       className="text-xl font-bold text-white mb-3 
-                           group-hover:text-[#8caac8] transition-colors duration-150 ease-in-out"
+                           group-hover:text-white transition-colors duration-150 ease-in-out"
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-white/50 leading-relaxed mb-6">
                       {service.description}
                     </p>
                     <div className="flex items-center justify-between">
                       <span
-                        className="inline-flex items-center gap-2 text-[#8caac8] 
+                        className="inline-flex items-center gap-2 text-white 
                                font-semibold group-hover:gap-3 transition-all duration-150 ease-in-out"
                       >
                         <span>Learn More</span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-150 ease-in-out group-hover:translate-x-1" />
                       </span>
                       <div
-                        className="w-2 h-2 rounded-full bg-[#8caac8] opacity-0 
+                        className="w-2 h-2 rounded-full bg-white opacity-0 
                               group-hover:opacity-100 transition-opacity duration-150 ease-in-out"
                       />
                     </div>
@@ -143,37 +142,30 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
               </div>
             ))}
           </div>
-
-         
         </div>
 
-        {/* Explore Button */}
-        {limit && (
-          <div className="text-center mt-12">
-            <a
-              href="/services"
-              className="group relative inline-flex items-center justify-between border border-gray-500 
-                       text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
-                       transition-all duration-200 ease-out"
-            >
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
-        transition-transform duration-700 ease-in-out group-hover:scale-[45]"
-              />
+        <div className="text-center mt-12">
+          <a
+            href="/business-category"
+            className="group relative inline-flex items-center justify-between border border-gray-500 
+                              text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
+                              transition-all duration-200 ease-out"
+          >
+            <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 
+               transition-transform duration-700 ease-in-out group-hover:scale-[45]"
+            />
 
-              {/* Text */}
-              <span
-                className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
-                style={{ fontFamily: "inter", animationDelay: "0.2s" }}
-              >
-                Explore All Services
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
-              </span>
-            </a>
-          </div>
-        )}
+            <span
+              className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
+            >
+              Explore All Business
+            </span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+              <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   );

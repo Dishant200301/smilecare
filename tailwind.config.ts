@@ -28,6 +28,9 @@ const config: Config = {
         Figtree: ['"Figtree Variable"', "sans-serif"],
         sans: ['"Clash Display"', "sans-serif"],
         Poppins: ['"Poppins"', "sans-serif"],
+        HindMadurai: ["Hind Madurai", "sans-serif"],
+        InstrumentSerif: ['"Instrument Serif"', "serif"],
+        
       },
       fontSize: {
         "base-xs": "12px",
@@ -37,39 +40,87 @@ const config: Config = {
         "p-framer": "1rem",
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        /* ===== Theme Colors - Use these tokens ===== */
+        // Core
+        black: "hsl(var(--color-black))",
+        white: "hsl(var(--color-white))",
+        background: "hsl(var(--color-background))",
+        foreground: "hsl(var(--color-foreground))",
+        
+        // Brand
+        brand: {
+          DEFAULT: "hsl(var(--color-brand-primary))",
+          primary: "hsl(var(--color-brand-primary))",
+          secondary: "hsl(var(--color-brand-secondary))",
+          accent: "hsl(var(--color-brand-accent))",
+        },
+        
+        // Cards
+        card: {
+          DEFAULT: "hsl(var(--color-card-bg))",
+          bg: "hsl(var(--color-card-bg))",
+          dark: "hsl(var(--color-card-dark-bg))",
+          border: "hsl(var(--color-card-border))",
+          foreground: "hsl(var(--color-text-primary))",
+        },
+        
+        // Text
+        text: {
+          DEFAULT: "hsl(var(--color-text-primary))",
+          primary: "hsl(var(--color-text-primary))",
+          secondary: "hsl(var(--color-text-secondary))",
+          muted: "hsl(var(--color-text-muted))",
+          "on-dark": "hsl(var(--color-text-on-dark))",
+          "on-dark-muted": "hsl(var(--color-text-on-dark-muted))",
+        },
+        
+        // Interactive
+        link: {
+          DEFAULT: "hsl(var(--color-link))",
+          hover: "hsl(var(--color-link-hover))",
+        },
+        button: {
+          primary: "hsl(var(--color-button-primary))",
+          "primary-hover": "hsl(var(--color-button-primary-hover))",
+        },
+        
+        // Status
+        success: "hsl(var(--color-success))",
+        warning: "hsl(var(--color-warning))",
+        error: "hsl(var(--color-error))",
+        info: "hsl(var(--color-info))",
+        
+        // Borders
+        border: {
+          DEFAULT: "hsl(var(--color-border-dark))",
+          light: "hsl(var(--color-border-light))",
+          dark: "hsl(var(--color-border-dark))",
+        },
+        divider: "hsl(var(--color-divider))",
+        
+        /* ===== Legacy Support ===== */
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(var(--color-brand-primary))",
+          foreground: "hsl(var(--color-text-on-dark))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(var(--color-text-secondary))",
+          foreground: "hsl(var(--color-text-on-dark))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "hsl(var(--color-text-muted))",
+          foreground: "hsl(var(--color-text-muted))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(var(--color-brand-primary))",
+          foreground: "hsl(var(--color-text-primary))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--color-error))",
+          foreground: "hsl(var(--color-text-on-dark))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        input: "hsl(var(--color-border-dark))",
+        ring: "hsl(var(--color-brand-primary))",
         // ZenIQ custom
         "hero-gradient-start": "hsl(var(--hero-gradient-start))",
         "hero-gradient-end": "hsl(var(--hero-gradient-end))",
@@ -103,12 +154,26 @@ const config: Config = {
         "badge-bg": "rgba(38, 35, 48, 0.4)",
         "badge-border": "rgba(120, 120, 120, 0.33)",
         "card-border": "rgba(255, 255, 255, 0.15)",
+        'dark-purple-bg': 'rgb(2, 0, 19)', 
+        'card-bg-dark': 'rgb(3, 1, 22)', // Dark background of logo cards
+        'card-bg-gradient-start': 'rgb(24, 19, 42)', // Radial gradient start
+        'card-bg-gradient-end': 'rgb(36, 31, 54)',   // Radial gradient end
+        'border-purple': 'rgb(47, 47, 106)', // Border color for badge and cards
+        'text-light-grey': 'rgb(152, 162, 179)', // Subtitle text color
+        'badge-gradient-start': 'rgba(34, 21, 83, 0)', // Badge gradient start (transparent)
+        'badge-gradient-end': 'rgb(18, 7, 60)', 
+        'card-green': '#e8f7ec',    // From 'Free Marketing Tools'
+        'card-purple': '#efe8f7',   // From 'Social Media Glossary'
+        'card-blue': '#e8f0f7',     // From 'Best Time to Post'
+        'card-orange': '#f7f0e8',   // From 'Social Media Resources'
+        'card-red': '#f7e8e8',   
       },
       backgroundImage: {
         "hero-gradient":
           "linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)))",
         "glow-gradient":
           "radial-gradient(circle at center, hsl(var(--glow-primary) / 0.3) 0%, transparent 70%)",
+          'radial-gradient-overlay': 'radial-gradient(123.159% 73.6111% at 50% 50%, var(--tw-colors-card-bg-gradient-start) 0%, var(--tw-colors-card-bg-gradient-end) 68.0994%)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -177,6 +242,65 @@ const config: Config = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
         },
+        'marquee-left-3x': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-33.3333%)' }, // Scrolls 1/3 of the total width for 3 sets
+        },
+        'marquee-right-3x': {
+          '0%': { transform: 'translateX(-33.3333%)' }, // Starts from position of one set
+          '100%': { transform: 'translateX(0%)' },      // Scrolls back to start for 3 sets
+        },
+        dropdownFade: {
+          from: {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          }
+        },
+        imageFade: {
+          from: {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+          to: {
+            opacity: "1",
+            transform: "scale(1)",
+          }
+        },
+        // Fog animations
+        "fog-layer-1-opacity": {
+          "0%": { opacity: "0.1" },
+          "22%": { opacity: "0.4" },
+          "40%": { opacity: "0.2" },
+          "58%": { opacity: "0.3" },
+          "80%": { opacity: "0.15" },
+          "100%": { opacity: "0.1" },
+        },
+        "fog-layer-2-opacity": {
+          "0%": { opacity: "0.4" },
+          "25%": { opacity: "0.7" },
+          "50%": { opacity: "0.5" },
+          "80%": { opacity: "0.6" },
+          "100%": { opacity: "0.4" },
+        },
+        "fog-layer-3-opacity": {
+          "0%": { opacity: "0.7" },
+          "27%": { opacity: "0.9" },
+          "52%": { opacity: "0.8" },
+          "68%": { opacity: "1" },
+          "100%": { opacity: "0.7" },
+        },
+        "move-right-to-left": {
+          "0%": { left: "0" },
+          "100%": { left: "-100%" },
+        },
+        "move-left-to-right": {
+          "0%": { left: "-100%" },
+          "100%": { left: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -195,6 +319,16 @@ const config: Config = {
         scrollRtl: "scrollRtl 40s linear infinite",
         "infinite-scroll-ltr": "infinite-scroll-ltr 30s linear infinite",
         "infinite-scroll-rtl": "infinite-scroll-rtl 30s linear infinite",
+        'marquee-left-slow': 'marquee-left-3x 60s linear infinite',
+        'marquee-left-medium': 'marquee-left-3x 45s linear infinite',
+        'marquee-left-fast': 'marquee-left-3x 35s linear infinite',
+        'marquee-right-slow': 'marquee-right-3x 60s linear infinite',
+        'marquee-right-medium': 'marquee-right-3x 45s linear infinite',
+        'marquee-right-fast': 'marquee-right-3x 35s linear infinite',
+        // Fog layer animations
+        "fog-layer-1": "fog-layer-1-opacity 10s linear infinite, move-right-to-left 15s linear infinite",
+        "fog-layer-2": "fog-layer-2-opacity 21s linear infinite, move-left-to-right 13s linear infinite",
+        "fog-layer-3": "fog-layer-3-opacity 12s linear infinite, move-right-to-left 13s linear infinite",
       },
     },
   },

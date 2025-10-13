@@ -32,78 +32,112 @@ ul {
 }
 
 /* ============================
-   ZenIQ AI Automation Theme
+   TryzenIQ Global Theme System
    ============================ */
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* ===== Core Colors ===== */
+    --color-black: 0 0% 0%;
+    --color-white: 0 0% 100%;
+    --color-background: 0 0% 0%; /* Pure black background */
+    --color-foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
+    /* ===== Brand Colors ===== */
+    --color-brand-primary: 200 30% 65%; /* #8caac8 - Main brand color */
+    --color-brand-secondary: 200 30% 55%;
+    --color-brand-accent: 200 30% 75%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    /* ===== Card Colors ===== */
+    --color-card-bg: 0 0% 100%; /* White cards */
+    --color-card-dark-bg: 0 0% 8%; /* Dark cards (when needed) */
+    --color-card-border: 0 0% 90%;
+    --color-card-hover-shadow: 200 30% 65%;
 
-    --primary: 263 85% 65%;
-    --primary-foreground: 0 0% 98%;
+    /* ===== Text Colors ===== */
+    --color-text-primary: 0 0% 0%; /* Black text on white cards */
+    --color-text-secondary: 0 0% 40%; /* Gray-600 equivalent */
+    --color-text-muted: 0 0% 60%; /* Gray-400 equivalent */
+    --color-text-on-dark: 0 0% 98%; /* White text on dark bg */
+    --color-text-on-dark-muted: 0 0% 70%; /* Gray text on dark bg */
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    /* ===== Interactive Elements ===== */
+    --color-link: 200 30% 65%;
+    --color-link-hover: 200 30% 55%;
+    --color-button-primary: 200 30% 65%;
+    --color-button-primary-hover: 200 30% 55%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
+    /* ===== Status Colors ===== */
+    --color-success: 142 76% 36%;
+    --color-warning: 38 92% 50%;
+    --color-error: 0 75% 60%;
+    --color-info: 200 30% 65%;
 
-    --accent: 263 85% 65%;
-    --accent-foreground: 0 0% 4%;
+    /* ===== Border & Divider ===== */
+    --color-border-light: 0 0% 90%; /* Light borders on white */
+    --color-border-dark: 0 0% 15%; /* Dark borders on black */
+    --color-divider: 0 0% 85%;
 
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 98%;
+    /* ===== Shadows ===== */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 263 85% 65%;
+    /* ===== Typography ===== */
+    --font-primary: 'Hind Madurai', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+    --font-accent: 'Instrument Serif', serif;
+    --font-body: 'Inter', sans-serif;
 
-    --radius: 1rem;
+    /* ===== Spacing & Sizing ===== */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-full: 9999px;
 
-    /* Custom ZenIQ Colors */
-    --hero-gradient-start: 263 85% 65%;
-    --hero-gradient-end: 280 100% 75%;
-    --stats-bg: 0 0% 6%;
-    --service-card-bg: 0 0% 8%;
-    --service-card-hover: 0 0% 12%;
-    --glow-primary: 263 85% 65%;
-    --glow-secondary: 280 100% 75%;
+    /* ===== Transitions ===== */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* ===== Legacy Support (for gradual migration) ===== */
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --primary: var(--color-brand-primary);
+    --primary-foreground: var(--color-text-on-dark);
+    --border: var(--color-border-dark);
+    --radius: var(--radius-lg);
   }
 }
 
 @layer base {
   h1 {
-    @apply font-inter text-4xl md:text-6xl lg:text-7xl font-bold;
+    @apply font-HindMadurai text-4xl md:text-6xl lg:text-7xl font-bold;
   }
   h2 {
-    @apply font-inter text-3xl md:text-5xl font-semibold;
+    @apply font-HindMadurai text-3xl md:text-5xl font-semibold;
   }
   h3 {
-    @apply font-playfair text-2xl font-semibold;
+    @apply font-HindMadurai text-2xl font-semibold;
+  }
+  h4 {
+    @apply font-HindMadurai text-xl font-semibold;
   }
   h5,
   h6 {
-    @apply font-roboto text-lg font-medium;
+    @apply font-HindMadurai text-lg font-medium;
   }
   p {
-    @apply font-satoshi text-base leading-relaxed;
+    @apply font-HindMadurai text-base leading-relaxed;
   }
   button {
-    @apply font-inter font-semibold uppercase;
+    @apply font-HindMadurai font-semibold;
   }
-  span,
-  .special-font {
-    @apply font-instrument;
+  span {
+    @apply font-HindMadurai;
   }
 }
 
@@ -186,6 +220,17 @@ ul {
   }
   .nav-link:hover::after {
     width: 100%;
+  }
+
+  .HindMadurai {
+    font-family: 'Hind Madurai', sans-serif;
+    font-style: normal;
+  }
+
+  .InstrumentSerif {
+    font-family: 'Instrument Serif', serif;
+    font-weight: normal;
+    font-style: italic;
   }
 
   /* Scroll animations */
@@ -284,3 +329,135 @@ body::-webkit-scrollbar {
   @apply text-center pt-[80px] mb-4;
 }
 
+/* === Smooth Fog Animation === */
+.fog-layer {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.05) 70%,
+    transparent 100%
+  );
+  filter: blur(90px);
+  opacity: 0.4;
+  animation: fogMove 40s linear infinite;
+}
+
+.fog-1 {
+  animation-duration: 60s;
+  opacity: 0.35;
+}
+
+.fog-2 {
+  animation-duration: 90s;
+  opacity: 0.25;
+  animation-direction: reverse;
+}
+
+.fog-3 {
+  animation-duration: 120s;
+  opacity: 0.3;
+  animation-direction: alternate;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(-10%) translateY(0%) scale(1);
+  }
+  50% {
+    transform: translateX(10%) translateY(5%) scale(1.05);
+  }
+  100% {
+    transform: translateX(-10%) translateY(0%) scale(1);
+  }
+}
+
+/* Dark Atmospheric Fog Animations */
+@keyframes darkFogDrift {
+  0% { 
+    transform: translateX(-10%) translateY(0%) scale(1) rotate(0deg); 
+    opacity: 0.6; 
+  }
+  33% { 
+    transform: translateX(5%) translateY(-3%) scale(1.08) rotate(2deg); 
+    opacity: 0.75; 
+  }
+  66% { 
+    transform: translateX(-5%) translateY(3%) scale(1.05) rotate(-1deg); 
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: translateX(-10%) translateY(0%) scale(1) rotate(0deg); 
+    opacity: 0.6; 
+  }
+}
+
+@keyframes darkFogFloat {
+  0% { 
+    transform: translateY(0px) translateX(0%) scale(1); 
+    opacity: 0.65; 
+  }
+  50% { 
+    transform: translateY(-30px) translateX(3%) scale(1.06); 
+    opacity: 0.8; 
+  }
+  100% { 
+    transform: translateY(0px) translateX(0%) scale(1); 
+    opacity: 0.65; 
+  }
+}
+
+@keyframes darkFogSwirl {
+  0% { 
+    transform: translateX(0%) translateY(0%) rotate(0deg) scale(1); 
+    opacity: 0.55; 
+  }
+  25% { 
+    transform: translateX(8%) translateY(-5%) rotate(3deg) scale(1.1); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateX(12%) translateY(0%) rotate(5deg) scale(1.15); 
+    opacity: 0.75; 
+  }
+  75% { 
+    transform: translateX(8%) translateY(5%) rotate(3deg) scale(1.1); 
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: translateX(0%) translateY(0%) rotate(0deg) scale(1); 
+    opacity: 0.55; 
+  }
+}
+
+@keyframes darkFogPulse {
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.08); 
+  }
+}
+
+/* Animation Classes */
+.animate-darkFogDrift {
+  animation: darkFogDrift 25s ease-in-out infinite;
+}
+
+.animate-darkFogFloat {
+  animation: darkFogFloat 20s ease-in-out infinite;
+}
+
+.animate-darkFogSwirl {
+  animation: darkFogSwirl 30s ease-in-out infinite;
+}
+
+.animate-darkFogPulse {
+  animation: darkFogPulse 15s ease-in-out infinite;
+}

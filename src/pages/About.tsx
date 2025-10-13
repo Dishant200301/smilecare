@@ -140,19 +140,15 @@ const About = () => {
         {/* Hero Section */}
         <section className="relative z-10">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="hero-section">
-              <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-extralight bg-[#ffffff] bg-clip-text text-transparent mb-6 text-center"
-                style={{ fontFamily: "Playfair Display" }}
-              >
+          <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight mb-6">
                 About{" "}
-                <ShinyText
-                  text="Us"
-                  className="hero-text-gradient bg-clip-text text-transparent"
-                />
+                <span
+                className="font-InstrumentSerif italic"
+                >Us</span>
               </h1>
 
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
                 Learn more about our inspiring journey and the dedicated team
                 passionately committed to driving growth and lasting success.{" "}
               </p>
@@ -188,12 +184,12 @@ const About = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-heading font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[#8caac8]">
+                    <h3 className="text-xl font-HindMadurai font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[white]">
                       {value.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-white/70 font-body transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
+                    <p className="text-white/70 font-HindMadurai transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
                       {value.description}
                     </p>
                   </div>
@@ -241,7 +237,7 @@ const About = () => {
                     </div>
 
                     {/* Label */}
-                    <div className="text-muted-foreground font-body font-extralight text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
+                    <div className="text-muted-foreground font-HindMadurai text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
                       {stat.label}
                     </div>
                   </div>
@@ -278,7 +274,7 @@ const About = () => {
     <Tilt
       key={index}
       glareEnable={true}
-      glareColor="#8caac8"
+      glareColor="white"
       glareMaxOpacity={0}
       tiltMaxAngleX={10}
       tiltMaxAngleY={10}
@@ -291,7 +287,7 @@ const About = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         className="group relative bg-[#0d0d0d] backdrop-blur-lg border border-white/10 rounded-3xl p-8 text-center 
-        transition-all duration-500 hover:bg-[#0c0c0c] hover:shadow-[0_0_25px_#8caac8]/40 overflow-hidden"
+        transition-all duration-500 hover:bg-[#0c0c0c] hover:shadow-[0_0_25px_white]/40 overflow-hidden"
       >
         
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
@@ -299,7 +295,7 @@ const About = () => {
 
         
         <div className="relative mb-6 w-32 h-32 mx-auto">
-          <div className="absolute inset-0 bg-[#8caac8] rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
+          <div className="absolute inset-0 bg-[white] rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
             <div className="w-full h-full bg-black rounded-full p-1">
               <img
                 src={member.image}
@@ -311,7 +307,7 @@ const About = () => {
         </div>
 
         
-        <h3 className="text-xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-[#8caac8] relative z-10">
+        <h3 className="text-xl font-bold mb-2 text-white transition-colors duration-300 group-hover:text-[white] relative z-10">
           {member.name}
         </h3>
 
@@ -346,24 +342,24 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-blue-500/10 opacity-0 transition-opacity duration-1000" />
 
               <div className="relative z-10">
-                <h2 className="font-playfair text-4xl md:text-5xl font-extralight  lg:text-5xl mb-6">
+                <h2 className="text-4xl md:text-5xl font-HindMadurai lg:text-5xl mb-6">
                   Ready to{" "}
-                  <span className="bg-[#8caac8] bg-clip-text text-transparent">
+                  <span className="bg-[white] bg-clip-text text-transparent">
                     Transform
                   </span>{" "}
                   Your Business?
                 </h2>
 
-                <p className="text-slate-300 text-lg md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-slate-300 font-HindMadurai text-lg md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
                   Join thousands of companies already using TryzenIQ to automate
                   their operations and accelerate growth.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                   {/* Primary Button - Animated */}
-                  <button className="group relative flex items-center justify-between border border-gray-500 text-white font-medium pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-500 ease-out">
+                  <button className="group relative flex items-center justify-between border border-gray-500 text-white font-medium font-HindMadurai pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-500 ease-out">
                     <span
-                      className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+                      className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[white] text-black z-10 
     transition-transform duration-700 ease-in-out group-hover:scale-[45]"
                     />
                     <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">

@@ -1,135 +1,246 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Logo from "../../public/svgviewer-png-output.svg";
+import { navigationData, mainNavLinks } from "../data/navigationdata";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home');
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredSubItem, setHoveredSubItem] = useState<any>(null);
+  const [activeItem, setActiveItem] = useState("Home");
   const location = useLocation();
-
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    // { name: 'Pricing', path: '/pricing' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  // Sync activeItem with current URL
+  const navigate = useNavigate();
+  
   useEffect(() => {
-    const current = navItems.find(item => item.path === location.pathname);
+    const current = mainNavLinks.find((item) => item.path === location.pathname);
     if (current) setActiveItem(current.name);
   }, [location.pathname]);
 
-  const isActive = (name: string) => activeItem === name;
+  const menuData = navigationData;
+
+  const handleMouseEnter = (dropdown: "services" | "products") => {
+    setActiveDropdown(dropdown);
+
+    const firstItem = menuData[dropdown].items[0];
+    setHoveredSubItem({ category: dropdown, item: firstItem });
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+    setHoveredSubItem(null);
+  };
+
+  const handleItemClick = (category: string, slug: string) => {
+    navigate(`/${category}/${slug}`);
+    setActiveDropdown(null);
+    setIsOpen(false);
+  };
 
   return (
-    <nav className="fixed left-0 right-0 z-50 pt-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 w-full">
-        <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-2xl shadow-black/20">
-          <div className="flex items-center justify-between h-20 gap-4">
+    <div className="relative bg-black overflow-visible w-full font-HindMadurai">
+      {/* Glow Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl opacity-30"></div>
+      </div>
 
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl shadow-lg">
+        <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-3 cursor-pointer group flex-shrink-0">
-              <Link
-                to="/"
-                onClick={() => setActiveItem('Home')}
-                className="ml-8"
-              >
-                <img
-                  src="/svgviewer-png-output.svg"
-                  alt="TryzenIQ Logo"
-                  className="h-40 w-auto invert"
-                />
-              </Link>
-            </div>
+            <a href="/" onClick={() => setActiveItem("Home")}>
+              <div className="mb-[-30px] mt-[-40px]">
+              {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
+                  <img
+                    src={Logo}
+                    alt="TryzenIQ Logo"
+                    className="h-28 w-auto filter invert brightness-125" // Adjust height and invert for visibility
+                  />
+                </div>
+              </a>
 
-            {/* Desktop Navigation (exclude Home) */}
-            <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
-              {navItems
-                .filter(item => item.name !== 'Home')
-                .map(item => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => setActiveItem(item.name)}
-                    className={`text-lg relative px-5 py-3 rounded-full font-extralight font-playfair transition-all duration-300 group overflow-hidden ${
-                      isActive(item.name)
-                        ? "text-black"
-                        : "text-white/70 hover:text-white"
-                    }`}
+            {/* Desktop Nav */}
+            <div className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-black transition-all duration-300 rounded-full p-1">
+              <div className="hidden lg:flex items-center font-serif font-normal">
+                {["services", "products"].map((menuKey) => (
+                  <div
+                    key={menuKey}
+                    className="relative group"
+                    onMouseEnter={() =>
+                      handleMouseEnter(menuKey as "services" | "products")
+                    }
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <span className="relative z-10">{item.name}</span>
+                    {/* Main button */}
+                    <button className="text-white/80 hover:text-white flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300">
+                      <span className="capitalize">{menuKey}</span>
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${
+                          activeDropdown === menuKey
+                            ? "rotate-180 text-white"
+                            : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Dropdown Menu */}
                     <div
-                      className={`absolute inset-0 rounded-full transition-all duration-500 ease-in-out ${
-                        isActive(item.name)
-                          ? "bg-[#8bafd2] scale-100 opacity-100"
-                          : "bg-white/5 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50 w-[44rem] max-w-[95vw] transition-all duration-300 ${
+                        activeDropdown === menuKey
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2"
                       }`}
-                    />
-                  </Link>
+                    >
+                      <div className="backdrop-blur-xl bg-black border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex">
+                        {/* Left List */}
+                        <div className="flex-1 py-3 ">
+                          {menuData[menuKey].items.map((item, index) => (
+                            <div
+                              key={index}
+                              className={`px-6 py-3 text-white/60 hover:text-white cursor-pointer transition-all duration-200 border-l-2 ${
+                                hoveredSubItem?.item?.name === item.name
+                                  ? "border-white bg-white/5"
+                                  : "border-transparent hover:bg-white/[0.03]"
+                              }`}
+                              onMouseEnter={() =>
+                                setHoveredSubItem({ category: menuKey, item })
+                              }
+                              onClick={() => handleItemClick(menuKey, item.slug)}
+                            >
+                              <div className="font-normal font-serif">
+                                {item.name}
+                              </div>
+                              <div className="text-xs text-white/30">
+                                {item.desc}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Preview Panel */}
+                        <div className="w-80 border-l border-white/10 p-5 bg-gradient-to-br from-white/[0.02] to-transparent">
+                          {hoveredSubItem &&
+                            hoveredSubItem.category === menuKey && (
+                              <div className="relative w-full h-full rounded-xl overflow-hidden transition-all duration-700">
+                                <div
+                                  className={`absolute inset-0 bg-gradient-to-br ${hoveredSubItem.item.color} mix-blend-overlay z-10`}
+                                ></div>
+                                <img
+                                  src={hoveredSubItem.item.image}
+                                  alt={hoveredSubItem.item.name}
+                                  className="relative w-full h-full object-cover rounded-xl border border-white/20 shadow-2xl transition-transform duration-700 hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-xl z-20"></div>
+                                <div className="absolute bottom-5 left-5 right-5 z-30">
+                                  <h3 className="text-white font-serif text-normal mb-1">
+                                    {hoveredSubItem.item.name}
+                                  </h3>
+                                  <p className="text-white/70 text-sm">
+                                    {hoveredSubItem.item.desc}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
+
+                <a
+                  href="/about"
+                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/blog"
+                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+                >
+                  Blog
+                </a>
+              </div>
             </div>
 
-            {/* CTA Button for Desktop */}
-            <div className="hidden lg:block flex-shrink-0">
-              <Link
-                to="/contact"
-                onClick={() => setActiveItem('Contact')}
-                className="group relative inline-flex items-center justify-between 
-                           border border-gray-500 text-white font-semibold 
-                           mr-6 pl-5 pr-5 py-2 rounded-full overflow-hidden 
-                           transition-all duration-500 ease-in-out"
+            {/* Contact Button */}
+            <div className="hidden lg:block">
+              <button
+                onClick={() => navigate("/contact")}
+                className="group relative flex items-center justify-between border border-gray-400 bg-white text-black font-normal font-serif pl-6 pr-7 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
               >
-                <span
-                  className="absolute flex items-center justify-center 
-                             w-1 h-1 rounded-full bg-[#8caac8] text-black z-10 
-                             transition-transform duration-500 ease-in-out group-hover:scale-[95]"
-                />
-                <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
-                  Book Demo
+                <span className="relative z-20 group-hover:text-black group-focus:text-black">
+                  Contact Us
                 </span>
-              </Link>
+              </button>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="lg:hidden p-2 flex-shrink-0">
+            {/* Mobile Toggle */}
+            <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-3 text-white/80 hover:text-white rounded-2xl hover:bg-white/5 transition-all duration-300"
+                className="text-white p-2 hover:bg-white/5 rounded-lg transition-all"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Navigation (include Home) */}
-          <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="px-6 pb-6 space-y-2">
-              {navItems.map(item => (
-                <Link
-                  key={item.name}
-                  to={item.path}
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="lg:hidden mt-2 h-[calc(100vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 transition-all duration-500">
+              <div className="space-y-2 px-4">
+                {["services", "products"].map((menuKey) => (
+                  <details key={menuKey} className="group">
+                    <summary className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg list-none font-serif flex items-center justify-between">
+                      <span className="capitalize">{menuKey}</span>
+                      <ChevronDown
+                        size={16}
+                        className="group-open:rotate-180 transition-transform"
+                      />
+                    </summary>
+                    <div className="pl-6 space-y-2 mt-2">
+                      {menuData[menuKey].items.map((item, index) => (
+                        <div
+                          key={index}
+                          className="text-white/60 py-2 hover:text-white cursor-pointer font-serif text-sm"
+                          onClick={() => handleItemClick(menuKey, item.slug)}
+                        >
+                          {item.name}
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+                <a
+                  href="/about"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-serif"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/blog"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-serif"
+                >
+                  Blog
+                </a>
+                <button 
                   onClick={() => {
-                    setActiveItem(item.name);
+                    navigate("/contact");
                     setIsOpen(false);
                   }}
-                  className={`block w-full text-left px-6 py-4 rounded-2xl font-medium transition-all duration-300 ${
-                    isActive(item.name)
-                      ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                  }`}
+                  className="w-full bg-white text-black px-4 py-3 rounded-full font-serif mt-4 hover:bg-white"
                 >
-                  {item.name}
-                </Link>
-              ))}
+                  Contact Us
+                </button>
+              </div>
             </div>
-          </div>
-
+          )}
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

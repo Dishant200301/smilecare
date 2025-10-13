@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import {
-  Plus,
-  X,
-  MessageCircle,
-  ArrowRight,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -16,154 +9,130 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "How does the automation system help my clinic or business?",
+    question: "Which operating systems does your software support?",
     answer:
-      "Our automation platform streamlines your entire workflow — from capturing leads, sending reminders, and managing bookings, to improving patient engagement and maximizing revenue.",
+      "Our product seamlessly operates on popular operating systems such as Windows, macOS, and Linux, providing a compatible experience for users across different platforms.",
   },
   {
-    question: "Can the system send automated reminders to my customers?",
+    question: "Do you have an affiliate program?",
     answer:
-      "Yes! The system sends smart reminders via SMS, email, or WhatsApp at the right time, reducing no-shows and improving appointment attendance.",
+      "Yes! We offer a comprehensive affiliate program with competitive commission rates. Partners can earn recurring revenue by referring customers to our platform.",
   },
   {
-    question: "Is this solution suitable for my industry?",
+    question: "How can I renew my product license?",
     answer:
-      "Absolutely. Our services are tailored for multiple industries, including clinics, dentists, gyms, spas, salons, IT & SaaS, and business consultants.",
+      "You can easily renew your license through your account dashboard. Simply navigate to the billing section and follow the renewal prompts. We'll send you reminders before your license expires.",
   },
   {
-    question: "Do I need technical knowledge to use it?",
+    question: "Is there a mobile app available for your software?",
     answer:
-      "Not at all. Our platform is designed to be user-friendly and fully automated. Once set up, it runs seamlessly in the background while you focus on your business.",
-  },
-  {
-    question: "How quickly can I see results after using your system?",
-    answer:
-      "Most clients start noticing improvements within the first few weeks — such as more engaged leads, increased consultation bookings, and higher patient or client attendance rates.",
+      "Yes, we offer native mobile applications for both iOS and Android devices, allowing you to access key features on the go with a seamless mobile experience.",
   },
 ];
 
 export default function FAQSection(): JSX.Element {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [questionText, setQuestionText] = useState<string>(""); // State for the question input
 
   const handleToggle = (index: number): void => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const handleContactClick = (): void => {
-    console.log("Navigate to contact page");
-  };
-
   return (
-    <section className="relative min-h-screen bg-black py-20 px-6 overflow-hidden">
-      {/* Background */}
+    <section className="relative min-h-screen bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
+      {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-4xl mx-auto space-y-20">
-        {/* FAQ Section */}
-        <div className="space-y-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extralight mb-3 pb-2 bg-[#ffffff] bg-clip-text text-transparent text-center font-playfair leading-[1.3]">
-              Frequently Asked{" "}
-              <span className="text-transparent bg-[#8caac8] bg-clip-text">
-                Questions
-              </span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
-              Find quick answers to the most common questions
-            </p>
-          </div>
+      {/* Main content */}
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
+        {/* Left Side: Header Section */}
+        <div className="lg:col-span-2 lg:sticky lg:top-24">
+          
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight mb-4">
+            Have Questions?
+            <br />
+            <span className="text-2xl sm:text-5xl md:text-6xl lg:text-5xl font-InstrumentSerif italic text-white ">
+              Let’s Talk.
+            </span>{" "}
+          </h1>
+          <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-md">
+            Can't find what you're looking for in our FAQs? Feel free to ask us
+            directly.
+          </p>
+          <textarea
+            className="w-full h-16 p-4 rounded-xl mb-4 bg-[#1a1a1a] text-white border border-slate-600 focus:border-white focus:ring-1 focus:ring-white outline-none transition-colors duration-300 resize-y"
+            placeholder="Type your question here..."
+            value={questionText}
+            onChange={(e) => setQuestionText(e.target.value)}
+          ></textarea>
 
-          <div className="space-y-6">
-            {faqs.map((faq: FAQItem, index: number) => (
-              <div
-                key={index}
-                className={`group rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-300 ${
-                  openIndex === index
-                    ? "bg-[#0d0d0d] border-purple-300/30 shadow-2xl shadow-purple-500/10"
-                    : "bg-[#0d0d0d] border-slate-700/50 hover:bg-white/8 hover:border-[#262626]"
-                }`}
-              >
-                <button
-                  className="w-full flex justify-between items-center px-8 py-4 transition-colors duration-300 focus:outline-none group"
-                  onClick={() => handleToggle(index)}
-                  aria-expanded={openIndex === index}
-                  aria-controls={`faq-answer-${index}`}
-                >
-                  <h4 className="text-lg font-extralight font-playfair text-white text-left group-hover:text-[#8caac8] transition-colors duration-300 normal-case">
-                    {faq.question}
-                  </h4>
-
-                  <motion.div
-                    className={`ml-4 flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
-                      openIndex === index ? "text-white" : "text-slate-300"
-                    }`}
-                  >
-                    {openIndex === index ? (
-                      <ChevronUp className="w-5 h-5" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5" />
-                    )}
-                  </motion.div>
-                </button>
-
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-out ${
-                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div
-                    className="px-8 py-6 text-slate-200 text-base leading-relaxed border-t border-slate-700/30"
-                    id={`faq-answer-${index}`}
-                  >
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-[#8caac8] rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="font-normal text-gray-300 normal-case">{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <button
+            onClick={() => console.log("Contact Us clicked")}
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-gray-600 text-white hover:border-gray-500 transition-all duration-300"
+          >
+            <span className="text-sm font-medium">Contact Us</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </div>
 
-        {/* Centered Help CTA */}
-        <div className="bg-[#0d0d0d] rounded-lg mt-6 mb-4 p-4 sm:px-8 w-full max-w-5xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Left Content */}
-            <div className="text-white font-medium text-lg text-center sm:text-left">
-              <span className="hidden sm:inline">
-                Excited? Us too. Let's get moving.
-              </span>
-              <span className="sm:hidden text-base font-semibold">
-                Schedule a call
-              </span>
-            </div>
-
-            {/* Button */}
-            <button className="bg-[#8caac8] text-black px-4 sm:px-6 py-2 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 text-sm">
-              <span className="hidden sm:inline">Schedule a call</span>
-              <span className="sm:hidden text-base font-bold">Book</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-video h-4 w-4"
+        {/* Right Side: FAQ Accordion */}
+        <div className="lg:col-span-3 space-y-4">
+          {faqs.map((faq: FAQItem, index: number) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className={`rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-300 ${
+                openIndex === index
+                  ? "bg-[#000000] border-gray-700"
+                  : "bg-[#000000] border-gray-800 hover:border-gray-700"
+              }`}
+            >
+              <button
+                className="w-full flex justify-between items-center px-6 py-5 transition-colors duration-300 focus:outline-none group"
+                onClick={() => handleToggle(index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
-                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
-                <rect x="2" y="6" width="14" height="12" rx="2"></rect>
-              </svg>
-            </button>
-          </div>
+                <h4 className="text-base font-medium text-white text-left pr-4">
+                  {faq.question}
+                </h4>
+
+                <div
+                  className={`flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+                    openIndex === index
+                      ? "bg-white text-black"
+                      : "bg-gray-950 text-gray-400 group-hover:bg-gray-700"
+                  }`}
+                >
+                  {openIndex === index ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </div>
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === index
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div
+                  className="px-6 pb-6 text-gray-300 text-sm leading-relaxed"
+                  id={`faq-answer-${index}`}
+                >
+                  {faq.answer}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

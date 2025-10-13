@@ -2,12 +2,13 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useParams } from "react-router-dom";
 import { servicesData } from "@/data/servicesData";
 import HighlightedTitle from "@/components/HighlightedTitle";
 import TestimonialSingleRow from "@/components/TestimonialSingleRow";
+import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -46,24 +47,35 @@ const ServiceDetail = () => {
       <main className="pt-16">
         {/* Hero Section */}
         <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-extralight font-playfair mb-6 leading-tight">
-                <span className="hero-text-gradient">{title}</span> <br />
-                {subtitle}
-              </h1>
-              <p className="text-xl text-gray-400 max-w-3xl leading-relaxed mb-10 font-playfair font-extralight">
-                {heroDescription}
-              </p>
+        <div className="max-w-7xl mx-auto">
+            {/* Back Button */}
+            <div className="mb-8">
+              <a
+                href="/business-category"
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 group"
+              >
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
+                <span>Back</span>
+              </a>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium leading-tight mb-6">
+                  {title}{" "}
+                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                </h1>
+                <p className="text-xl text-gray-400 max-w-3xl leading-relaxed mb-10 font-HindMadurai">
+                  {heroDescription}
+                </p>
               <a
                 href="/contact"
                 className="group relative inline-flex items-center justify-between border border-gray-700 
                  text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
-                 transition-all duration-500 ease-in-out hover:border-[#8caac8]"
+                 transition-all duration-500 ease-in-out hover:border-[white]"
               >
                 <span
                   className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                 w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+                 w-9 h-9 rounded-full bg-[white] text-black z-10 
                  transition-transform duration-500 ease-in-out group-hover:scale-[45]"
                 />
                 <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
@@ -82,16 +94,18 @@ const ServiceDetail = () => {
                 alt={title}
                 className="w-full h-full object-cover rounded-3xl shadow-2xl border border-gray-800"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#8caac8]/10 to-transparent rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[white]/10 to-transparent rounded-3xl"></div>
             </div>
           </div>
+        </div>
         </section>
 
         {/* Features Section */}
         <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="mb-12 text-4xl md:text-5xl font-extralight font-playfair text-center">
-              Explore <span className="hero-text-gradient">Features</span>
+          <div className="max-w-7xl text-center mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+          Explore {" "}
+          <span className="font-InstrumentSerif italic">Features</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((f, i) => (
@@ -100,7 +114,7 @@ const ServiceDetail = () => {
                   className="group relative bg-gray-900/50 backdrop-blur-sm 
                   rounded-3xl overflow-hidden shadow-xl 
                   border border-gray-800 transition-all duration-300 
-                  hover:shadow-2xl hover:shadow-[#8caac8]/20 hover:border-[#8caac8]/40"
+                  hover:shadow-2xl hover:shadow-[white]/20 hover:border-white/40"
                 >
                   {f.imageUrl && (
                     <div className="relative aspect-[16/9] overflow-hidden">
@@ -114,10 +128,10 @@ const ServiceDetail = () => {
                   )}
                   <div className="p-6">
                     <div className="flex items-center mb-4">
-                      <div className="p-2 bg-[#8caac8] rounded-md mr-4">
+                      <div className="p-2 bg-white rounded-md mr-4">
                         <f.icon className="w-6 h-6 text-black" />
                       </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#8caac8] transition-colors">
+                      <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors">
                         {f.title}
                       </h3>
                     </div>
@@ -134,26 +148,28 @@ const ServiceDetail = () => {
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
             {/* Benefits */}
             <div>
-              <h2 className="text-4xl font-light mb-8 font-playfair">
-                Considerable <span className="hero-text-gradient">Benefits</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+                Considerable{" "}
+                <span className="font-InstrumentSerif italic text-white">Benefits</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {benefits.map((b, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-[#8caac8]/30 transition"
+                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-white/30 transition-all duration-300"
                   >
-                    <CheckCircle className="w-6 h-6 text-[#8caac8] flex-shrink-0 mt-1" />
-                    <span className="text-gray-400">{b}</span>
+                    <CheckCircle className="w-6 h-6 text-white flex-shrink-0 mt-1" />
+                    <span className="text-gray-400 font-HindMadurai">{b}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Metrics */}
-            <div className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[#8caac8]/20 transition">
-              <h3 className="text-3xl font-light font-playfair mb-8">
-                Considerable <span className="hero-text-gradient">Metrics</span>
+            <div className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-white/20 transition-all duration-300">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+                Considerable{" "}
+                <span className="font-InstrumentSerif italic text-white">Metrics</span>
               </h3>
               <div className="space-y-6">
                 {metrics.map((m, i) => (
@@ -161,8 +177,8 @@ const ServiceDetail = () => {
                     key={i}
                     className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none"
                   >
-                    <span className="text-gray-300">{m.label}</span>
-                    <span className="text-2xl font-playfair font-light text-[#8caac8]">
+                    <span className="text-gray-400 font-HindMadurai">{m.label}</span>
+                    <span className="text-2xl sm:text-3xl font-HindMadurai font-medium text-white">
                       {m.value}
                     </span>
                   </div>
@@ -172,35 +188,7 @@ const ServiceDetail = () => {
           </div>
         </section>
 
-        <TestimonialSingleRow />
-        {/* CTA */}
-        <section className="py-20 px-6 md:px-12 lg:px-8 xl:px-48 text-center bg-black">
-          <div className="max-w-4xl mx-auto rounded-3xl border border-gray-800 p-12 shadow-lg hover:shadow-[#8caac8]/20 transition">
-            {CtaIcon && <CtaIcon className="w-16 h-16 text-[#8caac8] mx-auto mb-6" />}
-            <HighlightedTitle text={ctaTitle} highlight={ctaHighlight || ""} />
-            <p className="text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
-              {ctaDescription}
-            </p>
-            <a
-              href="/services"
-              className="group relative inline-flex items-center justify-between border border-gray-700 
-                 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
-                 transition-all duration-500 ease-in-out hover:border-[#8caac8]"
-            >
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                     w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
-                     transition-transform duration-500 ease-in-out group-hover:scale-[45]"
-              />
-              <span className="relative z-20 group-hover:text-black transition-colors duration-500 ease-in-out">
-                {ctaButtonLabel}
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black" />
-              </span>
-            </a>
-          </div>
-        </section>
+        <ContactUsPreviewSection/>
 
         {/* Testimonials */}
       </main>

@@ -90,9 +90,9 @@ export default function PricingSection() {
           </p>
 
           {/* Toggle Switch */}
-          <div className="relative flex items-center bg-[#1e1e2e] border border-[#8caac8] rounded-full mb-12 mt-12 w-[260px]">
+          <div className="relative flex items-center bg-[#1e1e2e] border border-[white] rounded-full mb-12 mt-12 w-[260px]">
             <motion.div
-              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[#8caac8]"
+              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-[white]"
               initial={false}
               animate={{ x: isAnnual ? "100%" : "0%" }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -125,7 +125,7 @@ export default function PricingSection() {
             price={pricing.light}
             features={features.light}
             description="Enjoy access to a limited selection of articles and basic features, ideal for occasional visitors."
-            background="#8caac8"
+            background="white"
           />
 
           <Card
@@ -133,7 +133,7 @@ export default function PricingSection() {
             price={pricing.pro}
             features={features.pro}
             description="Get unlimited access to all content, exclusive resources, and priority support for the ultimate experience."
-            background="#8caac8"
+            background="white"
           />
 
           <Card
@@ -141,7 +141,7 @@ export default function PricingSection() {
             price={pricing.enterprise}
             features={features.basic}
             description="Unlock additional content, features, and resources, perfect for users who want more access."
-            background="#8caac8"
+            background="white"
           />
         </div>
       </div>
@@ -254,7 +254,7 @@ function Card({
                     ease: [0.23, 1, 0.32, 1],
                   }}
                 >
-                  <span className="text-[#8caac8] text-lg leading-none mt-0.5">
+                  <span className="text-[white] text-lg leading-none mt-0.5">
                     ✓
                   </span>
                   <span className="leading-snug">{item}</span>

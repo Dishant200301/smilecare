@@ -11,6 +11,9 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import PricingSection from '@/components/PricingSection';
 import TestimonialSection from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
+import Integrations from '@/components/Integrations';
+import SheduleCTA from '@/components/SheduleCTA';
+import ContactUsPreviewSection from '@/components/ContactUsPreviewSection';
 
 const Home = () => {
   return (
@@ -26,12 +29,15 @@ const Home = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <Integrations/>
         <StatsSection />
         <Services />
       {/* <PricingSection/> */}
       {/* <TestimonialsSection/> */}
       <TestimonialSection/>
       <FAQSection/> 
+      {/* <SheduleCTA/> */}
+      <ContactUsPreviewSection/>
       {/* <CTASection/> */}
       </main>
       <Footer />

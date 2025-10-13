@@ -1,127 +1,180 @@
-// src/components/StatsSection.tsx
-import { TrendingUp, Calendar, Users } from "lucide-react";
-import ShinyText from "./ShinyText";
-import Tilt from "react-parallax-tilt";
+import React from "react";
+import {
+  Brain,
+  Globe,
+  Code2,
+  Palette,
+  Database,
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
-// Yeh ab component ke bahar hai, is wajah se reload ya re-render par bhi same rahega
-const stats = [
+// Define an interface for your service data
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  bgColorClass: string;
+  imageSrc: string;
+  imageAlt: string;
+  gridClasses?: string;
+  link: string; // Link to service detail page
+}
+
+// Data for your service cards, including colors and dummy images matching the original image's style
+const services: Service[] = [
   {
-    icon: TrendingUp,
-    number: "1080",
-    title: "Interested Leads",
-    description: "Send Auto Reminders To Your Customers At Right Time",
-    growth: "+42% increase",
-    subtitle: "More engaged potential patients today",
+    title: "AI Automation",
+    description:
+      "Leverage intelligent automation to streamline workflows and boost productivity with cutting-edge AI tools.",
+    icon: <Brain className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-white",
+    imageSrc:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
+    imageAlt: "AI Automation interface",
+    gridClasses: "md:col-span-2",
+    link: "/services/ai-automation",
   },
   {
-    icon: Calendar,
-    number: "360",
-    title: "Book Consultation",
-    description: "Send Auto Reminders To Your Customers At Right Time",
-    growth: "+42% increase",
-    subtitle: "Higher consultation booking rate today",
+    title: "SEO Optimization",
+    description:
+      "Enhance your online visibility with advanced SEO strategies that drive organic traffic and measurable results.",
+    icon: <Globe className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-white",
+    imageSrc:
+      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=300",
+    imageAlt: "SEO analytics dashboard",
+    gridClasses: "",
+    link: "/services/seo",
   },
   {
-    icon: Users,
-    number: "240",
-    title: "Clinic Visitors",
-    description: "Send Auto Reminders To Your Customers At Right Time",
-    growth: "+30% increase",
-    subtitle: "More patients showing up to clinic today",
+    title: "Website Development",
+    description:
+      "Craft fast, responsive, and engaging websites tailored to your brand's vision and user experience goals.",
+    icon: <Code2 className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-white",
+    imageSrc: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=300",
+    imageAlt: "Website design preview",
+    gridClasses: "md:row-span-1",
+    link: "/services/website-development",
+  },
+  
+  
+  {
+    title: "Custom ERP Solutions",
+    description:
+      "Build powerful ERP systems designed around your business needs — from automation to analytics.",
+    icon: <Database className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-white",
+    imageSrc:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400",
+    imageAlt: "Custom ERP system interface",
+    gridClasses: "md:col-span-3",
+    link: "/services/custom-erp-system",
+  },
+  {
+    title: "Graphics Design",
+    description:
+      "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively.",
+    icon: <Palette className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-white",
+    imageSrc:
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300",
+    imageAlt: "Graphic design mockup",
+    gridClasses: "",
+    link: "/services/graphics-design",
   },
 ];
 
-const StatsSection = () => {
+const StatsSection: React.FC = () => {
   return (
-    <div className="relative overflow-hidden">
-      <section className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extralight font-playfair mb-6">
-              Proven Results{" "}
-              That Speak{" "}
-              <ShinyText
-                text="For Themselves"
-                disabled={false}
-                speed={2}
-                className="hero-text-gradient inline-block"
-              />
-            </h2>
-
-            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
-              See the transformative impact our clinic automation brings to
-              healthcare practices worldwide
-            </p>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <Tilt
-                key={index}
-                glareEnable={true}
-                glareColor="#8caac8"
-                glareMaxOpacity={0}
-                glareBorderRadius="16px"
-                tiltMaxAngleX={12}
-                tiltMaxAngleY={12}
-                transitionSpeed={800}
-                className="w-full"
-              >
-                <div
-                  className="group relative overflow-hidden rounded-2xl p-8 border border-white/10 bg-[#101010] 
-        transition-all duration-300 hover:bg-[#0d0d0d] hover:shadow-[0_0_25px_#8caac8]/40"
-                  style={{
-                    animationDelay: `${index * 0.2}s`,
-                    animation: "fadeInUp 0.8s ease-out forwards",
-                  }}
-                >
-                  {/* Shining gradient overlay */}
-                  <div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-        -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"
-                  />
-
-                  {/* Top Row */}
-                  <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="relative p-3 rounded-xl border border-white/10 bg-[#8caac8]">
-                      <stat.icon className="w-6 h-6 text-black transition-transform duration-300 group-hover:scale-110" />
-                    </div>
-                    <div className="text-right">
-                      <div className="text-4xl font-bold text-transparent bg-clip-text bg-[#8caac8]">
-                        {stat.number}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-semibold mb-3 text-white transition-colors duration-200 group-hover:text-[#8caac8] relative z-10">
-                    {stat.title}
-                  </h3>
-                  <p className="text-white/60 text-sm mb-6 leading-relaxed transition-colors group-hover:text-white/80 relative z-10">
-                    {stat.description}
-                  </p>
-
-                  {/* Bottom Info */}
-                  <div className="border-t border-white/10 pt-4 relative z-10">
-                    <span
-                      className="inline-block text-[#8caac8] font-semibold text-sm px-3 py-1 rounded-full 
-            border border-white/10 bg-white/10"
-                    >
-                      {stat.growth}
-                    </span>
-                    <p className="mt-2 text-xs text-white/50 leading-relaxed transition-colors group-hover:text-white/70">
-                      {stat.subtitle}
-                    </p>
-                  </div>
-                </div>
-              </Tilt>
-            ))}
+    <section className=" text-white py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading Section */}
+        <div className="flex flex-col items-center gap-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+                  Our{" "}
+                  <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-InstrumentSerif italic text-white">
+                    Services
+                  </span>
+                </h1>
+              </div>
+              <span className="text-md sm:text-5xl md:text-3xl lg:text-2xl font-InstrumentSerif text-gray-400">
+                Empowering your business with innovation.
+              </span>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+          {services.map((service, index) => (
+            <Link
+              key={index}
+              to={service.link}
+              className={`
+                group relative p-8 pb-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out
+                flex flex-col justify-between overflow-hidden cursor-pointer
+                hover:scale-[1.02] hover:-translate-y-1
+                ${service.bgColorClass}
+                ${service.gridClasses || ""}
+              `}
+            >
+              {/* Arrow Icon in top-right corner */}
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ArrowRight className="w-5 h-5 text-black" />
+              </div>
+
+              {/* Content area: Icon, Title, Description */}
+              <div className="mb-4">
+                {service.icon}
+                <h3 className="text-2xl font-semibold mt-4 text-black group-hover:underline transition-all">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-gray-600">{service.description}</p>
+              </div>
+
+              {/* Image at the bottom */}
+              <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 p-5 overflow-hidden rounded-xl">
+                <img
+                  src={service.imageSrc}
+                  alt={service.imageAlt}
+                  className="w-full h-auto object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+        {/* Explore Button */}
+        <div className="text-center mt-12">
+          <a
+            href="/services"
+            className="group relative inline-flex items-center justify-between border border-gray-500 
+                       text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
+                       transition-all duration-200 ease-out"
+          >
+            <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 
+        transition-transform duration-700 ease-in-out group-hover:scale-[45]"
+            />
+
+            {/* Text */}
+            <span
+              className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
+              style={{ fontFamily: "inter", animationDelay: "0.2s" }}
+            >
+              Explore All Services
+            </span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+              <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 

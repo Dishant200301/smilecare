@@ -25,7 +25,7 @@ const HighlightedTitle: React.FC<HighlightedTitleProps> = ({
           <React.Fragment key={index}>
             {part}
             {index < parts.length - 1 && (
-              <span className="mb-6 text-4xl md:text-5xl font-extralight font-playfair text-[#8caac8]">
+              <span className="mb-6 text-4xl md:text-5xl font-extralight font-playfair text-[white]">
                 {highlight}
               </span>
             )}

@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
         {/* Background expand on hover */}
         <span
           className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                     w-9 h-9 rounded-full bg-[#8caac8] text-black z-10 
+                     w-9 h-9 rounded-full bg-[white] text-black z-10 
                      transition-transform duration-500 ease-in-out group-hover:scale-[45]"
         />
         {/* Button text */}
