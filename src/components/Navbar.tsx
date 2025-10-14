@@ -48,7 +48,7 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl shadow-lg">
+      <nav className="fixed top-0 py-2 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl shadow-lg">
         <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -173,7 +173,7 @@ const Navbar = () => {
             <div className="hidden lg:block">
               <button
                 onClick={() => navigate("/contact")}
-                className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-6 pr-14 py-3.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
+                className="bg- active:bg-gray-900/60 border border-gray-500 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
               >
                 {/* Expanding circle on hover */}
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
