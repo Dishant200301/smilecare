@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../public/svgviewer-png-output.svg";
 import { navigationData, mainNavLinks } from "../data/navigationdata";
@@ -11,9 +11,11 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState("Home");
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    const current = mainNavLinks.find((item) => item.path === location.pathname);
+    const current = mainNavLinks.find(
+      (item) => item.path === location.pathname
+    );
     if (current) setActiveItem(current.name);
   }, [location.pathname]);
 
@@ -38,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative bg-black overflow-visible w-full font-HindMadurai">
+    <div className="relative bg-background overflow-visible w-full font-HindMadurai">
       {/* Glow Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl opacity-30"></div>
@@ -46,23 +48,23 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl shadow-lg">
         <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="/" onClick={() => setActiveItem("Home")}>
               <div className="mb-[-30px] mt-[-40px]">
-              {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
-                  <img
-                    src={Logo}
-                    alt="TryzenIQ Logo"
-                    className="h-28 w-auto filter invert brightness-125" // Adjust height and invert for visibility
-                  />
-                </div>
-              </a>
+                {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
+                <img
+                  src={Logo}
+                  alt="TryzenIQ Logo"
+                  className="h-28 w-auto filter invert brightness-125" // Adjust height and invert for visibility
+                />
+              </div>
+            </a>
 
             {/* Desktop Nav */}
-            <div className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-black transition-all duration-300 rounded-full p-1">
+            <div className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-background transition-all duration-300 rounded-full p-1">
               <div className="hidden lg:flex items-center font-serif font-normal">
                 {["services", "products"].map((menuKey) => (
                   <div
@@ -74,13 +76,13 @@ const Navbar = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     {/* Main button */}
-                    <button className="text-white/80 hover:text-white flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300">
+                    <button className="text-foreground/80 hover:text-foreground flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300">
                       <span className="capitalize">{menuKey}</span>
                       <ChevronDown
                         size={14}
                         className={`transition-transform duration-300 ${
                           activeDropdown === menuKey
-                            ? "rotate-180 text-white"
+                            ? "rotate-180 text-foreground"
                             : ""
                         }`}
                       />
@@ -88,32 +90,34 @@ const Navbar = () => {
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50 w-[44rem] max-w-[95vw] transition-all duration-300 ${
+                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50 w-[44rem] max-w-[95vw] transition-all font-HindMadurai duration-300 ${
                         activeDropdown === menuKey
                           ? "opacity-100 visible translate-y-0"
                           : "opacity-0 invisible -translate-y-2"
                       }`}
                     >
-                      <div className="backdrop-blur-xl bg-black border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex">
+                      <div className="backdrop-blur-xl bg-background border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex">
                         {/* Left List */}
                         <div className="flex-1 py-3 ">
                           {menuData[menuKey].items.map((item, index) => (
                             <div
                               key={index}
-                              className={`px-6 py-3 text-white/60 hover:text-white cursor-pointer transition-all duration-200 border-l-2 ${
+                              className={`px-6 py-3 text-foreground/60 hover:text-foreground cursor-pointer transition-all duration-200 border-l-2 ${
                                 hoveredSubItem?.item?.name === item.name
-                                  ? "border-white bg-white/5"
+                                  ? "border-foreground bg-white/5"
                                   : "border-transparent hover:bg-white/[0.03]"
                               }`}
                               onMouseEnter={() =>
                                 setHoveredSubItem({ category: menuKey, item })
                               }
-                              onClick={() => handleItemClick(menuKey, item.slug)}
+                              onClick={() =>
+                                handleItemClick(menuKey, item.slug)
+                              }
                             >
-                              <div className="font-normal font-serif">
+                              <div className="font-normal font-HindMadurai">
                                 {item.name}
                               </div>
-                              <div className="text-xs text-white/30">
+                              <div className="text-xs text-foreground/30">
                                 {item.desc}
                               </div>
                             </div>
@@ -135,7 +139,7 @@ const Navbar = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-xl z-20"></div>
                                 <div className="absolute bottom-5 left-5 right-5 z-30">
-                                  <h3 className="text-white font-serif text-normal mb-1">
+                                  <h3 className="text-white font-HindMadurai text-normal mb-1">
                                     {hoveredSubItem.item.name}
                                   </h3>
                                   <p className="text-white/70 text-sm">
@@ -152,13 +156,13 @@ const Navbar = () => {
 
                 <a
                   href="/about"
-                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all font-HindMadurai duration-300"
                 >
-                  About Us
+                  About
                 </a>
                 <a
                   href="/blog"
-                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+                  className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all font-HindMadurai duration-300"
                 >
                   Blog
                 </a>
@@ -169,10 +173,19 @@ const Navbar = () => {
             <div className="hidden lg:block">
               <button
                 onClick={() => navigate("/contact")}
-                className="group relative flex items-center justify-between border border-gray-400 bg-white text-black font-normal font-serif pl-6 pr-7 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
+                className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-6 pr-14 py-3.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
               >
-                <span className="relative z-20 group-hover:text-black group-focus:text-black">
+                {/* Expanding circle on hover */}
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
+
+                {/* Button text */}
+                <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
                   Contact Us
+                </span>
+
+                {/* Icon (right side) */}
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
+                  <ArrowRight className="w-5 h-5 text-black transition-colors duration-700" />
                 </span>
               </button>
             </div>
@@ -216,17 +229,17 @@ const Navbar = () => {
                 ))}
                 <a
                   href="/about"
-                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-serif"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
                 >
                   About Us
                 </a>
                 <a
                   href="/blog"
-                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-serif"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
                 >
                   Blog
                 </a>
-                <button 
+                <button
                   onClick={() => {
                     navigate("/contact");
                     setIsOpen(false);

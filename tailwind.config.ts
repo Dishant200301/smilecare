@@ -301,6 +301,11 @@ const config: Config = {
           "0%": { left: "-100%" },
           "100%": { left: "0" },
         },
+        'cloud-pan': {
+          '0%': { transform: 'translateX(25%) translateY(10%) rotate(0deg)' },
+          '50%': { transform: 'translateX(0%) translateY(0%) rotate(180deg)' },
+          '100%': { transform: 'translateX(25%) translateY(10%) rotate(360deg)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -329,6 +334,9 @@ const config: Config = {
         "fog-layer-1": "fog-layer-1-opacity 10s linear infinite, move-right-to-left 15s linear infinite",
         "fog-layer-2": "fog-layer-2-opacity 21s linear infinite, move-left-to-right 13s linear infinite",
         "fog-layer-3": "fog-layer-3-opacity 12s linear infinite, move-right-to-left 13s linear infinite",
+        'cloud-1': 'cloud-pan 60s linear infinite',
+        'cloud-2': 'cloud-pan 90s linear infinite',
+        'cloud-3': 'cloud-pan 120s linear infinite',
       },
     },
   },

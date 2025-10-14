@@ -17,10 +17,6 @@ const uniqueLogos: Logo[] = [
     alt: "Google Calendar",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gmail_Icon.png/1024px-Gmail_Icon.png",
-    alt: "Gmail",
-  },
-  {
     src: "https://framerusercontent.com/images/xPf4BTNLBEnCwXWtNwW7QvFlGk.png",
     alt: "AWS",
   },
@@ -29,12 +25,20 @@ const uniqueLogos: Logo[] = [
     alt: "GitHub",
   },
   {
-    src: "https://framerusercontent.com/images/QhI9hADYA3z6WuXy06ag4wNwecM.svg",
-    alt: "Stripe",
-  },
-  {
     src: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg",
     alt: "Slack",
+  },
+  {
+    src: "../public/gemini2.png",
+    alt: "Gemini",
+  },
+  {
+    src: "../public/openai3.png",
+    alt: "OpenAI",
+  },
+  {
+    src: "../public/gmail.png",
+    alt: "Gmail",
   },
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
@@ -84,16 +88,16 @@ const IntegrationsSection: React.FC = () => {
   return (
     <section className="text-white py-20 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
-        <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
-              Seamless Tool{" "}
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-InstrumentSerif italic text-white">
-                Integrations
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 mt-4">
-              Boost productivity effortlessly
-            </p>
+        <div className="text-center mb-12 text-[#d5dbe6]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+            <span className="gradient-text">Seamless Tool</span>{" "}
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl gradient-text font-InstrumentSerif italic text-white">
+              Integrations
+            </span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 mt-4">
+            Boost productivity effortlessly
+          </p>
         </div>
 
         <div className="w-full flex flex-col gap-3 mt-2">

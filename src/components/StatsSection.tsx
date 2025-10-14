@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Brain,
@@ -7,7 +8,7 @@ import {
   Database,
   ArrowRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import src from "gsap/src";
 
 // Define an interface for your service data
 interface Service {
@@ -28,7 +29,7 @@ const services: Service[] = [
     description:
       "Leverage intelligent automation to streamline workflows and boost productivity with cutting-edge AI tools.",
     icon: <Brain className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-white",
+    bgColorClass: "bg-black",
     imageSrc:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
     imageAlt: "AI Automation interface",
@@ -40,7 +41,7 @@ const services: Service[] = [
     description:
       "Enhance your online visibility with advanced SEO strategies that drive organic traffic and measurable results.",
     icon: <Globe className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-white",
+    bgColorClass: "bg-black",
     imageSrc:
       "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=300",
     imageAlt: "SEO analytics dashboard",
@@ -52,7 +53,7 @@ const services: Service[] = [
     description:
       "Craft fast, responsive, and engaging websites tailored to your brand's vision and user experience goals.",
     icon: <Code2 className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-white",
+    bgColorClass: "bg-black",
     imageSrc: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=300",
     imageAlt: "Website design preview",
     gridClasses: "md:row-span-1",
@@ -65,7 +66,7 @@ const services: Service[] = [
     description:
       "Build powerful ERP systems designed around your business needs — from automation to analytics.",
     icon: <Database className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-white",
+    bgColorClass: "bg-black",
     imageSrc:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400",
     imageAlt: "Custom ERP system interface",
@@ -77,7 +78,7 @@ const services: Service[] = [
     description:
       "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively.",
     icon: <Palette className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-white",
+    bgColorClass: "bg-black",
     imageSrc:
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300",
     imageAlt: "Graphic design mockup",
@@ -89,15 +90,15 @@ const services: Service[] = [
 const StatsSection: React.FC = () => {
   return (
     <section className=" text-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Heading Section */}
         <div className="flex flex-col items-center gap-8">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
                   Our{" "}
-                  <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-InstrumentSerif italic text-white">
+                  <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
                     Services
                   </span>
                 </h1>
@@ -112,29 +113,29 @@ const StatsSection: React.FC = () => {
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
           {services.map((service, index) => (
-            <Link
+            <a
               key={index}
-              to={service.link}
+              href={service.link}
               className={`
-                group relative p-8 pb-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out
+                group relative p-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out
                 flex flex-col justify-between overflow-hidden cursor-pointer
-                hover:scale-[1.02] hover:-translate-y-1
+                hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20
                 ${service.bgColorClass}
                 ${service.gridClasses || ""}
               `}
             >
               {/* Arrow Icon in top-right corner */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowRight className="w-5 h-5 text-black" />
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ArrowRight className="w-5 h-5 text-white" />
               </div>
 
               {/* Content area: Icon, Title, Description */}
               <div className="mb-4">
                 {service.icon}
-                <h3 className="text-2xl font-semibold mt-4 text-black group-hover:underline transition-all">
+                <h3 className="text-2xl font-semibold mt-4 text-white transition-all">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-gray-600">{service.description}</p>
+                <p className="mt-3 text-gray-400">{service.description}</p>
               </div>
 
               {/* Image at the bottom */}
@@ -142,10 +143,10 @@ const StatsSection: React.FC = () => {
                 <img
                   src={service.imageSrc}
                   alt={service.imageAlt}
-                  className="w-full h-auto object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
+                  className="w-full h-[200px] object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
                 />
               </div>
-            </Link>
+            </a>
           ))}
         </div>
         {/* Explore Button */}

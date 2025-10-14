@@ -40,7 +40,7 @@ export default function FooterGlobeSection() {
     }
 
     let rotation = 0;
-    const northernHemisphereDots = dots.filter((dot) => dot.y >= 0);
+    const allDots = dots; // Show full Earth ball instead of just northern hemisphere
 
     const animate = () => {
       if (!ctx || !canvas) return;
@@ -48,9 +48,9 @@ export default function FooterGlobeSection() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       rotation += 0.004;
-      const pitch = 0.5; // Tilt the globe forward
+      const pitch = 0; // Straight-on view for full Earth ball
 
-      const projectedDots = northernHemisphereDots
+      const projectedDots = allDots
         .map((dot) => {
           // Y-axis rotation (spin)
           const rotatedX =
@@ -61,7 +61,7 @@ export default function FooterGlobeSection() {
           // X-axis rotation (tilt)
           const tiltedY = dot.y * Math.cos(pitch) - rotatedZ * Math.sin(pitch);
           const tiltedZ = dot.y * Math.sin(pitch) + rotatedZ * Math.cos(pitch);
-            
+
           return { x: rotatedX, y: tiltedY, z: tiltedZ };
         })
         .sort((a, b) => a.z - b.z);
@@ -124,8 +124,8 @@ export default function FooterGlobeSection() {
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-96 pointer-events-none z-10">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black"></div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black"></div>
+        </div>
       </section>
     </div>
   );

@@ -41,20 +41,17 @@ export default function FAQSection(): JSX.Element {
   return (
     <section className="relative min-h-screen bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
       {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
-      </div>
+     
 
       {/* Main content */}
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
+      <div className="relative max-w-[1225px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
         {/* Left Side: Header Section */}
         <div className="lg:col-span-2 lg:sticky lg:top-24">
           
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-4">
             Have Questions?
             <br />
-            <span className="text-2xl sm:text-5xl md:text-6xl lg:text-5xl font-InstrumentSerif italic text-white ">
+            <span className="text-2xl sm:text-5xl md:text-6xl lg:text-5xl gradient-text font-InstrumentSerif italic text-white ">
               Let’s Talk.
             </span>{" "}
           </h1>
@@ -98,7 +95,7 @@ export default function FAQSection(): JSX.Element {
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h4 className="text-base font-medium text-white text-left pr-4">
+                <h4 className="text-base font-medium text-white text-left pr-4 font-HindMadurai">
                   {faq.question}
                 </h4>
 

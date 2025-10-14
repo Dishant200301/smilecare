@@ -61,7 +61,7 @@ const ProductDetail = () => {
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                   {title}{" "}
                   <span className="font-InstrumentSerif italic">{subtitle}</span>
                 </h1>
@@ -103,9 +103,9 @@ const ProductDetail = () => {
 
         {/* Features Section */}
         <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="mb-12 text-4xl md:text-5xl font-HindMadurai text-center">
-              Explore <span className="font-InstrumentSerif italic">Features</span>
+        <div className="max-w-7xl mx-auto mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium text-center leading-tight mb-6">
+          Explore <span className="font-InstrumentSerif italic">Features</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((f, i) => (
@@ -148,7 +148,7 @@ const ProductDetail = () => {
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
             {/* Benefits */}
             <div>
-              <h2 className="text-4xl font-HindMadurai mb-8">
+              <h2 className="text-4xl font-HindMadurai gradient-text mb-8">
                 Considerable <span className="font-InstrumentSerif italic">Benefits</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -166,7 +166,7 @@ const ProductDetail = () => {
 
             {/* Metrics */}
             <div className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[white]/20 transition">
-              <h3 className="text-3xl font-HindMadurai mb-8">
+              <h3 className="text-3xl font-HindMadurai gradient-text mb-8">
                 Considerable <span className="font-InstrumentSerif italic">Metrics</span>
               </h3>
               <div className="space-y-6">

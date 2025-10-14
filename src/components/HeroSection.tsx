@@ -196,16 +196,25 @@ const HeroSection: React.FC = () => {
   }, [fogDensity]);
 
   return (
-    <section className="relative w-full min-h-screen bg-black pt-24 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative w-full bg-background pt-24 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Content container - Higher z-index so fog stays behind */}
       <div className="relative w-full max-w-8xl mx-auto z-10">
-        <div className="relative bg-white/95 backdrop-blur-sm text-black rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl shadow-gray-900/50">
+        <div className="relative bg-white/95 backdrop-blur-sm text-black rounded-3xl p-8 py-28 sm:p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl shadow-gray-900/50">
           <div className="relative z-20 max-w-4xl mx-auto text-center">
             <div className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
-                Transforming Ideas Into{" "}
-              </h1>
-              <span className="text-md sm:text-5xl md:text-3xl lg:text-5xl font-InstrumentSerif  italic text-black">
+            <h1
+  className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai  font-medium leading-tight"
+  style={{
+    background:
+      "radial-gradient(circle at center, #000000 50%, #4a4a4a 60%, #7f8fa6 100%)",
+    WebkitBackgroundClip: "text",
+    color: "transparent ",
+  }}
+>
+Transforming Ideas  <span style={{ color: '#000000' }}>Into</span>
+</h1>
+
+              <span className="text-md sm:text-5xl md:text-3xl lg:text-5xl font-InstrumentSerif italic text-black">
                 Automated Intelligence
               </span>
             </div>
@@ -214,7 +223,7 @@ const HeroSection: React.FC = () => {
             <div className="flex justify-center mt-8 mb-12">
               <button
                 type="button"
-                className="group relative flex items-center justify-between text-white bg-black font-semibold pl-8 pr-16 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
+                className="group relative flex items-center justify-between text-white bg-background font-semibold pl-8 pr-16 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
               >
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
                 <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
@@ -323,7 +332,8 @@ const HeroSection: React.FC = () => {
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to bottom, white 0%, rgba(255,255,255,1.9) 30%, rgba(255,255,255,0.6) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.8) 100%)'
+                background:
+                  "linear-gradient(to bottom, white 0%, rgba(255,255,255,1.9) 30%, rgba(255,255,255,0.6) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.8) 100%)",
               }}
             ></div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FooterGlobeSection from "./FooterGlobeSection";
 import { ArrowRight } from "lucide-react";
+import EarthGlobe3D from "./EarthGlobe3D";
 
 const services = [
   {
@@ -75,14 +76,17 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <div className="min-h-screen bg-black text-white py-12">
+    <div className="min-h-screen bg-background text-foreground py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* <div className="relative w-screen h-screen">
+          <EarthGlobe3D earthColor={0x77ddff} />{" "}
+        </div> */}
         <FooterGlobeSection />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
               Our Premium{" "}
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-InstrumentSerif italic text-white">
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
                 business services
               </span>
             </h1>
@@ -93,25 +97,21 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
         </div>
 
         <div className="overflow-hidden relative py-8 ">
-          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
-          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
+          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
+          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
 
           <div className="flex gap-8 w-max animate-scrollRtl">
             {[...visibleServices, ...visibleServices].map((service, index) => (
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">
                 <a
                   href={service.link}
-                  className="group relative block bg-black backdrop-blur-sm rounded-3xl 
-                     overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 
-                     transition-all duration-150 ease-in-out transform  
-                     border border-gray-800 hover:border-gray-500"
+                  className="group relative block bg-background backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-150 ease-in-out transform border border-gray-800 hover:border-gray-500"
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={service.imageUrl}
                       alt={service.title}
-                      className="w-full h-48 object-cover transition-transform duration-200 ease-in-out
-                         group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                      className="w-full h-48 object-cover transition-transform duration-200 ease-in-out group-hover:scale-105 filter grayscale group-hover:grayscale-0"
                     />
                   </div>
                   <div className="p-6 transition-colors duration-150 ease-in-out">
@@ -156,9 +156,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
                transition-transform duration-700 ease-in-out group-hover:scale-[45]"
             />
 
-            <span
-              className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
-            >
+            <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black">
               Explore All Business
             </span>
             <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">

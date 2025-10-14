@@ -60,7 +60,7 @@ const ServiceDetail = () => {
             </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-              <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                   {title}{" "}
                   <span className="font-InstrumentSerif italic">{subtitle}</span>
                 </h1>
@@ -103,7 +103,7 @@ const ServiceDetail = () => {
         {/* Features Section */}
         <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
           <div className="max-w-7xl text-center mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
           Explore {" "}
           <span className="font-InstrumentSerif italic">Features</span>
             </h2>
@@ -148,7 +148,7 @@ const ServiceDetail = () => {
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
             {/* Benefits */}
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
                 Considerable{" "}
                 <span className="font-InstrumentSerif italic text-white">Benefits</span>
               </h2>
@@ -167,7 +167,7 @@ const ServiceDetail = () => {
 
             {/* Metrics */}
             <div className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-white/20 transition-all duration-300">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-HindMadurai font-medium mb-8 leading-tight">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
                 Considerable{" "}
                 <span className="font-InstrumentSerif italic text-white">Metrics</span>
               </h3>

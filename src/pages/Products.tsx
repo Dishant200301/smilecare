@@ -99,8 +99,8 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="pt-[205px] mb-16">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-HindMadurai mb-6">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our{" "}
               <span className="font-InstrumentSerif italic">
                 Products

@@ -39,9 +39,9 @@ const Blogs: React.FC = () => {
           <div className="container mx-auto px-4 md:px-6 lg:px-2 relative z-10 max-w-7xl">
             {/* Header Section */}
             <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                 Our Latest{" "}
-                <span className="font-InstrumentSerif italic">Articles</span>
+                <span className="font-InstrumentSerif italic gradient-text">Articles</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10">
                 Stay informed with expert insights, tips, and guides on AI automation
@@ -82,7 +82,7 @@ const Blogs: React.FC = () => {
                   <Link
                     key={blog.id}
                     to={`/blog/${blog.slug}`}
-                    className="group flex flex-col backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-cyan-500/30"
+                    className="group flex flex-col backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-white/30"
                   >
                     {/* Image */}
                     <div className="relative w-full h-56 overflow-hidden">

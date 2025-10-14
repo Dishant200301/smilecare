@@ -38,7 +38,9 @@ const Contact = () => {
     console.log("Form submitted:", formData);
 
     // Show inline success message
-    setSuccessMessage("Thank you for your message! We will get back to you shortly.");
+    setSuccessMessage(
+      "Thank you for your message! We will get back to you shortly."
+    );
 
     // Reset form fields
     setFormData({
@@ -69,14 +71,15 @@ const Contact = () => {
       <main className="pt-28 md:pt-32">
         {/* Hero */}
         <section className="">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-HindMadurai font-medium leading-tight mb-6">
-              Connect{" "}
-              <span className="font-InstrumentSerif italic">Us</span>
-            </h1> 
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+              Connect <span className="font-InstrumentSerif italic">Us</span>
+            </h1>
 
             <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
-              Have questions, ideas, or feedback? Reach out today, and let’s collaborate to create something meaningful, impactful, and truly great together.
+              Have questions, ideas, or feedback? Reach out today, and let’s
+              collaborate to create something meaningful, impactful, and truly
+              great together.
             </p>
           </div>
         </section>
@@ -275,9 +278,10 @@ const Contact = () => {
 
         {/* Map Section */}
         <section className="relative py-16 md:py-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-5xl font-HindMadurai mb-8 text-center text-white">
-              Find Us on the <span className="font-InstrumentSerif italic">Map</span>
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-5xl items-center gradient-text justify-center font-HindMadurai font-medium leading-tight mb-6">
+              Find Us on the{" "}
+              <span className="font-InstrumentSerif italic">Map</span>
             </h2>
             <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
               <iframe

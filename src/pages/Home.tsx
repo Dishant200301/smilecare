@@ -14,6 +14,7 @@ import CTASection from '@/components/CTASection';
 import Integrations from '@/components/Integrations';
 import SheduleCTA from '@/components/SheduleCTA';
 import ContactUsPreviewSection from '@/components/ContactUsPreviewSection';
+import HomeBlogs from '@/components/HomeBlogs';
 
 const Home = () => {
   return (
@@ -35,10 +36,12 @@ const Home = () => {
       {/* <PricingSection/> */}
       {/* <TestimonialsSection/> */}
       <TestimonialSection/>
+      <HomeBlogs/>
       <FAQSection/> 
       {/* <SheduleCTA/> */}
       <ContactUsPreviewSection/>
       {/* <CTASection/> */}
+      
       </main>
       <Footer />
       <ScrollToTopButton />

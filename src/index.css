@@ -11,6 +11,12 @@ body {
   background-color: #000000 !important;
   margin: 0;
   padding: 0;
+  background-color: black;
+  background-color: black; /* Or any other color you want for the background */
+  background-color: black; /* Your desired background color */
+  background-position: center center ;
+  overflow: hidden; /* Prevent scrollbars */
+  background-size: cover;
 }
 
 /* Apply global styles from Framer's root */
@@ -22,6 +28,14 @@ body {
   color: rgb(219, 219, 219); /* --token-6da3f48c, inno-light-gray */
   -webkit-font-smoothing: inherit;
   box-sizing: border-box;
+}
+
+/* You might want to style the html element as well for full-height */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Basic reset for lists */
@@ -460,4 +474,11 @@ body::-webkit-scrollbar {
 
 .animate-darkFogPulse {
   animation: darkFogPulse 15s ease-in-out infinite;
+}
+
+.gradient-text {
+  background-image: radial-gradient(99% 86% at 50% 50%, rgb(213, 219, 230) 28.387387387387385%, rgb(4, 7, 13) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

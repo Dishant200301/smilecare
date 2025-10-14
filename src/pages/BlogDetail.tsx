@@ -84,7 +84,7 @@ const BlogDetail: React.FC = () => {
             </div>
 
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                 {blog.title}
               </h1>
 
@@ -320,7 +320,7 @@ const BlogDetail: React.FC = () => {
         <section className="py-16 md:py-20 lg:py-24 px-4">
           <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-HindMadurai font-medium leading-tight mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight mb-4">
                 Related{" "}
                 <span className="font-InstrumentSerif italic">Articles</span>
               </h2>

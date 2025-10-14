@@ -179,16 +179,10 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="pt-[205px] mb-16">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-extralight mb-6"
-              style={{ fontFamily: "Playfair Display" }}
-            >
+        <div className="max-w-4xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our {" "}
-              <ShinyText
-                text="Expertise"
-                className="hero-text-gradient bg-clip-text text-transparent"
-              />
+             <span className="font-InstrumentSerif italic gradient-text">Expertise</span>
             </h1>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Discover our comprehensive range of digital solutions designed to
@@ -214,7 +208,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#8caac8] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[white] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
@@ -223,13 +217,13 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                       <ul className="text-gray-400 text-sm space-y-2 mb-6">
                         {service.subServices.map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-[#8caac8] rounded-full" />
+                            <span className="w-2 h-2 bg-white rounded-full" />
                             {item}
                           </li>
                         ))}
                       </ul>
                     )}
-                  <div className="flex items-center gap-2 text-[#8caac8] font-semibold transition-all duration-300">
+                  <div className="flex items-center gap-2 text-[white] font-semibold transition-all duration-300">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>

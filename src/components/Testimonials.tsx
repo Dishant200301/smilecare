@@ -169,9 +169,9 @@ const TestimonialSection: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
           <div className="">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
                 Our {" "}
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-InstrumentSerif italic text-white">
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
                 Testimonials
               </span>
               </h1>

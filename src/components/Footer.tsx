@@ -99,7 +99,7 @@ const Footer = () => {
   };
 
   return (
-    <section className="pt-12 md:pt-16 bg-black relative">
+    <section className="pt-12 md:pt-16 bg-background relative">
       <footer className="relative border-t border-gray-800/60">
         {/* Removed animated background gradient for a cleaner Beam.ai look */}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 via-purple-900/5 to-cyan-900/5 animate-pulse" /> */}
@@ -120,7 +120,7 @@ const Footer = () => {
                 </div>
               </Link>
 
-              <p className="text-gray-300 text-sm tracking-wide leading-relaxed mt-4">
+              <p className="text-text-secondary text-sm tracking-wide leading-relaxed mt-4">
                 AI assistant for small businesses. Capture more leads, book more
                 appointments, send reminders, sync with your CRM, and get
                 actionable analytics — all automated.
@@ -135,8 +135,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="text-gray-400 hover:text-white transition-colors duration-200
-                                 w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-white" // Subtle border and hover
+                      className="text-text-secondary hover:text-foreground transition-colors duration-200 w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-foreground" // Subtle border and hover
                     >
                       <Icon className="w-5 h-5" />
                     </a>
@@ -147,7 +146,7 @@ const Footer = () => {
 
             {/* Column 2: Services Quick Links */}
             <div className="space-y-5">
-              <h3 className="text-white font-semibold text-lg relative pb-2">
+              <h3 className="text-foreground font-semibold text-lg relative pb-2">
                 Services
                 <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
               </h3>
@@ -156,7 +155,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="text-gray-200 hover:text-white transition-colors text-sm"
+                      className="text-text-secondary hover:text-foreground transition-colors text-sm"
                     >
                       {link.name}
                     </Link>
@@ -167,7 +166,7 @@ const Footer = () => {
 
             {/* Column 3: Solutions Quick Links */}
             <div className="space-y-5">
-              <h3 className="text-white font-semibold text-lg relative pb-2">
+              <h3 className="text-foreground font-semibold text-lg relative pb-2">
                 Solutions
                 <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
               </h3>
@@ -176,7 +175,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="text-gray-200 hover:text-white transition-colors text-sm"
+                      className="text-text-secondary hover:text-foreground transition-colors text-sm"
                     >
                       {link.name}
                     </Link>
@@ -187,11 +186,11 @@ const Footer = () => {
 
             {/* Column 4: Newsletter Subscription */}
             <div className="space-y-5">
-              <h3 className="text-white font-semibold text-lg relative pb-2">
+              <h3 className="text-foreground font-semibold text-lg relative pb-2">
                 Subscribe to our Newsletter
                 <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
               </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-text-secondary text-sm leading-relaxed">
                 Stay up to date with our latest news and offers.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-4">
@@ -199,7 +198,7 @@ const Footer = () => {
                   type="email"
                   placeholder="Your email address"
                   aria-label="Email for newsletter"
-                  className="w-full p-3 rounded-lg bg-black text-white border border-gray-700 focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-colors duration-200"
+                  className="w-full p-3 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
                 />
                 <button
                   type="submit"

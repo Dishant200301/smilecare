@@ -28,17 +28,17 @@ const ContactUsPreviewSection: React.FC = () => {
       <div
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
                    bg-[#0d0d0d] rounded-3xl p-8 md:p-12 border border-slate-700/50
-                   shadow-2xl shadow-purple-500/10"
+                   shadow-xl shadow-white/20"
       >
         {/* Left Half: Heading + Contact Us button */}
         <div className="flex flex-col justify-center text-center md:text-left">
           <div className="mb-6">
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-              <h2 className="font-HindMadurai font-medium leading-tight text-white">
+              <h2 className="font-HindMadurai font-medium gradient-text leading-tight text-white">
                 Contact us to a free
               </h2>
             </div>
-            <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-InstrumentSerif italic text-white">
+            <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl gradient-text font-InstrumentSerif italic text-white">
               landing page for your business.
             </span>
           </div>
