@@ -120,7 +120,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-body relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white font-body relative overflow-hidden">
       <Helmet>
         <title>About | TryzenIQ</title>
         <meta

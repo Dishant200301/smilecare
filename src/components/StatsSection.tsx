@@ -89,7 +89,7 @@ const services: Service[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <section className=" text-white py-20">
+    <section className="text-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading Section */}
         <div className="flex flex-col items-center gap-8">
@@ -125,7 +125,7 @@ const StatsSection: React.FC = () => {
               `}
             >
               {/* Arrow Icon in top-right corner */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full  flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <ArrowRight className="w-5 h-5 text-white" />
               </div>
 

@@ -12,6 +12,13 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+    const [openMenu, setOpenMenu] = useState<string | null>(null); // currently open menu
+  
+    const toggleMenu = (menuKey: string) => {
+      setOpenMenu(prev => (prev === menuKey ? null : menuKey)); // close if already open
+    };
+
+  
   useEffect(() => {
     const current = mainNavLinks.find(
       (item) => item.path === location.pathname
@@ -39,6 +46,9 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  
+  
+  
   return (
     <div className="relative bg-background overflow-visible w-full font-HindMadurai">
       {/* Glow Background */}
@@ -48,7 +58,7 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 py-2 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl shadow-lg">
         <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -203,30 +213,38 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="lg:hidden mt-2 h-[calc(100vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 transition-all duration-500">
+            <div className="lg:hidden mt-2 h-[calc(90vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 transition-all duration-500">
               <div className="space-y-2 px-4">
-                {["services", "products"].map((menuKey) => (
-                  <details key={menuKey} className="group">
-                    <summary className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg list-none font-serif flex items-center justify-between">
-                      <span className="capitalize">{menuKey}</span>
-                      <ChevronDown
-                        size={16}
-                        className="group-open:rotate-180 transition-transform"
-                      />
-                    </summary>
-                    <div className="pl-6 space-y-2 mt-2">
-                      {menuData[menuKey].items.map((item, index) => (
-                        <div
-                          key={index}
-                          className="text-white/60 py-2 hover:text-white cursor-pointer font-serif text-sm"
-                          onClick={() => handleItemClick(menuKey, item.slug)}
-                        >
-                          {item.name}
-                        </div>
-                      ))}
-                    </div>
-                  </details>
+              {["services", "products"].map((menuKey) => (
+          <div key={menuKey} className="group">
+            {/* Summary */}
+            <div
+              onClick={() => toggleMenu(menuKey)}
+              className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-serif"
+            >
+              <span className="capitalize">{menuKey}</span>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${openMenu === menuKey ? "rotate-180" : ""}`}
+              />
+            </div>
+
+            {/* Dropdown content */}
+            {openMenu === menuKey && (
+              <div className="pl-6 space-y-2 mt-2">
+                {menuData[menuKey].items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="text-white/60 py-2 hover:text-white cursor-pointer font-serif text-sm"
+                    onClick={() => handleItemClick(menuKey, item.slug)}
+                  >
+                    {item.name}
+                  </div>
                 ))}
+              </div>
+            )}
+          </div>
+        ))}
                 <a
                   href="/about"
                   className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"

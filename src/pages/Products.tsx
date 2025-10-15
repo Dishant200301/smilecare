@@ -122,7 +122,7 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
               <a
                 key={`${product.category}-${i}`}
                 href={product.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform border border-gray-800 hover:border-white/30"
+                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform border border-gray-800 hover:border-white/20"
               >
                 <div className="relative overflow-hidden">
                   <img

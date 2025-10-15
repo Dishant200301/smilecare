@@ -198,7 +198,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
               <a
                 key={`${service.category}-${i}`}
                 href={service.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform border border-gray-800 hover:border-cyan-500/30"
+                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform border border-gray-900 hover:border-white/20"
               >
                 <div className="relative overflow-hidden">
                   <img

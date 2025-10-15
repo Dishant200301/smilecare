@@ -76,12 +76,14 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <div className="min-h-screen bg-background text-foreground py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* <div className="relative w-screen h-screen">
-          <EarthGlobe3D earthColor={0x77ddff} />{" "}
-        </div> */}
-        <FooterGlobeSection />
+    <div className="relative min-h-screen w-full bg-black text-white overflow-hidden">
+      {/* Background Globe */}
+      <div className=" inset-0 z-0 flex items-center justify-center pb-40">
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <EarthGlobe3D earthColor={0x77ddff} />
+      </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* <FooterGlobeSection /> */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="text-center mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
@@ -97,9 +99,10 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
         </div>
 
         <div className="overflow-hidden relative py-8 ">
+          <div className="hidden lg:block">
           <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
           <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
-
+          </div>
           <div className="flex gap-8 w-max animate-scrollRtl">
             {[...visibleServices, ...visibleServices].map((service, index) => (
               <div key={index} className="w-[350px] flex-shrink-0 snap-start">

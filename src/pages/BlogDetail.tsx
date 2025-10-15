@@ -70,7 +70,7 @@ const BlogDetail: React.FC = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-14 px-4">
+        <section className="pt-20 pb-14 px-4">
           <div className="max-w-7xl mx-auto">
             {/* Back Button */}
             <div className="mb-8">

@@ -7,6 +7,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Send,
 } from "lucide-react";
 // Assuming Logo is a component or a direct path to an SVG
 // For this example, let's assume it's an SVG that needs inversion
@@ -39,7 +40,10 @@ const Footer = () => {
     Services: [
       { name: "Botox & Skin Care", path: "/business-category/botox-skincare" },
       { name: "Clinics & Dentist", path: "/business-category/clinics-dentist" },
-      { name: "Gym & Health Coach", path: "/business-category/gym-health-coach" },
+      {
+        name: "Gym & Health Coach",
+        path: "/business-category/gym-health-coach",
+      },
       {
         name: "Business Consultation",
         path: "/business-category/business-consultation",
@@ -110,8 +114,8 @@ const Footer = () => {
             {/* Column 1: Company Info */}
             <div className="flex flex-col">
               <Link to="/" onClick={() => setActiveItem("Home")}>
-              <div className="mb-[-30px] mt-[-40px]">
-              {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
+                <div className="mb-[-30px] mt-[-40px]">
+                  {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
                   <img
                     src={Logo}
                     alt="TryzenIQ Logo"
@@ -193,7 +197,10 @@ const Footer = () => {
               <p className="text-text-secondary text-sm leading-relaxed">
                 Stay up to date with our latest news and offers.
               </p>
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-4">
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="flex flex-col gap-4"
+              >
                 <input
                   type="email"
                   placeholder="Your email address"
@@ -202,10 +209,20 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-white to-white text-black font-semibold
-                             hover:from-white hover:to-white transition-all duration-300 shadow-lg"
+                  className="group relative w-full py-3 px-6 rounded-lg border border-gray-700 text-white font-semibold overflow-hidden transition-all duration-700 shadow-lg hover:shadow-xl"
                 >
-                  Subscribe
+                  {/* Expanding background circle on hover */}
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
+
+                  {/* Button text */}
+                  <span className="relative z-20 transition-colors duration-700 group-hover:text-black mr-5">
+                    Subscribe
+                  </span>
+
+                  {/* Send icon */}
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+                    <Send className="w-5 h-5 text-black transition-colors duration-700" />
+                  </span>
                 </button>
               </form>
             </div>

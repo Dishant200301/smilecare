@@ -28,7 +28,7 @@ const ContactUsPreviewSection: React.FC = () => {
       <div
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
                    bg-[#0d0d0d] rounded-3xl p-8 md:p-12 border border-slate-700/50
-                   shadow-xl shadow-white/20"
+                   shadow-xl hover:shadow-white/20"
       >
         {/* Left Half: Heading + Contact Us button */}
         <div className="flex flex-col justify-center text-center md:text-left">

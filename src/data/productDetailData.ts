@@ -22,7 +22,7 @@ export const productDetailData = {
     metaTitle: "Asign IT ERP System | TryzenIQ",
     metaDescription:
       "Complete enterprise resource planning solution to streamline business operations, inventory, and financial management.",
-    title: "Asign IT ERP",
+    title: "AsignIT ERP",
     subtitle: "Enterprise Solution",
     heroImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
