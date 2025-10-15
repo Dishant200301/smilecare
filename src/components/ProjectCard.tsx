@@ -23,7 +23,7 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
         <Link to={project.link}>
-          <Button className="w-full bg-white text-black hover:bg-neutral-200 transition-colors">
+          <Button className="w-full bg-black border border-gray-600 text-white hover:bg-gray-800 hover:border-gray-500 transition-colors">
             View Project <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>

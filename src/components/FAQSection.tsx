@@ -39,7 +39,7 @@ export default function FAQSection(): JSX.Element {
   };
 
   return (
-    <section className="relative min-h-screen bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
+    <section className="relative bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
       {/* Background gradient effects */}
      
 
@@ -103,7 +103,7 @@ export default function FAQSection(): JSX.Element {
                   className={`flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
                     openIndex === index
                       ? "bg-white text-black"
-                      : "bg-gray-950 text-gray-400 group-hover:bg-gray-700"
+                      : "bg-gray-950 text-gray-400 group-hover:bg-[#262626]"
                   }`}
                 >
                   {openIndex === index ? (

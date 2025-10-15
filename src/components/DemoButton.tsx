@@ -22,9 +22,9 @@ const DemoButton: React.FC<DemoButtonProps> = ({ to, label, onClick }) => {
     <button
       onClick={handleClick}
       className="relative inline-flex items-center justify-center px-8 py-3 
-                 rounded-full bg-white border border-white/30
+                 rounded-full bg-black border border-gray-600
                  text-sm font-semibold tracking-wide cursor-pointer 
-                 overflow-hidden group"
+                 overflow-hidden group hover:border-gray-500 transition-colors"
     >
       {/* <span
         className="absolute inset-0 bg-[#b3da70] rounded-full 
@@ -33,7 +33,7 @@ const DemoButton: React.FC<DemoButtonProps> = ({ to, label, onClick }) => {
       ></span> */}
 
       <span
-        className="relative text-black group-hover:text-black  transition-colors duration-300"
+        className="relative text-white group-hover:text-white  transition-colors duration-300"
         style={{ fontFamily: "Figtree", animationDelay: "0.2s" }}
       >
         {label}

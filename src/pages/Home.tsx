@@ -18,7 +18,7 @@ import HomeBlogs from '@/components/HomeBlogs';
 
 const Home = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white">
       <Helmet>
         <title>TryzenIQ</title>
         <meta name="description" content="Automate your business with AI: leads, outreach, reminders, and scheduling. TryzenIQ helps boost revenue and save time." />
@@ -28,7 +28,7 @@ const Home = () => {
       </Helmet>
       
       <Navbar />
-      <main>
+      <main className="bg-black">
         <HeroSection />
         <Integrations/>
         <StatsSection />

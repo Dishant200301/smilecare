@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 // Assuming Logo is a component or a direct path to an SVG
 // For this example, let's assume it's an SVG that needs inversion
-import Logo from "../../public/svgviewer-png-output.svg"; // Adjust path as needed
+const Logo = "/svgviewer-png-output.svg"; // Adjust path as needed
 
 // X icon component
 const XIcon = ({ className }: { className?: string }) => (
@@ -205,7 +205,7 @@ const Footer = () => {
                   type="email"
                   placeholder="Your email address"
                   aria-label="Email for newsletter"
-                  className="w-full p-3 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
+                  className="w-full p-3 pl-6 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
                 />
                 <button
                   type="submit"

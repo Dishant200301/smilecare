@@ -68,7 +68,7 @@ const Contact = () => {
 
       <Navbar />
 
-      <main className="pt-28 md:pt-32">
+      <main className="pt-28 md:pt-[170px]">
         {/* Hero */}
         <section className="">
           <div className="max-w-4xl mx-auto text-center mb-12">
@@ -85,7 +85,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="relative py-16 md:py-12">
+        <section className="relative py-16 md:py-6">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}

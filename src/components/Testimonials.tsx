@@ -167,18 +167,18 @@ const TestimonialSection: React.FC = () => {
       {/* Title */}
       <div className="flex flex-col items-center gap-8">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-          <div className="">
+          <div className="text-center lg:mt-12">
+            <div className="mb-2">
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
-                Our {" "}
+                Our{" "}
                 <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
-                Testimonials
-              </span>
+                  Testimonials
+                </span>
               </h1>
             </div>
-              <span className="text-md sm:text-5xl md:text-3xl lg:text-2xl font-InstrumentSerif text-gray-400">
-                What our clients say
-              </span>
+            <span className="text-md sm:text-5xl md:text-3xl lg:text-2xl font-InstrumentSerif text-gray-400">
+              What our clients say
+            </span>
           </div>
         </div>
       </div>

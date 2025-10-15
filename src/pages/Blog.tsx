@@ -35,11 +35,11 @@ const Blogs: React.FC = () => {
       <Navbar />
 
       <main className="relative z-10">
-        <section className="pt-32 pb-20 px-4">
+        <section className="pt-32 md:pt-[170px] pb-20 px-4">
           <div className="container mx-auto px-4 md:px-6 lg:px-2 relative z-10 max-w-7xl">
             {/* Header Section */}
             <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                 Our Latest{" "}
                 <span className="font-InstrumentSerif italic gradient-text">Articles</span>
               </h1>

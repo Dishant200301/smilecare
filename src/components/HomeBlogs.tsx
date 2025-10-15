@@ -14,9 +14,9 @@ const BlogCard = ({ blog }: { blog: BlogPost }) => {
     <a
       key={blog.id}
       href={`/blog/${blog.slug}`}
-      className="group flex flex-col bg-background rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ease-in-out border border-gray-800 hover:border-white/30 h-full"
+      className="group flex flex-col bg-black rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ease-in-out border border-gray-800 hover:border-white/30 h-full"
     >
-      <section className="bg-background rounded-2xl overflow-hidden h-full flex flex-col">
+      <section className="bg-black rounded-2xl overflow-hidden h-full flex flex-col">
         <div className="relative overflow-hidden rounded-xl aspect-[16/9] m-4 mb-3">
           <img
             src={blog.image}
@@ -24,7 +24,7 @@ const BlogCard = ({ blog }: { blog: BlogPost }) => {
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute top-4 left-4">
-            <span className="px-4 py-2 bg-background backdrop-blur-sm text-foreground text-sm font-medium rounded-full font-HindMadurai">
+            <span className="px-4 py-2 bg-black backdrop-blur-sm text-white text-sm font-medium rounded-full font-HindMadurai">
               {blog.category}
             </span>
           </div>
@@ -117,7 +117,7 @@ const HomeBlogs = () => {
   };
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start ml-8 lg:items-center gap-8 mb-12">
@@ -137,7 +137,7 @@ const HomeBlogs = () => {
               href="/blogs"
               className="group relative inline-flex items-center justify-between border border-gray-500 text-foreground font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-200 ease-out"
             >
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
               <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black">
                 View All Posts
               </span>
@@ -199,7 +199,7 @@ const HomeBlogs = () => {
             onClick={handlePrev}
             disabled={isTransitioning}
             aria-label="Previous blog posts"
-            className="absolute top-1/2 -left-4 -translate-y-1/2 p-3 bg-background border border-gray-600 text-foreground rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none z-10 hidden md:block"
+            className="absolute top-1/2 -left-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-foreground rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none z-10 hidden md:block"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -208,7 +208,7 @@ const HomeBlogs = () => {
             onClick={handleNext}
             disabled={isTransitioning}
             aria-label="Next blog posts"
-            className="absolute top-1/2 -right-4 -translate-y-1/2 p-3 bg-background border border-gray-600 text-foreground rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none z-10 hidden md:block"
+            className="absolute top-1/2 -right-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-foreground rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none z-10 hidden md:block"
           >
             <ChevronRight className="w-6 h-6" />
           </button>

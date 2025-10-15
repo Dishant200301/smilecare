@@ -29,15 +29,15 @@ const uniqueLogos: Logo[] = [
     alt: "Slack",
   },
   {
-    src: "../public/gemini2.png",
+    src: "/gemini2.png",
     alt: "Gemini",
   },
   {
-    src: "../public/openai3.png",
+    src: "/openai3.png",
     alt: "OpenAI",
   },
   {
-    src: "../public/gmail.png",
+    src: "/gmail.png",
     alt: "Gmail",
   },
   {
@@ -86,7 +86,7 @@ const IntegrationsSection: React.FC = () => {
   const row3Logos = [...uniqueLogos.slice(10), ...uniqueLogos.slice(0, 10)];
 
   return (
-    <section className="text-white py-20 bg-black">
+    <section className="text-white py-10 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
         <div className="text-center mb-12 text-[#d5dbe6]">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">

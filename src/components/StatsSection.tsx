@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Brain,
@@ -8,7 +7,7 @@ import {
   Database,
   ArrowRight,
 } from "lucide-react";
-import src from "gsap/src";
+// Removed: import src from "gsap/src"; // Not used
 
 // Define an interface for your service data
 interface Service {
@@ -20,6 +19,7 @@ interface Service {
   imageAlt: string;
   gridClasses?: string;
   link: string; // Link to service detail page
+  bullets?: string[];
 }
 
 // Data for your service cards, including colors and dummy images matching the original image's style
@@ -35,6 +35,12 @@ const services: Service[] = [
     imageAlt: "AI Automation interface",
     gridClasses: "md:col-span-2",
     link: "/services/ai-automation",
+    bullets: [
+      "Workflow with machine learning",
+      "Intelligent processing and analysis",
+      "Automated decision-making system",
+      "Custom AI model integration",
+    ],
   },
   {
     title: "SEO Optimization",
@@ -59,12 +65,11 @@ const services: Service[] = [
     gridClasses: "md:row-span-1",
     link: "/services/website-development",
   },
-  
-  
+
   {
     title: "Custom ERP Solutions",
     description:
-      "Build powerful ERP systems designed around your business needs — from automation to analytics.",
+      "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management, financial tracking, human resources, and customer relationship management.",
     icon: <Database className="w-10 h-10 text-black" />,
     bgColorClass: "bg-black",
     imageSrc:
@@ -72,6 +77,11 @@ const services: Service[] = [
     imageAlt: "Custom ERP system interface",
     gridClasses: "md:col-span-3",
     link: "/services/custom-erp-system",
+    bullets: [
+      "Custom ERP solutions tailored to your business needs",
+      "Automated repetitive tasks and reduce errors",
+      "Real-time data analytics to drive informed decision-making",
+    ],
   },
   {
     title: "Graphics Design",
@@ -89,13 +99,13 @@ const services: Service[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="text-white py-20">
+    <section className="text-white pt-20 bg-black">
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading Section */}
         <div className="flex flex-col items-center gap-8">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <div className="">
+            <div className="text-center mb-16">
+              <div className="mb-2">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
                   Our{" "}
                   <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
@@ -117,7 +127,7 @@ const StatsSection: React.FC = () => {
               key={index}
               href={service.link}
               className={`
-                group relative p-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out
+                group relative px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out
                 flex flex-col justify-between overflow-hidden cursor-pointer
                 hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20
                 ${service.bgColorClass}
@@ -125,25 +135,39 @@ const StatsSection: React.FC = () => {
               `}
             >
               {/* Arrow Icon in top-right corner */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full  flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <ArrowRight className="w-5 h-5 text-white" />
               </div>
 
               {/* Content area: Icon, Title, Description */}
-              <div className="mb-4">
+              {/* ADDED flex-grow and pb-8 for consistent gap before image */}
+              <div className="flex-grow pb-8">
+                {" "}
+                {/* This div now stretches and provides bottom padding */}
                 {service.icon}
-                <h3 className="text-2xl font-semibold mt-4 text-white transition-all">
+                {/* Re-added mt-4 to h3 for consistent spacing from icon */}
+                <h3 className="text-2xl font-semibold text-white transition-all">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-gray-400">{service.description}</p>
+                {service.bullets && (
+                  <ul className="mt-3 text-gray-400">
+                    {service.bullets.map((bullet, idx) => (
+                      <li key={idx} className="list-disc ml-5">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {/* Image at the bottom */}
-              <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 p-5 overflow-hidden rounded-xl">
+              {/* Kept original image container styles, as p-5 creates desired bottom padding as per original design */}
+              <div className={`relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl ${service.title === "Custom ERP Solutions" ? "px-8 py-5" : "p-5"}`}>
                 <img
                   src={service.imageSrc}
                   alt={service.imageAlt}
-                  className="w-full h-[200px] object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
+                  className="w-full h-[250px] object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
                 />
               </div>
             </a>
@@ -153,12 +177,12 @@ const StatsSection: React.FC = () => {
         <div className="text-center mt-12">
           <a
             href="/services"
-            className="group relative inline-flex items-center justify-between border border-gray-500 
-                       text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
+            className="group relative inline-flex items-center justify-between border border-gray-500
+                       text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden
                        transition-all duration-200 ease-out"
           >
             <span
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10
         transition-transform duration-700 ease-in-out group-hover:scale-[45]"
             />
 

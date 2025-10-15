@@ -136,7 +136,7 @@ const About = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-20 md:pt-32 relative">
+      <main className="pt-20 md:pt-[170px] relative">
         {/* Background Rays */}
 
         {/* Hero Section */}

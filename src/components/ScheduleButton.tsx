@@ -22,7 +22,7 @@ const ScheduleButton: React.FC<ScheduleButtonProps> = ({ to, label, onClick }) =
   return (
     <button
       onClick={handleClick}
-      className="relative group px-8 py-4 bg-white text-black hover:text-black hover:bg-linear-gradient(90deg, #1CB5E0 0%, #000851 100%)    
+      className="relative group px-8 py-4 bg-black text-white border border-gray-600 hover:border-gray-500 hover:text-white hover:bg-linear-gradient(90deg, #1CB5E0 0%, #000851 100%)    
                  rounded-full hover:scale-105 transition-all duration-500 origin-right 
                  flex items-center justify-center overflow-hidden"
     >

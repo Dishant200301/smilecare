@@ -70,13 +70,13 @@ const BlogDetail: React.FC = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-20 pb-14 px-4">
+        <section className="pt-20 md:pt-[100px] pb-14 px-4">
           <div className="max-w-7xl mx-auto">
             {/* Back Button */}
             <div className="mb-8">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 lg:ml-12"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back</span>

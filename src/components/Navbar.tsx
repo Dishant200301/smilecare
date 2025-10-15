@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../public/svgviewer-png-output.svg";
+const Logo = "/svgviewer-png-output.svg";
 import { navigationData, mainNavLinks } from "../data/navigationdata";
 
 const Navbar = () => {
@@ -51,11 +51,7 @@ const Navbar = () => {
   
   return (
     <div className="relative bg-background overflow-visible w-full font-HindMadurai">
-      {/* Glow Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl opacity-30"></div>
-      </div>
+      
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl shadow-lg">
@@ -85,8 +81,14 @@ const Navbar = () => {
                     }
                     onMouseLeave={handleMouseLeave}
                   >
-                    {/* Main button */}
-                    <button className="text-foreground/80 hover:text-foreground flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300">
+                    {/* Main button - navigate to category on click */}
+                    <button
+                      onClick={() => {
+                        navigate(`/${menuKey}`);
+                        setActiveDropdown(null);
+                      }}
+                      className="text-foreground/80 hover:text-foreground flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+                    >
                       <span className="capitalize">{menuKey}</span>
                       <ChevronDown
                         size={14}
@@ -138,7 +140,25 @@ const Navbar = () => {
                         <div className="w-80 border-l border-white/10 p-5 bg-gradient-to-br from-white/[0.02] to-transparent">
                           {hoveredSubItem &&
                             hoveredSubItem.category === menuKey && (
-                              <div className="relative w-full h-full rounded-xl overflow-hidden transition-all duration-700">
+                              <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() =>
+                                  handleItemClick(
+                                    hoveredSubItem.category,
+                                    hoveredSubItem.item.slug
+                                  )
+                                }
+                                onKeyDown={(e) => {
+                                  if (e.key === "Enter" || e.key === " ") {
+                                    handleItemClick(
+                                      hoveredSubItem.category,
+                                      hoveredSubItem.item.slug
+                                    );
+                                  }
+                                }}
+                                className="relative w-full h-full rounded-xl overflow-hidden transition-all duration-700 cursor-pointer"
+                              >
                                 <div
                                   className={`absolute inset-0 bg-gradient-to-br ${hoveredSubItem.item.color} mix-blend-overlay z-10`}
                                 ></div>
@@ -262,7 +282,7 @@ const Navbar = () => {
                     navigate("/contact");
                     setIsOpen(false);
                   }}
-                  className="w-full bg-white text-black px-4 py-3 rounded-full font-serif mt-4 hover:bg-white"
+                  className="w-full bg-black border border-gray-600 text-white px-4 py-3 rounded-full font-serif mt-4 hover:bg-gray-800 hover:border-gray-500"
                 >
                   Contact Us
                 </button>

@@ -46,7 +46,7 @@ const ProductDetail = () => {
 
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-5 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
+        <section className="py-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
           <div className="max-w-7xl mx-auto">
             {/* Back Button */}
             <div className="mb-8">
