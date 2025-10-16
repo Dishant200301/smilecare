@@ -142,12 +142,9 @@ const About = () => {
         {/* Hero Section */}
         <section className="relative z-10">
           <div className="max-w-7xl mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
-              About{" "}
-                <span
-                className="font-InstrumentSerif italic"
-                >Us</span>
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+                About <span className="font-InstrumentSerif italic">Us</span>
               </h1>
 
               <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
@@ -163,24 +160,23 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
               {values.map((value, index) => (
-                 
-                  <div
-                    key={index}
-                    className="group border border-border rounded-2xl p-6 bg-[#0c0c0c] md:p-8 text-center transition-all duration-300 hover:border-white/10"
-                  >
-                    <div className="p-4 hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
-                      <value.icon className="w-7 h-7 " />
-                    </div>
-                    {/* Title */}
-                    <h3 className="text-xl font-HindMadurai font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[white]">
-                      {value.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-white/70 font-HindMadurai transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
-                      {value.description}
-                    </p>
+                <div
+                  key={index}
+                  className="group border border-border rounded-2xl p-6 bg-[#0c0c0c] md:p-8 text-center transition-all duration-300 hover:border-white/10"
+                >
+                  <div className="p-4 hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
+                    <value.icon className="w-7 h-7 " />
                   </div>
+                  {/* Title */}
+                  <h3 className="text-xl font-HindMadurai font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[white]">
+                    {value.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/70 font-HindMadurai transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
+                    {value.description}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -188,9 +184,7 @@ const About = () => {
 
         {/* Stats Section */}
         <section className="pt-16 md:pt-32 relative z-10">
-          <div
-            className="max-w-7xl mx-auto px-4"
-          >
+          <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
               {stats.map((stat, index) => {
                 const { ref, inView } = useInView({
@@ -229,9 +223,9 @@ const About = () => {
             </div>
           </div>
         </section>
-        <TeamSection/>
+        <TeamSection />
 
-<ContactUsPreviewSection/>
+        <ContactUsPreviewSection />
       </main>
 
       <Footer />

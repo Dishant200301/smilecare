@@ -6,7 +6,7 @@ const leadershipTeam = [
     name: "Tilak Viradiya",
     role: "CTO",
     imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop",
+      "/team_member/tilak.png",
   },
   {
     name: "Keyur Moradiya",

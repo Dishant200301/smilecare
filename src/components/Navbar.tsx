@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-const Logo = "/svgviewer-png-output.svg";
+const Logo = "/image/svgviewer-png-output.svg";
 import { navigationData, mainNavLinks } from "../data/navigationdata";
 
 const Navbar = () => {

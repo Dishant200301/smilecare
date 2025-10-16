@@ -28,15 +28,15 @@ const uniqueLogos: Logo[] = [
     alt: "Slack",
   },
   {
-    src: "/gemini2.png",
+    src: "/image/gemini2.png",
     alt: "Gemini",
   },
   {
-    src: "/openai3.png",
+    src: "/image/openai3.png",
     alt: "OpenAI",
   },
   {
-    src: "/gmail.png",
+    src: "/image/gmail.png",
     alt: "Gmail",
   },
   {

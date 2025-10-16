@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 // Assuming Logo is a component or a direct path to an SVG
 // For this example, let's assume it's an SVG that needs inversion
-const Logo = "/svgviewer-png-output.svg"; // Adjust path as needed
+const Logo = "/image/svgviewer-png-output.svg"; // Adjust path as needed
 
 // X icon component
 const XIcon = ({ className }: { className?: string }) => (
