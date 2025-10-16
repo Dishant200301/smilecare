@@ -277,7 +277,7 @@ const Contact = () => {
         </section>
 
         {/* Map Section */}
-        <section className="relative py-16 md:py-20">
+        <section className="relative pt-16 md:pt-20">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-4xl md:text-5xl lg:text-5xl items-center gradient-text justify-center font-HindMadurai font-medium leading-tight mb-6">
               Find Us on the{" "}

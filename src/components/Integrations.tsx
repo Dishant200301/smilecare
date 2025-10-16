@@ -7,7 +7,6 @@ interface Logo {
 }
 
 const uniqueLogos: Logo[] = [
-  
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1024px-Google_Sheets_logo_%282014-2020%29.svg.png",
     alt: "Google Sheets",
@@ -88,16 +87,16 @@ const IntegrationsSection: React.FC = () => {
   return (
     <section className="text-white py-10 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
-        <div className="text-center mb-12 text-[#d5dbe6]">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+        <div className="text-center mb-6 text-[#d5dbe6]">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
             <span className="gradient-text">Seamless Tool</span>{" "}
-            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl gradient-text font-InstrumentSerif italic text-white">
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
               Integrations
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 mt-4">
-            Boost productivity effortlessly
-          </p>
+          <span className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
+            Empowering your business with innovation.
+          </span>
         </div>
 
         <div className="w-full flex flex-col gap-3 mt-2">

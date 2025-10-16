@@ -121,14 +121,14 @@ const HomeBlogs = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start ml-8 lg:items-center gap-8 mb-12">
-          <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight text-foreground">
+          <div className="max-w-4xl text-center lg:text-left mx-auto lg:mx-0">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
               <span className="gradient-text">Our Latest</span>{" "}
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-foreground">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
                 News & Insights
               </span>
             </h2>
-            <p className="text-md sm:text-5xl md:text-3xl lg:text-2xl font-InstrumentSerif text-text-secondary mt-2">
+            <p className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
               Stay informed with expert analysis and industry trends.
             </p>
           </div>

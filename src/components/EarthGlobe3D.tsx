@@ -8,9 +8,13 @@ interface EarthGlobe3DProps {
    * Example: 0x00ff00 for a green tint, 0x0000ff for a blue tint.
    */
   earthColor?: THREE.ColorRepresentation;
+  /**
+   * Optional CSS class name to apply to the root div element.
+   */
+  className?: string;
 }
 
-const EarthGlobe3D: React.FC<EarthGlobe3DProps> = ({ earthColor = 0xffffff }) => {
+const EarthGlobe3D: React.FC<EarthGlobe3DProps> = ({ earthColor = 0xffffff, className }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -87,8 +91,8 @@ const EarthGlobe3D: React.FC<EarthGlobe3DProps> = ({ earthColor = 0xffffff }) =>
       1,
       1000
     );
-    // Adjusted camera position to accommodate the larger Earth
-    cameraRef.current.position.z = 160; 
+    // Adjusted camera position to accommodate the larger Earth and show half
+    cameraRef.current.position.set(0, 5, 120); 
 
     // Earth terrain
     const earth_texture = new THREE.TextureLoader().load(
@@ -190,7 +194,7 @@ const EarthGlobe3D: React.FC<EarthGlobe3DProps> = ({ earthColor = 0xffffff }) =>
   }, [animate, onMouseDown, onMouseMove, onMouseUp, onWindowResize, earthColor]);
 
   return (
-    <div ref={mountRef} className="absolute inset-0 w-screen h-screen overflow-hidden" />
+    <div ref={mountRef} className={`absolute inset-0 w-screen h-screen overflow-hidden ${className || ''}`} />
   );
 };
 

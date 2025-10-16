@@ -24,6 +24,19 @@ interface Service {
 
 // Data for your service cards, including colors and dummy images matching the original image's style
 const services: Service[] = [
+  
+  {
+    title: "SEO Optimization",
+    description:
+      "Enhance your online visibility with advanced SEO strategies that drive organic traffic and measurable results.",
+    icon: <Globe className="w-10 h-10 text-black" />,
+    bgColorClass: "bg-black",
+    imageSrc:
+      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=300",
+    imageAlt: "SEO analytics dashboard",
+    gridClasses: "",
+    link: "/services/seo",
+  },
   {
     title: "AI Automation",
     description:
@@ -41,18 +54,6 @@ const services: Service[] = [
       "Automated decision-making system",
       "Custom AI model integration",
     ],
-  },
-  {
-    title: "SEO Optimization",
-    description:
-      "Enhance your online visibility with advanced SEO strategies that drive organic traffic and measurable results.",
-    icon: <Globe className="w-10 h-10 text-black" />,
-    bgColorClass: "bg-black",
-    imageSrc:
-      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=300",
-    imageAlt: "SEO analytics dashboard",
-    gridClasses: "",
-    link: "/services/seo",
   },
   {
     title: "Website Development",
@@ -100,20 +101,20 @@ const services: Service[] = [
 const StatsSection: React.FC = () => {
   return (
     <section className="text-white pt-20 bg-black">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Heading Section */}
         <div className="flex flex-col items-center gap-8">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <div className="mb-2">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
+                <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
                   Our{" "}
-                  <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
                     Services
                   </span>
-                </h1>
+                </h2>
               </div>
-              <span className="text-md sm:text-5xl md:text-3xl lg:text-2xl font-InstrumentSerif text-gray-400">
+              <span className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
                 Empowering your business with innovation.
               </span>
             </div>

@@ -38,23 +38,17 @@ const Footer = () => {
 
   const footerLinks = {
     Services: [
-      { name: "Botox & Skin Care", path: "/business-category/botox-skincare" },
-      { name: "Clinics & Dentist", path: "/business-category/clinics-dentist" },
-      {
-        name: "Gym & Health Coach",
-        path: "/business-category/gym-health-coach",
-      },
-      {
-        name: "Business Consultation",
-        path: "/business-category/business-consultation",
-      },
-      { name: "IT & SAAS", path: "/business-category/it-saas" },
+      { name: "AI Automation", path: "/services/ai-automation" },
+      { name: "Intelligent automation solutions", path: "/services/intelligent-automation-solutions" },
+      { name: "SEO", path: "/services/seo" },
+      { name: "Website Development", path: "/services/website-development" },
+      { name: "Graphics Design", path: "/services/graphics-design" },
+      { name: "Custom ERP System", path: "/services/custom-erp-system" },
     ],
     Solutions: [
       { name: "Salons & Spa", path: "/business-category/salons-spa" },
       { name: "Real Estate", path: "/business-category/real-estate-agents" },
       { name: "Therapists", path: "/business-category/therapists-counselors" },
-      { name: "Insurance", path: "/business-category/insurance" },
     ],
   };
 

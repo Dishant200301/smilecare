@@ -76,32 +76,46 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <div className="relative min-h-screen w-full bg-black text-white overflow-hidden">
-      {/* Background Globe */}
-      <div className=" inset-0 z-0 flex items-center justify-center pb-40">
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <EarthGlobe3D earthColor={0x77ddff} />
+    <div className="relative min-h-screen w-full bg-black text-white overflow-hidden mt-32">
+      {/* Layer 3: Earth Globe (Bottom Layer) */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pt-10">
+        <EarthGlobe3D earthColor={0x77ddff} className="pt-50"/>
+        <div className="absolute inset-0 top-20 z-10 bg-gradient-to-b from-black/3 via-black/50 to-black"></div>
+        <div className="absolute inset-0 top-40 z-10 bg-gradient-to-b from-black/3 via-black/50 to-black"></div>
+        <div className="absolute inset-0 top-60 z-10 bg-gradient-to-b from-black/20 via-black/50 to-black"></div>
+        <div className="absolute inset-0 top-0 z-10 bg-gradient-to-b from-black/10 via-black/50 to-black"></div>
+        <div className="absolute inset-0 top-100 z-10 bg-gradient-to-b from-black/10 via-black/50 to-black"></div>
+        <div className="absolute inset-0 top-100 z-10 bg-gradient-to-b from-black/10 via-black/50 to-black"></div>
       </div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* <FooterGlobeSection /> */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight">
+
+      {/* Layer 2: Gradient Overlay (Middle Layer) */}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          
+          {/* <FooterGlobeSection /> */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-52">
+          
+          <div className="relative z-20 flex flex-col items-center justify-center text-center p-4  ">
+            
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
               Our Premium{" "}
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl gradient-text font-InstrumentSerif italic text-white">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
                 business services
               </span>
-            </h1>
-            <p className="text-md sm:text-xl md:text-2xl lg:text-2xl font-InstrumentSerif text-gray-400 mt-4">
+            </h2>
+            <p className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
               Transform your business with smart digital solutions.
             </p>
           </div>
         </div>
 
-        <div className="overflow-hidden relative py-8 ">
+        <div className="overflow-hidden relative pt-8">
+          <div className="absolute inset-0 z-0 flex items-center justify-center"></div>
+          
           <div className="hidden lg:block">
-          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
-          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
+            
+            <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
+            <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
           </div>
           <div className="flex gap-8 w-max animate-scrollRtl">
             {[...visibleServices, ...visibleServices].map((service, index) => (

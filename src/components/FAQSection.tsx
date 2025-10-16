@@ -48,13 +48,13 @@ export default function FAQSection(): JSX.Element {
         {/* Left Side: Header Section */}
         <div className="lg:col-span-2 lg:sticky lg:top-24">
           
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-4">
             Have Questions?
             <br />
             <span className="text-2xl sm:text-5xl md:text-6xl lg:text-5xl gradient-text font-InstrumentSerif italic text-white ">
               Let’s Talk.
             </span>{" "}
-          </h1>
+          </h2>
           <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-md">
             Can't find what you're looking for in our FAQs? Feel free to ask us
             directly.

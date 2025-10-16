@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
+      className="relative w-full min-h-screen flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
     >
       {/* Fog Wrapper - Height is now dynamic and controlled by state */}
       <div
@@ -77,27 +77,27 @@ const HeroSection: React.FC = () => {
 
       {/* Content container */}
       <div className="relative w-full max-w-7xl mx-auto z-10">
-        <div className="relative text-white rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20 overflow-hidden">
+        <div className="relative text-white rounded-3xl p-4 sm:p-12 md:p-16 lg:p-20 overflow-hidden">
           <div className="relative z-20 max-w-4xl mx-auto text-center">
             <h1
               ref={titleRef}
-              className="text-4xl sm:text-5xl md:text-6xl gradient-text pb-1 font-sans font-medium leading-tight"
+              className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text pb-1 font-sans font-medium leading-tight"
             >
               Transforming Ideas Into
             </h1>
-            <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl font-serif italic text-gray-300">
+            <span className="block mt-2 text-2xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-5xl font-serif italic text-gray-300">
               Automated Intelligence
             </span>
 
             {/* CTA Button */}
-            <div className="flex justify-center mt-8 mb-12">
+            <div className="flex justify-center mt-8 mb-10">
               <button
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/about")}
                 className="group relative flex items-center justify-between text-white bg-black font-semibold pl-8 pr-16 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl border border-gray-500"
               >
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
                 <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
-                  Send Message
+                  Learn More
                 </span>
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10">
                   <SendIcon className="w-5 h-5 text-black transition-colors duration-700" />

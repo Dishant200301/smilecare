@@ -128,7 +128,7 @@ const TeamSection = () => {
         {/* Development Team */}
         <div>
           <h3 className="text-2xl sm:text-3xl font-medium text-center font-HindMadurai gradient-text mb-6 text-gray-200">
-            Development Team
+             Team Members
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
             {developmentTeam.map((member, i) => renderCard(member, i * 0.1))}
