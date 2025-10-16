@@ -76,7 +76,7 @@ const Contact = () => {
               Connect <span className="font-InstrumentSerif italic">Us</span>
             </h1>
 
-            <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
               Have questions, ideas, or feedback? Reach out today, and let’s
               collaborate to create something meaningful, impactful, and truly
               great together.
@@ -90,7 +90,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}
               <div className="lg:col-span-2 bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-3xl shadow-2xl flex flex-col">
-                <h2 className="text-4xl md:text-4xl font-HindMadurai mb-8 text-white">
+                <h2 className="text-3xl md:text-4xl font-HindMadurai font-normal mb-8 text-white">
                   Send us a Message
                 </h2>
                 <form
@@ -278,7 +278,7 @@ const Contact = () => {
 
         {/* Map Section */}
         <section className="relative pt-16 md:pt-20">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className="max-w-4xl mx-auto text-center mb-12 px-4">
             <h2 className="text-4xl md:text-5xl lg:text-5xl items-center gradient-text justify-center font-HindMadurai font-medium leading-tight mb-6">
               Find Us on the{" "}
               <span className="font-InstrumentSerif italic">Map</span>

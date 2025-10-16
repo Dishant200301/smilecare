@@ -335,7 +335,15 @@ body::-webkit-scrollbar {
   100% { transform: translateX(-50%); }
 }
 
-.animate-scroll {
+.animate-marquee-left-slow {
+  animation: scroll 60s linear infinite;
+}
+
+.animate-marquee-right-medium {
+  animation: scroll-ltr 40s linear infinite;
+}
+
+.animate-marquee-left-fast {
   animation: scroll 30s linear infinite;
 }
 

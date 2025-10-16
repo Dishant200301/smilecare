@@ -1,5 +1,6 @@
 import React from "react";
 import LogoItem from "./LogoItem";
+import ScrollVelocity from "./ScrollVelocity";
 
 interface Logo {
   src: string;
@@ -98,6 +99,7 @@ const IntegrationsSection: React.FC = () => {
             Empowering your business with innovation.
           </span>
         </div>
+
 
         <div className="w-full flex flex-col gap-3 mt-2">
           <Marquee

@@ -54,9 +54,9 @@ const Navbar = () => {
       
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl shadow-lg py-1">
         <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 ">
             {/* Logo */}
             <a href="/" onClick={() => setActiveItem("Home")}>
               <div className="mb-[-30px] mt-[-40px]">
@@ -64,13 +64,13 @@ const Navbar = () => {
                 <img
                   src={Logo}
                   alt="TryzenIQ Logo"
-                  className="h-28 w-auto filter invert brightness-125" // Adjust height and invert for visibility
+                  className="h-36 w-auto filter invert brightness-125" // Adjust height and invert for visibility
                 />
               </div>
             </a>
 
             {/* Desktop Nav */}
-            <div className="bg-gray-900/20 active:bg-gray-900/60 hover:bg-background transition-all duration-300 rounded-full p-1">
+            <div className="active:bg-gray-900/60 hover:bg-background transition-all duration-300 rounded-full p-1">
               <div className="hidden lg:flex items-center font-serif font-normal">
                 {["services", "products"].map((menuKey) => (
                   <div
@@ -240,7 +240,7 @@ const Navbar = () => {
             {/* Summary */}
             <div
               onClick={() => toggleMenu(menuKey)}
-              className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-serif"
+              className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
             >
               <span className="capitalize">{menuKey}</span>
               <ChevronDown
@@ -255,7 +255,7 @@ const Navbar = () => {
                 {menuData[menuKey].items.map((item, index) => (
                   <div
                     key={index}
-                    className="text-white/60 py-2 hover:text-white cursor-pointer font-serif text-sm"
+                    className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
                     onClick={() => handleItemClick(menuKey, item.slug)}
                   >
                     {item.name}
@@ -277,15 +277,12 @@ const Navbar = () => {
                 >
                   Blog
                 </a>
-                <button
-                  onClick={() => {
-                    navigate("/contact");
-                    setIsOpen(false);
-                  }}
-                  className="w-full bg-black border border-gray-600 text-white px-4 py-3 rounded-full font-serif mt-4 hover:bg-gray-800 hover:border-gray-500"
+                <a
+                  href="/contact"
+                  className="w-full block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
                 >
                   Contact Us
-                </button>
+                </a>
               </div>
             </div>
           )}

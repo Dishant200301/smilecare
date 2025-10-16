@@ -9,8 +9,8 @@ import {
   MapPin,
   Send,
 } from "lucide-react";
+
 // Assuming Logo is a component or a direct path to an SVG
-// For this example, let's assume it's an SVG that needs inversion
 const Logo = "/image/svgviewer-png-output.svg"; // Adjust path as needed
 
 // X icon component
@@ -26,20 +26,19 @@ const XIcon = ({ className }: { className?: string }) => (
 );
 
 const Footer = () => {
-  const [activeItem, setActiveItem] = useState("Home"); // Not directly used in footer, but kept from original
+  const [activeItem, setActiveItem] = useState("Home");
   const location = useLocation();
 
-  const navItems = [{ name: "Home", path: "/" }]; // Not directly used in footer, but kept from original
+  const navItems = [{ name: "Home", path: "/" }];
 
   useEffect(() => {
     const current = navItems.find((item) => item.path === location.pathname);
     if (current) setActiveItem(current.name);
-  }, [location.pathname, navItems]); // Added navItems to dependency array
+  }, [location.pathname, navItems]);
 
   const footerLinks = {
     Services: [
       { name: "AI Automation", path: "/services/ai-automation" },
-      { name: "Intelligent automation solutions", path: "/services/intelligent-automation-solutions" },
       { name: "SEO", path: "/services/seo" },
       { name: "Website Development", path: "/services/website-development" },
       { name: "Graphics Design", path: "/services/graphics-design" },
@@ -99,25 +98,22 @@ const Footer = () => {
   return (
     <section className="pt-12 md:pt-16 bg-background relative">
       <footer className="relative border-t border-gray-800/60">
-        {/* Removed animated background gradient for a cleaner Beam.ai look */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 via-purple-900/5 to-cyan-900/5 animate-pulse" /> */}
-
         <div className="relative px-6 lg:px-12 pb-8 max-w-7xl mx-auto z-10">
-          {/* Main Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-12">
+          {/* Main Grid: Adjusted from lg:grid-cols-4 to lg:grid-cols-3 */}
+          {/* This will arrange Company Info, (Services & Solutions), and Newsletter in up to 3 columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pt-12">
+
             {/* Column 1: Company Info */}
             <div className="flex flex-col">
               <Link to="/" onClick={() => setActiveItem("Home")}>
                 <div className="mb-[-30px] mt-[-40px]">
-                  {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
                   <img
                     src={Logo}
                     alt="TryzenIQ Logo"
-                    className="h-28 w-auto filter invert brightness-125" // Adjust height and invert for visibility
+                    className="h-28 w-auto filter invert brightness-125"
                   />
                 </div>
               </Link>
-
               <p className="text-text-secondary text-sm tracking-wide leading-relaxed mt-4">
                 AI assistant for small businesses. Capture more leads, book more
                 appointments, send reminders, sync with your CRM, and get
@@ -133,7 +129,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="text-text-secondary hover:text-foreground transition-colors duration-200 w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-foreground" // Subtle border and hover
+                      className="text-text-secondary hover:text-foreground transition-colors duration-200 w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-foreground"
                     >
                       <Icon className="w-5 h-5" />
                     </a>
@@ -142,47 +138,52 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Column 2: Services Quick Links */}
-            <div className="space-y-5">
-              <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                Services
-                <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
-              </h3>
-              <ul className="space-y-2">
-                {footerLinks.Services.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="text-text-secondary hover:text-foreground transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* NEW: Combined Services & Solutions Block */}
+            {/* This div acts as one column in the main grid, but internally uses a 2-column grid */}
+            {/* grid-cols-2 ensures side-by-side on mobile. gap-x-8 for mobile, md:gap-x-12 for larger screens */}
+            <div className="grid grid-cols-2 gap-x-8 md:gap-x-12">
+                {/* Services Quick Links */}
+                <div className="space-y-5">
+                  <h3 className="text-foreground font-semibold text-lg relative pb-2">
+                    Services
+                    <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
+                  </h3>
+                  <ul className="space-y-2">
+                    {footerLinks.Services.map((link) => (
+                      <li key={link.name}>
+                        <Link
+                          to={link.path}
+                          className="text-text-secondary hover:text-foreground transition-colors text-sm"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Solutions Quick Links */}
+                <div className="space-y-5">
+                  <h3 className="text-foreground font-semibold text-lg relative pb-2">
+                    Solutions
+                    <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
+                  </h3>
+                  <ul className="space-y-2">
+                    {footerLinks.Solutions.map((link) => (
+                      <li key={link.name}>
+                        <Link
+                          to={link.path}
+                          className="text-text-secondary hover:text-foreground transition-colors text-sm"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
             </div>
 
-            {/* Column 3: Solutions Quick Links */}
-            <div className="space-y-5">
-              <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                Solutions
-                <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
-              </h3>
-              <ul className="space-y-2">
-                {footerLinks.Solutions.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="text-text-secondary hover:text-foreground transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Newsletter Subscription */}
+            {/* Column 3: Newsletter Subscription */}
             <div className="space-y-5">
               <h3 className="text-foreground font-semibold text-lg relative pb-2">
                 Subscribe to our Newsletter
@@ -193,31 +194,29 @@ const Footer = () => {
               </p>
               <form
                 onSubmit={handleNewsletterSubmit}
-                className="flex flex-col gap-4"
+                className="flex flex-row md:flex-col lg:flex-row gap-4"
               >
+                <div className="relative">
                 <input
                   type="email"
                   placeholder="Your email address"
                   aria-label="Email for newsletter"
                   className="w-full p-3 pl-6 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
+                required
                 />
                 <button
                   type="submit"
-                  className="group relative w-full py-3 px-6 rounded-lg border border-gray-700 text-white font-semibold overflow-hidden transition-all duration-700 shadow-lg hover:shadow-xl"
                 >
                   {/* Expanding background circle on hover */}
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
 
-                  {/* Button text */}
-                  <span className="relative z-20 transition-colors duration-700 group-hover:text-black mr-5">
-                    Subscribe
-                  </span>
 
                   {/* Send icon */}
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
                     <Send className="w-5 h-5 text-black transition-colors duration-700" />
                   </span>
                 </button>
+                </div>
               </form>
             </div>
           </div>

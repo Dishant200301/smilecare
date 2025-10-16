@@ -49,7 +49,7 @@ const ServiceDetail = () => {
         <section className="py-5 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
         <div className="max-w-7xl mx-auto">
             {/* Back Button */}
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <a
                 href="/business-category"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 group"
@@ -57,7 +57,7 @@ const ServiceDetail = () => {
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
                 <span>Back</span>
               </a>
-            </div>
+            </div> */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
               <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
