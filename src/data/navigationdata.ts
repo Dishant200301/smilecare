@@ -99,6 +99,14 @@ export const navigationData: MenuData = {
         desc: "Automated content optimization",
         color: "from-green-500/30 to-teal-500/30",
       },
+      {
+        name: "AI Calling Automation",
+        slug: "ai-calling-automation",
+        image:
+          "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=350&fit=crop",
+        desc: "AI-powered calling",
+        color: "from-purple-500/30 to-pink-500/30",
+      },
     ],
   },
 };

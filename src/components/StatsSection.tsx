@@ -86,6 +86,7 @@ const services: Service[] = [
     imageSrc: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300",
     imageAlt: "Graphic design mockup",
     link: "/services/graphics-design",
+    
   },
 ];
 
@@ -118,7 +119,7 @@ const StatsSection: React.FC = () => {
               <a
                 key={index}
                 href={service.link}
-                className={`stacked-card-item relative group px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 ${service.bgColorClass}`}
+                className={`stacked-card-item relative group px-8 pb-0 md:px-12 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 ${service.bgColorClass}`}
               >
                 <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <ArrowRight className="w-5 h-5 text-white" />

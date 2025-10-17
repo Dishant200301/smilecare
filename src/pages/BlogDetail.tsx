@@ -35,7 +35,7 @@ const BlogDetail: React.FC = () => {
             The blog post you're looking for doesn't exist.
           </p>
           <Link
-            to="/blog"
+            to="/blogs"
             className="inline-flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-black hover:bg-gray-200"
           >
             <ArrowLeft className="mr-2" size={20} /> Back 

@@ -1,47 +1,66 @@
-  import React, { useRef, useState, useEffect, useCallback } from "react";
-  import { useNavigate } from "react-router-dom";
-  import SendIcon from "./icons/SendIcon";
-  import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import SendIcon from "./icons/SendIcon";
+import { motion, useScroll, useTransform } from "framer-motion"; // Import useScroll and useTransform
 
-  const HeroSection: React.FC = () => {
+const HeroSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const [fogHeight, setFogHeight] = useState<number>(0);
+    const [scrollY, setScrollY] = useState<number>(0);
     const navigate = useNavigate();
 
-    const calculateFogHeight = useCallback(() => {
-      if (sectionRef.current && titleRef.current) {
-        const sectionRect = sectionRef.current.getBoundingClientRect();
-        const titleRect = titleRef.current.getBoundingClientRect();
+  // Framer Motion: Get scroll progress of the section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"], // Trigger when section starts entering, ends leaving
+  });
 
-        // Calculate height from the bottom of the section up to the TOP of the title.
-        // Add a small positive offset for a better blend.
-        const newHeight = sectionRect.bottom - titleRect.top + 20;
-        setFogHeight(newHeight);
-      }
-    }, []);
+  // Define parallax transformations for each fog layer
+  // The second value in the array determines how much the layer moves relative to scroll.
+  // Larger negative value means it moves "slower" (upwards) against the scroll, creating depth.
+  const yFog1 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]); // Closest, moves most
+  const yFog2 = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const yFog3 = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const yFog4 = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const yFog5 = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const yFog6 = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
+  const yFog7 = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]); // Furthest, moves least (or not at all)
 
-    useEffect(() => {
-      const sectionElement = sectionRef.current;
-      if (!sectionElement) return;
+  const calculateFogHeight = useCallback(() => {
+    if (sectionRef.current && titleRef.current) {
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const titleRect = titleRef.current.getBoundingClientRect();
 
-      calculateFogHeight();
+      // Calculate height from the bottom of the section up to the TOP of the title.
+      // Add a small positive offset for a better blend.
+      const newHeight = sectionRect.bottom - titleRect.top + 20;
+      setFogHeight(newHeight);
+    }
+  }, []);
 
-      const resizeObserver = new ResizeObserver(calculateFogHeight);
-      resizeObserver.observe(sectionElement);
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+    if (!sectionElement) return;
 
-      return () => {
-        resizeObserver.unobserve(sectionElement);
-      };
-    }, [calculateFogHeight]);
+    calculateFogHeight();
 
-    return (
-      <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+    const resizeObserver = new ResizeObserver(calculateFogHeight);
+    resizeObserver.observe(sectionElement);
+
+    return () => {
+      resizeObserver.unobserve(sectionElement);
+    };
+  }, [calculateFogHeight]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative" // Ensure this div acts as a positioning context for the absolute section
+    >
       <section
         ref={sectionRef}
         className="relative w-full min-h-screen flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
@@ -51,35 +70,35 @@
           className="fogwrapper absolute bottom-0 left-0 right-0 z-0"
           style={{ height: `${fogHeight}px` }}
         >
-          {/* Fog layers for animation */}
-          <div id="foglayer_01" className="fog">
+          {/* Fog layers for animation - now motion.div with parallax */}
+          <motion.div id="foglayer_01" className="fog" style={{ y: yFog1 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_02" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_02" className="fog" style={{ y: yFog2 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_03" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_03" className="fog" style={{ y: yFog3 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_04" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_04" className="fog" style={{ y: yFog4 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_05" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_05" className="fog" style={{ y: yFog5 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_06" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_06" className="fog" style={{ y: yFog6 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
-          <div id="foglayer_07" className="fog">
+          </motion.div>
+          <motion.div id="foglayer_07" className="fog" style={{ y: yFog7 }}>
             <div className="image01"></div>
             <div className="image02"></div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Content container */}
@@ -141,6 +160,7 @@
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
             -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
             transition: height 0.3s ease-out;
+            /* Ensure fogwrapper itself does not move with scroll for parallax effect within it */
           }
 
           .fogwrapper::after {
@@ -161,9 +181,10 @@
           #foglayer_06,
           #foglayer_07 {
             height: 100%;
-            position: absolute;
+            position: absolute; /* Keep absolute within fogwrapper */
             width: 200%;
             bottom: 0;
+            /* No need for fixed positioning here, framer-motion's 'y' will handle it */
           }
 
           #foglayer_01 .image01, #foglayer_01 .image02,
@@ -201,6 +222,7 @@
             filter: brightness(2.5) saturate(0.4);
           }
 
+          /* Keep existing fog animations */
           @keyframes foglayer_opacity { 0% { opacity: 0.3; } 22% { opacity: 0.7; } 40% { opacity: 0.5; } 58% { opacity: 0.6; } 80% { opacity: 0.4; } 100% { opacity: 0.3; } }
           @keyframes foglayer_moveme { 0% { left: 0; } 100% { left: -100%; } }
           @keyframes foglayer_bob { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
@@ -226,8 +248,8 @@
           }
         `}</style>
       </section>
-      </motion.div>
-    );
-  };
+    </motion.div>
+  );
+};
 
-  export default HeroSection;
+export default HeroSection;
