@@ -335,15 +335,7 @@ body::-webkit-scrollbar {
   100% { transform: translateX(-50%); }
 }
 
-.animate-marquee-left-slow {
-  animation: scroll 60s linear infinite;
-}
-
-.animate-marquee-right-medium {
-  animation: scroll-ltr 40s linear infinite;
-}
-
-.animate-marquee-left-fast {
+.animate-scroll {
   animation: scroll 30s linear infinite;
 }
 
@@ -490,3 +482,44 @@ body::-webkit-scrollbar {
   background-clip: text;
   color: transparent;
 }
+/* Default: Desktop Grid — No animation */
+
+/* Mobile & Tablet Only */
+@media (max-width: 1024px) {
+  .stacked-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 0 auto;
+  }
+
+  .stacked-card-item {
+    position: sticky;
+    top: 5rem;
+    view-timeline-name: --card;
+    view-timeline-axis: block;
+    animation-timeline: --card;
+    animation-name: in-n-out;
+    animation-range: entry 90% cover 50%;
+    animation-fill-mode: both;
+  }
+
+  @keyframes in-n-out {
+    0%, 75% {
+      scale: 1;
+      opacity: 1;
+    }
+    100% {
+      scale: 0.95;
+      opacity: 0.9;
+    }
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+

@@ -23,8 +23,8 @@ export const servicesDetailData = {
     metaTitle: "AI Automation Services | TryzenIQ",
     metaDescription:
       "Transform your business with intelligent AI automation solutions. Streamline workflows, reduce costs, and boost productivity.",
-    title: "AI Automation",
-    subtitle: "Intelligent Solutions",
+    title: "AI",
+    subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
     heroDescription:
@@ -82,8 +82,8 @@ export const servicesDetailData = {
     metaTitle: "SEO Services | TryzenIQ",
     metaDescription:
       "Boost your online visibility with expert SEO services. Drive organic traffic and dominate search rankings.",
-    title: "SEO Services",
-    subtitle: "Search Optimization",
+    title: "SEO",
+    subtitle: "Services",
     heroImage:
       "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800",
     heroDescription:
@@ -141,8 +141,8 @@ export const servicesDetailData = {
     metaTitle: "Website Development Services | TryzenIQ",
     metaDescription:
       "Custom web development solutions tailored to your business needs. Responsive, fast, and conversion-focused.",
-    title: "Website Development",
-    subtitle: "Custom Solutions",
+    title: "Website",
+    subtitle: "Development",
     heroImage:
       "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800",
     heroDescription:
@@ -200,8 +200,8 @@ export const servicesDetailData = {
     metaTitle: "Graphics Design Services | TryzenIQ",
     metaDescription:
       "Creative visual design that brings your brand to life. Logo design, branding, and marketing materials.",
-    title: "Graphics Design",
-    subtitle: "Creative Excellence",
+    title: "Graphics",
+    subtitle: "Design",
     heroImage:
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800",
     heroDescription:
@@ -259,8 +259,8 @@ export const servicesDetailData = {
     metaTitle: "Custom ERP System | TryzenIQ",
     metaDescription:
       "Enterprise resource planning solutions tailored to your business. Streamline operations and boost efficiency.",
-    title: "Custom ERP System",
-    subtitle: "Enterprise Solutions",
+    title: "Custom ERP",
+    subtitle: "System",
     heroImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
     heroDescription:
@@ -318,8 +318,8 @@ export const servicesDetailData = {
     metaTitle: "Digital Transformation Services | TryzenIQ",
     metaDescription:
       "Guide your business through digital evolution. Strategy, implementation, and ongoing support.",
-    title: "Digital Transformation",
-    subtitle: "Business Evolution",
+    title: "Digital",
+    subtitle: "Transformation",
     heroImage:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
     heroDescription:

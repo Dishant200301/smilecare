@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-
+import { motion } from "framer-motion";
 // Dummy images for the slideshow
 const images = [
   "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Business meeting
@@ -23,7 +23,12 @@ const ContactUsPreviewSection: React.FC = () => {
   }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
-    // Outer section container with dark background and padding
+    <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
     <section className="bg-black py-10 px-6">
       <div
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
@@ -39,7 +44,7 @@ const ContactUsPreviewSection: React.FC = () => {
               </h2>
             </div>
             <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl gradient-text font-InstrumentSerif italic text-white">
-              landing page for your business.
+              website for your business.
             </span>
           </div>
           <p className="text-lg text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
@@ -92,6 +97,7 @@ const ContactUsPreviewSection: React.FC = () => {
         </div>
       </div>
     </section>
+    </motion.div>
   );
 };
 

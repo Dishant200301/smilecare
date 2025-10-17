@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 // Types
@@ -163,6 +164,12 @@ const TestimonialSection: React.FC = () => {
   const duplicatedRow2 = [...testimonialsRow2, ...testimonialsRow2];
 
   return (
+    <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
     <section className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative gap-[60px] font-sans">
       {/* Title */}
       <div className="flex flex-col items-center gap-8">
@@ -215,6 +222,7 @@ const TestimonialSection: React.FC = () => {
         <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
       </div>
     </section>
+    </motion.div>
   );
 };
 

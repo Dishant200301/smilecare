@@ -167,6 +167,7 @@ const config: Config = {
         'card-blue': '#e8f0f7',     // From 'Best Time to Post'
         'card-orange': '#f7f0e8',   // From 'Social Media Resources'
         'card-red': '#f7e8e8',   
+        
       },
       backgroundImage: {
         "hero-gradient":

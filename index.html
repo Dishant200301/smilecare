@@ -11,9 +11,15 @@
   <meta name="author" content="TryzenIQ" />
   <meta name="theme-color" content="#000000" />
 
-  <!-- Favicon (served from public/) -->
-  <link rel="icon" type="image/svg+xml" href="/image/tryzeniq.png" />
+<!-- Favicon (served from public/) -->
+<!-- Light mode → Dark favicon -->
+<link id="favicon-light" rel="icon" type="image/png" href="/image/tryzeniq-dark-logo.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
 
+<!-- Dark mode → White favicon -->
+<link id="favicon-dark" rel="icon" type="image/png" href="/image/tryzeniq-white-logo.png" media="(prefers-color-scheme: dark)" />
+
+
+    
   <!-- Open Graph (Facebook / LinkedIn) -->
   <meta property="og:title" content="TryzenIQ" />
   <meta property="og:description"
@@ -32,7 +38,7 @@
 
 </head>
 
-<body >
+<body>
   <div id="root"></div>
   <!-- Vite entrypoint -->
   <script type="module" src="/src/main.tsx"></script>

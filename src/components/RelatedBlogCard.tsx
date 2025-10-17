@@ -28,7 +28,7 @@ const RelatedBlogCard: React.FC<RelatedBlogCardProps> = ({
 
   return (
     <Link
-      to={`/blog/${slug}`}
+      to={`/blogs/${slug}`}
       className="group relative block rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 transition-all duration-300"
     >
       <div className="overflow-hidden">

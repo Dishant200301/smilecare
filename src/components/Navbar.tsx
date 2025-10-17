@@ -12,13 +12,12 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-    const [openMenu, setOpenMenu] = useState<string | null>(null); // currently open menu
-  
-    const toggleMenu = (menuKey: string) => {
-      setOpenMenu(prev => (prev === menuKey ? null : menuKey)); // close if already open
-    };
+  const [openMenu, setOpenMenu] = useState<string | null>(null); // currently open menu
 
-  
+  const toggleMenu = (menuKey: string) => {
+    setOpenMenu((prev) => (prev === menuKey ? null : menuKey)); // close if already open, open if closed
+  };
+
   useEffect(() => {
     const current = mainNavLinks.find(
       (item) => item.path === location.pathname
@@ -43,16 +42,11 @@ const Navbar = () => {
   const handleItemClick = (category: string, slug: string) => {
     navigate(`/${category}/${slug}`);
     setActiveDropdown(null);
-    setIsOpen(false);
+    setIsOpen(false); // Close mobile menu after clicking an item
   };
 
-  
-  
-  
   return (
     <div className="relative bg-background overflow-visible w-full font-HindMadurai">
-      
-
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl shadow-lg py-1">
         <div className="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,11 +54,10 @@ const Navbar = () => {
             {/* Logo */}
             <a href="/" onClick={() => setActiveItem("Home")}>
               <div className="mb-[-30px] mt-[-40px]">
-                {/* Assuming Logo is a black SVG that needs to be inverted for dark background */}
                 <img
                   src={Logo}
                   alt="TryzenIQ Logo"
-                  className="h-36 w-auto filter invert brightness-125" // Adjust height and invert for visibility
+                  className="h-36 w-auto filter invert brightness-125"
                 />
               </div>
             </a>
@@ -163,10 +156,30 @@ const Navbar = () => {
                                   className={`absolute inset-0 bg-gradient-to-br ${hoveredSubItem.item.color} mix-blend-overlay z-10`}
                                 ></div>
                                 <img
+                                  key={hoveredSubItem.item.image} // important for re-triggering animation
                                   src={hoveredSubItem.item.image}
                                   alt={hoveredSubItem.item.name}
-                                  className="relative w-full h-full object-cover rounded-xl border border-white/20 shadow-2xl transition-transform duration-700 hover:scale-105"
+                                    className="
+                                        relative w-full h-full object-cover rounded-xl border border-white/20 shadow-2xl
+                                        transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+                                        opacity-0 translate-y-2 
+                                        animate-fadeInSmooth
+                                      "
+                                  onLoad={(e) => {
+                                    const img = e.currentTarget;
+                                    requestAnimationFrame(() => {
+                                      img.classList.remove(
+                                        "opacity-0",
+                                        "translate-y-2"
+                                      );
+                                      img.classList.add(
+                                        "opacity-100",
+                                        "translate-y-0"
+                                      );
+                                    });
+                                  }}
                                 />
+
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-xl z-20"></div>
                                 <div className="absolute bottom-5 left-5 right-5 z-30">
                                   <h3 className="text-white font-HindMadurai text-normal mb-1">
@@ -191,10 +204,10 @@ const Navbar = () => {
                   About
                 </a>
                 <a
-                  href="/blog"
+                  href="/blogs"
                   className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all font-HindMadurai duration-300"
                 >
-                  Blog
+                  Blogs
                 </a>
               </div>
             </div>
@@ -235,36 +248,42 @@ const Navbar = () => {
           {isOpen && (
             <div className="lg:hidden mt-2 h-[calc(90vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 transition-all duration-500">
               <div className="space-y-2 px-4">
-              {["services", "products"].map((menuKey) => (
-          <div key={menuKey} className="group">
-            {/* Summary */}
-            <div
-              onClick={() => toggleMenu(menuKey)}
-              className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
-            >
-              <span className="capitalize">{menuKey}</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${openMenu === menuKey ? "rotate-180" : ""}`}
-              />
-            </div>
+                {["services", "products"].map((menuKey) => (
+                  <div key={menuKey} className="group">
+                    {/* Summary (toggle button) */}
+                    <div
+                      onClick={() => toggleMenu(menuKey)}
+                      className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
+                    >
+                      <span className="capitalize">{menuKey}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${
+                          openMenu === menuKey ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
 
-            {/* Dropdown content */}
-            {openMenu === menuKey && (
-              <div className="pl-6 space-y-2 mt-2">
-                {menuData[menuKey].items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
-                    onClick={() => handleItemClick(menuKey, item.slug)}
-                  >
-                    {item.name}
+                    {/* Dropdown content with smooth animation */}
+                    <div
+                      className={`pl-6 space-y-2 mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+                        openMenu === menuKey
+                          ? "max-h-96 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      {menuData[menuKey].items.map((item, index) => (
+                        <div
+                          key={index}
+                          className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
+                          onClick={() => handleItemClick(menuKey, item.slug)}
+                        >
+                          {item.name}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
-              </div>
-            )}
-          </div>
-        ))}
                 <a
                   href="/about"
                   className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
@@ -272,10 +291,10 @@ const Navbar = () => {
                   About Us
                 </a>
                 <a
-                  href="/blog"
+                  href="/blogs"
                   className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
                 >
-                  Blog
+                  Blogs
                 </a>
                 <a
                   href="/contact"

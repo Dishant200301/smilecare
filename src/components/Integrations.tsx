@@ -1,6 +1,6 @@
 import React from "react";
 import LogoItem from "./LogoItem";
-import ScrollVelocity from "./ScrollVelocity";
+import { motion } from "framer-motion";
 
 interface Logo {
   src: string;
@@ -86,6 +86,12 @@ const IntegrationsSection: React.FC = () => {
   const row3Logos = [...uniqueLogos.slice(10), ...uniqueLogos.slice(0, 10)];
 
   return (
+     <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
     <section className="text-white py-10 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
         <div className="text-center mb-6 text-[#d5dbe6]">
@@ -117,6 +123,7 @@ const IntegrationsSection: React.FC = () => {
         </div>
       </div>
     </section>
+    </motion.div>
   );
 };
 

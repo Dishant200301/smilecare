@@ -81,7 +81,7 @@ export const productDetailData = {
     metaTitle: "Bulk Email Automation | TryzenIQ",
     metaDescription:
       "Powerful email automation platform for personalized campaigns, automated workflows, and detailed analytics.",
-    title: "Bulk Email Automation",
+    title: "Email Automation",
     subtitle: "Marketing Platform",
     heroImage:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",

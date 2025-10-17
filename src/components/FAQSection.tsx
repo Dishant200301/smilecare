@@ -39,6 +39,12 @@ export default function FAQSection(): JSX.Element {
   };
 
   return (
+    <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
     <section className="relative bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
       {/* Background gradient effects */}
      
@@ -133,5 +139,6 @@ export default function FAQSection(): JSX.Element {
         </div>
       </div>
     </section>
+    </motion.div>
   );
 }

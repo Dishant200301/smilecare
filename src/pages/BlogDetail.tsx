@@ -75,7 +75,7 @@ const BlogDetail: React.FC = () => {
             {/* Back Button */}
             <div className="mb-8">
               <Link
-                to="/blog"
+                to="/blogs"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 lg:ml-12"
               >
                 <ArrowLeft className="w-5 h-5" />

@@ -76,7 +76,7 @@ export const navigationData: MenuData = {
         color: "from-blue-500/30 to-indigo-500/30",
       },
       {
-        name: "Bulk Email Automation",
+        name: "Email Automation",
         slug: "bulk-email-automation",
         image:
           "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&h=350&fit=crop",
@@ -84,7 +84,7 @@ export const navigationData: MenuData = {
         color: "from-cyan-500/30 to-blue-500/30",
       },
       {
-        name: "Bulk AI Invoice Generator",
+        name: "AI Invoice Generator",
         slug: "bulk-ai-invoice-generator",
         image:
           "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=350&fit=crop",

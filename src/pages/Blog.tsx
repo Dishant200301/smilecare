@@ -81,7 +81,7 @@ const Blogs: React.FC = () => {
                 {filteredBlogs.map((blog) => (
                   <Link
                     key={blog.id}
-                    to={`/blog/${blog.slug}`}
+                    to={`/blogs/${blog.slug}`}
                     className="group flex flex-col backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-white/30"
                   >
                     {/* Image */}

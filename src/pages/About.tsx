@@ -14,9 +14,12 @@ import {
   ShieldCheck,
   Zap,
   ArrowRight,
+  Home, // New import for Vision section
+  Leaf, // New import for Vision section
 } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import { cubicBezier } from "framer-motion";
 import LightRays from "@/components/LightRays";
 import { Helmet } from "react-helmet-async";
 import CountUp from "react-countup";
@@ -33,7 +36,7 @@ const fadeInUp = (delay = 0) => ({
     y: 0,
     transition: {
       duration: 0.7,
-      ease: "easeOut",
+      ease: cubicBezier(0, 0, 0.58, 1), // easeOut equivalent
       delay: delay / 1000,
     },
   },
@@ -182,8 +185,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="pt-16 md:pt-32 relative z-10">
+         {/* Stats Section */}
+        <section className="pt-16 md:pt-16 relative z-10">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
               {stats.map((stat, index) => {
@@ -223,6 +226,206 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Our Mission Section */}
+        <section className="py-16 md:py-24 relative z-10">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Content */}
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.h2
+                  variants={fadeInUp(0)}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text font-medium leading-tight font-HindMadurai ml-3"
+                >
+                  Our {""}
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic gradient-text">
+                    Mission
+                  </span>
+                </motion.h2>
+                <motion.p
+                  variants={fadeInUp(100)}
+                  className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-400 px-4 mb-5"
+                >
+                  To provide exceptional construction services that exceed
+                  client expectations through innovation, quality craftsmanship,
+                  and a commitment to sustainability. We aim to build lasting
+                  relationships and create spaces that enhance communities. We
+                  aim to create spaces that inspire and improve the lives of our
+                  clients and communities. Through precision, expertise, and a
+                  customer-centric approach, we strive to exceed expectations in
+                  every project. Our dedication to integrity and excellence
+                  drives us to build lasting relationships and a legacy of
+                  trust.
+                </motion.p>
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="space-y-4"
+                >
+                  <motion.div
+                    variants={fadeInUp(200)}
+                    className="flex items-start"
+                  >
+                    <ShieldCheck className="w-6 h-6 text-white ml-3 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Fostering Sustainable Growth and Green Development
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeInUp(300)}
+                    className="flex items-start"
+                  >
+                    <Sparkles className="w-6 h-6 text-white ml-3 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Innovating for a Sustainable Future
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeInUp(400)}
+                    className="flex items-start"
+                  >
+                    <Users className="w-6 h-6 text-white ml-3 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Customer-Centric Approach
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeInUp(500)}
+                    className="flex items-start"
+                  >
+                    <Handshake className="w-6 h-6 text-white ml-3 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Building Stronger Communities
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+
+              {/* Images */}
+              <motion.div
+                variants={fadeInUp(0)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="relative h-[400px] md:h-[550px] order-1 lg:order-2"
+              >
+                <div className="absolute inset-0 w-full h-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600"
+                    alt="Architect's desk with blueprints and tools"
+                    className="w-full h-full object-cover rounded-2xl shadow-xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Vision Section */}
+        <section className="py-16 md:py-24 relative z-10">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Images */}
+              <motion.div
+                variants={fadeInUp(0)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="relative h-[400px] md:h-[550px]"
+              >
+                <div className="absolute inset-0 w-full h-full">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1661315492902-528b6230a937?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3VyJTIwdmlzaW9ufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+                    alt="Construction site background"
+                    className="w-full h-full object-cover rounded-2xl shadow-xl"
+                  />
+                </div>
+                <div className="absolute bottom-0 left-0 w-1/2 h-1/2 -translate-x-4 translate-y-4 md:-translate-x-8 md:translate-y-8 bg-black p-2 rounded-2xl shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600"
+                    alt="Surveyor with equipment"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+                <div className="absolute top-0 right-0 w-1/2 h-1/2 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 bg-black p-2 rounded-2xl shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600"
+                    alt="Engineers with laptop"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Content */}
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.h2
+                  variants={fadeInUp(0)}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text font-medium leading-tight font-HindMadurai ml-3"
+                >
+                  Our {""}
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic gradient-text">
+                    Vision
+                  </span>
+                </motion.h2>
+                <motion.p
+                  variants={fadeInUp(100)}
+                  className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-400 px-4 mb-5"
+                >
+                  At Renovex, our vision is to redefine the future of
+                  construction through innovation, sustainability, and
+                  excellence. We aim to create structures that not only inspire
+                  but also contribute to the well-being of communities and the
+                  environment. By embracing cutting-edge technology and
+                  eco-friendly practices, we strive to lead the industry toward
+                  a greener, smarter future. Our focus is on delivering value,
+                  quality, and longevity in every project we undertake.
+                  Together, we envision a world where construction empowers
+                  progress and transforms lives.
+                </motion.p>
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="space-y-4"
+                >
+                  <motion.div
+                    variants={fadeInUp(200)}
+                    className="flex items-start"
+                  >
+                    <Home className="w-6 h-6  text-white ml-5 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Inspiring Modern Architecture
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeInUp(300)}
+                    className="flex items-start"
+                  >
+                    <Leaf className="w-6 h-6 text-white ml-5 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-white font-HindMadurai">
+                      Pioneering Sustainable Construction
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+       
         <TeamSection />
 
         <ContactUsPreviewSection />

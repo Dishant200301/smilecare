@@ -12,7 +12,7 @@ const leadershipTeam = [
     name: "Keyur Moradiya",
     role: "CEO",
     imageUrl:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop",
   },
   {
     name: "Amit Lakhani",
@@ -37,7 +37,7 @@ const developmentTeam = [
   },
   {
     name: "Ket Vithani",
-    role: "Node.js Backend Developer",
+    role: "Python Developer",
     imageUrl:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
   },
@@ -45,7 +45,7 @@ const developmentTeam = [
     name: "Senil Patel",
     role: "React Frontend Developer",
     imageUrl:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "/team_member/senil.jpg",
   },
 ];
 
@@ -80,7 +80,6 @@ const TeamSection = () => {
   return (
     <section className="bg-black text-white py-20 sm:py-24 relative overflow-hidden">
       {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] opacity-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
@@ -89,37 +88,16 @@ const TeamSection = () => {
             Our team of{" "}
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic gradient-text">
               experts
-            </span>{" "}
-            are here to help
+            </span>
           </h2>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-400 px-4">
             Get support 24/7, with our award-winning support network of growth experts.
           </p>
-
-          {/* Buttons */}
-          <div className="hidden lg:block">
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
-              <button
-                onClick={handleContactClick}
-                className="group relative flex items-center justify-between border border-gray-700 bg-black text-white font-normal pl-8 pr-8 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
-              >
-                <Phone className="mr-2 w-5 h-5" /> Book a call
-              </button>
-              <button
-                onClick={handleContactClick}
-                className="group relative flex items-center justify-between border border-gray-700 bg-white text-black font-normal pl-8 pr-8 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
-              >
-                <Video className="mr-2 w-5 h-5" /> Book a demo
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Leadership Team */}
         <div className="mb-12">
-          <h3 className="text-2xl sm:text-3xl font-medium text-center mb-6 font-HindMadurai gradient-text text-gray-200">
-            Leadership
-          </h3>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
             {leadershipTeam.map((member, i) => renderCard(member, i * 0.1))}
           </div>
@@ -127,10 +105,8 @@ const TeamSection = () => {
 
         {/* Development Team */}
         <div>
-          <h3 className="text-2xl sm:text-3xl font-medium text-center font-HindMadurai gradient-text mb-6 text-gray-200">
-             Team Members
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-5 sm:gap-8">
             {developmentTeam.map((member, i) => renderCard(member, i * 0.1))}
           </div>
         </div>
