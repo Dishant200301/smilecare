@@ -76,7 +76,7 @@ const BlogDetail: React.FC = () => {
             <div className="mb-8">
               <Link
                 to="/blogs"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 lg:ml-12"
+                className="inline-flex items-center gap-2 text-white hover:text-white transition-colors duration-200 lg:ml-12"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back</span>
