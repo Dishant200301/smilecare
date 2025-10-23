@@ -8,6 +8,7 @@ import BackButton from "@/components/BackButton";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { motion } from "framer-motion";
 
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -70,7 +71,13 @@ const BlogDetail: React.FC = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-20 md:pt-[100px] pb-14 px-4">
+        <motion.section
+          className="pt-20 md:pt-[100px] pb-14 px-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="max-w-7xl mx-auto">
             {/* Back Button */}
             <div className="mb-8">
@@ -121,10 +128,10 @@ const BlogDetail: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Blog Content Section */}
-        <section className="py-12 md:py-16 lg:py-20 px-4">
+        
           <div className="max-w-5xl mx-auto">
             <div className="prose prose-lg prose-invert max-w-none leading-relaxed">
               {/* Hardcoded content structure from Framer HTML as blogsData content is plain text */}
@@ -314,7 +321,6 @@ const BlogDetail: React.FC = () => {
               </p>
             </div>
           </div>
-        </section>
 
         {/* Related Articles Section */}
         <section className="py-16 md:py-20 lg:py-24 px-4">

@@ -7,18 +7,26 @@ const HeroSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const [fogHeight, setFogHeight] = useState<number>(0);
-    const [scrollY, setScrollY] = useState<number>(0);
+    // Removed scrollY state as Framer Motion's useScroll handles this more efficiently
+    // const [scrollY, setScrollY] = useState<number>(0);
     const navigate = useNavigate();
 
   // Framer Motion: Get scroll progress of the section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"], // Trigger when section starts entering, ends leaving
+    // Add an optional 'smooth' option if you want to influence the underlying scroll behavior slightly,
+    // though Framer Motion's transforms are already smooth.
+    // This mostly applies if you were using 'scroll-snap-align' etc.
+    // It's more about when the value is read, not the visual interpolation.
   });
 
   // Define parallax transformations for each fog layer
   // The second value in the array determines how much the layer moves relative to scroll.
   // Larger negative value means it moves "slower" (upwards) against the scroll, creating depth.
+  // To make the effect "slower" (less intense parallax), reduce the magnitude of the negative percentage.
+  // For example, -30% becomes -15%.
+  // The current values provide a noticeable parallax. Let's keep them as a good baseline.
   const yFog1 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]); // Closest, moves most
   const yFog2 = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const yFog3 = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
@@ -34,8 +42,23 @@ const HeroSection: React.FC = () => {
 
       // Calculate height from the bottom of the section up to the TOP of the title.
       // Add a small positive offset for a better blend.
-      const newHeight = sectionRect.bottom - titleRect.top + 20;
-      setFogHeight(newHeight);
+      // Ensure titleRect.top is relative to sectionRect.top for accurate calculation within the section.
+      // For absolute positioning from the bottom of the section, a simpler approach is:
+      // The height should cover from the bottom of the section up to the desired content.
+      // If `fogwrapper` is `absolute bottom-0`, its height extends upwards.
+      // Let's ensure `newHeight` is not negative and makes sense.
+      const newHeight = sectionRect.bottom - titleRect.top + 20; // This assumes titleRef.top is relative to viewport.
+                                                              // We want fog to go from section bottom to title bottom.
+      // A more robust way:
+      // const sectionBottom = sectionRect.bottom;
+      // const titleBottom = titleRect.bottom;
+      // const newHeight = Math.max(0, sectionBottom - titleBottom + 50); // +50 to ensure it covers below the title
+      // Or, if you want it to reach the *top* of the title, as you initially intended:
+      const viewportToSectionBottom = window.innerHeight - sectionRect.bottom;
+      const viewportToTitleTop = window.innerHeight - titleRect.top;
+      const heightFromSectionBottomToTitleTop = viewportToTitleTop - viewportToSectionBottom + 20;
+
+      setFogHeight(Math.max(0, heightFromSectionBottomToTitleTop));
     }
   }, []);
 
@@ -47,17 +70,31 @@ const HeroSection: React.FC = () => {
 
     const resizeObserver = new ResizeObserver(calculateFogHeight);
     resizeObserver.observe(sectionElement);
+    // Observe the title too, as its position can change due to responsive layout shifts
+    if (titleRef.current) {
+      resizeObserver.observe(titleRef.current);
+    }
+
 
     return () => {
       resizeObserver.unobserve(sectionElement);
+      if (titleRef.current) {
+        resizeObserver.unobserve(titleRef.current);
+      }
     };
   }, [calculateFogHeight]);
+
+  // Optional: Add a global smooth scroll behavior to the body/html if needed.
+  // This is typically done in your main CSS file (e.g., index.css or global.css)
+  // html {
+  //   scroll-behavior: smooth;
+  // }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6 }} // Initial fade-in transition
       viewport={{ once: true }}
       className="relative" // Ensure this div acts as a positioning context for the absolute section
     >
@@ -71,6 +108,7 @@ const HeroSection: React.FC = () => {
           style={{ height: `${fogHeight}px` }}
         >
           {/* Fog layers for animation - now motion.div with parallax */}
+          {/* Framer Motion will handle the 'y' transform, making it smooth */}
           <motion.div id="foglayer_01" className="fog" style={{ y: yFog1 }}>
             <div className="image01"></div>
             <div className="image02"></div>
@@ -105,18 +143,46 @@ const HeroSection: React.FC = () => {
         <div className="relative w-full max-w-7xl mx-auto z-10">
           <div className="relative text-white rounded-3xl p-4 sm:p-12 md:p-16 lg:p-20 overflow-hidden">
             <div className="relative z-20 max-w-4xl mx-auto text-center">
-              <h1
+              <motion.h1
                 ref={titleRef}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1.0,
+                  delay: 0.2,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
+                viewport={{ once: true }}
                 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text pb-1 font-sans font-medium leading-tight"
               >
                 Transforming Ideas Into
-              </h1>
-              <span className="block mt-2 text-2xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-5xl font-serif italic text-gray-300">
+              </motion.h1>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1.0,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
+                viewport={{ once: true }}
+                className="block mt-2 text-2xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-5xl font-serif italic text-gray-300"
+              >
                 Automated Intelligence
-              </span>
+              </motion.span>
 
               {/* CTA Button */}
-              <div className="flex justify-center mt-8 mb-10">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1.1,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
+                viewport={{ once: true }}
+                className="flex justify-center mt-8 mb-10"
+              >
                 <button
                   onClick={() => navigate("/about")}
                   className="group relative flex items-center justify-between text-white bg-black font-semibold pl-8 pr-16 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl border border-gray-500"
@@ -129,10 +195,20 @@ const HeroSection: React.FC = () => {
                     <SendIcon className="w-5 h-5 text-black transition-colors duration-700" />
                   </span>
                 </button>
-              </div>
+              </motion.div>
 
               {/* Video Section */}
-              <div className="relative w-full max-w-4xl mx-auto z-30">
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1.2,
+                  delay: 1.3,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
+                viewport={{ once: true }}
+                className="relative w-full max-w-4xl mx-auto z-30"
+              >
                 <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-black">
                   <iframe
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&showinfo=0&rel=0"
@@ -141,7 +217,7 @@ const HeroSection: React.FC = () => {
                     allowFullScreen
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -159,8 +235,7 @@ const HeroSection: React.FC = () => {
             pointer-events: none;
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
             -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
-            transition: height 0.3s ease-out;
-            /* Ensure fogwrapper itself does not move with scroll for parallax effect within it */
+            transition: height 0.3s ease-out; /* Smooth transition for height changes */
           }
 
           .fogwrapper::after {
@@ -181,10 +256,14 @@ const HeroSection: React.FC = () => {
           #foglayer_06,
           #foglayer_07 {
             height: 100%;
-            position: absolute; /* Keep absolute within fogwrapper */
-            width: 200%;
+            position: absolute;
+            width: 200%; /* Keep this for the horizontal animation */
             bottom: 0;
-            /* No need for fixed positioning here, framer-motion's 'y' will handle it */
+            /* Framer Motion's 'y' property on motion.div will override any 'transform: translateY'
+               from traditional CSS animations, so ensure 'bottom: 0' and 'height: 100%' position
+               it correctly *before* the parallax takes over. */
+            /* Add pointer-events: none; to fog layers too, if needed, to prevent interference with content */
+            pointer-events: none;
           }
 
           #foglayer_01 .image01, #foglayer_01 .image02,
@@ -196,7 +275,7 @@ const HeroSection: React.FC = () => {
           #foglayer_07 .image01, #foglayer_07 .image02 {
             float: left;
             height: 100%;
-            width: 50%;
+            width: 50%; /* Each image takes half the 200% width, so the full fog layer covers the section */
           }
 
           #foglayer_01 .image01, #foglayer_01 .image02 {
@@ -222,18 +301,24 @@ const HeroSection: React.FC = () => {
             filter: brightness(2.5) saturate(0.4);
           }
 
-          /* Keep existing fog animations */
+          /* Keep existing fog animations for horizontal movement and opacity */
+          /* Note: 'foglayer_bob' uses transform: translateY, which will conflict
+             with Framer Motion's 'y' transform. You should remove 'foglayer_bob'
+             from the animation list if you want Framer Motion to fully control the Y position.
+             If you want the subtle vertical bobbing *on top* of the parallax, you might
+             need to apply it to an inner div or use Framer Motion's keyframes.
+             For now, removing it to avoid conflict. */
           @keyframes foglayer_opacity { 0% { opacity: 0.3; } 22% { opacity: 0.7; } 40% { opacity: 0.5; } 58% { opacity: 0.6; } 80% { opacity: 0.4; } 100% { opacity: 0.3; } }
           @keyframes foglayer_moveme { 0% { left: 0; } 100% { left: -100%; } }
-          @keyframes foglayer_bob { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+          // @keyframes foglayer_bob { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
 
-          #foglayer_01 { animation: foglayer_opacity 15s linear infinite, foglayer_moveme 75s linear infinite, foglayer_bob 25s ease-in-out infinite; }
-          #foglayer_02 { animation: foglayer_opacity 21s linear infinite, foglayer_moveme 70s linear infinite, foglayer_bob 30s ease-in-out infinite; }
-          #foglayer_03 { animation: foglayer_opacity 25s linear infinite, foglayer_moveme 80s linear infinite, foglayer_bob 22s ease-in-out infinite; }
-          #foglayer_04 { animation: foglayer_opacity 18s linear infinite, foglayer_moveme 90s linear infinite, foglayer_bob 28s ease-in-out infinite; }
-          #foglayer_05 { animation: foglayer_opacity 28s linear infinite, foglayer_moveme 65s linear infinite, foglayer_bob 24s ease-in-out infinite; }
-          #foglayer_06 { animation: foglayer_opacity 22s linear infinite, foglayer_moveme 85s linear infinite, foglayer_bob 26s ease-in-out infinite; }
-          #foglayer_07 { animation: foglayer_opacity 19s linear infinite, foglayer_moveme 78s linear infinite, foglayer_bob 29s ease-in-out infinite; }
+          #foglayer_01 { animation: foglayer_opacity 15s linear infinite, foglayer_moveme 55s linear infinite; } // Removed foglayer_bob
+          #foglayer_02 { animation: foglayer_opacity 21s linear infinite, foglayer_moveme 60s linear infinite; } // Removed foglayer_bob
+          #foglayer_03 { animation: foglayer_opacity 25s linear infinite, foglayer_moveme 40s linear infinite; } // Removed foglayer_bob
+          #foglayer_04 { animation: foglayer_opacity 18s linear infinite, foglayer_moveme 30s linear infinite; } // Removed foglayer_bob
+          #foglayer_05 { animation: foglayer_opacity 28s linear infinite, foglayer_moveme 75s linear infinite; } // Removed foglayer_bob
+          #foglayer_06 { animation: foglayer_opacity 22s linear infinite, foglayer_moveme 35s linear infinite; } // Removed foglayer_bob
+          #foglayer_07 { animation: foglayer_opacity 19s linear infinite, foglayer_moveme 68s linear infinite; } // Removed foglayer_bob
 
           @media only screen and (max-width: 767px) {
             #foglayer_01 .image01, #foglayer_01 .image02,
@@ -243,7 +328,7 @@ const HeroSection: React.FC = () => {
             #foglayer_05 .image01, #foglayer_05 .image02,
             #foglayer_06 .image01, #foglayer_06 .image02,
             #foglayer_07 .image01, #foglayer_07 .image02 {
-              width: 100%;
+              width: 100%; /* Ensures images stack or behave well on small screens */
             }
           }
         `}</style>

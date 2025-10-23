@@ -86,15 +86,15 @@ const IntegrationsSection: React.FC = () => {
   const row3Logos = [...uniqueLogos.slice(10), ...uniqueLogos.slice(0, 10)];
 
   return (
-     <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
     <section className="text-white py-10 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
-        <div className="text-center mb-6 text-[#d5dbe6]">
+        <motion.div
+          className="text-center mb-6 text-[#d5dbe6]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
             <span className="gradient-text">Seamless Tool</span>{" "}
             <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
@@ -104,10 +104,15 @@ const IntegrationsSection: React.FC = () => {
           <span className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
             Empowering your business with innovation.
           </span>
-        </div>
+        </motion.div>
 
-
-        <div className="w-full flex flex-col gap-3 mt-2">
+        <motion.div
+          className="w-full flex flex-col gap-3 mt-2"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Marquee
             logos={row1Logos}
             animationClass="animate-marquee-left-slow"
@@ -120,10 +125,9 @@ const IntegrationsSection: React.FC = () => {
             logos={row3Logos}
             animationClass="animate-marquee-left-fast"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
-    </motion.div>
   );
 };
 

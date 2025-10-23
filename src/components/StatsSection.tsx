@@ -7,6 +7,7 @@ import {
   Database,
   ArrowRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 // --- Service Interface ---
 interface Service {
@@ -86,7 +87,6 @@ const services: Service[] = [
     imageSrc: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300",
     imageAlt: "Graphic design mockup",
     link: "/services/graphics-design",
-    
   },
 ];
 
@@ -95,20 +95,16 @@ const StatsSection: React.FC = () => {
     <section className="text-white pt-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* --- Heading --- */}
-        <div className="flex flex-col items-center gap-8">
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
-                Our{" "}
-                <span className="gradient-text font-InstrumentSerif italic text-white">
-                  Services
-                </span>
-              </h2>
-              <span className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
-                Empowering your business with innovation.
-              </span>
-            </div>
-          </div>
+        <div className="flex flex-col items-center gap-8 text-center mb-8">
+          <h2 className="text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+            Our{" "}
+            <span className="gradient-text font-InstrumentSerif italic text-white">
+              Services
+            </span>
+          </h2>
+          <span className="text-lg md:text-2xl text-gray-400">
+            Empowering your business with innovation.
+          </span>
         </div>
 
         {/* --- Responsive Layout Switch --- */}
@@ -126,12 +122,13 @@ const StatsSection: React.FC = () => {
                 </div>
                 <div className="flex-grow pb-8">
                   {service.icon}
-                  <h3 className="text-2xl font-semibold text-white transition-all mt-4">
+                  <h3 className="text-2xl font-semibold text-white mt-4">
                     {service.title}
                   </h3>
                   <p className="mt-3 text-gray-400">{service.description}</p>
+                  {/* 🔹 Hide bullets on mobile */}
                   {service.bullets && (
-                    <ul className="mt-3 text-gray-400">
+                    <ul className="mt-3 text-gray-400 hidden lg:block">
                       {service.bullets.map((bullet, idx) => (
                         <li key={idx} className="list-disc ml-5">
                           {bullet}
@@ -140,66 +137,78 @@ const StatsSection: React.FC = () => {
                     </ul>
                   )}
                 </div>
-                <div
-                  className={`relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl ${
-                    service.title === "Custom ERP Solutions"
-                      ? "px-8 py-5"
-                      : "p-5"
-                  }`}
-                >
+                <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-5">
                   <img
                     src={service.imageSrc}
                     alt={service.imageAlt}
-                    className="w-full h-[250px] object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
+                    className="w-full h-[250px] object-cover rounded-xl transform scale-[1.03] opacity-90 transition-transform duration-300"
                   />
                 </div>
               </a>
             ))}
           </div>
 
-          {/* 💻 Laptop + Desktop (Grid Layout) */}
-          <div className="hidden lg:grid grid-cols-1 md:grid-cols-4 gap-5">
-            {services.map((service, index) => (
-              <a
-                key={index}
-                href={service.link}
-                className={`group relative px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 ${service.bgColorClass} ${service.gridClasses || ""}`}
-              >
-                <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-grow pb-8">
-                  {service.icon}
-                  <h3 className="text-2xl font-semibold text-white transition-all mt-4">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-gray-400">{service.description}</p>
-                  {service.bullets && (
-                    <ul className="mt-3 text-gray-400">
-                      {service.bullets.map((bullet, idx) => (
-                        <li key={idx} className="list-disc ml-5">
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-                <div
-                  className={`relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl ${
-                    service.title === "Custom ERP Solutions"
-                      ? "px-8 py-5"
-                      : "p-5"
-                  }`}
+          {/* 💻 Laptop + Desktop (Grid Layout with Animation & Bullets) */}
+          <motion.div
+            className="hidden lg:grid grid-cols-1 md:grid-cols-4 gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+          >
+            {services.map((service, index) => {
+              const isLeft = index % 2 === 0;
+              return (
+                <motion.a
+                  key={index}
+                  href={service.link}
+                  variants={{
+                    hidden: { opacity: 0, x: isLeft ? -50 : 50, y: 30 },
+                    visible: { opacity: 1, x: 0, y: 0 },
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={`group relative px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 ${service.bgColorClass} ${service.gridClasses || ""}`}
                 >
-                  <img
-                    src={service.imageSrc}
-                    alt={service.imageAlt}
-                    className="w-full h-[250px] object-cover rounded-xl transform scale-[1.03] opacity-90 group-hover:scale-[1.03] transition-transform duration-300"
-                  />
-                </div>
-              </a>
-            ))}
-          </div>
+                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-grow pb-8">
+                    {service.icon}
+                    <h3 className="text-2xl font-semibold text-white mt-4">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-gray-400">{service.description}</p>
+                    {/* 🔹 Show bullets only on desktop */}
+                    {service.bullets && (
+                      <ul className="mt-3 text-gray-400 block">
+                        {service.bullets.map((bullet, idx) => (
+                          <li key={idx} className="list-disc ml-5">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-5">
+                    <img
+                      src={service.imageSrc}
+                      alt={service.imageAlt}
+                      className="w-full h-[250px] object-cover rounded-xl transform scale-[1.03] opacity-90 transition-transform duration-300"
+                    />
+                  </div>
+                </motion.a>
+              );
+            })}
+          </motion.div>
         </div>
 
         {/* --- Explore Button --- */}

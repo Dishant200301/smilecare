@@ -1,5 +1,6 @@
 "use client";
 import { useInView } from "react-intersection-observer";
+import { motion, cubicBezier } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Tilt from "react-parallax-tilt";
@@ -18,8 +19,6 @@ import {
   Leaf, // New import for Vision section
 } from "lucide-react";
 import React from "react";
-import { motion } from "framer-motion";
-import { cubicBezier } from "framer-motion";
 import LightRays from "@/components/LightRays";
 import { Helmet } from "react-helmet-async";
 import CountUp from "react-countup";
@@ -143,7 +142,13 @@ const About = () => {
         {/* Background Rays */}
 
         {/* Hero Section */}
-        <section className="relative z-10">
+        <motion.section
+          className="relative z-10"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
@@ -156,16 +161,20 @@ const About = () => {
               </p>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Values Section */}
         <section className="py-16 md:py-8 relative z-10">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
               {values.map((value, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="group border border-border rounded-2xl p-6 bg-[#0c0c0c] md:p-8 text-center transition-all duration-300 hover:border-white/10"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                  viewport={{ once: true }}
                 >
                   <div className="p-4 hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
                     <value.icon className="w-7 h-7 " />
@@ -179,7 +188,7 @@ const About = () => {
                   <p className="text-white/70 font-HindMadurai transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
                     {value.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -196,12 +205,16 @@ const About = () => {
                 });
 
                 return (
-                  <div
+                  <motion.div
                     ref={ref}
                     key={index}
                     className="group relative 
               transition-all duration-300
               flex flex-col items-center justify-center text-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: true }}
                   >
                     {/* Number */}
                     <div className="text-3xl md:text-4xl font-HindMadurai mb-2 transition-transform duration-300">
@@ -220,7 +233,7 @@ const About = () => {
                     <div className="text-muted-foreground font-HindMadurai text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
                       {stat.label}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>

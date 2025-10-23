@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ShinyText from "@/components/ShinyText";
+import { motion } from "framer-motion";
 
 const products = [
   {
@@ -67,6 +68,21 @@ const products = [
       "Performance analytics & insights",
     ],
   },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    category: "Content",
+    title: "AI Calling Automation",
+    description: "Automated content optimization to boost your blog's search engine rankings.",
+    link: "/products/ai-calling-automation",
+    subFeatures: [
+      "AI-powered calling",
+      "Call scheduling & automation",
+      "Call tracking & analytics",
+      "Call recording & transcription",
+      "Call analytics & insights",
+    ],
+  },
 ];
 
 type ProductsProps = {
@@ -99,7 +115,13 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="pt-[170px] mb-16">
-        <div className="max-w-4xl mx-auto text-center mb-12">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our{" "}
               <span className="font-InstrumentSerif italic">
@@ -110,7 +132,7 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
               Discover our suite of AI-powered products designed to automate
               and optimize your business operations.
             </p>
-          </div>
+          </motion.div>
         </section>
 
        
@@ -119,8 +141,12 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {products.map((product, i) => (
-              <a
+              <motion.a
                 key={`${product.category}-${i}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 href={product.link}
                 className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform border border-gray-800 hover:border-white/20"
               >
@@ -152,7 +178,7 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

@@ -4,6 +4,7 @@ import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import blogsData, { BlogPost } from "../data/blogDetail";
 
 const BlogCard = ({ blog }: { blog: BlogPost }) => (
@@ -48,7 +49,7 @@ const HomeBlogs = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Responsive visible card count
-  useEffect(() => {
+  useEffect(() => { 
     const handleResize = () => {
       if (window.innerWidth < 768) setVisibleCount(1);
       else if (window.innerWidth < 1024) setVisibleCount(2);
@@ -82,7 +83,7 @@ const HomeBlogs = () => {
 
   // Smooth infinite logic
   useEffect(() => {
-    const transitionDuration = 500;
+    const transitionDuration = 1000;
     const resetTransition = () => {
       setIsAnimating(false);
       if (currentIndex === blogsData.length) {
@@ -107,7 +108,13 @@ const HomeBlogs = () => {
     <section className="py-20 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12 ml-8">
+        <motion.div
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12 ml-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="max-w-4xl text-center lg:text-left mx-auto lg:mx-0">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
               <span className="gradient-text">Our Latest</span>{" "}
@@ -134,17 +141,23 @@ const HomeBlogs = () => {
               </span>
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Carousel */}
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="overflow-hidden">
             <div
               ref={carouselRef}
               className="flex"
               style={{
                 transform: getTransform(),
-                transition: isAnimating ? "transform 0.5s ease-in-out" : "none",
+                transition: isAnimating ? "transform 1s ease-out" : "none",
               }}
               onTransitionEnd={() => setIsAnimating(false)}
             >
@@ -175,7 +188,7 @@ const HomeBlogs = () => {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* ✅ Mobile bottom arrows */}

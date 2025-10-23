@@ -164,15 +164,15 @@ const TestimonialSection: React.FC = () => {
   const duplicatedRow2 = [...testimonialsRow2, ...testimonialsRow2];
 
   return (
-    <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
     <section className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative gap-[60px] font-sans">
       {/* Title */}
-      <div className="flex flex-col items-center gap-8">
+      <motion.div
+        className="flex flex-col items-center gap-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center lg:mt-12">
             <div className="mb-2">
@@ -188,12 +188,16 @@ const TestimonialSection: React.FC = () => {
             </span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Rows */}
-      <div
+      <motion.div
         className="w-full relative overflow-hidden"
         style={{ height: "460px" }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         {/* Top Row (Right → Left) */}
         <section className="py-2 overflow-hidden">
@@ -220,9 +224,8 @@ const TestimonialSection: React.FC = () => {
         {/* Side gradient fade */}
         <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
         <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
-      </div>
+      </motion.div>
     </section>
-    </motion.div>
   );
 };
 

@@ -14,6 +14,7 @@ import {
   Globe,
   Sparkles,
   CheckCircle,
+  Phone,
 } from "lucide-react";
 
 export const productDetailData = {
@@ -140,7 +141,7 @@ export const productDetailData = {
     metaTitle: "Bulk AI Invoice Generator | TryzenIQ",
     metaDescription:
       "AI-powered invoicing system for automated invoice creation, payment tracking, and financial reporting.",
-    title: "AI Invoice Generator",
+    title: "Invoice Generator",
     subtitle: "Smart Billing",
     heroImage:
       "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800",
@@ -199,7 +200,7 @@ export const productDetailData = {
     metaTitle: "AI Blog SEO Automation | TryzenIQ",
     metaDescription:
       "Intelligent content optimization platform using AI to generate SEO-friendly blog posts and boost search rankings.",
-    title: "AI Blog SEO",
+    title: "AI Blog SEO ",
     subtitle: "Content Automation",
     heroImage:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
@@ -251,6 +252,64 @@ export const productDetailData = {
     ctaDescription: "Create SEO-optimized content that ranks and converts.",
     ctaButtonLabel: "Start Creating",
     ctaHighlight: "Content Marketing",
+  },
+  "ai-calling-automation": {
+    slug: "ai-calling-automation",
+    metaTitle: "Calling Automation | TryzenIQ",
+    metaDescription:
+      "Intelligent calling platform using AI to automate calls and improve customer engagement.",
+    title: "Calling Automation",
+    subtitle: "Smart Calling",
+    heroImage:
+      "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    heroDescription:
+      "Automate your calls with AI technology. Generate thousands of professional calls, track calls, and manage finances effortlessly.",
+    features: [
+      {
+        icon: Phone,
+        title: "Bulk Calling",
+        description: "Send up to 100,000 calls per day",
+        imageUrl:
+          "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?w=600",
+      },
+      {
+        icon: Sparkles,
+        title: "AI Data Extraction",
+        description: "Automatically extract data from calls",
+        imageUrl:
+          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
+      },
+      {
+        icon: DollarSign,
+        title: "Payment Tracking",
+        description: "Monitor payments and send reminders",
+        imageUrl:
+          "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600",
+      },
+      {
+        icon: Globe,
+        title: "Multi-Currency",
+        description: "Support for 150+ currencies and tax systems",
+        imageUrl:
+          "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600",
+      },
+    ],
+    benefits: [
+      "Increase call open rates by 35%",
+      "Save 20+ hours per week on manual tasks",
+      "Improve customer engagement and retention",
+      "Boost conversion rates with targeted campaigns",
+    ],
+    metrics: [
+      { label: "Open Rates", value: "+35%" },
+      { label: "Time Saved", value: "20+ hrs/week" },
+      { label: "Conversions", value: "+45%" },
+    ],
+    ctaIcon: Phone,
+    ctaTitle: "Automate Your Calls",
+    ctaDescription: "Generate professional calls at scale with AI.",
+    ctaButtonLabel: "Try It Free",
+    ctaHighlight: "Calls",
   },
 };
 

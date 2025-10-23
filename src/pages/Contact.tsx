@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Tilt from "react-parallax-tilt";
 import ShinyText from "@/components/ShinyText";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +72,13 @@ const Contact = () => {
       <main className="pt-28 md:pt-[170px]">
         {/* Hero */}
         <section className="">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Connect <span className="font-InstrumentSerif italic">Us</span>
             </h1>
@@ -81,12 +88,18 @@ const Contact = () => {
               collaborate to create something meaningful, impactful, and truly
               great together.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Contact Section */}
         <section className="relative py-16 md:py-6">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
               {/* Left: Contact Form */}
               <div className="lg:col-span-2 bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-3xl shadow-2xl flex flex-col">
@@ -246,8 +259,12 @@ const Contact = () => {
                     linkText: "Schedule Visit",
                   },
                 ].map((item, i) => (
-                  <div
+                  <motion.div
                     key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
                     className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[white] hover:shadow-lg hover:shadow-[white]/20 p-6 rounded-2xl shadow-md transition-all duration-300"
                   >
                     <div className="flex-shrink-0 w-12 h-12 bg-[white] hover:text-[white] flex items-center justify-center rounded-lg group-hover:scale-110 transition-all duration-300">
@@ -269,16 +286,22 @@ const Contact = () => {
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </a>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Map Section */}
         <section className="relative pt-16 md:pt-20">
-          <div className="max-w-4xl mx-auto text-center mb-12 px-4">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-12 px-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-4xl md:text-5xl lg:text-5xl items-center gradient-text justify-center font-HindMadurai font-medium leading-tight mb-6">
               Find Us on the{" "}
               <span className="font-InstrumentSerif italic">Map</span>
@@ -293,7 +316,7 @@ const Contact = () => {
                 className="border-0"
               ></iframe>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 

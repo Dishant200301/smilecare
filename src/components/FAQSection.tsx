@@ -39,21 +39,20 @@ export default function FAQSection(): JSX.Element {
   };
 
   return (
-    <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
     <section className="relative bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
-      {/* Background gradient effects */}
-     
+      {/* Background gradient effects (if any, as you had commented out) */}
+      {/* You can add your background elements here if needed */}
 
       {/* Main content */}
       <div className="relative max-w-[1225px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
-        {/* Left Side: Header Section */}
-        <div className="lg:col-span-2 lg:sticky lg:top-24">
-          
+        {/* Left Side: Header Section - Animates from Left */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }} // Starts 100px to the left, invisible
+          whileInView={{ x: 0, opacity: 1 }} // Moves to original position, fully visible
+          transition={{ duration: 0.8, delay: 0.2 }} // Smooth transition with a slight delay
+          viewport={{ once: true, amount: 0.3 }} // Animates once when 30% of element is in view
+          className="lg:col-span-2 lg:sticky lg:top-24"
+        >
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-4">
             Have Questions?
             <br />
@@ -76,19 +75,28 @@ export default function FAQSection(): JSX.Element {
             onClick={() => console.log("Contact Us clicked")}
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-gray-600 text-white hover:border-gray-500 transition-all duration-300"
           >
+            
             <span className="text-sm font-medium">Contact Us</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
-        </div>
+        </motion.div>
 
-        {/* Right Side: FAQ Accordion */}
-        <div className="lg:col-span-3 space-y-4">
+        {/* Right Side: FAQ Accordion - Animates from Right */}
+        <motion.div
+          initial={{ x: 100, opacity: 0 }} // Starts 100px to the right, invisible
+          whileInView={{ x: 0, opacity: 1 }} // Moves to original position, fully visible
+          transition={{ duration: 0.8, delay: 0.4 }} // Smooth transition with a slightly longer delay
+          viewport={{ once: true, amount: 0.3 }} // Animates once when 30% of element is in view
+          className="lg:col-span-3 space-y-4"
+        >
           {faqs.map((faq: FAQItem, index: number) => (
             <motion.div
               key={index}
+              // Scroll-based animation for individual FAQ items
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className={`rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-300 ${
                 openIndex === index
                   ? "bg-[#000000] border-gray-700"
@@ -136,9 +144,8 @@ export default function FAQSection(): JSX.Element {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-    </motion.div>
   );
 }

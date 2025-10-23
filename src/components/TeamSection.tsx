@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Phone, Video } from "lucide-react";
 
 const leadershipTeam = [
@@ -55,9 +56,12 @@ const TeamSection = () => {
   };
 
   const renderCard = (member: { name: string; role: string; imageUrl: string }, delay: number) => (
-    <div
-      className="group relative overflow-hidden rounded-3xl shadow-xl opacity-0 translate-y-10 animate-[fadeInUp_0.6s_ease-out_forwards]"
-      style={{ animationDelay: `${delay}s` }}
+    <motion.div
+      className="group relative overflow-hidden rounded-3xl shadow-xl"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay, ease: "easeOut" }}
+      viewport={{ once: true }}
     >
       {/* Team Image */}
       <img
@@ -74,7 +78,7 @@ const TeamSection = () => {
         <h3 className="text-lg font-medium">{member.name}</h3>
         <p className="text-sm text-gray-300">{member.role}</p>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -84,36 +88,25 @@ const TeamSection = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+        <motion.div
+          className="max-w-3xl mx-auto text-center mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text font-medium leading-tight font-HindMadurai">
             Our team of{" "}
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic gradient-text">
               experts
-            </span>{" "}
-            are here to help
+            </span>
           </h2>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-400 px-4">
             Get support 24/7, with our award-winning support network of growth experts.
           </p>
 
-          {/* Buttons */}
-          <div className="hidden lg:block">
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
-              <button
-                onClick={handleContactClick}
-                className="group relative flex items-center justify-between border border-gray-700 bg-black text-white font-normal pl-8 pr-8 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
-              >
-                <Phone className="mr-2 w-5 h-5" /> Book a call
-              </button>
-              <button
-                onClick={handleContactClick}
-                className="group relative flex items-center justify-between border border-gray-700 bg-white text-black font-normal pl-8 pr-8 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out hover:border-gray-500 shadow-md hover:shadow-lg"
-              >
-                <Video className="mr-2 w-5 h-5" /> Book a demo
-              </button>
-            </div>
-          </div>
-        </div>
+         
+        </motion.div>
 
         {/* Leadership Team */}
         <div className="mb-12">
@@ -131,16 +124,6 @@ const TeamSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Fade-in animation */}
-      <style>{`
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };
