@@ -65,27 +65,25 @@ const services: Service[] = [
   {
     title: "Custom ERP Solutions",
     description:
-      "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management, financial tracking, human resources, and customer relationship management.",
+      "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management and customer relationship management.",
     icon: <Database className="w-10 h-10 text-black" />,
     bgColorClass: "bg-black",
     imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400",
     imageAlt: "Custom ERP system interface",
-    gridClasses: "md:col-span-3",
+    gridClasses: "md:col-span-2",
     link: "/services/custom-erp-system",
-    bullets: [
-      "Custom ERP solutions tailored to your business needs",
-      "Automated repetitive tasks and reduce errors",
-      "Real-time data analytics to drive informed decision-making",
-    ],
+    
   },
   {
     title: "Graphics Design",
     description:
-      "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively.",
+      "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively and help you stand out in the market",
     icon: <Palette className="w-10 h-10 text-black" />,
     bgColorClass: "bg-black",
     imageSrc: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300",
     imageAlt: "Graphic design mockup",
+        gridClasses: "md:col-span-2",
+
     link: "/services/graphics-design",
   },
 ];
@@ -159,8 +157,8 @@ const StatsSection: React.FC = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.1,
+                  staggerChildren: 0,
+                  delayChildren: 0,
                 },
               },
             }}
