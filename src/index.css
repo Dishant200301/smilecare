@@ -523,3 +523,13 @@ body::-webkit-scrollbar {
   background-clip: text;
 }
 
+/* Add this to your global CSS file */
+@media (max-width: 767px) { /* Adjust breakpoint to match your `isMobile` logic */
+  .mobile-sticky-card {
+    position: sticky;
+    /* The 'top' and 'z-index' properties will be set dynamically via inline style in JS */
+  }
+
+  /* Make sure the parent container (div around mapped cards) has enough height
+     and doesn't have overflow: hidden, which can break sticky positioning. */
+}

@@ -11,10 +11,10 @@ import { Helmet } from "react-helmet-async";
 const Blogs: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // State for mobile detection
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -30,6 +30,8 @@ const Blogs: React.FC = () => {
 
     return matchesCategory && matchesSearch;
   });
+
+  const stickyTopOffset = 80; // Define a fixed top offset for sticky cards on mobile
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -73,156 +75,81 @@ const Blogs: React.FC = () => {
               </div>
             </div>
         
-        {/* Results Count */}
-          {/* <div className="mb-6 text-center">
-            <p className="text-gray-600">
-              Showing{" "}
-              <span className="font-bold text-orange-600">
-                {filteredBlogs.length}
-              </span>{" "}
-              {filteredBlogs.length === 1 ? "article" : "articles"}
-            </p>
-          </div> */}
-
             {/* Blogs Grid or Stack */}
             {filteredBlogs.length > 0 ? (
-              isMobile ? (
-                // Mobile stack animation
-                <div className="flex flex-col space-y-8">
-                  {filteredBlogs.map((blog, index) => (
-                    <motion.div
-                      key={blog.id}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
+              // Conditional rendering based on isMobile
+              <div className={`${isMobile ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
+                {filteredBlogs.map((blog, index) => (
+                  <motion.div // Changed from div to motion.div
+                    key={blog.id}
+                    className={`${isMobile ? 'mobile-sticky-card' : ''}`} // Apply sticky class on mobile
+                    // Mobile-only styles for stacking effect
+                    style={isMobile ? { zIndex: index + 1, top: `${stickyTopOffset}px`, marginBottom: '20px' } : {}}
+                    // Conditional initial animation: slide up on mobile, slide up from bottom on desktop
+                    initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 50 }} // Adjusted initial y for mobile
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0 }}
+                    viewport={{ once: true, amount: 0 }} // Trigger animation when 20% visible
+                  >
+                    <Link
+                      to={`/blogs/${blog.slug}`}
+                      className="  group relative block rounded-3xl overflow-hidden shadow-xl
+                   hover:shadow-2xl hover:shadow-white/20 transition-all duration-500
+                   transform border border-gray-900 hover:border-white/20" // Added bg-black and removed backdrop-blur-sm
                     >
-                      <Link
-                        to={`/blogs/${blog.slug}`}
-                        className="group flex flex-col backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-white/30"
-                      >
-                        {/* Image */}
-                        <div className="relative w-full h-56 overflow-hidden">
-                          <img
-                            src={blog.image}
-                            alt={blog.title}
-                            className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
-                          />
-                        </div>
+                      {/* Image */}
+                      <div className="relative w-full h-56 overflow-hidden">
+                        <img
+                          src={blog.image}
+                          alt={blog.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                        />
+                      </div>
 
-                        {/* Content */}
-                        <div className="p-6 bg-black flex flex-col flex-grow">
-                          {/* Meta Information */}
-                          <div className="flex items-center gap-4 mb-4 text-xs text-gray-400 font-HindMadurai">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-3.5 h-3.5" />
-                              <span>
-                                {new Date(blog.publishDate).toLocaleDateString(
-                                  "en-US",
-                                  { month: "short", day: "numeric", year: "numeric" }
-                                )}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-3.5 h-3.5" />
-                              <span>{blog.readTime} min read</span>
-                            </div>
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-xl font-bold font-HindMadurai leading-tight mb-3 text-white group-hover:text-white transition-colors duration-300 line-clamp-2">
-                            {blog.title}
-                          </h3>
-
-                          {/* Excerpt */}
-                          <p className="text-sm text-gray-400 font-HindMadurai leading-relaxed mb-4 flex-grow line-clamp-3">
-                            {blog.excerpt}
-                          </p>
-
-                          {/* Author & Read More */}
-                          <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
-                            <span className="text-xs font-medium text-gray-500 font-HindMadurai">
-                              By {blog.author}
+                      {/* Content */}
+                      <div className="p-6 bg-black flex flex-col flex-grow">
+                        {/* Meta Information */}
+                        <div className="flex items-center gap-4 mb-4 text-xs text-gray-400 font-HindMadurai">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5" />
+                            <span>
+                              {new Date(blog.publishDate).toLocaleDateString(
+                                "en-US",
+                                { month: "short", day: "numeric", year: "numeric" }
+                              )}
                             </span>
-                            <div className="flex items-center gap-2 text-sm font-semibold font-HindMadurai text-white group-hover:gap-3 transition-all duration-300">
-                              Read More
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                            </div>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5" />
+                            <span>{blog.readTime} min read</span>
                           </div>
                         </div>
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              ) : (
-                // Desktop grid layout
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredBlogs.map((blog, index) => (
-                    <motion.div
-                      key={blog.id}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Link
-                        to={`/blogs/${blog.slug}`}
-                        className="group flex flex-col backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-white/30"
-                      >
-                        {/* Image */}
-                        <div className="relative w-full h-56 overflow-hidden">
-                          <img
-                            src={blog.image}
-                            alt={blog.title}
-                            className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
-                          />
-                        </div>
 
-                        {/* Content */}
-                        <div className="p-6 bg-black flex flex-col flex-grow">
-                          {/* Meta Information */}
-                          <div className="flex items-center gap-4 mb-4 text-xs text-gray-400 font-HindMadurai">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-3.5 h-3.5" />
-                              <span>
-                                {new Date(blog.publishDate).toLocaleDateString(
-                                  "en-US",
-                                  { month: "short", day: "numeric", year: "numeric" }
-                                )}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-3.5 h-3.5" />
-                              <span>{blog.readTime} min read</span>
-                            </div>
-                          </div>
+                        {/* Title */}
+                        <h3 className="text-xl font-bold font-HindMadurai leading-tight mb-3 text-white group-hover:text-white transition-colors duration-300 line-clamp-2">
+                          {blog.title}
+                        </h3>
 
-                          {/* Title */}
-                          <h3 className="text-xl font-bold font-HindMadurai leading-tight mb-3 text-white group-hover:text-white transition-colors duration-300 line-clamp-2">
-                            {blog.title}
-                          </h3>
+                        {/* Excerpt */}
+                        <p className="text-sm text-gray-400 font-HindMadurai leading-relaxed mb-4 flex-grow line-clamp-3">
+                          {blog.excerpt}
+                        </p>
 
-                          {/* Excerpt */}
-                          <p className="text-sm text-gray-400 font-HindMadurai leading-relaxed mb-4 flex-grow line-clamp-3">
-                            {blog.excerpt}
-                          </p>
-
-                          {/* Author & Read More */}
-                          <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
-                            <span className="text-xs font-medium text-gray-500 font-HindMadurai">
-                              By {blog.author}
-                            </span>
-                            <div className="flex items-center gap-2 text-sm font-semibold font-HindMadurai text-white group-hover:gap-3 transition-all duration-300">
-                              Read More
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                            </div>
+                        {/* Author & Read More */}
+                        <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
+                          <span className="text-xs font-medium text-gray-500 font-HindMadurai">
+                            By {blog.author}
+                          </span>
+                          <div className="flex items-center gap-2 text-sm font-semibold font-HindMadurai text-white group-hover:gap-3 transition-all duration-300">
+                            Read More
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
                         </div>
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              )
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             ) : (
               <div className="text-center py-16">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-white/5 rounded-full mb-6">

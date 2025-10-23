@@ -126,7 +126,7 @@ export const productDetailData = {
     ],
     metrics: [
       { label: "Open Rates", value: "+35%" },
-      { label: "Time Saved", value: "20+ hrs/week" },
+      { label: "Time Saved", value: "9+ hrs/week" },
       { label: "Conversions", value: "+45%" },
     ],
     ctaIcon: Mail,

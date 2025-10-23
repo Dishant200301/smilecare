@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -90,10 +90,22 @@ type ProductsProps = {
 };
 
 const Products: React.FC<ProductsProps> = ({ limit }) => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const visibleProducts = limit ? products.slice(0, limit) : products;
+
+  // Define a fixed top offset for all sticky cards
+  const stickyTopOffset = 80; // Adjust this value to control where cards stick
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -139,16 +151,24 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
 
         {/* Products Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {products.map((product, i) => (
+          {/* On mobile, use a flex column layout for stacking */}
+          <div className={`${isMobile ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12'}`}>
+            {visibleProducts.map((product, i) => (
               <motion.a
                 key={`${product.category}-${i}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}
                 href={product.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform border border-gray-800 hover:border-white/20"
+                className={`
+                   group relative block rounded-3xl overflow-hidden shadow-xl
+                   hover:shadow-2xl hover:shadow-white/20 transition-all duration-500
+                   transform border border-gray-900 hover:border-white/20
+                   ${isMobile ? 'mobile-sticky-card' : ''}
+                 bg-black // Ensure solid black background
+                `}
+                style={isMobile ? { zIndex: i + 1, top: `${stickyTopOffset}px`, marginBottom: '20px' } : {}}
+                initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <div className="relative overflow-hidden">
                   <img

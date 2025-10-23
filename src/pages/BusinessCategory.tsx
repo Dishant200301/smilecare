@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ShinyText from "@/components/ShinyText";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -151,6 +152,17 @@ type ServicesProps = {
 const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = ["All", ...Array.from(new Set(services.map((s) => s.category)))];
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const filteredServices =
     activeCategory === "All"
@@ -158,6 +170,8 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
       : services.filter((s) => s.category === activeCategory);
 
   const visibleServices = limit ? filteredServices.slice(0, limit) : filteredServices;
+
+  const stickyTopOffset = 80; // Adjust this value
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -193,12 +207,23 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
 
         {/* Services Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className={`${isMobile ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12'}`}>
             {visibleServices.map((service, i) => (
-              <a
+              <motion.a
                 key={`${service.category}-${i}`}
                 href={service.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform border border-gray-900 hover:border-white/20"
+                className={`
+                  group relative block rounded-3xl overflow-hidden shadow-xl 
+                  hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 
+                  transform border border-gray-900 hover:border-white/20
+                  ${isMobile ? 'mobile-sticky-card' : ''}
+                  bg-black // Ensure solid black background
+                `}
+                style={isMobile ? { zIndex: i + 1, top: `${stickyTopOffset}px`, marginBottom: '20px' } : {}}
+                initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0, duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -228,7 +253,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

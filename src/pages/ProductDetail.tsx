@@ -175,7 +175,7 @@ const ProductDetail = () => {
         </section>
 
         {/* Benefits + Metrics */}
-        <section className="py-24 px-6 md:px-12 lg:px-8 xl:px-48 bg-black">
+        <section className="py-6 px-6 md:px-12 lg:px-8 xl:px-48 bg-black">
           <motion.div
             className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
             initial={{ opacity: 0, y: 50 }}
@@ -232,7 +232,7 @@ const ProductDetail = () => {
                     className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none"
                   >
                     <span className="text-gray-300 font-HindMadurai">{m.label}</span>
-                    <span className="text-2xl font-HindMadurai text-[white]">
+                    <span className="text-xl font-HindMadurai text-[white]">
                       {m.value}
                     </span>
                   </motion.div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import blogsData from "../data/blogDetail";
@@ -13,6 +13,20 @@ import { motion } from "framer-motion";
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const blog = blogsData.find((b) => b.slug === slug);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const stickyTopOffset = 80; // Adjust this value to control where cards stick
 
   // Define colors from Framer tokens for direct use in style attributes
   const blogColors = {
@@ -132,7 +146,7 @@ const BlogDetail: React.FC = () => {
 
         {/* Blog Content Section */}
         
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="prose prose-lg prose-invert max-w-none leading-relaxed">
               {/* Hardcoded content structure from Framer HTML as blogsData content is plain text */}
               <p className="mb-6 text-lg text-gray-300 leading-relaxed">
@@ -334,16 +348,30 @@ const BlogDetail: React.FC = () => {
                 Continue exploring our AI automation insights and expert advice
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {relatedArticles.map((article) => (
-                <RelatedBlogCard
+            {/* On mobile, use a flex column layout for stacking */}
+            <div className={`${isMobile ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
+              {relatedArticles.map((article, index) => (
+                <motion.div
                   key={article.id}
-                  slug={article.slug}
-                  title={article.title}
-                  image={article.image}
-                  publishDate={article.publishDate}
-                  description={article.excerpt}
-                />
+                  className={`
+                    ${isMobile ? 'mobile-sticky-card' : ''}
+                  `}
+                  // All cards stick to the same 'top' position, but z-index ensures they layer correctly
+                  style={isMobile ? { zIndex: index + 1, top: `${stickyTopOffset}px`, marginBottom: '20px' } : {}}
+                  // Adjust initial Y for mobile to make it come from above or appear without downward motion
+                  initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0, duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  <RelatedBlogCard
+                    slug={article.slug}
+                    title={article.title}
+                    image={article.image}
+                    publishDate={article.publishDate}
+                    description={article.excerpt}
+                  />
+                </motion.div>
               ))}
             </div>
           </div>

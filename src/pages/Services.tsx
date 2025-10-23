@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-import ShinyText from "@/components/ShinyText";
 import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -106,15 +106,23 @@ type ServicesProps = {
 };
 
 const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", ...Array.from(new Set(services.map((s) => s.category)))];
+  const [isMobile, setIsMobile] = useState(false);
 
-  const filteredServices =
-    activeCategory === "All"
-      ? services
-      : services.filter((s) => s.category === activeCategory);
+  useEffect(() => {
+    const handleResize = () => {
+      // You can adjust this breakpoint for what you consider a "mobile" device
+      setIsMobile(window.innerWidth < 768);
+    };
 
-  const visibleServices = limit ? filteredServices.slice(0, limit) : filteredServices;
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const visibleServices = limit ? services.slice(0, limit) : services;
+
+  // Define a fixed top offset for all sticky cards
+  const stickyTopOffset = 80; // Adjust this value to control where cards stick
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -136,7 +144,13 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
       <main className="relative z-10 bg-black">
         {/* Hero Section */}
         <section className="pt-[170px] mb-16">
-        <div className="max-w-4xl mx-auto text-center mb-12">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
             Our {" "}
               <span className="font-InstrumentSerif italic">Services</span>
@@ -145,38 +159,30 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
               Comprehensive digital solutions designed to elevate your business with 
               cutting-edge technology, creative design, and strategic expertise.
             </p>
-          </div>
+          </motion.div>
         </section>
-
-        {/* Category Filter */}
-        {/* {showFilter && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
-                    activeCategory === category
-                      ? "bg-[white] text-black shadow-lg shadow-[white]/30"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-        )} */}
 
         {/* Services Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* On mobile, use a flex column layout for stacking */}
+          <div className={`${isMobile ? 'flex flex-col' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
             {visibleServices.map((service, i) => (
-              <a
+              <motion.a
                 key={`${service.category}-${i}`}
                 href={service.link}
-                className="group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-white/20"
+                className={`
+                  group relative block backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl 
+                  hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 
+                  transform hover:-translate-y-2 border border-gray-800 hover:border-white/20
+                  ${isMobile ? 'mobile-sticky-card' : ''}
+                `}
+                // All cards stick to the same 'top' position, but z-index ensures they layer correctly
+                style={isMobile ? { zIndex: i + 1, top: `${stickyTopOffset}px`, marginBottom: '20px' } : {}}
+                // Adjust initial Y for mobile to make it come from above or appear without downward motion
+                initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 40 }} // Changed y to -20 for mobile
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0, duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -215,7 +221,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
