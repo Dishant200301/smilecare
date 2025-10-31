@@ -100,16 +100,16 @@ const BlogDetail: React.FC = () => {
                 className="inline-flex items-center gap-2 text-white hover:text-white transition-colors duration-200 lg:ml-12"
               >
                 <ArrowLeft className="w-5 h-5" />
-                <span>Back</span>
+                <span>Back to Blogs</span>
               </Link>
             </div>
 
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-5xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
                 {blog.title}
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto mb-8">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10">
                 {blog.excerpt}
               </p>
 
@@ -344,7 +344,7 @@ const BlogDetail: React.FC = () => {
                 Related{" "}
                 <span className="font-InstrumentSerif italic">Articles</span>
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto">
                 Continue exploring our AI automation insights and expert advice
               </p>
             </div>

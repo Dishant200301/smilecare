@@ -116,6 +116,7 @@ export const mainNavLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Blog", path: "/blog" },
+  {name:"Portfolio",path:"/portfolio"},
   { name: "Contact", path: "/contact" },
 ];
 

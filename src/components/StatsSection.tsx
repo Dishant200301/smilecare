@@ -94,15 +94,12 @@ const StatsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* --- Heading --- */}
         <div className="flex flex-col items-center gap-8 text-center mb-8">
-          <h2 className="text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-HindMadurai font-medium leading-tight">
             Our{" "}
             <span className="gradient-text font-InstrumentSerif italic text-white">
               Services
             </span>
           </h2>
-          <span className="text-lg md:text-2xl text-gray-400">
-            Empowering your business with innovation.
-          </span>
         </div>
 
         {/* --- Responsive Layout Switch --- */}
@@ -210,20 +207,20 @@ const StatsSection: React.FC = () => {
         </div>
 
         {/* --- Explore Button --- */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <a
             href="/services"
-            className="group relative inline-flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-200 ease-out"
+            className="group relative inline-flex items-center justify-between border border-gray-500 text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden transition-all duration-200 ease-out"
           >
             <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
             <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black font-inter">
-              Explore All Services
+              All Services
             </span>
             <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
               <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

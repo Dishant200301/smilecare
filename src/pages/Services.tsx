@@ -151,11 +151,11 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
             Our {" "}
               <span className="font-InstrumentSerif italic">Services</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10">
               Comprehensive digital solutions designed to elevate your business with 
               cutting-edge technology, creative design, and strategic expertise.
             </p>

@@ -167,6 +167,8 @@ const config: Config = {
         'card-blue': '#e8f0f7',     // From 'Best Time to Post'
         'card-orange': '#f7f0e8',   // From 'Social Media Resources'
         'card-red': '#f7e8e8',   
+        'slate-900': '#0f172a', // Deep Navy theme base
+        'blue-500': '#3b82f6', 
         
       },
       backgroundImage: {
@@ -317,6 +319,10 @@ const config: Config = {
             transform: 'translateY(0)',
           },
         },
+        'fadeInSmooth': {
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -349,6 +355,7 @@ const config: Config = {
         'cloud-1': 'cloud-pan 60s linear infinite',
         'cloud-2': 'cloud-pan 90s linear infinite',
         'cloud-3': 'cloud-pan 120s linear infinite',
+        'fadeInSmooth': 'fadeInSmooth 0.5s ease-out forwards',
       },
     },
   },

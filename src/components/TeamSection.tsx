@@ -13,13 +13,13 @@ const leadershipTeam = [
     name: "Keyur Moradiya",
     role: "CEO",
     imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop",
+      "/team_member/keyur_moradiya.png",
   },
   {
     name: "Amit Lakhani",
     role: "CMO",
     imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop",
+      "/team_member/Amit_CMO.png",
   },
 ];
 
@@ -34,7 +34,7 @@ const developmentTeam = [
     name: "Dishant Kasodariya",
     role: "MERN Developer",
     imageUrl:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "/team_member/dishant.jpg",
   },
   {
     name: "Ket Vithani",
@@ -95,9 +95,9 @@ const TeamSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text font-medium leading-tight font-HindMadurai">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl font-HindMadurai font-medium leading-tight">
             Our team of{" "}
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic gradient-text">
+            <span className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl italic gradient-text">
               experts
             </span>
           </h2>

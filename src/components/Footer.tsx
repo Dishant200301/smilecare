@@ -48,6 +48,8 @@ const Footer = () => {
       { name: "Salons & Spa", path: "/business-category/salons-spa" },
       { name: "Real Estate", path: "/business-category/real-estate-agents" },
       { name: "Therapists", path: "/business-category/therapists-counselors" },
+      {name:"Gym & Fitness",path:"/business-category/gym-health-coach"},
+      {name:"More",path:"/business-category"}
     ],
   };
 
@@ -90,9 +92,12 @@ const Footer = () => {
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription logic here
-    console.log("Newsletter subscribed!");
-    alert("Thanks for subscribing to our newsletter!");
+    const formData = new FormData(e.target as HTMLFormElement);
+    const email = formData.get('email') as string;
+    
+    // TODO: Integrate with your email marketing service (e.g., Mailchimp, SendGrid)
+    console.log("Newsletter subscription:", email);
+    alert("Thanks for subscribing! You'll receive AI automation tips, industry insights, and exclusive offers.");
   };
 
   return (
@@ -100,7 +105,6 @@ const Footer = () => {
       <footer className="relative border-t border-gray-800/60">
         <div className="relative px-6 lg:px-12 pb-8 max-w-7xl mx-auto z-10">
           {/* Main Grid: Adjusted from lg:grid-cols-4 to lg:grid-cols-3 */}
-          {/* This will arrange Company Info, (Services & Solutions), and Newsletter in up to 3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pt-12">
 
             {/* Column 1: Company Info */}
@@ -186,36 +190,38 @@ const Footer = () => {
             {/* Column 3: Newsletter Subscription */}
             <div className="space-y-5">
               <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                Subscribe to our Newsletter
+                Get AI Insights
                 <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
               </h3>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Stay up to date with our latest news and offers.
+                Subscribe for AI automation tips, industry insights, and exclusive offers to grow your business.
               </p>
               <form
                 onSubmit={handleNewsletterSubmit}
                 className="flex flex-row md:flex-col lg:flex-row gap-4"
               >
                 <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  aria-label="Email for newsletter"
-                  className="w-full p-3 pl-6 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
-                required
-                />
-                <button
-                  type="submit"
-                >
-                  {/* Expanding background circle on hover */}
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    aria-label="Email for newsletter"
+                    className="w-full p-3 pl-6 pr-14 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full overflow-hidden"
+                    aria-label="Subscribe to newsletter"
+                  >
+                    {/* Expanding background circle on hover */}
+                    <span className="absolute inset-0 w-full h-full rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[8] origin-center" />
 
-
-                  {/* Send icon */}
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                    <Send className="w-5 h-5 text-black transition-colors duration-700" />
-                  </span>
-                </button>
+                    {/* Send icon */}
+                    <span className="absolute inset-0 z-20 flex items-center justify-center">
+                      <Send className="w-5 h-5 text-black transition-colors duration-700" />
+                    </span>
+                  </button>
                 </div>
               </form>
             </div>

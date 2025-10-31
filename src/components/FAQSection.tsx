@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 interface FAQItem {
   question: string;
   answer: string;
@@ -14,7 +14,7 @@ const faqs: FAQItem[] = [
       "Our product seamlessly operates on popular operating systems such as Windows, macOS, and Linux, providing a compatible experience for users across different platforms.",
   },
   {
-    question: "Do you have an affiliate program?",
+    question: "Do you have an affiliate program available?",
     answer:
       "Yes! We offer a comprehensive affiliate program with competitive commission rates. Partners can earn recurring revenue by referring customers to our platform.",
   },
@@ -38,13 +38,15 @@ export default function FAQSection(): JSX.Element {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const navigate = useNavigate();
+
   return (
     <section className="relative bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
       {/* Background gradient effects (if any, as you had commented out) */}
       {/* You can add your background elements here if needed */}
 
       {/* Main content */}
-      <div className="relative max-w-[1225px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
+      <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start z-10">
         {/* Left Side: Header Section - Animates from Left */}
         <motion.div
           initial={{ x: -100, opacity: 0 }} // Starts 100px to the left, invisible
@@ -53,32 +55,44 @@ export default function FAQSection(): JSX.Element {
           viewport={{ once: true, amount: 0.3 }} // Animates once when 30% of element is in view
           className="lg:col-span-2 lg:sticky lg:top-24"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-5xl gradient-text font-HindMadurai font-medium leading-tight lg:mb-4">
             Have Questions?
             <br />
-            <span className="text-2xl sm:text-5xl md:text-6xl lg:text-5xl gradient-text font-InstrumentSerif italic text-white ">
+            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl gradient-text font-InstrumentSerif italic text-white ">
               Let’s Talk.
             </span>{" "}
           </h2>
-          <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-md">
+          <p className="hidden sm:block text-md text-gray-400 mb-8 leading-relaxed max-w-md">
             Can't find what you're looking for in our FAQs? Feel free to ask us
             directly.
           </p>
           <textarea
-            className="w-full h-16 p-4 rounded-xl mb-4 bg-[#1a1a1a] text-white border border-slate-600 focus:border-white focus:ring-1 focus:ring-white outline-none transition-colors duration-300 resize-y"
+            className="hidden sm:block w-full h-16 p-4 rounded-xl mb-4 bg-[#1a1a1a] text-white border border-slate-600 focus:border-white focus:ring-1 focus:ring-white outline-none transition-colors duration-300 resize-y"
             placeholder="Type your question here..."
             value={questionText}
             onChange={(e) => setQuestionText(e.target.value)}
           ></textarea>
 
-          <button
-            onClick={() => console.log("Contact Us clicked")}
-            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-gray-600 text-white hover:border-gray-500 transition-all duration-300"
-          >
-            
-            <span className="text-sm font-medium">Contact Us</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          {/* Contact Button */}
+            <div className="hidden lg:block">
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg- active:bg-gray-900/60 border border-gray-500 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-4 pr-14 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
+              >
+                {/* Expanding circle on hover */}
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
+
+                {/* Button text */}
+                <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
+                  Contact Us
+                </span>
+
+                {/* Icon (right side) */}
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
+                  <ArrowRight className="w-5 h-5 text-black transition-colors duration-700" />
+                </span>
+              </button>
+            </div>
         </motion.div>
 
         {/* Right Side: FAQ Accordion - Animates from Right */}

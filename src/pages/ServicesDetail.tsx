@@ -73,18 +73,21 @@ const ServicesDetail = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
+                className="text-center lg:text-left"
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2">
                   {title}{" "}
-                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                  <span className="font-InstrumentSerif italic">
+                    {subtitle}
+                  </span>
                 </h1>
-                <p className="text-xl text-gray-400 max-w-3xl leading-relaxed mb-10 font-HindMadurai">
+                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5">
                   {heroDescription}
                 </p>
                 <a
                   href="/contact"
                   className="group relative inline-flex items-center justify-between border border-gray-700 
-                 text-white font-semibold font-HindMadurai pl-6 pr-14 py-4 rounded-full overflow-hidden 
+                 text-white font-semibold font-HindMadurai pl-6 pr-14 py-3 rounded-full overflow-hidden 
                  transition-all duration-500 ease-in-out hover:border-[white]"
                 >
                   <span
@@ -121,7 +124,7 @@ const ServicesDetail = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
+        <section className="pt-10 pb-5 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black ">
           <motion.div
             className="max-w-7xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -130,7 +133,8 @@ const ServicesDetail = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium text-center leading-tight mb-6">
-              Explore <span className="font-InstrumentSerif italic">Features</span>
+              Explore{" "}
+              <span className="font-InstrumentSerif italic">Features</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((f, i) => (
@@ -138,7 +142,11 @@ const ServicesDetail = () => {
                   key={i}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                  transition={{
+                    delay: i * 0.1,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
                   viewport={{ once: true, amount: 0.2 }}
                   className="group relative bg-gray-900/50 backdrop-blur-sm 
                   rounded-3xl overflow-hidden shadow-xl 
@@ -175,7 +183,7 @@ const ServicesDetail = () => {
         </section>
 
         {/* Benefits + Metrics */}
-        <section className="py-24 px-6 md:px-12 lg:px-8 xl:px-48 bg-black">
+        <section className="py-10 px-6 md:px-12 lg:px-8 xl:px-48 bg-black">
           <motion.div
             className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
             initial={{ opacity: 0, y: 50 }}
@@ -190,7 +198,7 @@ const ServicesDetail = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-4xl font-HindMadurai gradient-text mb-8">
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6 text-center lg:text-left">
                 Considerable{" "}
                 <span className="font-InstrumentSerif italic">Benefits</span>
               </h2>
@@ -200,9 +208,13 @@ const ServicesDetail = () => {
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                    transition={{
+                      delay: i * 0.1,
+                      duration: 0.6,
+                      ease: "easeOut",
+                    }}
                     viewport={{ once: true, amount: 0.2 }}
-                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-[white]/30 transition"
+                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 shadow-lg hover:shadow-white/20 transition-all duration-300"
                   >
                     <CheckCircle className="w-6 h-6 text-[white] flex-shrink-0 mt-1" />
                     <span className="text-gray-400 font-HindMadurai">{b}</span>
@@ -211,7 +223,7 @@ const ServicesDetail = () => {
               </div>
             </motion.div>
 
-            {/* Metrics */}
+           {/* Metrics */}
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -219,20 +231,27 @@ const ServicesDetail = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[white]/20 transition"
             >
-              <h3 className="text-3xl font-HindMadurai gradient-text mb-8">
-                Considerable <span className="font-InstrumentSerif italic">Metrics</span>
-              </h3>
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+                Considerable {" "}
+                <span className="font-InstrumentSerif italic">Metrics</span>
+            </h2>
               <div className="space-y-6">
                 {metrics.map((m, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                    transition={{
+                      delay: i * 0.1,
+                      duration: 0.6,
+                      ease: "easeOut",
+                    }}
                     viewport={{ once: true, amount: 0.2 }}
                     className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none"
                   >
-                    <span className="text-gray-300 font-HindMadurai">{m.label}</span>
+                    <span className="text-gray-300 font-HindMadurai">
+                      {m.label}
+                    </span>
                     <span className="text-2xl font-HindMadurai text-[white]">
                       {m.value}
                     </span>
@@ -243,8 +262,7 @@ const ServicesDetail = () => {
           </motion.div>
         </section>
 
-<ContactUsPreviewSection/>
-
+        <ContactUsPreviewSection />
       </main>
 
       <Footer />

@@ -134,13 +134,13 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our{" "}
               <span className="font-InstrumentSerif italic">
                 Products
               </span>
             </h1>
-            <p className="text-lg text-gray-300 font-HindMadurai max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
               Discover our suite of AI-powered products designed to automate
               and optimize your business operations.
             </p>

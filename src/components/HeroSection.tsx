@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
                 viewport={{ once: true }}
-                className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text pb-1 font-sans font-medium leading-tight"
+                className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text pb-1 font-sans font-medium leading-tight"
               >
                 Transforming Ideas Into
               </motion.h1>
@@ -185,13 +185,13 @@ const HeroSection: React.FC = () => {
               >
                 <button
                   onClick={() => navigate("/about")}
-                  className="group relative flex items-center justify-between text-white bg-black font-semibold pl-8 pr-16 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl border border-gray-500"
+                  className="group relative flex items-center justify-between text-white bg-black font-semibold pl-4 pr-14 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl border border-gray-500"
                 >
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
+                  <span className="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9  rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
                   <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
                     Learn More
                   </span>
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10">
+                  <span className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
                     <SendIcon className="w-5 h-5 text-black transition-colors duration-700" />
                   </span>
                 </button>

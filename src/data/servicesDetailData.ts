@@ -87,7 +87,7 @@ export const servicesDetailData = {
     heroImage:
       "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800",
     heroDescription:
-      "Elevate your online presence with comprehensive SEO strategies that drive organic traffic, improve rankings, and maximize ROI.",
+      "Elevate your online presence with comprehensive SEO strategies that drive organic traffic, improve rankings, and maximize ROI more effectively.",
     features: [
       {
         icon: Search,
@@ -205,7 +205,7 @@ export const servicesDetailData = {
     heroImage:
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800",
     heroDescription:
-      "Transform your brand identity with stunning visual designs that captivate audiences and communicate your message effectively.",
+      "Transform your brand identity with stunning visual designs that captivate audiences and communicate your message effectively successfully.",
     features: [
       {
         icon: Palette,
@@ -264,7 +264,7 @@ export const servicesDetailData = {
     heroImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
     heroDescription:
-      "Unify your business operations with a custom ERP system designed to optimize workflows, enhance collaboration, and drive growth.",
+      "Unify your business operations with a custom ERP system designed to optimize workflows, enhance collaboration, and drive growth successfully.",
     features: [
       {
         icon: Database,
@@ -313,64 +313,6 @@ export const servicesDetailData = {
     ctaHighlight: "Your Enterprise",
   },
 
-  "digital-transformation": {
-    slug: "digital-transformation",
-    metaTitle: "Digital Transformation Services | TryzenIQ",
-    metaDescription:
-      "Guide your business through digital evolution. Strategy, implementation, and ongoing support.",
-    title: "Digital",
-    subtitle: "Transformation",
-    heroImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
-    heroDescription:
-      "Navigate the digital landscape with confidence. We help businesses modernize operations, adopt new technologies, and thrive in the digital age.",
-    features: [
-      {
-        icon: Rocket,
-        title: "Digital Strategy",
-        description: "Comprehensive roadmap for digital success",
-        imageUrl:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600",
-      },
-      {
-        icon: Cloud,
-        title: "Cloud Migration",
-        description: "Seamless transition to cloud infrastructure",
-        imageUrl:
-          "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600",
-      },
-      {
-        icon: Users,
-        title: "Change Management",
-        description: "Support teams through digital adoption",
-        imageUrl:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600",
-      },
-      {
-        icon: TrendingUp,
-        title: "Performance Tracking",
-        description: "Monitor and optimize digital initiatives",
-        imageUrl:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
-      },
-    ],
-    benefits: [
-      "Accelerate innovation by 90%",
-      "Reduce IT costs by 45%",
-      "Improve customer experience by 85%",
-      "Increase agility by 70%",
-    ],
-    metrics: [
-      { label: "Innovation Speed", value: "+90%" },
-      { label: "IT Cost Reduction", value: "-45%" },
-      { label: "Customer Experience", value: "+85%" },
-    ],
-    ctaIcon: Rocket,
-    ctaTitle: "Lead the Digital Revolution",
-    ctaDescription: "Transform your business for the digital future.",
-    ctaButtonLabel: "Start Transformation",
-    ctaHighlight: "Digital Revolution",
-  },
 };
 
 // Export array for backward compatibility

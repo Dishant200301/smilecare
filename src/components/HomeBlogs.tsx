@@ -9,11 +9,13 @@ import blogsData, { BlogPost } from "../data/blogDetail";
 
 const BlogCard = ({ blog }: { blog: BlogPost }) => (
   <a
-    href={`/blog/${blog.slug}`}
-    className="group flex flex-col bg-black rounded-2xl overflow-hidden shadow-lg transition-all duration-300 border border-gray-800 hover:border-white/30 h-full"
+    href={`/blogs/${blog.slug}`}
+    className="group flex flex-col bg-black h-full  relative rounded-3xl overflow-hidden shadow-xl
+                   hover:shadow-2xl hover:shadow-white/20 transition-all duration-500
+                   transform border border-gray-900 hover:border-white/20"
   >
-    <section className="bg-black rounded-2xl overflow-hidden h-full flex flex-col">
-      <div className="relative overflow-hidden rounded-xl aspect-[16/9] m-4 mb-3">
+    <section className="bg-black h-full flex flex-col ">
+      <div className="relative overflow-hidden rounded-xl aspect-[16/9] m-4 mb-3 ">
         <img
           src={blog.image}
           alt={blog.title}
@@ -105,41 +107,23 @@ const HomeBlogs = () => {
   };
 
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
+    <section className="pt-10 pb-10 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12 ml-8"
+          className="flex flex-col items-center justify-center text-center w-full mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="max-w-4xl text-center lg:text-left mx-auto lg:mx-0">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight">
+          <div className="max-w-4xl w-full">
+            <h2 className="text-4xl sm:text-5xl lg:text-5xl font-HindMadurai font-medium leading-tight">
               <span className="gradient-text">Our Latest</span>{" "}
               <span className="gradient-text font-InstrumentSerif italic text-white">
                 News & Insights
               </span>
             </h2>
-            <p className="text-gray-400 text-lg mt-2 font-hindmadurai">
-              Stay informed with expert analysis and industry trends.
-            </p>
-          </div>
-
-          <div className="text-center w-full lg:w-auto">
-            <a
-              href="/blogs"
-              className="group relative inline-flex items-center justify-between border border-gray-500 text-foreground font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-300"
-            >
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white z-10 transition-transform duration-700 group-hover:scale-[45]" />
-              <span className="relative z-20 group-hover:text-black">
-                View All Posts
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black" />
-              </span>
-            </a>
           </div>
         </motion.div>
 
@@ -178,34 +162,40 @@ const HomeBlogs = () => {
           {/* Desktop / Laptop arrows */}
           <button
             onClick={handlePrev}
-            className="absolute top-1/2 -left-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-white rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 hidden md:block z-10"
+            className="absolute top-1/2 -left-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-white rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 z-10"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute top-1/2 -right-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-white rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 hidden md:block z-10"
+            className="absolute top-1/2 -right-4 -translate-y-1/2 p-3 bg-black border border-gray-600 text-white rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 z-10"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </motion.div>
+        <div className="text-center w-full lg:w-auto mt-12">
+             <a
+                          href="/blogs"
+                          className="group relative inline-flex items-center justify-between border border-gray-500 
+                                          text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
+                                          transition-all duration-200 ease-out"
+                        >
+                          <span
+                            className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 
+                           transition-transform duration-700 ease-in-out group-hover:scale-[45]"
+                          />
+            
+                          <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black">
+                            Explore More
+                          </span>
+                          <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+                            <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
+                          </span>
+                        </a>
+          </div>
       </div>
 
-      {/* ✅ Mobile bottom arrows */}
-      <div className="flex justify-between items-center mt-4 px-10 sm:hidden">
-        <button
-          onClick={handlePrev}
-          className="p-3 bg-white/10 border border-gray-700 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="p-3 bg-white/10 border border-gray-700 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
+      
     </section>
   );
 };

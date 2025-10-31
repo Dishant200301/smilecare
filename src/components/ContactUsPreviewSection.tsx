@@ -14,14 +14,12 @@ const ContactUsPreviewSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Set up an interval to change the image every 3 seconds
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 3000); 
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  }, []); 
 
   return (
     <section className="bg-black py-10 px-6">
@@ -49,7 +47,7 @@ const ContactUsPreviewSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl">
               <h2 className="font-HindMadurai font-medium gradient-text leading-tight text-white">
                 Contact us to a free
               </h2>
@@ -57,17 +55,11 @@ const ContactUsPreviewSection: React.FC = () => {
             <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl gradient-text font-InstrumentSerif italic text-white">
               website for your business.
             </span>
+          <p className="hidden sm:block text-md text-gray-400 mt-2 leading-relaxed max-w-md">
+              We are here to help you with your business website and web application development.
+            </p>
           </motion.div>
-          <motion.p 
-            className="text-lg text-gray-300 mb-8 max-w-lg mx-auto md:mx-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Let us help you kickstart your online presence with a powerful and
-            effective landing page tailored to your needs.
-          </motion.p>
+         
           <motion.div 
             className="w-full flex justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
@@ -79,7 +71,7 @@ const ContactUsPreviewSection: React.FC = () => {
             href="/contact"
               onClick={() => console.log("Contact Us button clicked")}
               className="group relative inline-flex items-center justify-between border border-gray-500
-                         text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden
+                         text-white font-semibold pl-4 pr-14 py-3 rounded-full overflow-hidden
                          transition-all duration-200 ease-out focus:outline-none"
             >
               <span
@@ -88,8 +80,8 @@ const ContactUsPreviewSection: React.FC = () => {
                            transition-transform duration-700 ease-in-out group-hover:scale-[45]"
               />
               <span
-                className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black"
-                style={{ fontFamily: "inter", animationDelay: "0.2s" }}
+                className="relative z-20 transition-colors font-HindMadurai duration-700 ease-in-out group-hover:text-black"
+                style={{ animationDelay: "0.2s" }}
               >
                 Contact Us
               </span>
@@ -102,10 +94,10 @@ const ContactUsPreviewSection: React.FC = () => {
 
         {/* Right Half: Image Slideshow - Animates from Right */}
         <motion.div
-          initial={{ x: 100, opacity: 0 }} // Starts 100px to the right, invisible
-          whileInView={{ x: 0, opacity: 1 }} // Moves to original position, fully visible
-          transition={{ duration: 0.8, delay: 0.4 }} // Smooth transition with a slightly longer delay
-          viewport={{ once: true, amount: 0.3 }} // Animates once when 30% of element is in view
+          initial={{ x: 100, opacity: 0 }} 
+          whileInView={{ x: 0, opacity: 1 }} 
+          transition={{ duration: 0.8, delay: 0.4 }} 
+          viewport={{ once: true, amount: 0.3 }} 
           className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-lg
                      border border-slate-700/50 flex-shrink-0"
         >

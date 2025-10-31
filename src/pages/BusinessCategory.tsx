@@ -194,11 +194,11 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
         {/* Hero Section */}
         <section className="pt-[170px] mb-16">
         <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our {" "}
              <span className="font-InstrumentSerif italic gradient-text">Expertise</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
               Discover our comprehensive range of digital solutions designed to
               transform your business and drive growth in the modern world.
             </p>

@@ -101,15 +101,13 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className="relative z-20 flex flex-col items-center justify-center text-center p-4  ">
-              <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-HindMadurai font-medium leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-5xl font-HindMadurai font-medium leading-tight">
                 Our Premium{" "}
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl gradient-text font-InstrumentSerif italic text-white">
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-5xl gradient-text font-InstrumentSerif italic text-white">
                   business services
                 </span>
               </h2>
-              <p className="text-md sm:text-5xl md:text-2xl lg:text-2xl font-hindmadurai text-gray-400">
-                Transform your business with smart digital solutions.
-              </p>
+              
             </div>
           </motion.div>
 
@@ -179,7 +177,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             <a
               href="/business-category"
               className="group relative inline-flex items-center justify-between border border-gray-500 
-                              text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
+                              text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
                               transition-all duration-200 ease-out"
             >
               <span
@@ -188,7 +186,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
               />
 
               <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black">
-                Explore All Business
+                Explore More
               </span>
               <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
                 <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />

@@ -79,11 +79,11 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Connect <span className="font-InstrumentSerif italic">Us</span>
             </h1>
 
-              <p className="text-lg md:text-xl text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
               Have questions, ideas, or feedback? Reach out today, and let’s
               collaborate to create something meaningful, impactful, and truly
               great together.
@@ -92,7 +92,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="relative py-16 md:py-6">
+        <section className="relative py-8 md:py-6">
           <motion.div
             className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
             initial={{ opacity: 0, y: 40 }}
@@ -213,7 +213,7 @@ const Contact = () => {
                   <div className="flex justify-center mt-6">
                     <button
                       type="submit"
-                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold font-HindMadurai pl-6 pr-14 py-4 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
+                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold font-HindMadurai pl-4 pr-14 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
                     >
                       <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[white] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
                       <span className="relative z-20 group-hover:text-black">
@@ -263,7 +263,7 @@ const Contact = () => {
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                    transition={{ delay: i * 0, duration: 0.5, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}
                     className="group flex items-start gap-4 bg-[#0c0c0c] hover:bg-[#0d0d0d] border border-zinc-800 text-white hover:text-[white] hover:shadow-lg hover:shadow-[white]/20 p-6 rounded-2xl shadow-md transition-all duration-300"
                   >

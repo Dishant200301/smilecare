@@ -263,7 +263,7 @@ export const productDetailData = {
     heroImage:
       "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
     heroDescription:
-      "Automate your calls with AI technology. Generate thousands of professional calls, track calls, and manage finances effortlessly.",
+      "Automate your calls with AI technology. Generate thousands of professional calls, track calls, and manage finances effortlessly successfully.",
     features: [
       {
         icon: Phone,

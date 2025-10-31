@@ -71,18 +71,21 @@ const ServiceDetail = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
+                className="text-center lg:text-left"
               >
-                <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2">
                   {title}{" "}
-                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                  <span className="font-InstrumentSerif italic">
+                    {subtitle}
+                  </span>
                 </h1>
-                <p className="text-xl text-gray-400 max-w-3xl leading-relaxed mb-10 font-HindMadurai">
+                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5">
                   {heroDescription}
                 </p>
                 <a
                   href="/contact"
                   className="group relative inline-flex items-center justify-between border border-gray-700 
-                   text-white font-semibold pl-6 pr-14 py-4 rounded-full overflow-hidden 
+                   text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
                    transition-all duration-500 ease-in-out hover:border-[white]"
                 >
                   <span
@@ -187,10 +190,10 @@ const ServiceDetail = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
-                Considerable{" "}
-                <span className="font-InstrumentSerif italic text-white">Benefits</span>
-              </h2>
+            <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6 text-center lg:text-left ">
+                Considerable {" "}
+                <span className="font-InstrumentSerif italic">Benefits</span>
+            </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {benefits.map((b, i) => (
                   <motion.div
@@ -199,7 +202,7 @@ const ServiceDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}
-                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-white/30 transition-all duration-300"
+                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 shadow-lg hover:shadow-white/20 transition-all duration-300"
                   >
                     <CheckCircle className="w-6 h-6 text-white flex-shrink-0 mt-1" />
                     <span className="text-gray-400 font-HindMadurai">{b}</span>
@@ -209,17 +212,17 @@ const ServiceDetail = () => {
             </motion.div>
 
             {/* Metrics */}
-            <motion.div
+             <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true, amount: 0.3 }}
-              className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-white/20 transition-all duration-300"
+              className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[white]/20 transition"
             >
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                 Considerable{" "}
-                <span className="font-InstrumentSerif italic text-white">Metrics</span>
-              </h3>
+                <span className="font-InstrumentSerif italic">Metrics</span>
+            </h2>
               <div className="space-y-6">
                 {metrics.map((m, i) => (
                   <motion.div

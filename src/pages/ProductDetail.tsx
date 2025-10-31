@@ -74,33 +74,33 @@ const ProductDetail = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 className="text-center lg:text-left"
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+               <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2">
                   {title}{" "}
-                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                  <div className="flex items-center justify-center lg:justify-start">
+                    <span className="font-InstrumentSerif italic">{subtitle}</span>
+                  </div>
                 </h1>
-                <p className="text-xl text-gray-400 max-w-3xl leading-relaxed mb-10 font-HindMadurai mx-auto lg:mx-0">
+                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto lg:mx-0 mb-5">
                   {heroDescription}
                 </p>
-                <div className="flex justify-center lg:justify-start">
                   <a
-                    href="/contact"
-                    className="group relative inline-flex items-center justify-between border border-gray-700 
-                     text-white font-semibold font-HindMadurai pl-6 pr-14 py-4 rounded-full overflow-hidden 
-                     transition-all duration-500 ease-in-out hover:border-[white]"
-                  >
-                    <span
-                      className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                     w-9 h-9 rounded-full bg-[white] text-black z-10 
-                     transition-transform duration-500 ease-in-out group-hover:scale-[45]"
-                    />
-                    <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
-                      Get Started
-                    </span>
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                      <ArrowRight className="w-5 h-5 text-black" />
-                    </span>
-                  </a>
-                </div>
+                  href="/contact"
+                  className="group relative inline-flex items-center justify-between border border-gray-700 
+                 text-white font-semibold font-HindMadurai pl-6 pr-14 py-3 rounded-full overflow-hidden 
+                 transition-all duration-500 ease-in-out hover:border-[white]"
+                >
+                  <span
+                    className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
+                 w-9 h-9 rounded-full bg-[white] text-black z-10 
+                 transition-transform duration-500 ease-in-out group-hover:scale-[45]"
+                  />
+                  <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
+                    Get Started
+                  </span>
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
+                    <ArrowRight className="w-5 h-5 text-black" />
+                  </span>
+                </a>
               </motion.div>
 
               {/* Hero Image */}
@@ -123,7 +123,7 @@ const ProductDetail = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
+        <section className="pt-10 pb-5 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black ">
           <motion.div
             className="max-w-7xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -190,9 +190,10 @@ const ProductDetail = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-4xl font-HindMadurai gradient-text mb-8">
-                Considerable <span className="font-InstrumentSerif italic">Benefits</span>
-              </h2>
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6 text-center lg:text-left">
+                Considerable {" "}
+                <span className="font-InstrumentSerif italic">Benefits</span>
+            </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {benefits.map((b, i) => (
                   <motion.div
@@ -201,7 +202,7 @@ const ProductDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}
-                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-[white]/30 transition"
+                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 shadow-lg   hover:shadow-white/20 transition"
                   >
                     <CheckCircle className="w-6 h-6 text-[white] flex-shrink-0 mt-1" />
                     <span className="text-gray-400 font-HindMadurai">{b}</span>
@@ -218,9 +219,10 @@ const ProductDetail = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[white]/20 transition"
             >
-              <h3 className="text-3xl font-HindMadurai gradient-text mb-8">
-                Considerable <span className="font-InstrumentSerif italic">Metrics</span>
-              </h3>
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
+                Considerable {" "}
+                <span className="font-InstrumentSerif italic">Metrics</span>
+            </h2>
               <div className="space-y-6">
                 {metrics.map((m, i) => (
                   <motion.div
