@@ -212,7 +212,7 @@ const StatsSection: React.FC = () => {
                       loop
                       autoplay
                       className={`h-full object-contain filter grayscale transition-all duration-500 ease-out 
-                        ${service.title === "SEO Optimization" ? "scale-110 md:scale-150 p-2" : ""}
+                        ${service.title === "SEO Optimization" ? "scale-110 md:scale-150 p-6" : ""}
                         ${service.title === "AI Automation" ? "scale-110 md:scale-150 p-6 -mt-8" : ""}
                         ${service.title === "Web Development" ? "scale-110 md:scale-150 -mt-4" : ""}
                         ${service.title === "Custom ERP Solutions" ? "scale-110 md:scale-150 p-8 " : ""}
