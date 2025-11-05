@@ -28,13 +28,13 @@ const developmentTeam = [
     name: "Tirth Gabani",
     role: "Full Stack Developer",
     imageUrl:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
+      "/team_member/1Tirth.png",
   },
   {
     name: "Dishant Kasodariya",
     role: "MERN Developer",
     imageUrl:
-      "/team_member/dishant.jpg",
+      "/team_member/dishant.png",
   },
   {
     name: "Ket Vithani",
@@ -46,7 +46,7 @@ const developmentTeam = [
     name: "Senil Patel",
     role: "React Frontend Developer",
     imageUrl:
-      "/team_member/senil.jpg",
+      "/team_member/senil.png",
   },
 ];
 
@@ -67,7 +67,7 @@ const TeamSection = () => {
       <img
         src={member.imageUrl}
         alt={member.name}
-        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out rounded-3xl"
+        className="w-full h-full object-cover filter grayscale bg-white group-hover:grayscale-0 transition-all duration-500 ease-in-out rounded-3xl"
       />
 
       {/* Gradient overlay */}

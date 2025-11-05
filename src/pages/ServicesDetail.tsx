@@ -10,6 +10,7 @@ import HighlightedTitle from "@/components/HighlightedTitle";
 import TestimonialSingleRow from "@/components/TestimonialSingleRow";
 import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
 import { motion } from "framer-motion";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react"; // Import Lottie component
 
 const ServicesDetail = () => {
   const { slug } = useParams();
@@ -26,7 +27,7 @@ const ServicesDetail = () => {
     metaDescription,
     title,
     subtitle,
-    heroImage,
+    lottieSrc, // Changed from heroImage to lottieSrc
     heroDescription,
     features,
     benefits,
@@ -104,20 +105,22 @@ const ServicesDetail = () => {
                 </a>
               </motion.div>
 
-              {/* Hero Image */}
+              {/* Hero Lottie Animation */}
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true, amount: 0.3 }}
-                className="relative w-full aspect-[16/9]"
+                className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden" // Added overflow-hidden to contain Lottie
               >
-                <img
-                  src={heroImage}
-                  alt={title}
-                  className="w-full h-full object-cover rounded-3xl shadow-2xl border border-gray-800"
+                <DotLottieReact
+                  src={lottieSrc} // Use the lottieSrc from service data
+                  loop
+                  autoplay
+                  className="w-full h-full filter grayscale" // Apply grayscale filter and ensure full coverage
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[white]/10 to-transparent rounded-3xl"></div>
+                {/* Overlay for subtle effect, optional */}
+                <div className="absolute inset-0 rounded-3xl"></div>
               </motion.div>
             </div>
           </motion.div>
@@ -153,7 +156,7 @@ const ServicesDetail = () => {
                   border border-gray-800 transition-all duration-300 
                   hover:shadow-2xl hover:shadow-[white]/20 hover:border-[white]/40"
                 >
-                  {f.imageUrl && (
+                  {f.imageUrl && ( // Keep imageUrl for feature cards if needed
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
                         src={f.imageUrl}
@@ -223,7 +226,7 @@ const ServicesDetail = () => {
               </div>
             </motion.div>
 
-           {/* Metrics */}
+            {/* Metrics */}
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -234,7 +237,7 @@ const ServicesDetail = () => {
               <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
                 Considerable {" "}
                 <span className="font-InstrumentSerif italic">Metrics</span>
-            </h2>
+              </h2>
               <div className="space-y-6">
                 {metrics.map((m, i) => (
                   <motion.div

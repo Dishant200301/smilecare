@@ -25,8 +25,8 @@ export const servicesDetailData = {
       "Transform your business with intelligent AI automation solutions. Streamline workflows, reduce costs, and boost productivity.",
     title: "AI",
     subtitle: "Automation",
-    heroImage:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
+    // Changed heroImage to lottieSrc
+    lottieSrc: "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
     heroDescription:
       "Harness the power of artificial intelligence to automate complex business processes, enhance decision-making, and drive innovation across your organization.",
     features: [
@@ -84,8 +84,8 @@ export const servicesDetailData = {
       "Boost your online visibility with expert SEO services. Drive organic traffic and dominate search rankings.",
     title: "SEO",
     subtitle: "Services",
-    heroImage:
-      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800",
+    // Changed heroImage to lottieSrc
+    lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
     heroDescription:
       "Elevate your online presence with comprehensive SEO strategies that drive organic traffic, improve rankings, and maximize ROI more effectively.",
     features: [
@@ -143,8 +143,8 @@ export const servicesDetailData = {
       "Custom web development solutions tailored to your business needs. Responsive, fast, and conversion-focused.",
     title: "Website",
     subtitle: "Development",
-    heroImage:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800",
+    // Changed heroImage to lottieSrc
+    lottieSrc: "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
     heroDescription:
       "Build powerful, scalable websites that deliver exceptional user experiences and drive business growth with cutting-edge technologies.",
     features: [
@@ -202,8 +202,8 @@ export const servicesDetailData = {
       "Creative visual design that brings your brand to life. Logo design, branding, and marketing materials.",
     title: "Graphics",
     subtitle: "Design",
-    heroImage:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800",
+    // Changed heroImage to lottieSrc
+    lottieSrc: "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
     heroDescription:
       "Transform your brand identity with stunning visual designs that captivate audiences and communicate your message effectively successfully.",
     features: [
@@ -261,8 +261,8 @@ export const servicesDetailData = {
       "Enterprise resource planning solutions tailored to your business. Streamline operations and boost efficiency.",
     title: "Custom ERP",
     subtitle: "System",
-    heroImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+    // Changed heroImage to lottieSrc
+    lottieSrc: "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
     heroDescription:
       "Unify your business operations with a custom ERP system designed to optimize workflows, enhance collaboration, and drive growth successfully.",
     features: [
@@ -312,7 +312,6 @@ export const servicesDetailData = {
     ctaButtonLabel: "Get ERP Solution",
     ctaHighlight: "Your Enterprise",
   },
-
 };
 
 // Export array for backward compatibility
