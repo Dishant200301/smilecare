@@ -91,7 +91,7 @@ const About = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-28 md:pt-[170px] relative">
+      <main className="pt-32 md:pt-[170px] pb-20">
         {/* Background Rays */} {/* Hero Section */}
         <motion.section
           className="relative z-10"
@@ -100,29 +100,29 @@ const About = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
-                {" "}
-                About <span className="font-InstrumentSerif italic">Us</span>
-              </h1>
-              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
-                {" "}
-                Empowering small businesses with AI-powered automation
-                solutions. Learn about our mission to transform how businesses
-                operate and grow.
-              </p>
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight md:lg:mb-6 ">
+                  {" "}
+                  About <span className="font-InstrumentSerif italic">Us</span>
+                </h1>
+                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10 hidden sm:block">
+                  {" "}
+                  Empowering small businesses with AI-powered automation
+                  solutions. Learn about our mission to transform how businesses
+                  operate and grow.
+                </p>
+              </div>
             </div>
-          </div>
         </motion.section>
         {/* Values Section */}
-        <section className="py-8 md:py-8 relative z-10">
+        <section className="md:lg:py-8relative z-10">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  className="group border border-border rounded-2xl p-6 bg-[#0c0c0c] md:p-8 text-center transition-all duration-300 hover:border-white/10"
+                  className="group border border-border rounded-2xl p-6 bg-[#131316] md:p-8 text-center transition-all duration-300 hover:border-white/10"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{

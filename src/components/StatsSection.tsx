@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     title: "SEO Optimization",
     description:
-      "Enhance your online visibility with advanced SEO strategies that drive organic traffic and measurable results.",
+      "Enhance your online visibility with advanced SEO strategies that drive organic traffic.",
     bgColorClass: "bg-black",
     lottieSrc:
       "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
@@ -36,7 +36,7 @@ const services: Service[] = [
   {
     title: "AI Automation",
     description:
-      "Leverage intelligent automation to streamline workflows and boost productivity with cutting-edge AI tools among your business processes.using AI technologies.also integrate AI into your existing systems to enhance efficiency and decision-making.",
+      "Leverage intelligent automation to streamline workflows and boost productivity with cutting-edge AI tools.",
     bgColorClass: "bg-black",
     lottieSrc:
       "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
@@ -46,7 +46,7 @@ const services: Service[] = [
   {
     title: "Web Development",
     description:
-      "Craft fast, responsive, and engaging websites tailored to your brand's vision and user experience goals.",
+      "Craft fast, responsive, and engaging websites tailored to your brand's vision.",
     bgColorClass: "bg-black",
     lottieSrc:
       "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
@@ -56,7 +56,7 @@ const services: Service[] = [
   {
     title: "Custom ERP Solutions",
     description:
-      "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management and customer relationship management.",
+      "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management.",
     bgColorClass: "bg-black",
     lottieSrc:
       "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
@@ -66,7 +66,7 @@ const services: Service[] = [
   {
     title: "Graphics Design",
     description:
-      "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively and help you stand out in the market",
+      "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively.",
     bgColorClass: "bg-black",
     lottieSrc:
       "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
@@ -111,22 +111,22 @@ const StatsSection: React.FC = () => {
                   <ArrowRight className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-grow ">
-                  {/* Ensure icon color is white for contrast */}
-                  <h3 className="text-2xl font-semibold text-white mt-10">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-gray-400">{service.description}</p>
-                  {/* 🔹 Hide bullets on mobile */}
-                  {service.bullets && (
-                    <ul className="mt-3 text-gray-400 hidden lg:block">
-                      {service.bullets.map((bullet, idx) => (
-                        <li key={idx} className="list-disc ml-5">
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                    {/* Ensure icon color is white for contrast */}
+                    <h3 className="text-2xl font-semibold text-white mt-10">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-gray-400">{service.description}</p>
+                    {/* 🔹 Show bullets only on desktop */}
+                    {service.bullets && (
+                      <ul className="mt-3 text-gray-400 block">
+                        {service.bullets.map((bullet, idx) => (
+                          <li key={idx} className="list-disc ml-5">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 {/* Replaced img with motion.div containing DotLottieReact */}
                 <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-5">
                   <motion.div

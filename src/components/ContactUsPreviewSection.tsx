@@ -25,7 +25,7 @@ const ContactUsPreviewSection: React.FC = () => {
     <section className="bg-black py-10 px-6">
       <motion.div
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
-                   bg-[#0d0d0d] rounded-3xl p-6 md:p-12 border border-slate-700/50
+                   bg-[#131316] rounded-3xl p-6 md:p-12 border border-slate-700/50
                    shadow-xl hover:shadow-white/20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

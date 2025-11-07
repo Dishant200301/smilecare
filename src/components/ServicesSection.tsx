@@ -51,7 +51,7 @@ const services = [
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Fsb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
     category: "Beauty",
     title: "Salons & Spa",
     description:

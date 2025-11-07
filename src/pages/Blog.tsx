@@ -54,7 +54,7 @@ const Blogs: React.FC = () => {
                 Our Latest{" "}
                 <span className="font-InstrumentSerif italic gradient-text">Articles</span>
               </h1>
-              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10 hidden sm:block">
                 Stay informed with expert insights, tips, and guides on AI automation
                 and business intelligence solutions.
               </p>
@@ -70,7 +70,7 @@ const Blogs: React.FC = () => {
                   placeholder="Search articles, topics, or authors..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:bg-white/10 transition-all"
+                  className="w-full pl-14 pr-6 py-4 bg-[#131316] border border-white/10 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:bg-white/10 transition-all"
                 />
               </div>
             </div>

@@ -178,12 +178,12 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[white] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[white] transition-colors duration-300">
                     {product.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed mb-6">{product.description}</p>
                   {/* Sub Features */}
-                  {product.subFeatures && (
+                  {/* {product.subFeatures && (
                     <ul className="text-gray-400 text-sm space-y-2 mb-6">
                       {product.subFeatures.map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2">
@@ -192,9 +192,9 @@ const Products: React.FC<ProductsProps> = ({ limit }) => {
                         </li>
                       ))}
                     </ul>
-                  )}
+                  )} */}
                   <div className="flex items-center gap-2 text-[white] font-semibold transition-all duration-300">
-                    <span>Learn More</span>
+                    <span>Explore Product</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>

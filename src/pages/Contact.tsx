@@ -69,7 +69,7 @@ const Contact = () => {
 
       <Navbar />
 
-      <main className="pt-28 md:pt-[170px]">
+      <main className="pt-32 md:pt-[170px] pb-20">
         {/* Hero */}
         <section className="">
           <motion.div
@@ -79,11 +79,11 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight md:mb-6 lg:mb-6">
               Connect <span className="font-InstrumentSerif italic">Us</span>
             </h1>
 
-              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10 hidden sm:block">
               Have questions, ideas, or feedback? Reach out today, and let’s
               collaborate to create something meaningful, impactful, and truly
               great together.
@@ -92,7 +92,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="relative py-8 md:py-6">
+        <section className="relative pt-8 md:py-6">
           <motion.div
             className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
             initial={{ opacity: 0, y: 40 }}

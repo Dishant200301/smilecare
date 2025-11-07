@@ -13,8 +13,15 @@ import {
   DollarSign,
   Globe,
   Sparkles,
-  CheckCircle,
   Phone,
+  Package,
+  Settings, // Added for ERP features
+  Workflow, // Added for ERP features
+  Layers, // Added for ERP features
+  Award, // Added for SEO features
+  Search, // Added for SEO features
+  MessageSquare, // Added for AI Calling features
+  Headphones, // Already present, but good to ensure
 } from "lucide-react";
 
 export const productDetailData = {
@@ -24,59 +31,81 @@ export const productDetailData = {
     metaDescription:
       "Complete enterprise resource planning solution to streamline business operations, inventory, and financial management.",
     title: "AsignIT ERP",
-    subtitle: "Enterprise Solution",
-    heroImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+    subtitle: "Solution",
+    lottieSrc: "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
     heroDescription:
       "Transform your business operations with our comprehensive ERP system. Manage inventory, finances, HR, and more from a single unified platform.",
+    // --- Sub Services --- (Already updated from previous iteration)
+    subServices: [
+      {
+        icon: "Database",
+        title: "Centralized Data Management",
+        description: `Unify all business data securely within the platform, enabling real-time access and collaboration for your team. 
+`      },
+      {
+        icon: "Users",
+        title: "HR & Employee Management",
+        description: `Streamline onboarding and performance reviews efficiently, automating payroll and attendance tracking for accuracy. 
+`      },
+      {
+        icon: "DollarSign",
+        title: "Financial Accounting",
+        description: `Automate invoicing and expense management with support for multi-currency transactions and precise tax calculations. 
+`      },
+      {
+        icon: "Package",
+        title: "Inventory & Supply Chain",
+        description: `Track stock levels in real-time with intelligent reorder alerts and automating purchase orders effortlessly. 
+`      },
+      {
+        icon: "BarChart3",
+        title: "Reporting & Analytics",
+        description: `Customize dynamic dashboards to track key performance indicators, scheduling automated reports with easy export options. 
+`      },
+      {
+        icon: "Shield",
+        title: "Security & Compliance",
+        description: `Implement robust role-based access controls to safeguard sensitive information and hosting securely in the cloud. 
+`      }
+    ],
+    // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: Database,
-        title: "Centralized Data",
-        description: "Single source of truth for all business information",
-        imageUrl:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+        icon: "Database", // Still for "Why Choose Us"
+        title: "Why Choose Us for AsignIT ERP",
+        description:
+          "Empower your enterprise with a scalable ERP solution that integrates seamlessly and delivers measurable ROI from day one.",
+        points: [
+          "Reduce operational costs by 40%.",
+          "Improve decisions with real-time data.",
+          "Streamline departmental workflows efficiently.",
+          "Scale seamlessly as business grows."
+        ]
+      },
+      // --- New "Our Features" for AsignIT ERP ---
+      {
+        icon: "Settings", // Example icon for "Complete ERP Solution"
+        title: "Complete ERP Solution",
+        description: `A fully integrated suite covering all aspects of your business, from finance and HR to supply chain and customer relations, ensuring seamless operations.`,
       },
       {
-        icon: BarChart3,
-        title: "Real-time Analytics",
-        description: "Instant insights into business performance",
-        imageUrl:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600",
+        icon: "Workflow",
+        title: "Customizable Workflows",
+        description: `Tailor processes to match your unique business requirements, automating tasks and approvals for enhanced efficiency and control.`,
       },
       {
-        icon: Users,
-        title: "HR Management",
-        description: "Complete payroll and employee management",
-        imageUrl:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600",
-      },
-      {
-        icon: DollarSign,
-        title: "Financial Accounting",
-        description: "Advanced accounting and financial reporting",
-        imageUrl:
-          "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600",
+        icon: "Layers",
+        title: "Modular & Scalable Design",
+        description: `Start with essential modules and expand as your business grows, ensuring the system adapts to evolving needs without disruption. and control.`,
       },
     ],
-    benefits: [
-      "Reduce operational costs by 40%",
-      "Improve decision-making with real-time data",
-      "Streamline workflows across departments",
-      "Scale seamlessly as business grows",
-    ],
-    metrics: [
-      { label: "Cost Reduction", value: "-40%" },
-      { label: "Productivity", value: "+65%" },
-      { label: "Data Accuracy", value: "+95%" },
-    ],
-    ctaIcon: Database,
+    // --- CTA Section ---
+    ctaIcon: "Database",
     ctaTitle: "Transform Your Enterprise Operations",
     ctaDescription: "Join leading businesses using our ERP solution.",
     ctaButtonLabel: "Start Free Trial",
-    ctaHighlight: "Enterprise Operations",
+    ctaHighlight: "Enterprise Operations"
   },
-
   "bulk-email-automation": {
     slug: "bulk-email-automation",
     metaTitle: "Bulk Email Automation | TryzenIQ",
@@ -84,58 +113,80 @@ export const productDetailData = {
       "Powerful email automation platform for personalized campaigns, automated workflows, and detailed analytics.",
     title: "Email Automation",
     subtitle: "Marketing Platform",
-    heroImage:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
+    lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
     heroDescription:
       "Scale your email marketing with intelligent automation. Send personalized campaigns to thousands of customers with advanced segmentation and tracking.",
+    // --- Sub Services ---
+    subServices: [
+      {
+        icon: "Mail",
+        title: "Mass Email Campaigns",
+        description: `Send high-volume emails with 99.9% deliverability rates, personalizing dynamic content to resonate with each recipient. 
+`      },
+      {
+        icon: "Zap",
+        title: "Automated Workflows",
+        description: `Trigger personalized emails along key user journeys, from welcome series to cart abandonment reminders. 
+`      },
+      {
+        icon: "BarChart3",
+        title: "Advanced Analytics",
+        description: `Track opens, clicks, and conversions in real-time, analyzing heatmaps and engagement scores for optimization. 
+`      },
+      {
+        icon: "Users",
+        title: "Audience Segmentation",
+        description: `Create intelligent lists based on behaviors and demographics, performing RFM analysis for precise targeting. 
+`      },
+      {
+        icon: "Globe",
+        title: "Multi-Channel Integration",
+        description: `Extend campaigns to SMS and push notifications, linking with social media and landing pages for broader reach. 
+`      },
+      {
+        icon: "Shield",
+        title: "Security & Deliverability",
+        description: `Authenticate with SPF, DKIM, and DMARC protocols to maximize inbox placement and managing bounces proactively. 
+`      }
+    ],
+    // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: Mail,
-        title: "Mass Email Sending",
-        description: "Send up to 100,000 emails per day",
-        imageUrl:
-          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600",
+        icon: "Mail", // Still for "Why Choose Us"
+        title: "Why Choose Us for Bulk Email Automation",
+        description:
+          "Achieve superior email marketing results with our reliable, scalable platform that prioritizes deliverability and engagement.",
+        points: [
+          "Increase open rates by 35%.",
+          "Save 20+ hours weekly on tasks.",
+          "Improve engagement, customer retention.",
+          "Boost conversions with targeted campaigns."
+        ]
+      },
+      // --- New "Our Features" for Email Automation ---
+      {
+        icon: "Zap", // Example icon for "Automated email campaigns"
+        title: "Email Campaigns",
+        description: `Set up trigger-based emails for welcome sequences, cart abandonment, and re-engagement, delivering messages at the perfect moment.`,
       },
       {
-        icon: Zap,
-        title: "Automated Campaigns",
-        description: "Set up drip campaigns and workflows",
-        imageUrl:
-          "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
+        icon: "TrendingUp",
+        title: "A/B Testing & Optimization",
+        description: `Test different subject lines, content, and calls-to-action to continuously improve campaign performance and maximize engagement.`,
       },
       {
-        icon: BarChart3,
-        title: "Advanced Analytics",
-        description: "Track opens, clicks, and conversions",
-        imageUrl:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
-      },
-      {
-        icon: Users,
-        title: "Smart Segmentation",
-        description: "Target the right audience with precision",
-        imageUrl:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600",
+        icon: "Palette",
+        title: "Drag-and-Drop Email",
+        description: `Create stunning, responsive email templates quickly with an intuitive editor, no coding required, ensuring brand consistency.`,
       },
     ],
-    benefits: [
-      "Increase email open rates by 35%",
-      "Save 20+ hours per week on manual tasks",
-      "Improve customer engagement and retention",
-      "Boost conversion rates with targeted campaigns",
-    ],
-    metrics: [
-      { label: "Open Rates", value: "+35%" },
-      { label: "Time Saved", value: "9+ hrs/week" },
-      { label: "Conversions", value: "+45%" },
-    ],
-    ctaIcon: Mail,
+    // --- CTA Section ---
+    ctaIcon: "Mail",
     ctaTitle: "Scale Your Email Marketing",
     ctaDescription: "Reach more customers with intelligent automation.",
     ctaButtonLabel: "Get Started",
-    ctaHighlight: "Email Marketing",
+    ctaHighlight: "Email Marketing"
   },
-
   "bulk-ai-invoice-generator": {
     slug: "bulk-ai-invoice-generator",
     metaTitle: "Bulk AI Invoice Generator | TryzenIQ",
@@ -143,175 +194,242 @@ export const productDetailData = {
       "AI-powered invoicing system for automated invoice creation, payment tracking, and financial reporting.",
     title: "Invoice Generator",
     subtitle: "Smart Billing",
-    heroImage:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800",
+    lottieSrc: "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
     heroDescription:
       "Automate your invoicing process with AI technology. Generate thousands of professional invoices, track payments, and manage finances effortlessly.",
+    // --- Sub Services ---
+    subServices: [
+      {
+        icon: "FileText",
+        title: "Bulk Invoice Generation",
+        description: `Generate thousands of invoices in seconds using advanced AI, customizing templates to maintain brand all documents. 
+`      },
+      {
+        icon: "Sparkles",
+        title: "AI Data Extraction",
+        description: `Extract key data from receipts and contracts automatically, utilizing OCR technology for even handwritten documents. 
+`      },
+      {
+        icon: "DollarSign",
+        title: "Payment Tracking & Reminders",
+        description: `payment statuses in real-time automatically, sending scheduled reminders for overdue invoices to accelerate collections. 
+`      },
+      {
+        icon: "BarChart3",
+        title: "Financial Reporting",
+        description: `Automate the creation of profit and loss statements, forecasting cash flow and projections with AI-driven precision. 
+`      },
+      {
+        icon: "Users",
+        title: "Client Portal Access",
+        description: `Provide secure online access for clients to view and manage invoices, enabling direct payments and document sharing. 
+`      },
+      {
+        icon: "Shield",
+        title: "Compliance & Security",
+        description: `Encrypt all data during storage and transmission, supporting electronic signatures and streamlined approvals. 
+`      }
+    ],
+    // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: FileText,
-        title: "Bulk Generation",
-        description: "Create 1000+ invoices per hour",
-        imageUrl:
-          "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600",
+        icon: "FileText", // Still for "Why Choose Us"
+        title: "Why Choose Us for Bulk AI Invoice Generator",
+        description:
+          "Streamline your billing operations with AI precision, ensuring accuracy and efficiency at every step of the invoicing process.",
+        points: [
+          "Reduce invoicing time by 90%.",
+          "Minimize billing human errors.",
+          "Get paid faster using reminders.",
+          "Improve cash flow management."
+        ]
+      },
+      // --- New "Our Features" for AI Invoice Generator ---
+      {
+        icon: "Sparkles", // Example icon for "AI-powered invoicing"
+        title: "AI-Powered Invoicing",
+        description: `Leverage artificial intelligence to automate invoice creation, data entry, and categorization, drastically reducing manual effort.`,
       },
       {
-        icon: Sparkles,
-        title: "AI Data Extraction",
-        description: "Automatically extract data from receipts",
-        imageUrl:
-          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
+        icon: "Monitor",
+        title: "Real-time Payment Track",
+        description: `Monitor invoice statuses, receive instant notifications for payments, and automate follow-ups for overdue accounts to maintain healthy cash flow.`,
       },
       {
-        icon: DollarSign,
-        title: "Payment Tracking",
-        description: "Monitor payments and send reminders",
-        imageUrl:
-          "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600",
-      },
-      {
-        icon: Globe,
-        title: "Multi-Currency",
-        description: "Support for 150+ currencies and tax systems",
-        imageUrl:
-          "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600",
+        icon: "Repeat",
+        title: "Recurring Invoice Automation",
+        description: `Set up automated recurring invoices for subscriptions or regular services, saving time and ensuring consistent billing cycles. and control.`,
       },
     ],
-    benefits: [
-      "Reduce invoicing time by 90%",
-      "Minimize human errors in billing",
-      "Get paid faster with automated reminders",
-      "Improve cash flow management",
-    ],
-    metrics: [
-      { label: "Time Saved", value: "-90%" },
-      { label: "Error Reduction", value: "-95%" },
-      { label: "Faster Payments", value: "+60%" },
-    ],
-    ctaIcon: FileText,
+    // --- CTA Section ---
+    ctaIcon: "FileText",
     ctaTitle: "Automate Your Invoicing Process",
     ctaDescription: "Generate professional invoices at scale with AI.",
     ctaButtonLabel: "Try It Free",
-    ctaHighlight: "Invoicing Process",
+    ctaHighlight: "Invoicing Process"
   },
-
   "ai-blog-seo-automation": {
     slug: "ai-blog-seo-automation",
     metaTitle: "AI Blog SEO Automation | TryzenIQ",
     metaDescription:
       "Intelligent content optimization platform using AI to generate SEO-friendly blog posts and boost search rankings.",
-    title: "AI Blog SEO ",
+    title: "AI Blog SEO",
     subtitle: "Content Automation",
-    heroImage:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
+    lottieSrc: "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
     heroDescription:
       "Create and optimize SEO-friendly content at scale. Our AI-powered platform generates high-quality blog posts, optimizes for search engines, and tracks performance.",
+    // --- Sub Services ---
+    subServices: [
+      {
+        icon: "PenTool",
+        title: "AI Content Creation",
+        description: `Generate complete blog posts from simple outlines, customizing tone and style to perfectly align with your brand voice. 
+`      },
+      {
+        icon: "TrendingUp",
+        title: "SEO Keyword Research",
+        description: `Discover high-volume, low-competition keywords through in-depth analysis, identifying gaps in competitor strategies. 
+`      },
+      {
+        icon: "BarChart3",
+        title: "Performance Analytics",
+        description: `Track search rankings and traffic growth in real-time, monitoring backlinks and uncovering new opportunities. 
+`      },
+      {
+        icon: "Edit3",
+        title: "On-Page Optimization",
+        description: `Auto-generate optimized meta tags, headers, and alt text, suggesting strategic internal linking for better site authority. 
+`      },
+      {
+        icon: "Globe",
+        title: "Multi-Language Support",
+        description: `Translate and localize content for global audiences, adding hreflang tags to enhance international SEO performance. 
+`      },
+      {
+        icon: "Sparkles",
+        title: "Content Enhancement",
+        description: `Suggest complementary images and videos to enrich posts, adding engaging hooks and strategic CTAs for higher conversions. 
+`      }
+    ],
+    // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: PenTool,
-        title: "AI Content Generation",
-        description: "Generate SEO-optimized blog posts automatically",
-        imageUrl:
-          "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600",
+        icon: "PenTool", // Still for "Why Choose Us"
+        title: "Why Choose Us for AI Blog SEO Automation",
+        description:
+          "Supercharge your content strategy with AI that creates, optimizes, and analyzes for maximum SEO impact and audience growth.",
+        points: [
+          "Increase organic traffic by 150%.",
+          "Publish 10x more content faster.",
+          "Improve search engine rankings.",
+          "Reduce creation costs by 60%."
+        ]
+      },
+      // --- New "Our Features" for AI Blog SEO Automation ---
+      {
+        icon: "Award", // Example icon for "Automated content optimization"
+        title: "Content Optimization",
+        description: `AI-driven recommendations ensure your content is fully optimized for search engines, improving visibility and ranking potential.`,
       },
       {
-        icon: TrendingUp,
-        title: "Keyword Research",
-        description: "Find high-value keywords for your niche",
-        imageUrl:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600",
+        icon: "Search",
+        title: "Real-time SEO Insights",
+        description: `Get instant feedback on keyword usage, readability, and content structure, allowing for on-the-fly improvements to boost SEO performance.`,
       },
       {
-        icon: BarChart3,
-        title: "Performance Tracking",
-        description: "Monitor rankings and traffic growth",
-        imageUrl:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
-      },
-      {
-        icon: Clock,
-        title: "Auto Publishing",
-        description: "Schedule and publish content automatically",
-        imageUrl:
-          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600",
+        icon: "Code",
+        title: "Schema Markup Generation",
+        description: `Automatically generate structured data (schema markup) for your blog posts to enhance rich snippets and improve click-through rates.`,
       },
     ],
-    benefits: [
-      "Increase organic traffic by 150%",
-      "Publish 10x more content in less time",
-      "Improve search engine rankings",
-      "Reduce content creation costs by 60%",
-    ],
-    metrics: [
-      { label: "Organic Traffic", value: "+150%" },
-      { label: "Content Output", value: "10x more" },
-      { label: "Cost Reduction", value: "-60%" },
-    ],
-    ctaIcon: PenTool,
+    // --- CTA Section ---
+    ctaIcon: "PenTool",
     ctaTitle: "Boost Your Content Marketing",
     ctaDescription: "Create SEO-optimized content that ranks and converts.",
     ctaButtonLabel: "Start Creating",
-    ctaHighlight: "Content Marketing",
+    ctaHighlight: "Content Marketing"
   },
   "ai-calling-automation": {
     slug: "ai-calling-automation",
-    metaTitle: "Calling Automation | TryzenIQ",
+    metaTitle: "AI Calling Automation | TryzenIQ",
     metaDescription:
-      "Intelligent calling platform using AI to automate calls and improve customer engagement.",
-    title: "Calling Automation",
-    subtitle: "Smart Calling",
-    heroImage:
-      "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+      "Revolutionary AI-powered voice automation for outbound calls, customer support, and sales engagement at scale.",
+    title: "AI Calling",
+    subtitle: "Voice Automation",
+    lottieSrc: "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
     heroDescription:
-      "Automate your calls with AI technology. Generate thousands of professional calls, track calls, and manage finances effortlessly successfully.",
+      "Revolutionize your communication strategy with AI-driven calling. Automate outbound sales calls, provide 24/7 customer support, and personalize interactions using advanced voice AI.",
+    // --- Sub Services ---
+    subServices: [
+      {
+        icon: "Phone",
+        title: "Automated Outbound Calling",
+        description: `Execute thousands of scheduled calls daily, personalizing scripts with customer-specific data for relevance. 
+`      },
+      {
+        icon: "Zap",
+        title: "Intelligent IVR & Routing",
+        description: `Recognize natural voice commands for intuitive menu navigation, analyzing sentiment to route calls by priority. 
+`      },
+      {
+        icon: "BarChart3",
+        title: "Call Analytics & Transcription",
+        description: `Transcribe calls with 100% accuracy in real-time, tracking success rates and conversion metrics for optimization. 
+`      },
+      {
+        icon: "Headphones",
+        title: "Customer Support Automation",
+        description: `Deliver 24/7 self-service voice assistance for resolving FAQs and troubleshooting common issues efficiently. 
+`      },
+      {
+        icon: "Users",
+        title: "Sales Engagement",
+        description: `Nurture leads through personalized voice interactions, handling objections with intelligent AI responses. 
+`      },
+      {
+        icon: "Shield",
+        title: "Compliance & Security",
+        description: `Adhere strictly to TCPA and DNC regulations, encrypting all call recordings and storage for utmost security. 
+`      }
+    ],
+    // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: Phone,
-        title: "Bulk Calling",
-        description: "Send up to 100,000 calls per day",
-        imageUrl:
-          "https://images.unsplash.com/photo-1516055619834-586f8c75d1de?w=600",
+        icon: "Phone", // Still for "Why Choose Us"
+        title: "Why Choose Us for AI Calling Automation",
+        description:
+          "Elevate your customer interactions with scalable, intelligent voice AI that delivers human-like conversations and measurable results.",
+        points: [
+          "Boost connection rates by 70%.",
+          "Reduce call costs by 80%.",
+          "Enhance satisfaction with 24/7 availability.",
+          "Scale outreach without headcount increase."
+        ]
+      },
+      // --- New "Our Features" for AI Calling Automation ---
+      {
+        icon: "Bot", // Example icon for "AI-powered calling"
+        title: "AI-Powered Calling",
+        description: `Utilize advanced AI voices to conduct natural, conversational calls for sales, support, and surveys, at unparalleled scale. and control.`,
       },
       {
-        icon: Sparkles,
-        title: "AI Data Extraction",
-        description: "Automatically extract data from calls",
-        imageUrl:
-          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
+        icon: "MessageSquare",
+        title: "Sentiment Analysis",
+        description: `AI analyzes customer sentiment during calls, allowing for dynamic script adjustments and prioritization of urgent cases for human agents.`,
       },
       {
-        icon: DollarSign,
-        title: "Payment Tracking",
-        description: "Monitor payments and send reminders",
-        imageUrl:
-          "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600",
-      },
-      {
-        icon: Globe,
-        title: "Multi-Currency",
-        description: "Support for 150+ currencies and tax systems",
-        imageUrl:
-          "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600",
+        icon: "UserCheck",
+        title: "CRM Integration",
+        description: `Seamlessly integrate with your existing CRM to log call details, update customer profiles, and ensure consistent data across platforms.`,
       },
     ],
-    benefits: [
-      "Increase call open rates by 35%",
-      "Save 20+ hours per week on manual tasks",
-      "Improve customer engagement and retention",
-      "Boost conversion rates with targeted campaigns",
-    ],
-    metrics: [
-      { label: "Open Rates", value: "+35%" },
-      { label: "Time Saved", value: "20+ hrs/week" },
-      { label: "Conversions", value: "+45%" },
-    ],
-    ctaIcon: Phone,
-    ctaTitle: "Automate Your Calls",
-    ctaDescription: "Generate professional calls at scale with AI.",
-    ctaButtonLabel: "Try It Free",
-    ctaHighlight: "Calls",
+    // --- CTA Section ---
+    ctaIcon: "Phone",
+    ctaTitle: "Automate Your Voice Communications",
+    ctaDescription: "Engage customers at scale with intelligent AI calling.",
+    ctaButtonLabel: "Start Calling",
+    ctaHighlight: "Voice Communications"
   },
 };
 
-// Export array for backward compatibility
 export const productsDetail = Object.values(productDetailData);

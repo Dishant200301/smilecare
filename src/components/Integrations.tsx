@@ -1,5 +1,5 @@
 import React from "react";
-import LogoItem from "./LogoItem";
+import LogoItem from "./LogoItem"; // Assuming LogoItem.tsx handles individual logo display
 import { motion } from "framer-motion";
 
 interface Logo {
@@ -7,7 +7,8 @@ interface Logo {
   alt: string;
 }
 
-const uniqueLogos: Logo[] = [
+const allUniqueLogos: Logo[] = [
+  // --- Existing Logos (12) ---
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1024px-Google_Sheets_logo_%282014-2020%29.svg.png",
     alt: "Google Sheets",
@@ -29,15 +30,15 @@ const uniqueLogos: Logo[] = [
     alt: "Slack",
   },
   {
-    src: "/image/gemini2.png",
-    alt: "Gemini",
+    src: "/image/Framer.png",
+    alt: "Framer",
   },
   {
-    src: "/image/openai3.png",
+    src: "/image/openai3.png", // Local asset
     alt: "OpenAI",
   },
   {
-    src: "/image/gmail.png",
+    src: "/image/gmail.png", // Local asset
     alt: "Gmail",
   },
   {
@@ -56,13 +57,40 @@ const uniqueLogos: Logo[] = [
     src: "https://cdn.worldvectorlogo.com/logos/jira-1.svg",
     alt: "Jira",
   },
+  // --- New Logos (6) ---
+  {
+    src: "/image/Claude.png",
+    alt: "Claude AI",
+  },
+  {
+    src: "/image/Grok.png", // Using Grok's official SVG
+    alt: "Grok",
+  },
+  {
+    src: "/image/Copilot.png",
+    alt: "Microsoft Copilot",
+  },
+  {
+    src: "/image/Xai.png",
+    alt: "xAI",
+  },
+  {
+    src: "/image/gemini2.png", // Local asset
+    alt: "Gemini",
+  },
+  {
+    src: "/image/Google_ai_studio_logo.png",
+    alt: "Google AI Studio",
+  },
 ];
 
+// Marquee component remains the same, it will duplicate the received logo array for infinite scroll
 const Marquee: React.FC<{
   logos: Logo[];
   animationClass: string;
 }> = ({ logos, animationClass }) => {
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  // We duplicate the logos multiple times to ensure a smooth, continuous loop
+  const duplicatedLogos = [...logos, ...logos, ...logos]; 
 
   return (
     <div
@@ -81,9 +109,10 @@ const Marquee: React.FC<{
 };
 
 const IntegrationsSection: React.FC = () => {
-  const row1Logos = uniqueLogos;
-  const row2Logos = [...uniqueLogos.slice(5), ...uniqueLogos.slice(0, 5)];
-  const row3Logos = [...uniqueLogos.slice(10), ...uniqueLogos.slice(0, 10)];
+  // Divide the 18 unique logos into three distinct sets of 6
+  const row1Logos = allUniqueLogos.slice(0, 6);      // Logos 1-6
+  const row2Logos = allUniqueLogos.slice(6, 12);     // Logos 7-12
+  const row3Logos = allUniqueLogos.slice(12, 18);    // Logos 13-18
 
   return (
     <section className="text-white py-10 bg-black">
@@ -92,7 +121,7 @@ const IntegrationsSection: React.FC = () => {
           className="text-center mb-6 text-[#d5dbe6]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-5xl font-HindMadurai font-medium leading-tight">
@@ -101,24 +130,26 @@ const IntegrationsSection: React.FC = () => {
               Integrations
             </span>
           </h2>
-         
         </motion.div>
 
         <motion.div
           className="w-full flex flex-col gap-3 mt-2"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 0.2, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true, amount: 0.2 }}
         >
+          {/* First line: 6 unique logos, scrolling left slowly */}
           <Marquee
             logos={row1Logos}
             animationClass="animate-marquee-left-slow"
           />
+          {/* Second line: 6 other unique logos, scrolling right at medium speed */}
           <Marquee
             logos={row2Logos}
             animationClass="animate-marquee-right-medium"
           />
+          {/* Third line: the last 6 unique logos, scrolling left quickly */}
           <Marquee
             logos={row3Logos}
             animationClass="animate-marquee-left-fast"

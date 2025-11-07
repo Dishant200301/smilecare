@@ -101,20 +101,6 @@ const services = [
     ],
   },
   {
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkesjGaPt3CIiJhoOS21uL5lXWcxAFSYXXw&s",
-    category: "Real Estate",
-    title: "Roofing, Solar, Pools",
-    description: "",
-    link: "/business-category/roofing-solar-pools",
-    subServices: [
-      "Smart outreach & follow-ups",
-      "Lead-generating website",
-      "Reputation management",
-      "Site visit reminders",
-      "Verified local leads",
-    ],
-  },
-  {
     imageUrl: "https://media.istockphoto.com/id/1827291486/photo/a-dedicated-mentor-is-explaining-mentees-importance-of-project-while-sitting-at-the-boardroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=3PCse04HxmDXn6LsY1MuQsh01AflW_wR0jwF4tYZ8QY=",
     category: "",
     title: "Any Business",

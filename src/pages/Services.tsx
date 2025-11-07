@@ -205,7 +205,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                   </p>
                   
                   {/* Sub Services */}
-                  {service.subServices && (
+                  {/* {service.subServices && (
                     <ul className="text-gray-400 text-sm space-y-2 mb-6">
                       {service.subServices.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
@@ -214,7 +214,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                         </li>
                       ))}
                     </ul>
-                  )}
+                  )} */}
                   
                   <div className="flex items-center gap-2 text-white font-semibold transition-all duration-300 group-hover:gap-3">
                     <span>Explore Service</span>

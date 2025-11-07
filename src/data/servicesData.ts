@@ -551,6 +551,180 @@ export const servicesData = {
     ctaButtonLabel: "Start Trial",
     ctaHighlight: "Financial Services",
   },
+  "cleaning-services": {
+    slug: "cleaning-services",
+    metaTitle: "Cleaning Services Automation TryzenIQ",
+    metaDescription:
+      "Automate scheduling, client management, and service delivery for cleaning businesses.",
+    title: "Cleaning Services",
+    subtitle: "Service Automation",
+    heroImage:
+      "https://thumbs.dreamstime.com/b/portrait-man-cleaning-equipment-cleaning-house-30014330.jpg",
+    heroDescription:
+      "Streamline your cleaning business with AI-powered scheduling, client management, and service optimization.",
+    features: [ 
+      {
+        icon: CalendarIcon,
+        title: "Smart Scheduling",
+        description: "Optimize cleaning appointments for efficiency",
+        imageUrl:
+          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600",
+      },
+      {
+        icon: Users,
+        title: "Client Management",
+        description: "Track service history and preferences",
+        imageUrl:
+          "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600",
+      },
+      { 
+        icon: BarChartIcon,
+        title: "Service Analytics",
+        description: "Monitor performance and customer satisfaction", 
+        imageUrl:
+          "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600",
+      },  
+      {
+        icon: MessageSquare,
+        title: "Automated Communication", 
+        description: "Send reminders and follow-ups automatically",
+        imageUrl:
+          "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600",
+      },
+    ],
+    benefits: [
+      "Increase bookings by 75%",
+      "Reduce no-shows by 60%",
+      "Boost client retention by 70%",
+      "Save 10+ hours per week",
+    ],
+    metrics: [
+      { label: "Booking Increase", value: "+75%" },
+      { label: "No-Show Reduction", value: "-60%" },
+      { label: "Client Retention", value: "+70%" },
+    ],
+    ctaIcon: Home,
+    ctaTitle: "Revolutionize Your Cleaning Business",
+    ctaDescription: "Enhance efficiency and customer satisfaction with automation.",
+    ctaButtonLabel: "Start Trial",
+    ctaHighlight: "Cleaning Business",
+  },  
+  "any-business": {
+    slug: "any-business",
+    metaTitle: "Universal Business Automation TryzenIQ",    
+    metaDescription:
+      "AI-powered automation solutions for any business type to streamline operations and boost efficiency.",
+    title: "Any Business",
+    subtitle: "Universal Automation",
+    heroImage:
+     "https://media.istockphoto.com/id/1827291486/photo/a-dedicated-mentor-is-explaining-mentees-importance-of-project-while-sitting-at-the-boardroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=3PCse04HxmDXn6LsY1MuQsh01AflW_wR0jwF4tYZ8QY=",
+    heroDescription:
+      "Transform your business operations with AI-driven automation tailored to your unique needs, regardless of industry.",
+    features: [
+      {
+        icon: Sparkles,
+        title: "Custom Workflows",
+        description: "Tailored automation for your specific business processes",
+        imageUrl:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600",
+      },
+      {
+        icon: Users,
+        title: "Client Management",
+        description: "Comprehensive tools to manage customer relationships",
+        imageUrl:
+          "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600",
+      },
+      {
+        icon: BarChart3,
+        title: "Business Analytics",
+        description: "Insights to drive informed decision-making",
+        imageUrl:
+          "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600",
+      },
+      {
+        icon: Clock,
+        title: "24/7 Automation",
+        description: "Continuous operation to keep your business running smoothly",
+        imageUrl:
+          "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600",
+      },
+    ],
+    benefits: [
+      "Enhance operational efficiency",
+      "Improve customer satisfaction",
+      "Reduce manual workload",
+      "Boost overall profitability",
+    ],
+    metrics: [
+      { label: "Efficiency", value: "+50%" },
+      { label: "Customer Satisfaction", value: "+40%" },
+      { label: "Workload Reduction", value: "-60%" },
+    ],
+    ctaIcon: Sparkles,
+    ctaTitle: "Automate Any Business Process",
+    ctaDescription: "Unlock the power of AI automation for your unique business needs.",
+    ctaButtonLabel: "Start Trial",
+    ctaHighlight: "Any Business",
+  },
+  "insurance-agents": {
+    slug: "insurance-agents",
+    metaTitle: "Insurance Agent Automation TryzenIQ",
+    metaDescription:
+      "Automate lead management, policy tracking, and client communications for insurance agents.",
+    title: "Insurance Agents",  
+    subtitle: "Agent Automation",
+    heroImage:
+      "https://plus.unsplash.com/premium_photo-1661776260388-f5d1b14ce8a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdXJhbmNlfGVufDB8fDB8fHww",
+    heroDescription:
+      "Streamline your insurance agency with AI-powered lead management, policy tracking, and automated client communications.",
+    features: [
+      {
+        icon: Users,
+        title: "Lead Management",
+        description: "Automated lead capture and nurturing",
+        imageUrl:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+      },
+      {
+        icon: FileText,
+        title: "Policy Tracking",
+        description: "Monitor policy renewals and claims",
+        imageUrl:
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600",
+      },
+      {
+        icon: MessageSquare,
+        title: "Client Communication",
+        description: "Automated reminders and follow-ups",
+        imageUrl:
+          "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600",
+      },
+      {
+        icon: BarChart3,
+        title: "Performance Analytics",
+        description: "Track sales and client satisfaction metrics",
+        imageUrl:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+      },
+    ],
+    benefits: [
+      "Increase lead conversion by 80%",
+      "Improve policy renewal rates by 70%",
+      "Enhance client satisfaction by 85%",
+      "Save 15+ hours per week on admin tasks",
+    ],
+    metrics: [
+      { label: "Lead Conversion", value: "+80%" },
+      { label: "Renewal Rates", value: "+70%" },
+      { label: "Client Satisfaction", value: "+85%" },
+    ],
+    ctaIcon: Shield,
+    ctaTitle: "Boost Your Insurance Agency",
+    ctaDescription: "Enhance efficiency and client satisfaction with automation.",
+    ctaButtonLabel: "Start Trial",
+    ctaHighlight: "Insurance Agency",
+  },
 };
 
 // Export array for backward compatibility
