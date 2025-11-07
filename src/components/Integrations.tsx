@@ -63,7 +63,7 @@ const allUniqueLogos: Logo[] = [
     alt: "Claude AI",
   },
   {
-    src: "/image/Grok.png", // Using Grok's official SVG
+    src: "/image/Grok.png", 
     alt: "Grok",
   },
   {

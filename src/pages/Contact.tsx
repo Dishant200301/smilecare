@@ -92,7 +92,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="relative pt-8 md:py-6">
+        <section className="relative md:lg:pt-8 md:py-6 ">
           <motion.div
             className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
             initial={{ opacity: 0, y: 40 }}

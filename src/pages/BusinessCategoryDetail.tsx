@@ -45,48 +45,38 @@ const ServiceDetail = () => {
 
       <Navbar />
 
-      <main className="pt-16">
-        {/* Hero Section */}
-        <section className="py-5 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
-          <motion.div
-            className="max-w-7xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {/* Back Button */}
-            {/* <div className="mb-8">
-              <a
-                href="/business-category"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 group"
-              >
-                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
-                <span>Back</span>
-              </a>
-            </div> */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="text-center lg:text-left"
-              >
+        <main className="pt-16">
+              {/* Hero Section */}
+              <section className="pt-10 px-4 sm:px-4 md:px-10 xl:px-46">
+                <motion.div
+                  className="max-w-7xl mx-auto"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0 }}
+                >
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <motion.div
+                      initial={{ x: -100, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      viewport={{ once: true, amount: 0 }}
+                      className="text-center lg:text-left"
+                    >
                 <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2">
                   {title}{" "}
-                  <span className="font-InstrumentSerif italic">
-                    {subtitle}
-                  </span>
+                    <span className="font-InstrumentSerif italic">
+                      {subtitle}
+                    </span>
                 </h1>
-                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5">
+                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5 hidden sm:block">
                   {heroDescription}
                 </p>
                 <a
                   href="/contact"
                   className="group relative inline-flex items-center justify-between border border-gray-700 
                    text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
-                   transition-all duration-500 ease-in-out hover:border-[white]"
+                   transition-all duration-500 ease-in-out hover:border-[white] mt-2 md:lg:mt-0"
                 >
                   <span
                     className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
@@ -102,14 +92,18 @@ const ServiceDetail = () => {
                 </a>
               </motion.div>
 
-              {/* Hero Image */}
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="relative w-full aspect-[16/9]"
-              >
+             <motion.div
+    initial={{ x: 100, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
+    viewport={{ once: true, amount: 0.3 }}
+    className="
+      relative w-full 
+      rounded-3xl overflow-hidden
+      h-[260px] sm:h-[400px] md:aspect-[16/9]
+    "
+  >
+
                 <img
                   src={heroImage}
                   alt={title}
@@ -122,15 +116,15 @@ const ServiceDetail = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
+        <section className="py-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-46 bg-black">
           <motion.div
             className="max-w-7xl text-center mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight mt-5">
               Explore{" "}
               <span className="font-InstrumentSerif italic">Features</span>
             </h2>
@@ -175,7 +169,7 @@ const ServiceDetail = () => {
         </section>
 
         {/* Benefits + Metrics */}
-        <section className="py-24 px-6 md:px-12 lg:px-8 xl:px-48 bg-black">
+        <section className="py-24 px-6 md:px-12 lg:px-8 xl:px-46 bg-black">
           <motion.div
             className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
             initial={{ opacity: 0, y: 50 }}

@@ -25,8 +25,8 @@ export const servicesData = {
     metaTitle: "Botox & Skin Care Clinic Automation TryzenIQ",
     metaDescription:
       "Automate your beauty clinic with AI-powered booking, analytics, and client engagement.",
-    title: "Botox & Skin Care",
-    subtitle: "Clinic Automation",
+   title: "Botox Clinic",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800",
     heroDescription:
@@ -84,8 +84,8 @@ export const servicesData = {
     metaTitle: "Dental & Medical Clinic Automation TryzenIQ",
     metaDescription:
       "Streamline patient management, appointments, and medical workflows with AI automation.",
-    title: "Clinics & Dentist",
-    subtitle: "Practice Management",
+ title: "Dental Clinic",
+subtitle: "Management",
     heroImage:
       "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800",
     heroDescription:
@@ -143,8 +143,8 @@ export const servicesData = {
     metaTitle: "Gym & Health Coach Automation TryzenIQ",
     metaDescription:
       "Automate member management, fitness consultations, and coaching workflows.",
-    title: "Gym & Health Coach",
-    subtitle: "Fitness Automation",
+    title: "Gym Coach",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800",
     heroDescription:
@@ -202,8 +202,8 @@ export const servicesData = {
     metaTitle: "Business Consultation Automation TryzenIQ",
     metaDescription:
       "AI-powered solutions for consultants: scheduling, project automation, and analytics.",
-    title: "Business Consultation",
-    subtitle: "Automation",
+    title: "Business",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800",
     heroDescription:
@@ -262,8 +262,8 @@ export const servicesData = {
     metaTitle: "IT & SaaS Service Automation TryzenIQ",
     metaDescription:
       "Automate customer support, onboarding, and technical service delivery.",
-    title: "IT & SaaS Services",
-    subtitle: "Tech Automation",
+   title: "IT SaaS",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800",
     heroDescription:
@@ -321,8 +321,8 @@ export const servicesData = {
     metaTitle: "Salon & Spa Automation TryzenIQ",
     metaDescription:
       "Automate beauty service bookings, client management, and spa operations.",
-    title: "Salons & Spa",
-    subtitle: "Beauty Automation",
+   title: "Salon Spa",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800",
     heroDescription:
@@ -380,8 +380,8 @@ export const servicesData = {
     metaTitle: "Real Estate Agent Automation TryzenIQ",
     metaDescription:
       "Automate property showings, lead management, and client communications.",
-    title: "Real Estate Agents",
-    subtitle: "Property Automation",
+   title: "Real Estate",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800",
     heroDescription:
@@ -439,8 +439,8 @@ export const servicesData = {
     metaTitle: "Therapy & Counseling Practice Automation TryzenIQ",
     metaDescription:
       "Secure patient management, appointment scheduling, and practice automation for mental health professionals.",
-    title: "Therapists Counselors",
-    subtitle: "Mental Health Care",
+  title: "Therapy Clinic",
+subtitle: "Care",
     heroImage:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     heroDescription:
@@ -498,8 +498,8 @@ export const servicesData = {
     metaTitle: "Insurance & Financial Services Automation TryzenIQ",
     metaDescription:
       "Automate claim processing, client management, and financial service delivery.",
-    title: "Insurance & Financial",
-    subtitle: "Services Automation",
+  title: "Insurance Finance",
+subtitle: "Automation",
     heroImage:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800",
     heroDescription:
@@ -556,8 +556,8 @@ export const servicesData = {
     metaTitle: "Cleaning Services Automation TryzenIQ",
     metaDescription:
       "Automate scheduling, client management, and service delivery for cleaning businesses.",
-    title: "Cleaning Services",
-    subtitle: "Service Automation",
+    title: "Cleaning Service",
+subtitle: "Automation",
     heroImage:
       "https://thumbs.dreamstime.com/b/portrait-man-cleaning-equipment-cleaning-house-30014330.jpg",
     heroDescription:
@@ -614,8 +614,8 @@ export const servicesData = {
     metaTitle: "Universal Business Automation TryzenIQ",    
     metaDescription:
       "AI-powered automation solutions for any business type to streamline operations and boost efficiency.",
-    title: "Any Business",
-    subtitle: "Universal Automation",
+   title: "Any Business",
+subtitle: "Automation",
     heroImage:
      "https://media.istockphoto.com/id/1827291486/photo/a-dedicated-mentor-is-explaining-mentees-importance-of-project-while-sitting-at-the-boardroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=3PCse04HxmDXn6LsY1MuQsh01AflW_wR0jwF4tYZ8QY=",
     heroDescription:
@@ -672,8 +672,8 @@ export const servicesData = {
     metaTitle: "Insurance Agent Automation TryzenIQ",
     metaDescription:
       "Automate lead management, policy tracking, and client communications for insurance agents.",
-    title: "Insurance Agents",  
-    subtitle: "Agent Automation",
+  title: "Insurance Agents",
+subtitle: "Automation",
     heroImage:
       "https://plus.unsplash.com/premium_photo-1661776260388-f5d1b14ce8a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdXJhbmNlfGVufDB8fDB8fHww",
     heroDescription:

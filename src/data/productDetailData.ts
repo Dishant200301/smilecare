@@ -78,7 +78,7 @@ export const productDetailData = {
         points: [
           "Reduce operational costs by 40%.",
           "Improve decisions with real-time data.",
-          "Streamline departmental workflows efficiently.",
+          "Stream workflows efficiently.",
           "Scale seamlessly as business grows."
         ]
       },
@@ -111,9 +111,9 @@ export const productDetailData = {
     metaTitle: "Bulk Email Automation | TryzenIQ",
     metaDescription:
       "Powerful email automation platform for personalized campaigns, automated workflows, and detailed analytics.",
-    title: "Email Automation",
-    subtitle: "Marketing Platform",
-    lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
+    title: "Automated Email ",
+    subtitle: "Workflows ",
+    lottieSrc: "https://lottie.host/a57cc5a7-ba31-4672-a763-5e9cdb7af52d/hBOfHSkxMX.lottie",
     heroDescription:
       "Scale your email marketing with intelligent automation. Send personalized campaigns to thousands of customers with advanced segmentation and tracking.",
     // --- Sub Services ---
@@ -153,14 +153,14 @@ export const productDetailData = {
     features: [
       {
         icon: "Mail", // Still for "Why Choose Us"
-        title: "Why Choose Us for Bulk Email Automation",
+        title: "Why Choose Us for Email Automation",
         description:
           "Achieve superior email marketing results with our reliable, scalable platform that prioritizes deliverability and engagement.",
         points: [
           "Increase open rates by 35%.",
           "Save 20+ hours weekly on tasks.",
-          "Improve engagement, customer retention.",
-          "Boost conversions with targeted campaigns."
+          "engagement, customer retention.",
+          "Seamless integration tools."
         ]
       },
       // --- New "Our Features" for Email Automation ---
@@ -194,7 +194,7 @@ export const productDetailData = {
       "AI-powered invoicing system for automated invoice creation, payment tracking, and financial reporting.",
     title: "Invoice Generator",
     subtitle: "Smart Billing",
-    lottieSrc: "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
+    lottieSrc: "https://lottie.host/4674d99c-65b3-4226-b4d0-f45b2a818fad/KD0kBScXQo.lottie",
     heroDescription:
       "Automate your invoicing process with AI technology. Generate thousands of professional invoices, track payments, and manage finances effortlessly.",
     // --- Sub Services ---
@@ -273,9 +273,9 @@ export const productDetailData = {
     metaTitle: "AI Blog SEO Automation | TryzenIQ",
     metaDescription:
       "Intelligent content optimization platform using AI to generate SEO-friendly blog posts and boost search rankings.",
-    title: "AI Blog SEO",
-    subtitle: "Content Automation",
-    lottieSrc: "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
+    title: "Blog Content",
+    subtitle: "SEO Automation",
+    lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
     heroDescription:
       "Create and optimize SEO-friendly content at scale. Our AI-powered platform generates high-quality blog posts, optimizes for search engines, and tracks performance.",
     // --- Sub Services ---
@@ -356,7 +356,7 @@ export const productDetailData = {
       "Revolutionary AI-powered voice automation for outbound calls, customer support, and sales engagement at scale.",
     title: "AI Calling",
     subtitle: "Voice Automation",
-    lottieSrc: "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
+    lottieSrc: "https://lottie.host/3d4dfd7b-c260-44c3-8a80-49bd6d202364/lheUJCRS6H.lottie",
     heroDescription:
       "Revolutionize your communication strategy with AI-driven calling. Automate outbound sales calls, provide 24/7 customer support, and personalize interactions using advanced voice AI.",
     // --- Sub Services ---

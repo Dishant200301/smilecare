@@ -176,15 +176,15 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
 
       <Navbar />
 
-      <main className="relative z-10">
+       <main className="relative z-10 bg-black pt-32">
         {/* Hero Section */}
-        <section className="pt-[170px] mb-16">
+        <section className="px-3 sm:px-4 md:px-12 lg:py-4 xl:px-48 2xl:px-48 sm:mt-10 md:pt-10 lg:mt-8 ">
         <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight mb-6">
               Our {" "}
              <span className="font-InstrumentSerif italic gradient-text">Expertise</span>
             </h1>
-              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10 hidden sm:block">
               Discover our comprehensive range of digital solutions designed to
               transform your business and drive growth in the modern world.
             </p>
@@ -209,7 +209,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
                 initial={isMobile ? { opacity: 0, y: -20 } : { opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0, duration: 0.5, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0 }}
               >
                 <div className="relative overflow-hidden">
                   <img

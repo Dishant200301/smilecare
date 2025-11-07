@@ -141,9 +141,9 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
 
       <Navbar />
 
-      <main className="relative z-10 bg-black">
+      <main className="relative z-10 bg-black pt-32">
         {/* Hero Section */}
-        <section className="pt-[170px] mb-16">
+        <section className="px-3 sm:px-4 md:px-12 lg:py-4 xl:px-48 2xl:px-48 sm:mt-10 md:pt-10 lg:mt-8 ">
           <motion.div
             className="max-w-4xl mx-auto text-center mb-12"
             initial={{ opacity: 0, y: 50 }}
@@ -155,7 +155,7 @@ const Services: React.FC<ServicesProps> = ({ limit, showFilter = true }) => {
             Our {" "}
               <span className="font-InstrumentSerif italic">Services</span>
             </h1>
-              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10">
+              <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-10 hidden sm:block">
               Comprehensive digital solutions designed to elevate your business with 
               cutting-edge technology, creative design, and strategic expertise.
             </p>

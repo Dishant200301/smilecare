@@ -49,7 +49,7 @@ const ContactUsPreviewSection: React.FC = () => {
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl">
               <h2 className="font-HindMadurai font-medium gradient-text leading-tight text-white">
-                Contact us to a free
+                Connect Now
               </h2>
             </div>
             <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl gradient-text font-InstrumentSerif italic text-white">

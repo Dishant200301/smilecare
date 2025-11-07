@@ -7,26 +7,14 @@ const HeroSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const [fogHeight, setFogHeight] = useState<number>(0);
-    // Removed scrollY state as Framer Motion's useScroll handles this more efficiently
-    // const [scrollY, setScrollY] = useState<number>(0);
     const navigate = useNavigate();
 
   // Framer Motion: Get scroll progress of the section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"], // Trigger when section starts entering, ends leaving
-    // Add an optional 'smooth' option if you want to influence the underlying scroll behavior slightly,
-    // though Framer Motion's transforms are already smooth.
-    // This mostly applies if you were using 'scroll-snap-align' etc.
-    // It's more about when the value is read, not the visual interpolation.
   });
 
-  // Define parallax transformations for each fog layer
-  // The second value in the array determines how much the layer moves relative to scroll.
-  // Larger negative value means it moves "slower" (upwards) against the scroll, creating depth.
-  // To make the effect "slower" (less intense parallax), reduce the magnitude of the negative percentage.
-  // For example, -30% becomes -15%.
-  // The current values provide a noticeable parallax. Let's keep them as a good baseline.
   const yFog1 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]); // Closest, moves most
   const yFog2 = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const yFog3 = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
@@ -40,20 +28,7 @@ const HeroSection: React.FC = () => {
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const titleRect = titleRef.current.getBoundingClientRect();
 
-      // Calculate height from the bottom of the section up to the TOP of the title.
-      // Add a small positive offset for a better blend.
-      // Ensure titleRect.top is relative to sectionRect.top for accurate calculation within the section.
-      // For absolute positioning from the bottom of the section, a simpler approach is:
-      // The height should cover from the bottom of the section up to the desired content.
-      // If `fogwrapper` is `absolute bottom-0`, its height extends upwards.
-      // Let's ensure `newHeight` is not negative and makes sense.
       const newHeight = sectionRect.bottom - titleRect.top + 20; // This assumes titleRef.top is relative to viewport.
-                                                              // We want fog to go from section bottom to title bottom.
-      // A more robust way:
-      // const sectionBottom = sectionRect.bottom;
-      // const titleBottom = titleRect.bottom;
-      // const newHeight = Math.max(0, sectionBottom - titleBottom + 50); // +50 to ensure it covers below the title
-      // Or, if you want it to reach the *top* of the title, as you initially intended:
       const viewportToSectionBottom = window.innerHeight - sectionRect.bottom;
       const viewportToTitleTop = window.innerHeight - titleRect.top;
       const heightFromSectionBottomToTitleTop = viewportToTitleTop - viewportToSectionBottom + 20;

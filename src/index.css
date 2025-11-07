@@ -321,11 +321,11 @@ body::-webkit-scrollbar {
 
 .animate-infinite-scroll-ltr {
   display: flex;
-  animation: scroll-ltr 25s linear infinite;
+  animation: scroll-ltr 35s linear infinite;
 }
 
 .animate-infinite-scroll-rtl {
-  animation: infinite-scroll-rtl 25s linear infinite;
+  animation: infinite-scroll-rtl 35s linear infinite;
 }
 
 

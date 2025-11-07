@@ -118,7 +118,7 @@ const About = () => {
         {/* Values Section */}
         <section className="md:lg:py-8relative z-10">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 pt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 md:lg:pt-5">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
