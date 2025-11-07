@@ -18,8 +18,8 @@ const allUniqueLogos: Logo[] = [
     alt: "Google Calendar",
   },
   {
-    src: "https://framerusercontent.com/images/xPf4BTNLBEnCwXWtNwW7QvFlGk.png",
-    alt: "AWS",
+    src: "/image/Tensorflow.png",
+    alt: "Tensorflow",
   },
   {
     src: "https://framerusercontent.com/images/oPgTqr50Dc4O1PDSqn5V1Hq8.png",
