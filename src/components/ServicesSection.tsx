@@ -78,7 +78,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-      <div className="relative min-h-screen w-full bg-black text-white overflow-hidden mt-32">
+      <div className="relative w-full bg-black text-white overflow-hidden mt-32">
         {/* Layer 3: Earth Globe (Bottom Layer) */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pt-10">
           <EarthGlobe3D earthColor={0x77ddff} className="pt-50" />
