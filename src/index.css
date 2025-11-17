@@ -533,3 +533,4 @@ body::-webkit-scrollbar {
   /* Make sure the parent container (div around mapped cards) has enough height
      and doesn't have overflow: hidden, which can break sticky positioning. */
 }
+

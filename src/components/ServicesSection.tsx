@@ -3,6 +3,7 @@ import FooterGlobeSection from "./FooterGlobeSection";
 import { ArrowRight } from "lucide-react";
 import EarthGlobe3D from "./EarthGlobe3D";
 import { motion } from "framer-motion";
+import GradientButton from "./GradientButton";
 
 const services = [
   {
@@ -100,15 +101,21 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="relative z-20 flex flex-col items-center justify-center text-center p-4  ">
-              <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-5xl font-HindMadurai font-medium leading-tight">
-                Our Premium{" "}
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-5xl gradient-text font-InstrumentSerif italic text-white">
-                  business services
-                </span>
-              </h2>
-              
-            </div>
+         <div className="relative z-20 w-full flex flex-col lg:flex-row items-center lg:items-center justify-between gap-6 ">
+
+  {/* Left Title */}
+  <h2 className="text-center lg:text-left text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-5xl font-HindMadurai font-medium leading-tight">
+    Our Premium{" "}
+    <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-5xl gradient-text font-InstrumentSerif italic text-white">
+      business services
+    </span>
+  </h2>
+
+  {/* Right Button */}
+  <GradientButton title="Explore More" link="/business-category" />
+
+</div>
+
           </motion.div>
 
           <motion.div
@@ -173,26 +180,7 @@ const Services: React.FC<ServicesProps> = ({ limit }) => {
             </div>
           </motion.div>
 
-          <div className="text-center mt-12">
-            <a
-              href="/business-category"
-              className="group relative inline-flex items-center justify-between border border-gray-500 
-                              text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
-                              transition-all duration-200 ease-out"
-            >
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-white text-black z-10 
-               transition-transform duration-700 ease-in-out group-hover:scale-[45]"
-              />
-
-              <span className="relative z-20 transition-colors duration-700 ease-in-out group-hover:text-black">
-                Explore More
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
-              </span>
-            </a>
-          </div>
+          
         </div>
       </div>
   );

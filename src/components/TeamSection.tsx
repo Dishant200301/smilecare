@@ -7,19 +7,19 @@ const leadershipTeam = [
     name: "Tilak Viradiya",
     role: "CTO",
     imageUrl:
-      "/team_member/tilak.png",
+      "/assets/team_member/tilak.png",
   },
   {
     name: "Keyur Moradiya",
     role: "CEO",
     imageUrl:
-      "/team_member/keyur_moradiya.png",
+      "/assets/team_member/keyur_moradiya.png",
   },
   {
     name: "Amit Lakhani",
     role: "CMO",
     imageUrl:
-      "/team_member/Amit_CMO.png",
+      "/assets/team_member/Amit_CMO.png",
   },
 ];
 
@@ -28,13 +28,13 @@ const developmentTeam = [
     name: "Tirth Gabani",
     role: "Full Stack Developer",
     imageUrl:
-      "/team_member/1Tirth.png",
+      "/assets/team_member/1Tirth.png",
   },
   {
     name: "Dishant Kasodariya",
     role: "MERN Developer",
     imageUrl:
-      "/team_member/dishant.png",
+      "/assets/team_member/dishant.png",
   },
   {
     name: "Ket Vithani",
@@ -46,7 +46,7 @@ const developmentTeam = [
     name: "Senil Patel",
     role: "React Frontend Developer",
     imageUrl:
-      "/team_member/senil.png",
+      "/assets/team_member/senil.png",
   },
 ];
 

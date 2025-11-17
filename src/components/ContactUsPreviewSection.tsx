@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import GradientButton from "./GradientButton";
 
 // Dummy images for the slideshow
 const images = [
@@ -24,9 +25,8 @@ const ContactUsPreviewSection: React.FC = () => {
   return (
     <section className="bg-black py-10 px-6">
       <motion.div
-        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
-                   bg-[#131316] rounded-3xl p-6 md:p-12 border border-slate-700/50
-                   shadow-xl hover:shadow-white/20"
+        className="max-w-[1220px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
+                    rounded-3xl p-2 md:p-12"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -37,18 +37,18 @@ const ContactUsPreviewSection: React.FC = () => {
           className="flex flex-col justify-center text-center md:text-left"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div 
             className="mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl">
-              <h2 className="font-HindMadurai font-medium gradient-text leading-tight text-white">
+            <div>
+                <h2 className="text-3xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight">
                 Connect Now
               </h2>
             </div>
@@ -64,31 +64,11 @@ const ContactUsPreviewSection: React.FC = () => {
             className="w-full flex justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <a
-            href="/contact"
-              onClick={() => console.log("Contact Us button clicked")}
-              className="group relative inline-flex items-center justify-between border border-gray-500
-                         text-white font-semibold pl-4 pr-14 py-3 rounded-full overflow-hidden
-                         transition-all duration-200 ease-out focus:outline-none"
-            >
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center
-                           w-9 h-9 rounded-full bg-white text-black z-10
-                           transition-transform duration-700 ease-in-out group-hover:scale-[45]"
-              />
-              <span
-                className="relative z-20 transition-colors font-HindMadurai duration-700 ease-in-out group-hover:text-black"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Contact Us
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                <ArrowRight className="w-5 h-5 text-black duration-200 ease-out group-hover:text-black" />
-              </span>
-            </a>
+            <GradientButton title="Contact Us" link="/contact" />
+    
           </motion.div>
         </motion.div>
 
@@ -96,7 +76,7 @@ const ContactUsPreviewSection: React.FC = () => {
         <motion.div
           initial={{ x: 100, opacity: 0 }} 
           whileInView={{ x: 0, opacity: 1 }} 
-          transition={{ duration: 0.8, delay: 0.4 }} 
+          transition={{ duration: 0.8}} 
           viewport={{ once: true, amount: 0.3 }} 
           className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-lg
                      border border-slate-700/50 flex-shrink-0"

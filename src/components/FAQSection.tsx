@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import GradientButton from "./GradientButton";
 interface FAQItem {
   question: string;
   answer: string;
@@ -41,7 +42,7 @@ export default function FAQSection(): JSX.Element {
   const navigate = useNavigate();
 
   return (
-    <section className="relative bg-black py-20 px-6 overflow-hidden flex items-center justify-center">
+    <section className="relative bg-black py-32 px-6 overflow-hidden flex items-center justify-center">
       {/* Background gradient effects (if any, as you had commented out) */}
       {/* You can add your background elements here if needed */}
 
@@ -75,23 +76,8 @@ export default function FAQSection(): JSX.Element {
 
           {/* Contact Button */}
             <div className="hidden lg:block">
-              <button
-                onClick={() => navigate("/contact")}
-                className="bg- active:bg-gray-900/60 border border-gray-500 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-4 pr-14 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
-              >
-                {/* Expanding circle on hover */}
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
-
-                {/* Button text */}
-                <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
-                  Contact Us
-                </span>
-
-                {/* Icon (right side) */}
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
-                  <ArrowRight className="w-5 h-5 text-black transition-colors duration-700" />
-                </span>
-              </button>
+              <GradientButton title="Contact Us" link="/contact" />
+    
             </div>
         </motion.div>
 

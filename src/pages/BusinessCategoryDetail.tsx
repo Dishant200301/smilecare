@@ -2,12 +2,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useParams } from "react-router-dom";
 import { servicesData } from "@/data/servicesData";
-import HighlightedTitle from "@/components/HighlightedTitle";
-import TestimonialSingleRow from "@/components/TestimonialSingleRow";
 import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
 import { motion } from "framer-motion";
 
@@ -29,12 +27,50 @@ const ServiceDetail = () => {
     features,
     benefits,
     metrics,
-    ctaIcon: CtaIcon,
-    ctaTitle,
-    ctaDescription,
-    ctaButtonLabel,
-    ctaHighlight,
   } = service;
+
+  // Reusable smooth grid animation
+  const renderCards = (list: any[], grid = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3") => (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className={`grid ${grid} gap-8`}
+    >
+      {list.map((item, i) => (
+        <div
+          key={i}
+          className="group relative bg-gray-900/50 backdrop-blur-sm rounded-3xl overflow-hidden
+          border border-gray-800 shadow-xl hover:shadow-2xl hover:shadow-white/20 hover:border-white/40
+          transition-all duration-300"
+        >
+          {item.imageUrl && (
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+              />
+            </div>
+          )}
+
+          <div className="p-6">
+            <div className="flex items-center mb-4">
+              <div className="p-2 bg-white rounded-md mr-4">
+                <item.icon className="w-6 h-6 text-black" />
+              </div>
+              <h3 className="text-lg font-bold text-white">{item.title}</h3>
+            </div>
+
+            {item.description && (
+              <p className="text-gray-400">{item.description}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -45,202 +81,165 @@ const ServiceDetail = () => {
 
       <Navbar />
 
-        <main className="pt-16">
-              {/* Hero Section */}
-              <section className="pt-10 px-4 sm:px-4 md:px-10 xl:px-46">
-                <motion.div
-                  className="max-w-7xl mx-auto"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0 }}
+      <main className="pt-16">
+        {/* HERO */}
+        <section className="py-10 px-3 sm:px-4 md:px-12 xl:px-48">
+          <motion.div
+            className="max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+
+              {/* TEXT BLOCK */}
+              <div className="text-center lg:text-left">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-4xl md:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2"
                 >
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <motion.div
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      viewport={{ once: true, amount: 0 }}
-                      className="text-center lg:text-left"
-                    >
-                <h1 className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2">
                   {title}{" "}
-                    <span className="font-InstrumentSerif italic">
-                      {subtitle}
-                    </span>
-                </h1>
-                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5 hidden sm:block">
-                  {heroDescription}
-                </p>
-                <a
-                  href="/contact"
-                  className="group relative inline-flex items-center justify-between border border-gray-700 
-                   text-white font-semibold pl-6 pr-14 py-3 rounded-full overflow-hidden 
-                   transition-all duration-500 ease-in-out hover:border-[white] mt-2 md:lg:mt-0"
+                  
+                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+                  className="text-lg text-gray-400 max-w-3xl mx-auto mb-5 hidden sm:block font-HindMadurai"
                 >
-                  <span
-                    className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center 
-                   w-9 h-9 rounded-full bg-[white] text-black z-10 
-                   transition-transform duration-500 ease-in-out group-hover:scale-[45]"
-                  />
-                  <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
+                  {heroDescription}
+                </motion.p>
+
+                {/* CTA BUTTON */}
+                <motion.a
+                  href="/contact"
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
+                  className="group relative inline-flex items-center justify-between 
+                  border border-gray-700 text-white font-semibold font-HindMadurai 
+                  pl-4 pr-10 py-2 rounded-full overflow-hidden
+                  transition-all duration-500 ease-in-out hover:border-white"
+                >
+                <span
+        className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center 
+        w-7 h-7 rounded-full bg-white z-10 transition-transform duration-700 
+        ease-in-out group-hover:scale-[50]"
+      />
+                  <span className="relative z-20 group-hover:text-black transition-colors">
                     Get Started
                   </span>
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
-                    <ArrowRight className="w-5 h-5 text-black" />
-                  </span>
-                </a>
-              </motion.div>
+                   <span className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
+                         <ArrowRight className="w-5 h-5 ml-1 text-black transition-colors duration-700" />
+                       </span>
+                </motion.a>
+              </div>
 
-             <motion.div
-    initial={{ x: 100, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{ duration: 0.8, delay: 0.4 }}
-    viewport={{ once: true, amount: 0.3 }}
-    className="
-      relative w-full 
-      rounded-3xl overflow-hidden
-      h-[260px] sm:h-[400px] md:aspect-[16/9]
-    "
-  >
-
+              {/* IMAGE BLOCK */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+                className="relative w-full rounded-3xl overflow-hidden
+                h-[260px] sm:h-[400px] md:aspect-[16/9]"
+              >
                 <img
                   src={heroImage}
                   alt={title}
                   className="w-full h-full object-cover rounded-3xl shadow-2xl border border-gray-800"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[white]/10 to-transparent rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent" />
               </motion.div>
             </div>
           </motion.div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-46 bg-black">
+        {/* FEATURES */}
+        <section className="pb-16 px-5 sm:px-4 md:px-12 xl:px-48">
           <motion.div
-            className="max-w-7xl text-center mx-auto"
-            initial={{ opacity: 0, y: 30 }}
+            className="max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0 }}
+            viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium mb-8 leading-tight mt-5">
-              Explore{" "}
-              <span className="font-InstrumentSerif italic">Features</span>
+            <h2 className="text-center text-4xl md:text-5xl font-HindMadurai gradient-text font-medium mb-10">
+              Explore <span className="font-InstrumentSerif italic">Features</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="group relative bg-gray-900/50 backdrop-blur-sm 
-                  rounded-3xl overflow-hidden shadow-xl 
-                  border border-gray-800 transition-all duration-300 
-                  hover:shadow-2xl hover:shadow-[white]/20 hover:border-white/40"
-                >
-                  {f.imageUrl && (
-                    <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={f.imageUrl}
-                        alt={f.title}
-                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out 
-                          group-hover:scale-105"
-                      />
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <div className="flex items-center mb-4">
-                      <div className="p-2 bg-white rounded-md mr-4">
-                        <f.icon className="w-6 h-6 text-black" />
-                      </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors">
-                        {f.title}
-                      </h3>
-                    </div>
-                    <p className="text-gray-400 leading-relaxed">{f.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+
+            {renderCards(features, "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4")}
           </motion.div>
         </section>
 
-        {/* Benefits + Metrics */}
-        <section className="py-24 px-6 md:px-12 lg:px-8 xl:px-46 bg-black">
+        {/* BENEFITS + METRICS */}
+        <section className="py-20 px-6 md:px-12 xl:px-48">
           <motion.div
-            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
+            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            {/* Benefits */}
+            {/* BENEFITS */}
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true }}
             >
-            <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6 text-center lg:text-left ">
-                Considerable {" "}
-                <span className="font-InstrumentSerif italic">Benefits</span>
-            </h2>
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium mb-6">
+                Considerable <span className="font-InstrumentSerif italic">Benefits</span>
+              </h2>
+
               <div className="grid sm:grid-cols-2 gap-6">
                 {benefits.map((b, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 shadow-lg hover:shadow-white/20 transition-all duration-300"
+                    className="flex items-start gap-3 p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800
+                    shadow-lg hover:shadow-white/20 transition duration-300"
                   >
-                    <CheckCircle className="w-6 h-6 text-white flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-6 h-6 text-white mt-1" />
                     <span className="text-gray-400 font-HindMadurai">{b}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Metrics */}
-             <motion.div
+            {/* METRICS */}
+            <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-[white]/20 transition"
+              transition={{ duration: 0.5,  }}
+              viewport={{ once: true }}
+              className="bg-black border border-zinc-800 rounded-2xl p-8 shadow-lg hover:shadow-white/20 transition"
             >
-              <h2 className="text-3xl font-HindMadurai gradient-text font-medium leading-tight mb-6">
-                Considerable{" "}
-                <span className="font-InstrumentSerif italic">Metrics</span>
-            </h2>
+              <h2 className="text-3xl font-HindMadurai gradient-text font-medium mb-6">
+                Considerable <span className="font-InstrumentSerif italic">Metrics</span>
+              </h2>
+
               <div className="space-y-6">
                 {metrics.map((m, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
                     className="flex justify-between items-center border-b border-zinc-700 pb-4 last:border-none"
                   >
                     <span className="text-gray-400 font-HindMadurai">{m.label}</span>
-                    <span className="text-2xl sm:text-3xl font-HindMadurai font-medium text-white">
+                    <span className="text-3xl font-HindMadurai text-white">
                       {m.value}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
           </motion.div>
         </section>
 
-        <ContactUsPreviewSection/>
-
-        {/* Testimonials */}
+        <ContactUsPreviewSection />
       </main>
 
       <Footer />

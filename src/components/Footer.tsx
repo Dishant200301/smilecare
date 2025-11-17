@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 // Assuming Logo is a component or a direct path to an SVG
-const Logo = "/image/svgviewer-png-output.svg"; // Adjust path as needed
+const Logo = "/assets/logo/svgviewer-png-output.svg"; // Adjust path as needed
 
 // X icon component
 const XIcon = ({ className }: { className?: string }) => (

@@ -18,7 +18,7 @@ const allUniqueLogos: Logo[] = [
     alt: "Google Calendar",
   },
   {
-    src: "/image/Tensorflow.png",
+    src: "/assets/logo/Tensorflow.png",
     alt: "Tensorflow",
   },
   {
@@ -30,15 +30,15 @@ const allUniqueLogos: Logo[] = [
     alt: "Slack",
   },
   {
-    src: "/image/Framer.png",
+    src: "/assets/logo/Framer.png",
     alt: "Framer",
   },
   {
-    src: "/image/openai3.png", // Local asset
+    src: "/assets/logo/openai3.png", // Local asset
     alt: "OpenAI",
   },
   {
-    src: "/image/gmail.png", // Local asset
+    src: "/assets/logo/gmail.png", // Local asset
     alt: "Gmail",
   },
   {
@@ -59,27 +59,27 @@ const allUniqueLogos: Logo[] = [
   },
   // --- New Logos (6) ---
   {
-    src: "/image/Claude.png",
+    src: "/assets/logo/Claude.png",
     alt: "Claude AI",
   },
   {
-    src: "/image/Grok.png", 
+    src: "/assets/logo/Grok.png", 
     alt: "Grok",
   },
   {
-    src: "/image/Copilot.png",
+    src: "/assets/logo/Copilot.png",
     alt: "Microsoft Copilot",
   },
   {
-    src: "/image/Xai.png",
+    src: "/assets/logo/Xai.png",
     alt: "xAI",
   },
   {
-    src: "/image/gemini2.png", // Local asset
+    src: "/assets/logo/gemini2.png", // Local asset
     alt: "Gemini",
   },
   {
-    src: "/image/Google_ai_studio_logo.png",
+    src: "/assets/logo/Google_ai_studio_logo.png",
     alt: "Google AI Studio",
   },
 ];
@@ -94,9 +94,13 @@ const Marquee: React.FC<{
 
   return (
     <div
-      className="relative w-full overflow-hidden py-2
-                    [mask-image:linear-gradient(to_right,transparent_12%,#000_50%,#000_50%,transparent_88%)]"
-    >
+  className="
+    relative w-full overflow-hidden py-2
+    [mask-image:linear-gradient(to_right,transparent_5%,#000_50%,#000_50%,transparent_98%)]
+
+    md:[mask-image:linear-gradient(to_right,transparent_12%,#000_50%,#000_50%,transparent_88%)]
+  "
+>
       <ul className={`flex w-max items-center gap-4 ${animationClass}`}>
         {duplicatedLogos.map((logo, index) => (
           <li key={`${logo.alt}-${index}`} className="flex-shrink-0">
@@ -115,7 +119,7 @@ const IntegrationsSection: React.FC = () => {
   const row3Logos = allUniqueLogos.slice(12, 18);    // Logos 13-18
 
   return (
-    <section className="text-white py-10 bg-black">
+    <section className="text-white py-10 md:py-24 bg-black">
       <div className="flex flex-col items-center justify-center w-full px-4 text-white">
         <motion.div
           className="text-center mb-6 text-[#d5dbe6]"
@@ -136,8 +140,8 @@ const IntegrationsSection: React.FC = () => {
           className="w-full flex flex-col gap-3 mt-2"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.2, ease: "easeOut", delay: 0 }}
+          viewport={{ once: true, amount: 0 }}
         >
           {/* First line: 6 unique logos, scrolling left slowly */}
           <Marquee

@@ -59,12 +59,6 @@ const HeroSection: React.FC = () => {
     };
   }, [calculateFogHeight]);
 
-  // Optional: Add a global smooth scroll behavior to the body/html if needed.
-  // This is typically done in your main CSS file (e.g., index.css or global.css)
-  // html {
-  //   scroll-behavior: smooth;
-  // }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -169,6 +163,7 @@ const HeroSection: React.FC = () => {
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
                     <SendIcon className="w-5 h-5 text-black transition-colors duration-700" />
                   </span>
+                  
                 </button>
               </motion.div>
 
@@ -198,6 +193,11 @@ const HeroSection: React.FC = () => {
         </div>
 
         <style>{`
+          /* Add this for global smooth scrolling behavior */
+          html {
+            scroll-behavior: smooth;
+          }
+
           .gradient-text {
             background: linear-gradient(to right, #ffffff, #a0a0a0);
             -webkit-background-clip: text;

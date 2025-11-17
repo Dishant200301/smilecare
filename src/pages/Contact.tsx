@@ -213,10 +213,10 @@ const Contact = () => {
                   <div className="flex justify-center mt-6">
                     <button
                       type="submit"
-                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold font-HindMadurai pl-4 pr-14 py-3 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
+                      className="group relative flex items-center justify-between border border-gray-500 text-white font-semibold font-HindMadurai pl-4 pr-12 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out"
                     >
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[white] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
-                      <span className="relative z-20 group-hover:text-black">
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-[white] text-black z-10 transition-transform duration-700 ease-in-out group-hover:scale-[45]" />
+      <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
                         Send Message
                       </span>
                       <span className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-const Logo = "/image/svgviewer-png-output.svg";
+const Logo = "/assets/logo/svgviewer-png-output.svg";
 import { navigationData, mainNavLinks } from "../data/navigationdata";
 import { AnimatePresence, motion } from "framer-motion";
+import GradientButton from "./GradientButton";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu visibility
@@ -135,18 +136,8 @@ const Navbar = () => {
 
           {/* Contact Button (hidden on smaller screens with lg:block) */}
           <div className="hidden lg:block">
-            <button
-              onClick={() => navigate("/contact")}
-              className="border border-gray-500 hover:bg-background group relative flex items-center justify-between text-white font-semibold pl-4 pr-14 py-2.5 rounded-full overflow-hidden transition-all duration-700 ease-in-out shadow-lg hover:shadow-xl"
-            >
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[50]" />
-              <span className="relative z-20 transition-colors duration-700 group-hover:text-black">
-                Contact Us
-              </span>
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
-                <ArrowRight className="w-5 h-5 text-black transition-colors duration-700" />
-              </span>
-            </button>
+           <GradientButton title="Contact Us" link="/contact" />
+
           </div>
 
           {/* Mobile Toggle Button (visible only on smaller screens with lg:hidden) */}
