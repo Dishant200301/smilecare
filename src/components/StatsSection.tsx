@@ -1,25 +1,19 @@
 import React from "react";
 import {
-  Brain,
-  Globe,
-  Code2,
-  Palette,
-  Database,
   ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react"; // Import Lottie component
 
 // --- Service Interface ---
 interface Service {
   title: string;
   description: string;
   bgColorClass: string;
-  // Removed imageSrc and imageAlt
-  lottieSrc: string; // Added Lottie source URL
+  videoSrc: string;
   gridClasses?: string;
   link: string;
   bullets?: string[];
+  hideArrow?: boolean;
 }
 
 // --- Service Data ---
@@ -29,8 +23,7 @@ const services: Service[] = [
     description:
       "Enhance your online visibility with advanced SEO strategies that drive organic traffic.",
     bgColorClass: "bg-black",
-    lottieSrc:
-      "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
+    videoSrc: "/assets/video/SEO.MP4",
     link: "/services/seo",
   },
   {
@@ -38,18 +31,17 @@ const services: Service[] = [
     description:
       "Leverage intelligent automation to streamline workflows and boost productivity with cutting-edge AI tools.",
     bgColorClass: "bg-black",
-    lottieSrc:
-      "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
+    videoSrc: "/assets/video/AI-Automation.MP4",
     gridClasses: "md:col-span-2",
     link: "/services/ai-automation",
+    hideArrow: true,
   },
   {
     title: "Web Development",
     description:
       "Craft fast, responsive, and engaging websites tailored to your brand's vision.",
     bgColorClass: "bg-black",
-    lottieSrc:
-      "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
+    videoSrc: "/assets/video/Web-development.MP4",
     gridClasses: "md:row-span-1",
     link: "/services/website-development",
   },
@@ -58,20 +50,20 @@ const services: Service[] = [
     description:
       "Custom ERP solutions tailored to streamline your business operations with integrated modules for inventory management.",
     bgColorClass: "bg-black",
-    lottieSrc:
-      "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
+    videoSrc: "/assets/video/ERP.MP4",
     gridClasses: "md:col-span-2",
     link: "/services/custom-erp-system",
+    hideArrow: true,
   },
   {
     title: "Graphics Design",
     description:
       "Bring ideas to life through creative, visually stunning designs that communicate your brand's identity effectively.",
     bgColorClass: "bg-black",
-    lottieSrc:
-      "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
+    videoSrc: "/assets/video/Graphics.MP4",
     gridClasses: "md:col-span-2",
     link: "/services/graphics-design",
+    hideArrow: true,
   },
 ];
 
@@ -102,46 +94,51 @@ const StatsSection: React.FC = () => {
           {/* 👇 Mobile + Tablet (Stacked Scroll Animation) */}
           <div className="block lg:hidden stacked-cards-container">
             {services.map((service, index) => (
-               <a
+              <a
                 key={index}
                 href={service.link}
-                className={`stacked-card-item relative group px-8 pb-0 md:px-12 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 h-[510px] ${service.bgColorClass}`}
+                // FIX: Added z-20, explicit bg-black, removed z-[999] to avoid conflicts, ensure opacity is 100%
+                className={`stacked-card-item relative group z-20 px-8 pb-0 md:px-12 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 h-[510px] bg-black`}
               >
-                <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-grow ">
-                    {/* Ensure icon color is white for contrast */}
-                    <h3 className="text-2xl font-semibold text-white mt-10">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 text-gray-400">{service.description}</p>
-                    {/* 🔹 Show bullets only on desktop */}
-                    {service.bullets && (
-                      <ul className="mt-3 text-gray-400 block">
-                        {service.bullets.map((bullet, idx) => (
-                          <li key={idx} className="list-disc ml-5">
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                {!service.hideArrow && (
+                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="w-5 h-5 text-white" />
                   </div>
-                {/* Replaced img with motion.div containing DotLottieReact */}
-                <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-5">
-                  <motion.div
-                    className="w-full h-[250px] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110"
-                    initial={{ scale: 1 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <DotLottieReact
-                      src={service.lottieSrc}
+                )}
+                <div className="flex-grow ">
+                  <h3 className="text-2xl font-semibold text-white mt-10">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-gray-400">{service.description}</p>
+                  {service.bullets && (
+                    <ul className="mt-3 text-gray-400 block">
+                      {service.bullets.map((bullet, idx) => (
+                        <li key={idx} className="list-disc ml-5">
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                {/* Animation Container */}
+                <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-6">
+                  <div className="w-full h-[300px] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-105">
+                    <video
+                      src={service.videoSrc}
+                      autoPlay
                       loop
-                      autoplay
-                      className="w-full h-full filter grayscale" // Apply grayscale filter
+                      muted
+                      playsInline
+                      className={`w-full h-full object-contain filter grayscale
+                        ${service.title === "SEO Optimization" ? "scale-150" : ""}
+                        ${service.title === "Web Development" ? "scale-125" : ""}
+                        ${service.title === "AI Automation" ? "scale-125" : ""}
+                        ${service.title === "Custom ERP Solutions" ? "scale-125" : ""}
+                        ${service.title === "Graphics Design" ? "scale-125" : ""} 
+                      `}
                     />
-                  </motion.div>
+                  </div>
                 </div>
               </a>
             ))}
@@ -158,7 +155,7 @@ const StatsSection: React.FC = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.1, // Stagger cards for a nicer entry
+                  staggerChildren: 0.1,
                   delayChildren: 0.2,
                 },
               },
@@ -175,20 +172,19 @@ const StatsSection: React.FC = () => {
                     visible: { opacity: 1, x: 0, y: 0 },
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className={`group relative px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 ${
-                    service.bgColorClass
-                  } ${service.gridClasses || ""}`}
+                  className={`group relative px-8 pb-0 rounded-3xl border border-gray-800 hover:border-white/30 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden cursor-pointer hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-white/20 bg-black ${service.gridClasses || ""
+                    }`}
                 >
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ArrowRight className="w-5 h-5 text-white" />
-                  </div>
+                  {!service.hideArrow && (
+                    <div className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ArrowRight className="w-5 h-5 text-white" />
+                    </div>
+                  )}
                   <div className="flex-grow ">
-                    {/* Ensure icon color is white for contrast */}
                     <h3 className="text-2xl font-semibold text-white mt-10">
                       {service.title}
                     </h3>
                     <p className="mt-3 text-gray-400">{service.description}</p>
-                    {/* 🔹 Show bullets only on desktop */}
                     {service.bullets && (
                       <ul className="mt-3 text-gray-400 block">
                         {service.bullets.map((bullet, idx) => (
@@ -199,27 +195,24 @@ const StatsSection: React.FC = () => {
                       </ul>
                     )}
                   </div>
-                  {/* Replaced img with motion.div containing DotLottieReact */}
+
                   <div className="relative bottom-0 left-0 w-[calc(100%+64px)] -ml-8 -mr-8 overflow-hidden rounded-xl p-5">
-                    <motion.div
-                      className="w-full h-[250px] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110"
-                      initial={{ scale: 1 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <DotLottieReact
-                      src={service.lottieSrc}
-                      loop
-                      autoplay
-                      className={`h-full object-contain filter grayscale transition-all duration-500 ease-out 
-                        ${service.title === "SEO Optimization" ? "scale-110 md:scale-150 p-6" : ""}
-                        ${service.title === "AI Automation" ? "scale-110 md:scale-150 p-6 -mt-8" : ""}
-                        ${service.title === "Web Development" ? "scale-110 md:scale-150 -mt-4" : ""}
-                        ${service.title === "Custom ERP Solutions" ? "scale-110 md:scale-150 p-8 " : ""}
-                        ${service.title === "Graphics Design" ? "scale-110 md:scale-150 p-6 -mt-2" : ""}
-                      `}
-                    />
-                    </motion.div>
+                    <div className="w-full h-[300px] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-500 ease-out ">
+                      <video
+                        src={service.videoSrc}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className={`w-full h-full object-contain filter grayscale
+                          ${service.title === "SEO Optimization" ? "scale-150" : ""}
+                          ${service.title === "Web Development" ? "scale-125" : ""}
+                          ${service.title === "AI Automation" ? "scale-125" : ""}
+                          ${service.title === "Custom ERP Solutions" ? "scale-110" : ""}
+                          ${service.title === "Graphics Design" ? "scale-110" : ""}
+                        `}
+                      />
+                    </div>
                   </div>
                 </motion.a>
               );

@@ -8,12 +8,14 @@ import { useEffect } from "react";
 
 import Index from "./pages/Index";
 import Home from "./pages/Home";
-import BusinessCategory from "./pages/BusinessCategory";
-import BusinessCategoryDetail from "./pages/BusinessCategoryDetail";
+import Category from "./pages/Category";
+import CategoryDetail from "./pages/CategoryDetail";
+import SubCategoryDetail from "./pages/SubCategoryDetail";
 import Pricing from "./pages/PricingPage";
 import Solutions from "./pages/Solutions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ClaimFreeWebsite from "./pages/ClaimFreeWebsite";
 
 import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
@@ -61,8 +63,9 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/business-category" element={<BusinessCategory />} />
-            <Route path="/business-category/:slug" element={<BusinessCategoryDetail />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/category/:slug" element={<CategoryDetail />} />
+            <Route path="/category/:slug/:subcategorySlug" element={<SubCategoryDetail />} />
             {/* <Route path="/pricing" element={<Pricing />} /> */}
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/products" element={<Products />} />
@@ -73,7 +76,8 @@ const App = () => (
         <Route path="/portfolio/:id" element={<PortfolioDetail />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            
+            <Route path="/claim-your-free-website" element={<ClaimFreeWebsite />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

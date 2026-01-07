@@ -2,12 +2,46 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import SendIcon from "./icons/SendIcon";
 import { motion, useScroll, useTransform } from "framer-motion"; // Import useScroll and useTransform
+import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 
 const HeroSection: React.FC = () => {
-    const sectionRef = useRef<HTMLElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const [fogHeight, setFogHeight] = useState<number>(0);
-    const navigate = useNavigate();
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [fogHeight, setFogHeight] = useState<number>(0);
+  const navigate = useNavigate();
+
+  // Video Controls State
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const toggleFullScreen = () => {
+    if (videoRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        videoRef.current.requestFullscreen();
+      }
+    }
+  };
 
   // Framer Motion: Get scroll progress of the section
   const { scrollYProgress } = useScroll({
@@ -77,34 +111,56 @@ const HeroSection: React.FC = () => {
           style={{ height: `${fogHeight}px` }}
         >
           {/* Fog layers for animation - now motion.div with parallax */}
-          {/* Framer Motion will handle the 'y' transform, making it smooth */}
-          <motion.div id="foglayer_01" className="fog" style={{ y: yFog1 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+          {/* Outer motion.div handles Vertical Parallax (Y-axis) via Framer Motion */}
+          {/* Inner div handles Horizontal Loop (X-axis) via CSS Transform */}
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog1, zIndex: 1 }}>
+            <div id="foglayer_01" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_02" className="fog" style={{ y: yFog2 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog2, zIndex: 2 }}>
+            <div id="foglayer_02" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_03" className="fog" style={{ y: yFog3 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog3, zIndex: 3 }}>
+            <div id="foglayer_03" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_04" className="fog" style={{ y: yFog4 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog4, zIndex: 4 }}>
+            <div id="foglayer_04" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_05" className="fog" style={{ y: yFog5 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog5, zIndex: 5 }}>
+            <div id="foglayer_05" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_06" className="fog" style={{ y: yFog6 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog6, zIndex: 6 }}>
+            <div id="foglayer_06" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
-          <motion.div id="foglayer_07" className="fog" style={{ y: yFog7 }}>
-            <div className="image01"></div>
-            <div className="image02"></div>
+
+          <motion.div className="fog-parallax-layer" style={{ y: yFog7, zIndex: 7 }}>
+            <div id="foglayer_07" className="fog-horizontal">
+              <div className="image01"></div>
+              <div className="image02"></div>
+            </div>
           </motion.div>
         </div>
 
@@ -160,7 +216,7 @@ const HeroSection: React.FC = () => {
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9">
                     <SendIcon className="w-5 h-5 text-black transition-colors duration-700" />
                   </span>
-                  
+
                 </button>
               </motion.div>
 
@@ -175,13 +231,53 @@ const HeroSection: React.FC = () => {
                 viewport={{ once: true }}
                 className="relative w-full max-w-4xl mx-auto z-30"
               >
-                <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-black">
-                  <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&showinfo=0&rel=0"
-                    title="YouTube video player"
-                    className="w-full h-full"
-                    allowFullScreen
+                <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-black group">
+                  <video
+                    ref={videoRef}
+                    src="/assets/video/home-hero-video.mp4"
+                    className="w-full h-full object-cover"
+                    loop
+                    muted={isMuted}
+                    autoPlay
+                    playsInline
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
                   />
+
+                  {/* Custom Controls */}
+                  <div className="absolute bottom-6 right-6 flex items-center gap-3 bg-black/60 backdrop-blur-sm p-3 rounded-2xl border border-white/10 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    <button
+                      onClick={togglePlay}
+                      className="p-2 hover:bg-white/20 rounded-full transition-colors group/btn"
+                      aria-label={isPlaying ? "Pause" : "Play"}
+                    >
+                      {isPlaying ? (
+                        <Pause className="w-5 h-5 text-white group-hover/btn:scale-110 transition-transform" />
+                      ) : (
+                        <Play className="w-5 h-5 text-white group-hover/btn:scale-110 transition-transform" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={toggleMute}
+                      className="p-2 hover:bg-white/20 rounded-full transition-colors group/btn"
+                      aria-label={isMuted ? "Unmute" : "Mute"}
+                    >
+                      {isMuted ? (
+                        <VolumeX className="w-5 h-5 text-white group-hover/btn:scale-110 transition-transform" />
+                      ) : (
+                        <Volume2 className="w-5 h-5 text-white group-hover/btn:scale-110 transition-transform" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={toggleFullScreen}
+                      className="p-2 hover:bg-white/20 rounded-full transition-colors group/btn"
+                      aria-label="Fullscreen"
+                    >
+                      <Maximize className="w-5 h-5 text-white group-hover/btn:scale-110 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -207,6 +303,7 @@ const HeroSection: React.FC = () => {
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
             -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 25%, transparent 100%);
             transition: height 0.3s ease-out; /* Smooth transition for height changes */
+            overflow: hidden;
           }
 
           .fogwrapper::after {
@@ -217,26 +314,29 @@ const HeroSection: React.FC = () => {
             right: 0;
             height: 40%;
             background: linear-gradient(to top, #000 30%, transparent 100%);
+            z-index: 10; /* Ensure gradient overlay is on top */
           }
 
-          #foglayer_01,
-          #foglayer_02,
-          #foglayer_03,
-          #foglayer_04,
-          #foglayer_05,
-          #foglayer_06,
-          #foglayer_07 {
-            height: 100%;
+          /* New Classes for Split Animation Control */
+          .fog-parallax-layer {
             position: absolute;
-            width: 200%; /* Keep this for the horizontal animation */
-            bottom: 0;
-            /* Framer Motion's 'y' property on motion.div will override any 'transform: translateY'
-               from traditional CSS animations, so ensure 'bottom: 0' and 'height: 100%' position
-               it correctly *before* the parallax takes over. */
-            /* Add pointer-events: none; to fog layers too, if needed, to prevent interference with content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
           }
 
+          .fog-horizontal {
+            height: 100%;
+            position: absolute;
+            width: 200%;
+            bottom: 0;
+            left: 0;
+            will-change: transform, opacity; /* Optimization for smooth animation */
+          }
+
+          /* Individual Fog Layers */
           #foglayer_01 .image01, #foglayer_01 .image02,
           #foglayer_02 .image01, #foglayer_02 .image02,
           #foglayer_03 .image01, #foglayer_03 .image02,
@@ -246,7 +346,7 @@ const HeroSection: React.FC = () => {
           #foglayer_07 .image01, #foglayer_07 .image02 {
             float: left;
             height: 100%;
-            width: 50%; /* Each image takes half the 200% width, so the full fog layer covers the section */
+            width: 50%;
           }
 
           #foglayer_01 .image01, #foglayer_01 .image02 {
@@ -272,26 +372,26 @@ const HeroSection: React.FC = () => {
             filter: brightness(2.5) saturate(0.4);
           }
 
-          /* Keep existing fog animations for horizontal movement and opacity */
-          /* Note: 'foglayer_bob' uses transform: translateY, which will conflict
-             with Framer Motion's 'y' transform. You should remove 'foglayer_bob'
-             from the animation list if you want Framer Motion to fully control the Y position.
-             If you want the subtle vertical bobbing *on top* of the parallax, you might
-             need to apply it to an inner div or use Framer Motion's keyframes.
-             For now, removing it to avoid conflict. */
+          /* Keyframes updated to use transform for smoother performance */
           @keyframes foglayer_opacity { 0% { opacity: 0.3; } 22% { opacity: 0.7; } 40% { opacity: 0.5; } 58% { opacity: 0.6; } 80% { opacity: 0.4; } 100% { opacity: 0.3; } }
-          @keyframes foglayer_moveme { 0% { left: 0; } 100% { left: -100%; } }
-          // @keyframes foglayer_bob { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+          
+          @keyframes foglayer_moveme { 
+            0% { transform: translate3d(0, 0, 0); } 
+            100% { transform: translate3d(-50%, 0, 0); } 
+          }
 
-          #foglayer_01 { animation: foglayer_opacity 15s linear infinite, foglayer_moveme 55s linear infinite; } // Removed foglayer_bob
-          #foglayer_02 { animation: foglayer_opacity 21s linear infinite, foglayer_moveme 60s linear infinite; } // Removed foglayer_bob
-          #foglayer_03 { animation: foglayer_opacity 25s linear infinite, foglayer_moveme 40s linear infinite; } // Removed foglayer_bob
-          #foglayer_04 { animation: foglayer_opacity 18s linear infinite, foglayer_moveme 30s linear infinite; } // Removed foglayer_bob
-          #foglayer_05 { animation: foglayer_opacity 28s linear infinite, foglayer_moveme 75s linear infinite; } // Removed foglayer_bob
-          #foglayer_06 { animation: foglayer_opacity 22s linear infinite, foglayer_moveme 35s linear infinite; } // Removed foglayer_bob
-          #foglayer_07 { animation: foglayer_opacity 19s linear infinite, foglayer_moveme 68s linear infinite; } // Removed foglayer_bob
+          #foglayer_01 { animation: foglayer_opacity 15s linear infinite, foglayer_moveme 55s linear infinite; }
+          #foglayer_02 { animation: foglayer_opacity 21s linear infinite, foglayer_moveme 60s linear infinite; }
+          #foglayer_03 { animation: foglayer_opacity 25s linear infinite, foglayer_moveme 40s linear infinite; }
+          #foglayer_04 { animation: foglayer_opacity 18s linear infinite, foglayer_moveme 30s linear infinite; }
+          #foglayer_05 { animation: foglayer_opacity 28s linear infinite, foglayer_moveme 75s linear infinite; }
+          #foglayer_06 { animation: foglayer_opacity 22s linear infinite, foglayer_moveme 35s linear infinite; }
+          #foglayer_07 { animation: foglayer_opacity 19s linear infinite, foglayer_moveme 68s linear infinite; }
 
           @media only screen and (max-width: 767px) {
+            .fog-horizontal {
+               width: 200%; /* Ensure width remains 200% even on mobile for the loop to work */
+            }
             #foglayer_01 .image01, #foglayer_01 .image02,
             #foglayer_02 .image01, #foglayer_02 .image02,
             #foglayer_03 .image01, #foglayer_03 .image02,
@@ -299,7 +399,7 @@ const HeroSection: React.FC = () => {
             #foglayer_05 .image01, #foglayer_05 .image02,
             #foglayer_06 .image01, #foglayer_06 .image02,
             #foglayer_07 .image01, #foglayer_07 .image02 {
-              width: 100%; /* Ensures images stack or behave well on small screens */
+              width: 50%; /* Keep 50% width for the loop logic */
             }
           }
         `}</style>

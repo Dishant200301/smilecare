@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
@@ -46,6 +47,7 @@ import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TestimonialSection from "@/components/Testimonials";
+import WorkflowSection from "@/components/WorkflowSection";
 
 const ServicesDetail = () => {
   const { slug } = useParams();
@@ -61,10 +63,15 @@ const ServicesDetail = () => {
     title,
     subtitle,
     lottieSrc,
+    videoSrc,
     heroDescription,
     subServices,
     features,
   } = service;
+
+  const relatedServices = Object.values(servicesDetailData).filter(
+    (s) => s.slug !== slug
+  );
 
   const whyChooseUsSection = features[0];
 
@@ -125,56 +132,56 @@ const ServicesDetail = () => {
   }));
 
   const renderServiceCards = (
-  items: any[],
-  gridCols: string = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-  useIcons: boolean = true
-) => (
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7, ease: "easeOut" }}
-    viewport={{ once: true, amount: 0.2 }}
-    className={`grid ${gridCols} gap-8`}
-  >
-    {items.map((sub, i) => {
-      return (
-        <div
-          key={i}
-          className="group relative bg-[#131316] backdrop-blur-sm rounded-3xl overflow-hidden
+    items: any[],
+    gridCols: string = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    useIcons: boolean = true
+  ) => (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className={`grid ${gridCols} gap-8`}
+    >
+      {items.map((sub, i) => {
+        return (
+          <div
+            key={i}
+            className="group relative bg-[#131316] backdrop-blur-sm rounded-3xl overflow-hidden
           shadow-xl border border-gray-800 transition-all duration-300
           hover:shadow-2xl hover:shadow-[white]/20 hover:border-[white]/40"
-        >
-          <div className="p-4 md:lg:p-6">
-            <div className="mb-4">
-              {useIcons && (
-                <div className="flex items-center">
-                  <div className="p-2 bg-[white] rounded-md mr-4">
-                    <CheckCircle className="w-6 h-6 text-black" />
+          >
+            <div className="p-4 md:lg:p-6">
+              <div className="mb-4">
+                {useIcons && (
+                  <div className="flex items-center">
+                    <div className="p-2 bg-[white] rounded-md mr-4">
+                      <CheckCircle className="w-6 h-6 text-black" />
+                    </div>
+                    <h3 className="text-lg font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors">
+                      {sub.title}
+                    </h3>
                   </div>
-                  <h3 className="text-lg font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors">
+                )}
+
+                {!useIcons && (
+                  <h3 className="text-xl font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors">
                     {sub.title}
                   </h3>
-                </div>
-              )}
+                )}
 
-              {!useIcons && (
-                <h3 className="text-xl font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors">
-                  {sub.title}
-                </h3>
-              )}
-
-              {sub.description && (
-                <p className="text-gray-400 font-HindMadurai leading-relaxed whitespace-pre-line">
-                  {sub.description}
-                </p>
-              )}
+                {sub.description && (
+                  <p className="text-gray-400 font-HindMadurai leading-relaxed whitespace-pre-line">
+                    {sub.description}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      );
-    })}
-  </motion.div>
-);
+        );
+      })}
+    </motion.div>
+  );
 
 
   return (
@@ -188,81 +195,88 @@ const ServicesDetail = () => {
 
       <main className="pt-16">
         {/* Hero */}
-     <section className="py-10 px-3 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
-  <motion.div
-    className="max-w-7xl mx-auto"
-    initial={{ opacity: 0, y: 60 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
-    viewport={{ once: true, amount: 0.3 }}
-  >
-    <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <section className="py-10 px-3 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
+          <motion.div
+            className="max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
 
-      {/* TEXT BLOCK */}
-      <div className="text-center lg:text-left">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2"
-        >
-          {title}{" "}
-          <span className="font-InstrumentSerif italic">{subtitle}</span>
-        </motion.h1>
+              {/* TEXT BLOCK */}
+              <div className="text-center lg:text-left">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-4xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-2"
+                >
+                  {title}{" "}
+                  <span className="font-InstrumentSerif italic">{subtitle}</span>
+                </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
-          className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5 hidden sm:block"
-        >
-          {heroDescription}
-        </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.0, ease: "easeOut" }}
+                  className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto mb-5 hidden sm:block"
+                >
+                  {heroDescription}
+                </motion.p>
 
-        <motion.a
-          href="/contact"
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
-          className="group relative inline-flex items-center justify-between border border-gray-700
+                <motion.a
+                  href="/contact"
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.0, ease: "easeOut" }}
+                  className="group relative inline-flex items-center justify-between border border-gray-700
             text-white font-semibold font-HindMadurai pl-4 pr-10 py-2.5 rounded-full overflow-hidden
             transition-all duration-500 ease-in-out hover:border-[white] mt-2 md:lg:mt-0"
-        >
-          <span
-        className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center 
+                >
+                  <span
+                    className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center 
         w-7 h-7 rounded-full bg-white z-10 transition-transform duration-700 
         ease-in-out group-hover:scale-[50]"
-      />
-          <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
-            Get Started
-          </span>
-            <span className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
-        <ArrowRight className="w-5 h-5 ml-1 text-black transition-colors duration-700" />
-      </span>
-        </motion.a>
-      </div>
+                  />
+                  <span className="relative z-20 transition-colors duration-500 ease-in-out group-hover:text-black">
+                    Get Started
+                  </span>
+                  <span className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
+                    <ArrowRight className="w-5 h-5 ml-1 text-black transition-colors duration-700" />
+                  </span>
+                </motion.a>
+              </div>
 
-      {/* LOTTIE BLOCK */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.0, ease: "easeOut", delay: 0.15 }}
-        className="
-          relative w-full 
-          rounded-3xl overflow-hidden
-          h-[260px] sm:h-[400px] md:aspect-[16/9]
-        "
-      >
-        <DotLottieReact
-          src={lottieSrc}
-          loop
-          autoplay
-          className="w-full h-full filter grayscale"
-        />
-      </motion.div>
-    </div>
-  </motion.div>
-</section>
+              {/* LOTTIE BLOCK */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.0, ease: "easeOut", delay: 0.15 }}
+                className="relative w-full rounded-3xl overflow-hidden aspect-video"
+              >
+                {videoSrc ? (
+                  <video
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover filter grayscale"
+                  />
+                ) : (
+                  <DotLottieReact
+                    src={lottieSrc}
+                    loop
+                    autoplay
+                    className="w-full h-full filter grayscale"
+                  />
+                )}
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
 
 
         {/* What we offer */}
@@ -279,12 +293,14 @@ const ServicesDetail = () => {
                 What <span className="font-InstrumentSerif italic">We Offer</span>
               </h2>
 
-             
+
             </div>
 
             {renderServiceCards(subServices, undefined, false)}
           </motion.div>
         </section>
+
+        {/* <WorkflowSection  /> */}
 
         {/* Why Choose Us */}
         {whyChooseUsSection && (
@@ -315,6 +331,48 @@ const ServicesDetail = () => {
             </motion.div>
           </section>
         )}
+
+        {/* Related Services */}
+        <section className="py-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black mb-10">
+          <motion.div
+            className="max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-4">
+                Related <span className="font-InstrumentSerif italic">Services</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedServices.slice(0, 3).map((related, i) => (
+                <a
+                  key={i}
+                  href={`/services/${related.slug}`}
+                  className="group relative bg-[#131316] backdrop-blur-sm rounded-3xl overflow-hidden
+                  shadow-xl border border-gray-800 transition-all duration-300
+                  hover:shadow-2xl hover:shadow-[white]/20 hover:border-[white]/40 block"
+                >
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors mb-2">
+                      {related.title} {related.subtitle}
+                    </h3>
+                    <p className="text-gray-400 font-HindMadurai leading-relaxed line-clamp-3">
+                      {related.heroDescription}
+                    </p>
+                    <div className="mt-4 flex items-center text-sm font-semibold text-white group-hover:gap-2 transition-all">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </section>
 
         <ContactUsPreviewSection />
       </main>

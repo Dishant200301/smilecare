@@ -16,6 +16,10 @@ export interface MenuData {
     title: string;
     items: NavigationItem[];
   };
+  category: {
+    title: string;
+    items: NavigationItem[];
+  };
 }
 
 export const navigationData: MenuData = {
@@ -106,6 +110,59 @@ export const navigationData: MenuData = {
           "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=350&fit=crop",
         desc: "AI-powered calling",
         color: "from-purple-500/30 to-pink-500/30",
+      },
+    ],
+  },
+  category: {
+    title: "Category",
+    items: [
+      {
+        name: "Beauty & Personal Care",
+        slug: "beauty-personal-care",
+        image:
+          "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&h=350&fit=crop",
+        desc: "Beauty and wellness services",
+        color: "from-pink-500/30 to-rose-500/30",
+      },
+      {
+        name: "Health & Medical Services",
+        slug: "health-medical-services",
+        image:
+          "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=350&fit=crop",
+        desc: "Healthcare and medical solutions",
+        color: "from-blue-500/30 to-cyan-500/30",
+      },
+      {
+        name: "Fitness & Coaching",
+        slug: "fitness-coaching",
+        image:
+          "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&h=350&fit=crop",
+        desc: "Fitness training and coaching",
+        color: "from-orange-500/30 to-amber-500/30",
+      },
+      {
+        name: "Home & Local Services",
+        slug: "home-local-services",
+        image:
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500&h=350&fit=crop",
+        desc: "Home improvement and local services",
+        color: "from-green-500/30 to-emerald-500/30",
+      },
+      {
+        name: "Professional Services",
+        slug: "professional-services",
+        image:
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=350&fit=crop",
+        desc: "Business and professional solutions",
+        color: "from-indigo-500/30 to-blue-500/30",
+      },
+      {
+        name: "Creative & Event Services",
+        slug: "creative-event-services",
+        image:
+          "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&h=350&fit=crop",
+        desc: "Creative and event planning services",
+        color: "from-purple-500/30 to-fuchsia-500/30",
       },
     ],
   },

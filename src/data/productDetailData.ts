@@ -1,5 +1,34 @@
-// src/data/productDetailData.ts
 import {
+  CheckSquare,
+  History,
+  ListChecks,
+  Forward,
+  CalendarClock,
+  MapPin,
+  Megaphone,
+  Send,
+  PlayCircle,
+  Filter,
+  LineChart,
+  Eye,
+  FilePlus,
+  FolderOpen,
+  Activity,
+  Braces,
+  Download,
+  Brain,
+  Map,
+  Cpu,
+  Network,
+  PieChart,
+  Share,
+  Mic,
+  PhoneCall,
+  Calendar,
+  RefreshCw,
+  FileAudio,
+  UserPlus,
+  Lock,
   Database,
   Mail,
   FileText,
@@ -15,13 +44,29 @@ import {
   Sparkles,
   Phone,
   Package,
-  Settings, // Added for ERP features
-  Workflow, // Added for ERP features
-  Layers, // Added for ERP features
-  Award, // Added for SEO features
-  Search, // Added for SEO features
-  MessageSquare, // Added for AI Calling features
-  Headphones, // Already present, but good to ensure
+  Settings,
+  Workflow,
+  Layers,
+  Award,
+  Search,
+  MessageSquare,
+  Headphones,
+  Monitor,
+  Repeat,
+  Code,
+  Image as ImageIcon,
+  Palette,
+  UserCheck,
+  Bot,
+  Server,
+  ShoppingCart,
+  Layout,
+  Cloud,
+  Printer,
+  Smartphone,
+  Link,
+  Edit3,
+  CheckCircle,
 } from "lucide-react";
 
 export const productDetailData = {
@@ -33,6 +78,7 @@ export const productDetailData = {
     title: "AsignIT ERP",
     subtitle: "Solution",
     lottieSrc: "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
+    videoSrc: "/assets/video/ERP.MP4",
     heroDescription:
       "Transform your business operations with our comprehensive ERP system. Manage inventory, finances, HR, and more from a single unified platform.",
     // --- Sub Services --- (Already updated from previous iteration)
@@ -71,7 +117,7 @@ export const productDetailData = {
     // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: "Database", // Still for "Why Choose Us"
+        icon: "Database",
         title: "Why Choose Us for AsignIT ERP",
         description:
           "Empower your enterprise with a scalable ERP solution that integrates seamlessly and delivers measurable ROI from day one.",
@@ -82,21 +128,75 @@ export const productDetailData = {
           "Scale seamlessly as business grows."
         ]
       },
-      // --- New "Our Features" for AsignIT ERP ---
       {
-        icon: "Settings", // Example icon for "Complete ERP Solution"
-        title: "Complete ERP Solution",
-        description: `A fully integrated suite covering all aspects of your business, from finance and HR to supply chain and customer relations, ensuring seamless operations.`,
-      },
-      {
-        icon: "Workflow",
-        title: "Customizable Workflows",
-        description: `Tailor processes to match your unique business requirements, automating tasks and approvals for enhanced efficiency and control.`,
+        icon: "Shield",
+        title: "Role-Based Access Control",
+        description: "Five-tier role system: Super Admin, Admin, HOD, Manager, and Member. Granular permissions with department isolation and route protection for security.",
       },
       {
         icon: "Layers",
-        title: "Modular & Scalable Design",
-        description: `Start with essential modules and expand as your business grows, ensuring the system adapts to evolving needs without disruption. and control.`,
+        title: "Multi-Tenancy Architecture",
+        description: "Complete department isolation with cross-department visibility for admins. Department-specific locations, user management, task filtering, color coding.",
+      },
+      {
+        icon: "CheckSquare",
+        title: "Advanced Task Management",
+        description: "Public, private, and scheduled tasks with priority levels, due dates, file attachments, tags, and location-based requirements. Multiple view modes available.",
+      },
+      {
+        icon: "History",
+        title: "Task Path Tracking",
+        description: "Every task maintains complete history of all actions including creation, assignment, forwarding, status changes, and verification. Full accountability tracking.",
+      },
+      {
+        icon: "ListChecks",
+        title: "Create Checklist & Subtask",
+        description: "Multiple checklist items per task with individual completion tracking. Pin subtasks, verify with approval workflow, track progress. Includes voice recording.",
+      },
+      {
+        icon: "TrendingUp",
+        title: "Real-Time Progress Tracking",
+        description: "Add progress notes during task execution with timestamped updates. Track progress percentage (0-100%), view historical progress, enable real-time visibility.",
+      },
+      {
+        icon: "Users",
+        title: "Team Task",
+        description: "Assign single tasks to multiple team members with individual progress tracking per member. Collaborative task management with team-wide notifications.",
+      },
+      {
+        icon: "Forward",
+        title: "Reassign or Forward a Task",
+        description: "Forward tasks to other users while maintaining complete task history. Add notes during forwarding, automatic notifications to new assignees, seamless workflow.",
+      },
+      {
+        icon: "CalendarClock",
+        title: "Scheduled Task",
+        description: "Automatically generate tasks from scheduled templates with multiple frequency options (daily, weekly, monthly, quarterly, yearly). Automatic assignment.",
+      },
+      {
+        icon: "MapPin",
+        title: "Attendance with Geo-Fencing",
+        description: "Location-based attendance tracking with configurable geo-fencing (10-10,000m radius). Automatic check-in validation, multi-location support, nearest detection.",
+      },
+      {
+        icon: "Globe",
+        title: "Location-Wise Attendance",
+        description: "Multi-location support with distance calculation and nearest location detection. Office and remote work modes, location-specific working hours, grace periods.",
+      },
+      {
+        icon: "DollarSign",
+        title: "Expense Approval Workflow",
+        description: "Multi-stage approval workflow with HOD and Admin approval levels. Payment tracking with two-stage process (Approval → Payment), rejection reasons included.",
+      },
+      {
+        icon: "FileText",
+        title: "Document Vault",
+        description: "Secure document storage with organization-level and department-level access control. Tag-based categorization, advanced search, upload permissions, metadata.",
+      },
+      {
+        icon: "BarChart3",
+        title: "Dashboard & Analytics",
+        description: "Live dashboard updates with real-time statistics, performance metrics, and data visualization. Comprehensive reporting across all modules with instant updates.",
       },
     ],
     // --- CTA Section ---
@@ -114,6 +214,7 @@ export const productDetailData = {
     title: "Automated Email ",
     subtitle: "Workflows ",
     lottieSrc: "https://lottie.host/a57cc5a7-ba31-4672-a763-5e9cdb7af52d/hBOfHSkxMX.lottie",
+    videoSrc: "/assets/video/AI-Automation.MP4",
     heroDescription:
       "Scale your email marketing with intelligent automation. Send personalized campaigns to thousands of customers with advanced segmentation and tracking.",
     // --- Sub Services ---
@@ -152,32 +253,66 @@ export const productDetailData = {
     // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: "Mail", // Still for "Why Choose Us"
+        icon: "Mail",
         title: "Why Choose Us for Email Automation",
         description:
           "Achieve superior email marketing results with our reliable, scalable platform that prioritizes deliverability and engagement.",
         points: [
           "Increase open rates by 35%.",
           "Save 20+ hours weekly on tasks.",
-          "engagement, customer retention.",
+          "Boost customer retention.",
           "Seamless integration tools."
         ]
       },
-      // --- New "Our Features" for Email Automation ---
       {
-        icon: "Zap", // Example icon for "Automated email campaigns"
-        title: "Email Campaigns",
-        description: `Set up trigger-based emails for welcome sequences, cart abandonment, and re-engagement, delivering messages at the perfect moment.`,
+        icon: "Megaphone",
+        title: "Campaign Management",
+        description: "Create and run email campaigns with custom names and subject lines. Schedule when emails are sent, check campaign status, and monitor performance in real-time.",
       },
       {
-        icon: "TrendingUp",
-        title: "A/B Testing & Optimization",
-        description: `Test different subject lines, content, and calls-to-action to continuously improve campaign performance and maximize engagement.`,
+        icon: "Users",
+        title: "Contact Management",
+        description: "Add and organize contacts manually or upload files (CSV/Excel). Group contacts for specific campaigns, keep lists clean with duplicate removal, and organize by categories.",
       },
       {
-        icon: "Palette",
-        title: "Drag-and-Drop Email",
-        description: `Create stunning, responsive email templates quickly with an intuitive editor, no coding required, ensuring brand consistency.`,
+        icon: "Layout",
+        title: "Email Templates",
+        description: "Make emails look professional with custom designs. Save and reuse email templates, add personalization placeholders like {{Name}}, and create mobile-responsive layouts.",
+      },
+      {
+        icon: "Send",
+        title: "Bulk Email Sending",
+        description: "Send emails to many people at once with automatic personalization. Use multiple Gmail accounts, schedule automated sends, and personalize each email automatically.",
+      },
+      {
+        icon: "BarChart3",
+        title: "Email Tracking & Analytics",
+        description: "See who opened your emails and track link clicks. Monitor delivery success rates, generate performance reports, and use results to improve future campaigns.",
+      },
+      {
+        icon: "UserCheck",
+        title: "User Account Management",
+        description: "Secure personal accounts with individual access control. Connect Gmail accounts, manage account settings, personal dashboard, and profile management.",
+      },
+      {
+        icon: "PlayCircle",
+        title: "Campaign Control",
+        description: "Start, pause, and stop campaigns with full control. Track campaign status (Running/Completed/Paused), monitor open and click rates in real-time, and manage multiple campaigns.",
+      },
+      {
+        icon: "Filter",
+        title: "Advanced Contact Features",
+        description: "Search and filter contacts with advanced options. Export contact lists, delete invalid email addresses, organize by categories, and maintain clean contact databases.",
+      },
+      {
+        icon: "LineChart",
+        title: "Performance Monitoring",
+        description: "View detailed analytics on who opened emails and which links were clicked. Monitor delivery success rates, export analytics data, and track campaign performance over time.",
+      },
+      {
+        icon: "Eye",
+        title: "Email Preview & Testing",
+        description: "Preview emails before sending to ensure quality. Test campaigns on small groups first, duplicate campaigns for reuse, and validate email content and design.",
       },
     ],
     // --- CTA Section ---
@@ -195,6 +330,7 @@ export const productDetailData = {
     title: "Invoice Generator",
     subtitle: "Smart Billing",
     lottieSrc: "https://lottie.host/4674d99c-65b3-4226-b4d0-f45b2a818fad/KD0kBScXQo.lottie",
+    videoSrc: "/assets/video/Web-development.MP4",
     heroDescription:
       "Automate your invoicing process with AI technology. Generate thousands of professional invoices, track payments, and manage finances effortlessly.",
     // --- Sub Services ---
@@ -233,7 +369,7 @@ export const productDetailData = {
     // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: "FileText", // Still for "Why Choose Us"
+        icon: "FileText",
         title: "Why Choose Us for Bulk AI Invoice Generator",
         description:
           "Streamline your billing operations with AI precision, ensuring accuracy and efficiency at every step of the invoicing process.",
@@ -244,21 +380,55 @@ export const productDetailData = {
           "Improve cash flow management."
         ]
       },
-      // --- New "Our Features" for AI Invoice Generator ---
       {
-        icon: "Sparkles", // Example icon for "AI-powered invoicing"
-        title: "AI-Powered Invoicing",
-        description: `Leverage artificial intelligence to automate invoice creation, data entry, and categorization, drastically reducing manual effort.`,
+        icon: "FilePlus",
+        title: "Invoice Creation",
+        description: "Create professional invoices using your own HTML design templates. Upload custom templates, use personalization placeholders, preview templates, and generate professional PDFs with automatic numbering.",
       },
       {
-        icon: "Monitor",
-        title: "Real-time Payment Track",
-        description: `Monitor invoice statuses, receive instant notifications for payments, and automate follow-ups for overdue accounts to maintain healthy cash flow.`,
+        icon: "Database",
+        title: "Client Data Management",
+        description: "Prepare client lists using spreadsheets (Excel/CSV) with Name, Email, Amount (required) and optional fields. Upload and process bulk data, preview before processing, and validate client information.",
       },
       {
-        icon: "Repeat",
-        title: "Recurring Invoice Automation",
-        description: `Set up automated recurring invoices for subscriptions or regular services, saving time and ensuring consistent billing cycles. and control.`,
+        icon: "Layout",
+        title: "Template Management",
+        description: "Save reusable invoice templates and name them for easy organization. Edit existing templates, preview with sample data, and use custom HTML designs with branding support.",
+      },
+      {
+        icon: "Mail",
+        title: "Email Sending",
+        description: "Send invoices directly to clients via email with custom email messages. Use email templates, personalize with placeholders, and send invoices in bulk to multiple clients automatically.",
+      },
+      {
+        icon: "Settings",
+        title: "Email Configuration",
+        description: "Connect Gmail accounts with app passwords or other email providers (Outlook, Yahoo). Secure credential storage with app passwords and SMTP configuration support.",
+      },
+      {
+        icon: "FolderOpen",
+        title: "Campaign Management",
+        description: "Create invoice campaigns, name and organize them for easy tracking. View all campaigns, search by name, track campaign status, and manage complete campaign history.",
+      },
+      {
+        icon: "Layers",
+        title: "Bulk Operations",
+        description: "Generate multiple PDFs at once from client lists and process large batches. Download all invoices as ZIP file, batch email sending, and generate invoices without sending if needed.",
+      },
+      {
+        icon: "Activity",
+        title: "Email Progress Tracking",
+        description: "Real-time email sending progress with live progress bar and status updates. Track success and failure counts, view detailed sending logs, and receive error notifications.",
+      },
+      {
+        icon: "Braces",
+        title: "Placeholder System",
+        description: "Complete placeholder support for client data: {{Name}}, {{Email}}, {{Amount}}, {{Product}}, {{Quantity}}, {{Address}}, {{invoice_number}}, {{current_date}}, and company details.",
+      },
+      {
+        icon: "Download",
+        title: "Export & Download",
+        description: "Download individual invoices or all invoices as a single ZIP file. Export campaign data, save generated PDFs, and backup invoice files for record keeping.",
       },
     ],
     // --- CTA Section ---
@@ -276,6 +446,7 @@ export const productDetailData = {
     title: "Blog Content",
     subtitle: "SEO Automation",
     lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
+    videoSrc: "/assets/video/SEO.MP4",
     heroDescription:
       "Create and optimize SEO-friendly content at scale. Our AI-powered platform generates high-quality blog posts, optimizes for search engines, and tracks performance.",
     // --- Sub Services ---
@@ -314,7 +485,7 @@ export const productDetailData = {
     // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: "PenTool", // Still for "Why Choose Us"
+        icon: "PenTool",
         title: "Why Choose Us for AI Blog SEO Automation",
         description:
           "Supercharge your content strategy with AI that creates, optimizes, and analyzes for maximum SEO impact and audience growth.",
@@ -325,21 +496,65 @@ export const productDetailData = {
           "Reduce creation costs by 60%."
         ]
       },
-      // --- New "Our Features" for AI Blog SEO Automation ---
       {
-        icon: "Award", // Example icon for "Automated content optimization"
-        title: "Content Optimization",
-        description: `AI-driven recommendations ensure your content is fully optimized for search engines, improving visibility and ranking potential.`,
+        icon: "Globe",
+        title: "Website Content Extraction",
+        description: "Automatically extract all relevant content with intelligent crawling. Follows links within boundaries, processes hundreds of pages in batch, and tracks progress in real-time.",
       },
       {
-        icon: "Search",
-        title: "Real-time SEO Insights",
-        description: `Get instant feedback on keyword usage, readability, and content structure, allowing for on-the-fly improvements to boost SEO performance.`,
+        icon: "Brain",
+        title: "AI-Powered Keyword Analysis",
+        description: "Advanced AI analysis for content context and keyword intent. Suggests blog post types and provides SEO recommendations with meta titles, descriptions, and URLs.",
       },
       {
-        icon: "Code",
-        title: "Schema Markup Generation",
-        description: `Automatically generate structured data (schema markup) for your blog posts to enhance rich snippets and improve click-through rates.`,
+        icon: "Map",
+        title: "Local Keyword Analysis",
+        description: "Operate on your local system without API costs using multiple extraction methods. Classifies keywords into 15 intent categories and groups related keywords into clusters.",
+      },
+      {
+        icon: "FileText",
+        title: "12 Blog Post Types",
+        description: "Generate professional content across 12 types including How-To Guides, Case Studies, Comparisons, Buyer's Guides, Listicles, Expert Opinions, and Technical Documentation.",
+      },
+      {
+        icon: "TrendingUp",
+        title: "SEO Optimization",
+        description: "Automatically includes target keywords naturally with proper heading structure (H1, H2, H3). SEO-optimized titles, meta descriptions, and internal linking opportunities built-in.",
+      },
+      {
+        icon: "Cpu",
+        title: "Multiple AI Providers",
+        description: "Choose between Groq (fast) or Gemini (advanced) for blog generation. Flexible AI model selection with customizable word count targets (1,000-3,000+ words).",
+      },
+      {
+        icon: "Network",
+        title: "Keyword Clustering",
+        description: "Automatically groups related keywords into clusters by topic. Identifies main and secondary keywords, suggests long-tail keywords, and provides visual cluster representations.",
+      },
+      {
+        icon: "PieChart",
+        title: "Interactive Dashboards",
+        description: "Visual representations with interactive charts showing keyword relationships and distributions. Intent distribution breakdowns, word clouds, treemaps, and content statistics.",
+      },
+      {
+        icon: "CheckCircle",
+        title: "Factual Accuracy",
+        description: "Blog generation uses only information from your actual website content, ensuring accuracy and credibility. Maintains brand alignment and messaging consistency automatically.",
+      },
+      {
+        icon: "Share",
+        title: "Export Options",
+        description: "Export generated blog posts in HTML format for websites or Markdown format for content management systems. All exports include proper formatting and SEO elements.",
+      },
+      {
+        icon: "Database",
+        title: "Data Management",
+        description: "Centralized storage with complete crawl history, analysis tracking, and blog archive. Search and filter capabilities, version history for analyses, and export options.",
+      },
+      {
+        icon: "Edit3",
+        title: "Customizable Content",
+        description: "Override default topics with your own ideas and add specific requirements for each blog post. Customize content length, select blog types, and provide additional instructions.",
       },
     ],
     // --- CTA Section ---
@@ -357,6 +572,7 @@ export const productDetailData = {
     title: "AI Calling",
     subtitle: "Voice Automation",
     lottieSrc: "https://lottie.host/3d4dfd7b-c260-44c3-8a80-49bd6d202364/lheUJCRS6H.lottie",
+    videoSrc: "/assets/video/AI-Automation.MP4",
     heroDescription:
       "Revolutionize your communication strategy with AI-driven calling. Automate outbound sales calls, provide 24/7 customer support, and personalize interactions using advanced voice AI.",
     // --- Sub Services ---
@@ -395,7 +611,7 @@ export const productDetailData = {
     // --- Features Array (Why Choose Us and New "Our Features") ---
     features: [
       {
-        icon: "Phone", // Still for "Why Choose Us"
+        icon: "Phone",
         title: "Why Choose Us for AI Calling Automation",
         description:
           "Elevate your customer interactions with scalable, intelligent voice AI that delivers human-like conversations and measurable results.",
@@ -406,21 +622,50 @@ export const productDetailData = {
           "Scale outreach without headcount increase."
         ]
       },
-      // --- New "Our Features" for AI Calling Automation ---
       {
-        icon: "Bot", // Example icon for "AI-powered calling"
-        title: "AI-Powered Calling",
-        description: `Utilize advanced AI voices to conduct natural, conversational calls for sales, support, and surveys, at unparalleled scale. and control.`,
+        icon: "Mic",
+        title: "AI Voice Assistant",
+        description: "Conversational AI that understands natural human speech and responds in real-time with human-like voice. Context-aware responses with conversation flow and understanding.",
       },
       {
-        icon: "MessageSquare",
-        title: "Sentiment Analysis",
-        description: `AI analyzes customer sentiment during calls, allowing for dynamic script adjustments and prioritization of urgent cases for human agents.`,
+        icon: "PhoneCall",
+        title: "Outbound & Inbound Calling",
+        description: "Automatically makes outgoing calls to leads or customers and handles incoming calls without human help. Full automation for outbound campaigns and inbound customer service.",
       },
       {
-        icon: "UserCheck",
+        icon: "Workflow",
+        title: "Custom Call Flow",
+        description: "Design conversation flows visually or dynamically with greetings, questions, responses, and transfers. Flexible script builder for personalized call experiences.",
+      },
+      {
+        icon: "Calendar",
+        title: "Call Scheduling & Follow-ups",
+        description: "Automatically schedules callbacks for missed or busy numbers and sends timely reminders. Smart scheduling system with automated follow-up management and priority handling.",
+      },
+      {
+        icon: "RefreshCw",
         title: "CRM Integration",
-        description: `Seamlessly integrate with your existing CRM to log call details, update customer profiles, and ensure consistent data across platforms.`,
+        description: "Syncs call results, lead details, and notes directly to your CRM like HubSpot, Salesforce, or custom systems. Seamless integration with popular CRM platforms.",
+      },
+      {
+        icon: "FileAudio",
+        title: "Call Recording & Transcription",
+        description: "Records all conversations, generates text transcripts, and allows searching or analyzing them. Complete call documentation with searchable transcriptions.",
+      },
+      {
+        icon: "BarChart3",
+        title: "Analytics Dashboard",
+        description: "Shows metrics like call duration, success rate, conversion rate, and sentiment analysis. Comprehensive analytics with real-time performance tracking.",
+      },
+      {
+        icon: "UserPlus",
+        title: "Human Escalation & Routing",
+        description: "Transfers calls to human agents when AI can't handle complex queries or when user requests it. Smart routing with seamless escalation to human support.",
+      },
+      {
+        icon: "Lock",
+        title: "Data Privacy & Compliance",
+        description: "Secure data encryption, consent management, and compliance with telecom and data protection laws like TRAI and GDPR. Enterprise-grade security and regulatory compliance.",
       },
     ],
     // --- CTA Section ---

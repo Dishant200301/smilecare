@@ -26,6 +26,7 @@ export const servicesDetailData = {
     subtitle: "Automation",
     lottieSrc:
       "https://lottie.host/71a9e757-1008-4557-a6e7-1a713980eab4/TMGOmUplKI.lottie",
+    videoSrc: "/assets/video/AI-Automation.MP4",
     heroDescription:
       "Harness the power of artificial intelligence to automate complex business processes, enhance decision-making, and drive innovation across your organization.",
     // --- Sub Services ---
@@ -93,6 +94,7 @@ export const servicesDetailData = {
     title: "SEO",
     subtitle: "Services",
     lottieSrc: "https://lottie.host/3a7c33ec-10fe-47d8-8bcd-dd5c3c12cf7e/zeT8oLJSbU.lottie",
+    videoSrc: "/assets/video/SEO.MP4",
     heroDescription:
       "Elevate your online presence with comprehensive SEO strategies that drive organic traffic, improve rankings, and maximize ROI more effectively.",
     // --- Sub Services ---
@@ -159,6 +161,7 @@ export const servicesDetailData = {
     title: "Website",
     subtitle: "Development",
     lottieSrc: "https://lottie.host/8c8ba641-1008-49b3-b9ef-4c66a01c7dc2/LWidHvr05h.lottie",
+    videoSrc: "/assets/video/Web-development.MP4",
     heroDescription:
       "Build powerful, scalable websites that deliver exceptional user experiences and drive business growth with cutting-edge technologies.",
     // --- Sub Services ---
@@ -231,6 +234,7 @@ export const servicesDetailData = {
     title: "Graphics",
     subtitle: "Design",
     lottieSrc: "https://lottie.host/3d31e69f-ad21-48cd-93cb-7bd3a757621c/nN7UqPfcFy.lottie",
+    videoSrc: "/assets/video/Graphics.MP4",
     heroDescription:
       "Transform your brand identity with stunning visual designs that captivate audiences and communicate your message effectively successfully.",
     // --- Sub Services ---
@@ -298,6 +302,7 @@ export const servicesDetailData = {
     title: "Custom ERP",
     subtitle: "System",
     lottieSrc: "https://lottie.host/93de780f-0c2d-4b33-bf22-b9a56c7f52db/NjmmHcBNUf.lottie",
+    videoSrc: "/assets/video/ERP.MP4",
     heroDescription:
       "Unify your business operations with a custom ERP system designed to optimize workflows, enhance collaboration, and drive growth successfully.",
     // --- Sub Services ---

@@ -3,6 +3,36 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import {
+  CheckSquare,
+  History,
+  ListChecks,
+  Forward,
+  CalendarClock,
+  MapPin,
+  Megaphone,
+  Send,
+  PlayCircle,
+  Filter,
+  LineChart,
+  Eye,
+  FilePlus,
+  FolderOpen,
+  Activity,
+  Braces,
+  Download,
+  Brain,
+  Map,
+  Cpu,
+  Network,
+  PieChart,
+  Share,
+  Mic,
+  PhoneCall,
+  Calendar,
+  RefreshCw,
+  FileAudio,
+  UserPlus,
+  Lock,
   ArrowRight,
   CheckCircle,
   Zap,
@@ -68,10 +98,15 @@ const ProductDetail = () => {
     title,
     subtitle,
     lottieSrc,
+    videoSrc,
     heroDescription,
     subServices,
     features,
   } = product;
+
+  const relatedProducts = Object.values(productDetailData).filter(
+    (p) => p.slug !== slug
+  );
 
   const whyChooseUsSection = features[0];
   const otherFeatures = features.slice(1);
@@ -94,6 +129,36 @@ const ProductDetail = () => {
   const { gradientPart, italicPart } = splitTitle(whyChooseUsSection.title);
 
   const iconMap = {
+    CheckSquare,
+    History,
+    ListChecks,
+    Forward,
+    CalendarClock,
+    MapPin,
+    Megaphone,
+    Send,
+    PlayCircle,
+    Filter,
+    LineChart,
+    Eye,
+    FilePlus,
+    FolderOpen,
+    Activity,
+    Braces,
+    Download,
+    Brain,
+    Map,
+    Cpu,
+    Network,
+    PieChart,
+    Share,
+    Mic,
+    PhoneCall,
+    Calendar,
+    RefreshCw,
+    FileAudio,
+    UserPlus,
+    Lock,
     Bot,
     Workflow,
     TrendingUp,
@@ -143,7 +208,7 @@ const ProductDetail = () => {
 
   const renderServiceCards = (
     items: any[],
-    gridCols = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    gridCols = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
     useIcons = true
   ) => (
     <motion.div
@@ -169,7 +234,7 @@ const ProductDetail = () => {
                     <div className="p-2 bg-white rounded-md mr-4">
                       <IconComponent className="w-6 h-6 text-black" />
                     </div>
-                    <h3 className="text-xl font-bold font-HindMadurai text-white transition-colors">
+                    <h3 className="text-lg font-bold font-HindMadurai text-white transition-colors">
                       {sub.title}
                     </h3>
                   </div>
@@ -204,7 +269,7 @@ const ProductDetail = () => {
       <main className="pt-16">
 
         {/* HERO SECTION — UPDATED */}
-        <section className="py-10 px-3 sm:px-4 md:px-12 lg:px-4 xl:px-48 2xl:px-48">
+        <section className="py-10 px-3 sm:px-4 md:px-12 lg:px-4 xl:px-36 2xl:px-44">
           <motion.div
             className="max-w-7xl mx-auto"
             initial={{ opacity: 0, y: 60 }}
@@ -252,9 +317,9 @@ const ProductDetail = () => {
                     Get Started
                   </span>
 
-                    <span className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
-                          <ArrowRight className="w-5 h-5 ml-1 text-black transition-colors duration-700" />
-                        </span>
+                  <span className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8">
+                    <ArrowRight className="w-5 h-5 ml-1 text-black transition-colors duration-700" />
+                  </span>
                 </motion.a>
               </div>
 
@@ -263,14 +328,25 @@ const ProductDetail = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
-                className="relative w-full rounded-3xl overflow-hidden h-[260px] sm:h-[400px] md:aspect-[16/9]"
+                className="relative w-full rounded-3xl overflow-hidden aspect-video"
               >
-                <DotLottieReact
-                  src={lottieSrc}
-                  loop
-                  autoplay
-                  className="w-full h-full filter grayscale"
-                />
+                {videoSrc ? (
+                  <video
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover filter grayscale"
+                  />
+                ) : (
+                  <DotLottieReact
+                    src={lottieSrc}
+                    loop
+                    autoplay
+                    className="w-full h-full filter grayscale"
+                  />
+                )}
               </motion.div>
             </div>
           </motion.div>
@@ -278,7 +354,7 @@ const ProductDetail = () => {
 
         {/* OUR FEATURES */}
         {otherFeatures.length > 0 && (
-          <section className="pb-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black">
+          <section className="pb-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-36 bg-black">
             <motion.div
               className="max-w-7xl mx-auto"
               initial={{ opacity: 0, y: 40 }}
@@ -318,6 +394,48 @@ const ProductDetail = () => {
               "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3",
               true
             )}
+          </motion.div>
+        </section>
+
+        {/* RELATED PRODUCTS */}
+        <section className="py-10 px-5 sm:px-4 md:px-12 lg:px-4 xl:px-48 bg-black mb-10">
+          <motion.div
+            className="max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-HindMadurai gradient-text font-medium leading-tight pb-4">
+                Related <span className="font-InstrumentSerif italic">Products</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedProducts.slice(0, 3).map((related, i) => (
+                <a
+                  key={i}
+                  href={`/products/${related.slug}`}
+                  className="group relative bg-[#131316] backdrop-blur-sm rounded-3xl overflow-hidden
+                  shadow-xl border border-gray-800 transition-all duration-300
+                  hover:shadow-2xl hover:shadow-[white]/20 hover:border-[white]/40 block"
+                >
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold font-HindMadurai text-white group-hover:text-[white] transition-colors mb-2">
+                      {related.title} {related.subtitle}
+                    </h3>
+                    <p className="text-gray-400 font-HindMadurai leading-relaxed line-clamp-3">
+                      {related.heroDescription}
+                    </p>
+                    <div className="mt-4 flex items-center text-sm font-semibold text-white group-hover:gap-2 transition-all">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </motion.div>
         </section>
 

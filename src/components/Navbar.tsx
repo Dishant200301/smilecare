@@ -37,8 +37,8 @@ const Navbar = () => {
     setHoveredSubItem(null);
   };
 
-  // Handles mouse entering a main button (Services/Products) to open its dropdown
-  const handleMouseEnterButton = (dropdown: "services" | "products") => {
+  // Handles mouse entering a main button (Services/Products/Category) to open its dropdown
+  const handleMouseEnterButton = (dropdown: "services" | "products" | "category") => {
     setActiveDropdown(dropdown);
     // Set the first item as hovered by default for the preview pane
     if (menuData[dropdown] && menuData[dropdown].items.length > 0) {
@@ -104,11 +104,10 @@ const Navbar = () => {
                   <span className="capitalize">{menuKey}</span>
                   <ChevronDown
                     size={14}
-                    className={`transition-transform duration-300 ${
-                      activeDropdown === menuKey
-                        ? "rotate-180 text-foreground"
-                        : ""
-                    }`}
+                    className={`transition-transform duration-300 ${activeDropdown === menuKey
+                      ? "rotate-180 text-foreground"
+                      : ""
+                      }`}
                   />
                 </button>
               </div>
@@ -132,11 +131,40 @@ const Navbar = () => {
             >
               Blogs
             </a>
+            <a
+              href="/contact"
+              className="text-white/70 hover:text-white px-5 py-2.5 rounded-full hover:bg-white/5 transition-all font-HindMadurai duration-300"
+            >
+              Contact
+            </a>
+
+            {/* Category Button - Same as Services */}
+            <div
+              className="group"
+              onMouseEnter={() => handleMouseEnterButton("category")}
+            >
+              <button
+                onClick={() => {
+                  navigate("/category");
+                  setActiveDropdown(null);
+                }}
+                className="text-foreground/80 hover:text-foreground flex items-center space-x-1.5 px-5 py-2.5 rounded-full hover:bg-white/5 transition-all duration-300"
+              >
+                <span>Category</span>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-300 ${activeDropdown === "category"
+                    ? "rotate-180 text-foreground"
+                    : ""
+                    }`}
+                />
+              </button>
+            </div>
           </div>
 
           {/* Contact Button (hidden on smaller screens with lg:block) */}
           <div className="hidden lg:block">
-           <GradientButton title="Contact Us" link="/contact" />
+            <GradientButton title="Claim your free website" link="/claim-your-free-website" />
 
           </div>
 
@@ -156,11 +184,10 @@ const Navbar = () => {
         <div
           id="global-dropdown"
           className={`absolute top-full left-0 right-0 mx-auto z-50 w-[44rem] max-w-[95vw] transition-all font-HindMadurai duration-300
-              ${
-                activeDropdown
-                  ? "opacity-100 visible translate-y-0"
-                  : "opacity-0 invisible -translate-y-2 pointer-events-none"
-              }
+              ${activeDropdown
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-2 pointer-events-none"
+            }
               backdrop-blur-xl bg-background border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex
             `}
         >
@@ -171,11 +198,10 @@ const Navbar = () => {
                 {menuData[activeDropdown].items.map((item, index) => (
                   <div
                     key={index}
-                    className={`px-6 py-3 text-foreground/60 hover:text-foreground cursor-pointer transition-all duration-200 border-l-2 ${
-                      hoveredSubItem?.item?.name === item.name
-                        ? "border-foreground bg-white/5"
-                        : "border-transparent hover:bg-white/[0.03]"
-                    }`}
+                    className={`px-6 py-3 text-foreground/60 hover:text-foreground cursor-pointer transition-all duration-200 border-l-2 ${hoveredSubItem?.item?.name === item.name
+                      ? "border-foreground bg-white/5"
+                      : "border-transparent hover:bg-white/[0.03]"
+                      }`}
                     onMouseEnter={() =>
                       setHoveredSubItem({ category: activeDropdown, item })
                     }
@@ -242,87 +268,125 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu (visible only on smaller screens, toggled by isOpen state) */}
-        
 
-<AnimatePresence>
-  {isOpen && (
-    <motion.div
-      key="mobile-menu"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{
-        duration: 0.4,
-        ease: "easeInOut",
-      }}
-      className="lg:hidden mt-2 h-[calc(94vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 overflow-y-auto"
-    >
-      <div className="space-y-2 px-4">
-        {["services", "products"].map((menuKey) => (
-          <div key={menuKey} className="group">
-            {/* Main menu button */}
-            <div
-              onClick={() => toggleMenu(menuKey)}
-              className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
-            >
-              <span className="capitalize">{menuKey}</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform duration-300 ${
-                  openMenu === menuKey ? "rotate-180" : ""
-                }`}
-              />
-            </div>
 
-            {/* Dropdown items with smooth expand/collapse */}
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              initial={false}
-              animate={{
-                height: openMenu === menuKey ? "auto" : 0,
-                opacity: openMenu === menuKey ? 1 : 0,
-              }}
+              key="mobile-menu"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
               transition={{
-                duration: 0.35,
+                duration: 0.4,
                 ease: "easeInOut",
               }}
-              className="overflow-hidden pl-6 space-y-2 mt-2"
+              className="lg:hidden mt-2 h-[calc(94vh-2rem)] mb-20 backdrop-blur-xl bg-black/90 border border-white/10 rounded-2xl shadow-2xl py-4 overflow-y-auto"
             >
-              {menuData[menuKey]?.items.map((item, index) => (
-                <div
-                  key={index}
-                  className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
-                  onClick={() => handleItemClick(menuKey, item.slug)}
-                >
-                  {item.name}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        ))}
+              <div className="space-y-2 px-4">
+                {["services", "products"].map((menuKey) => (
+                  <div key={menuKey} className="group">
+                    {/* Main menu button */}
+                    <div
+                      onClick={() => toggleMenu(menuKey)}
+                      className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
+                    >
+                      <span className="capitalize">{menuKey}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${openMenu === menuKey ? "rotate-180" : ""
+                          }`}
+                      />
+                    </div>
 
-        {/* Static links */}
-        <a
-          href="/about"
-          className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
-        >
-          About Us
-        </a>
-        <a
-          href="/blogs"
-          className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
-        >
-          Blogs
-        </a>
-        <a
-          href="/contact"
-          className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
-        >
-          Contact Us
-        </a>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+                    {/* Dropdown items with smooth expand/collapse */}
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: openMenu === menuKey ? "auto" : 0,
+                        opacity: openMenu === menuKey ? 1 : 0,
+                      }}
+                      transition={{
+                        duration: 0.35,
+                        ease: "easeInOut",
+                      }}
+                      className="overflow-hidden pl-6 space-y-2 mt-2"
+                    >
+                      {menuData[menuKey]?.items.map((item, index) => (
+                        <div
+                          key={index}
+                          className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
+                          onClick={() => handleItemClick(menuKey, item.slug)}
+                        >
+                          {item.name}
+                        </div>
+                      ))}
+                    </motion.div>
+                  </div>
+                ))}
+
+                {/* Static links */}
+                <a
+                  href="/about"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/blogs"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
+                >
+                  Blogs
+                </a>
+                <a
+                  href="/contact"
+                  className="block text-white/80 px-4 py-3 hover:bg-white/5 rounded-lg font-HindMadurai"
+                >
+                  Contact Us
+                </a>
+
+                {/* Category Button - Mobile */}
+                <div className="group">
+                  <div
+                    onClick={() => toggleMenu("category")}
+                    className="text-white/80 px-4 py-3 cursor-pointer hover:bg-white/5 rounded-lg flex items-center justify-between font-HindMadurai"
+                  >
+                    <span>Category</span>
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-300 ${openMenu === "category" ? "rotate-180" : ""
+                        }`}
+                    />
+                  </div>
+
+                  {/* Category dropdown items */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: openMenu === "category" ? "auto" : 0,
+                      opacity: openMenu === "category" ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.35,
+                      ease: "easeInOut",
+                    }}
+                    className="overflow-hidden pl-6 space-y-2 mt-2"
+                  >
+                    {menuData["category"]?.items.map((item, index) => (
+                      <div
+                        key={index}
+                        className="text-white/60 py-2 hover:text-white cursor-pointer font-HindMadurai text-sm"
+                        onClick={() => handleItemClick("category", item.slug)}
+                      >
+                        {item.name}
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </div>
   );

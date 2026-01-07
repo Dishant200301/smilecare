@@ -17,13 +17,13 @@ const ContactUsPreviewSection: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []); 
+  }, []);
 
   return (
-    <section className="bg-black py-10 px-6">
+    <section className="bg-black py-12 md:py-24 px-6">
       <motion.div
         className="max-w-[1220px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
                     rounded-3xl p-2 md:p-12"
@@ -32,15 +32,15 @@ const ContactUsPreviewSection: React.FC = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-           {/* Left Half: Heading + Contact Us button */}
-        <motion.div 
+        {/* Left Half: Heading + Contact Us button */}
+        <motion.div
           className="flex flex-col justify-center text-center md:text-left"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,19 +48,19 @@ const ContactUsPreviewSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <div>
-                <h2 className="text-3xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-5xl font-HindMadurai gradient-text font-medium leading-tight">
                 Connect Now
               </h2>
             </div>
             <span className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl gradient-text font-InstrumentSerif italic text-white">
               website for your business.
             </span>
-          <p className="hidden sm:block text-md text-gray-400 mt-2 leading-relaxed max-w-md">
+            <p className="hidden sm:block text-md text-gray-400 mt-2 leading-relaxed max-w-md">
               We are here to help you with your business website and web application development.
             </p>
           </motion.div>
-         
-          <motion.div 
+
+          <motion.div
             className="w-full flex justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,16 +68,16 @@ const ContactUsPreviewSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <GradientButton title="Contact Us" link="/contact" />
-    
+
           </motion.div>
         </motion.div>
 
         {/* Right Half: Image Slideshow - Animates from Right */}
         <motion.div
-          initial={{ x: 100, opacity: 0 }} 
-          whileInView={{ x: 0, opacity: 1 }} 
-          transition={{ duration: 0.8}} 
-          viewport={{ once: true, amount: 0.3 }} 
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-lg
                      border border-slate-700/50 flex-shrink-0"
         >
