@@ -1,374 +1,510 @@
-"use client";
-import { useInView } from "react-intersection-observer";
-import { motion, cubicBezier } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Tilt from "react-parallax-tilt";
-import {
-  Users,
-  Target,
-  Award,
-  TrendingUp,
-  Sparkles,
-  Handshake,
-  ShieldCheck,
-  Zap,
-  ArrowRight,
-  Home,
-  Leaf,
-  MessageSquare,
-  Shield,
-} from "lucide-react";
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import CountUp from "react-countup";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import ContactUsPreviewSection from "@/components/ContactUsPreviewSection";
-import TeamSection from "@/components/TeamSection";
-
-// Animation Variants
-const fadeInUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: cubicBezier(0, 0, 0.58, 1),
-      delay: delay / 1000,
-    },
-  },
-});
-
-const staggerContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.2 } },
-};
+import { Stethoscope, Sparkles, Baby, ScissorsIcon, User, Facebook, Twitter, Linkedin } from "lucide-react";
+import heroCouple from "/image/about-hero.png";
+import visionDentist from "/image/about-dentist-1.png";
+import missionDentist from "/image/about-dentist-2.png";
+import tourismWoman from "/image/about-tourism-woman.jpg";
+import teamMember1 from "/image/team-member-1.png";
+import teamMember2 from "/image/team-member-2.png";
+import teamMember3 from "/image/team-member-3.png";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
-  const stats = [
-    { icon: Users, number: 50, suffix: "+", label: "Happy Clients" },
-    { icon: Target, number: 98, suffix: "%", label: "Customer Satisfaction" },
-    { icon: Award, number: 15, suffix: "+", label: "Projects Completed" },
-    { icon: TrendingUp, number: 3, suffix: "x", label: "Average ROI Increase" },
-  ];
-
-  const values = [
-    {
-      icon: Sparkles,
-      title: "Innovation First",
-      description:
-        "We constantly push the boundaries of what's possible with AI automation, staying ahead of industry trends.",
-    },
-    {
-      icon: Handshake,
-      title: "Customer Success",
-      description:
-        "Your success is our success. We're committed to delivering measurable results for every client.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Transparency",
-      description:
-        "Clear communication, honest pricing, and transparent processes in everything we do result.",
-    },
-    {
-      icon: Zap,
-      title: "Reliability",
-      description:
-        "Our systems are built for 99.9% uptime, ensuring your business operations never stop.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-black text-white font-body relative overflow-hidden">
-      <Helmet>
-        <title>About | TryzenIQ</title>
-        <meta
-          name="description"
-          content="Discover AI-powered solutions for every industry: automation, analytics, security, and more."
-        />
-      </Helmet>
-      <Navbar />
+    <div className="min-h-screen overflow-hidden">
+      {/* Hero Section */}
+ <section className="relative bg-dental-pink w-full min-h-[600px] lg:h-[650px] overflow-hidden">
 
-      <main className="pt-32 md:pt-[170px] pb-20">
-        {/* Background Rays */} {/* Hero Section */}
-        <motion.section
-          className="relative z-10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl gradient-text font-HindMadurai font-medium leading-tight md:lg:mb-6 ">
-                  {" "}
-                  About <span className="font-InstrumentSerif italic">Us</span>
-                </h1>
-                <p className="text-lg md:text-lg text-gray-400 font-HindMadurai leading-relaxed max-w-3xl mx-auto px-5 mb-10 hidden sm:block">
-                  {" "}
-                  Empowering small businesses with AI-powered automation
-                  solutions. Learn about our mission to transform how businesses
-                  operate and grow.
-                </p>
+  {/* BG Layer */}
+  <div className="absolute inset-0 bg-dental-pink z-0"></div>
+
+  {/* Desktop Background Image */}
+  <div className="absolute inset-0 z-10 hidden lg:block">
+    <img
+      src="/image/about-hero-1.png"
+      alt=""
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* MOBILE / TABLET IMAGE (Below Content) */}
+  <div className="lg:hidden absolute bottom-0 left-0 right-0 z-20 flex justify-center items-end">
+    <img
+      src={heroCouple}
+      alt="Couple"
+      className="w-[340px] sm:w-[450px] md:w-[540px] h-auto object-contain animate-fade-up"
+    />
+  </div>
+
+  {/* DESKTOP IMAGE (Right Side) */}
+  <div className="hidden lg:flex absolute inset-0 z-20 items-end justify-end pb-0 lg:pr-24">
+    <img
+      src={heroCouple}
+      alt="Couple"
+      className="w-[720px] h-auto object-contain animate-fade-up"
+    />
+  </div>
+
+  {/* BOTTOM WAVE IMAGE */}
+  <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">
+    <img src="/image/hero-bg-2.png" className="w-full h-auto object-cover" />
+  </div>
+
+  {/* CONTENT AREA */}
+  <div className="relative z-40 container max-w-[1425px] mx-auto px-6 lg:mx-16 sm:px-6 lg:pl-[50.5px]">
+
+    {/* =========================== */}
+    {/* MOBILE & TABLET CONTENT FIRST */}
+    {/* =========================== */}
+    <div className="flex flex-col lg:hidden pt-24">
+
+      <h1 className="
+        font-playfair font-bold text-white
+        text-[72px] leading-[50px]
+        sm:text-[60px] sm:leading-[68px]
+        tracking-[-2.4px] mb-4 animate-fade-down
+      ">
+        About Us
+      </h1>
+
+      <p className="
+        font-roboto font-light text-white 
+        text-[16px] leading-[24px] opacity-85 
+         max-w-[540px] animate-fade-down
+      ">
+        Distinctively re-engineer revolutionary meta-services, change
+        management and premium architectures. Intrinsically incubate intuitive
+        opportunities and real-time potentialities.
+      </p>
+
+    </div>
+
+    {/* =========================== */}
+    {/* DESKTOP LAYOUT: LEFT CONTENT / RIGHT IMAGE */}
+    {/* =========================== */}
+    <div className="hidden lg:grid grid-cols-2 items-center min-h-[585px]">
+
+      {/* LEFT CONTENT */}
+      <div className="animate-fade-left relative top-[54px]">
+
+        <h1 className="
+          font-playfair font-bold text-white
+          text-[80px] leading-[80px]
+          tracking-[-2.4px] mb-[26px]
+        ">
+          About Us
+        </h1>
+
+        <p className="
+          font-roboto font-light text-white 
+          text-[20px] leading-[30px] opacity-85 
+          max-w-[547.4px]
+        ">
+          Distinctively re-engineer revolutionary meta-services, change
+          management and premium architectures. Intrinsically incubate intuitive
+          opportunities and real-time potentialities.
+        </p>
+
+      </div>
+
+      {/* Right side image is absolute positioned already */}
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+      {/* Vision Section */}
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+  <div className="container mx-auto px-6 sm:px-6 lg:px-4">
+
+    {/* Main Grid */}
+    <div className="
+      grid grid-cols-1 
+      lg:grid-cols-2 
+      gap-8 md:gap-12 lg:gap-16 
+      items-center
+    ">
+
+      <div className="order-1 lg:order-1 flex justify-center">
+        <img
+          src={visionDentist}
+          alt="Professional dentist"
+          className="
+            w-full 
+            max-w-[360px]
+            sm:max-w-[480px]
+            md:max-w-[600px]
+            lg:max-w-[520px]
+            h-auto 
+            rounded-full 
+            object-cover 
+            animate-fade-up
+          "
+        />
+      </div>
+
+      <div className="order-2 lg:order-2 animate-fade-left">
+
+        {/* Header */}
+        <div className="mb-2 lg:mb-4">
+
+          {/* Sub-heading */}
+          <h2 className="
+            font-playfair font-normal
+            text-[28px] sm:text-[32px] lg:text-[40px]
+            leading-[32px] sm:leading-[36px] lg:leading-[40px]
+            tracking-[-0.8px]
+            text-[#333C4A]
+            
+          ">
+            Our Vision
+          </h2>
+
+          {/* Heading */}
+          <h3 className="
+            font-playfair font-bold
+            text-[48px] sm:text-[60px] lg:text-[70px]
+            leading-[52px] sm:leading-[64px] lg:leading-[80px]
+            tracking-[-2.4px]
+            text-[#FDABB7]
+          ">
+            A perfect Smile
+          </h3>
+        </div>
+
+        {/* Paragraph */}
+        <p className="
+          font-roboto font-light
+          text-[16px] sm:text-[18px] lg:text-[20px]
+          leading-[24px] sm:leading-[27px] lg:leading-[30px]
+          text-[#191919]
+          max-w-[567.38px]
+          mb-5
+        ">
+          Podcasting operational change management inside of workflows to establish a 
+          framework. Taking seamless key performance indicators offline to maximise 
+          the long tail. Keeping your eye on the ball while performing a deep dive on 
+          the start-up mentality to derive convergence on cross-platform integration.
+        </p>
+
+        {/* --------------------------- */}
+        {/* STATS GRID                  */}
+        {/* Mobile → 1 column           */}
+        {/* Tablet+Desktop → 3 columns  */}
+        {/* --------------------------- */}
+        <div className="
+          grid 
+          grid-cols-3 
+          sm:grid-cols-1 
+          md:grid-cols-3 
+          gap-6 lg:gap-8
+        ">
+          <div className="text-center lg:text-left group">
+            <div className="
+              font-playfair 
+              text-[40px] sm:text-[50px] lg:text-6xl 
+              text-dental-text 
+              mb-2 
+              group-hover:scale-110 transition-transform duration-300
+            ">
+              100%
+            </div>
+            <div className="font-roboto text-[12px] sm:text-[14px] lg:text-base text-dental-text">
+              Client Satisfaction
+            </div>
+          </div>
+
+          <div className="text-center lg:text-left group">
+            <div className="
+              font-playfair 
+              text-[40px] sm:text-[50px] lg:text-6xl 
+              text-dental-text 
+              mb-2 
+              group-hover:scale-110 transition-transform duration-300
+            ">
+              6.5h
+            </div>
+            <div className="font-roboto text-[12px] sm:text-[14px] lg:text-base text-dental-text">
+              Working Time
+            </div>
+          </div>
+
+          <div className="text-center lg:text-left group">
+            <div className="
+              font-playfair 
+              text-[40px] sm:text-[50px] lg:text-6xl 
+              text-dental-text 
+              mb-2 
+              group-hover:scale-110 transition-transform duration-300
+            ">
+              250+
+            </div>
+            <div className="font-roboto text-[12px] sm:text-[14px] lg:text-base text-dental-text">
+              Clients Per Month
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      {/* Mission Section */}
+      <section className=" lg:py-20 bg-white">
+        <div className="container mx-auto px-6 sm:px-6 lg:px-12">
+
+          {/* GRID: Mobile/Tablet = vertical stack | Desktop = 2 columns */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            {/* CONTENT AREA - Mobile/Tablet: Order 1 (top) | Desktop: Order 1 (left) */}
+            <div className="order-1">
+
+              {/* SUB HEADING */}
+              <h2 className="font-playfair text-[32px] sm:text-[36px] md:text-[40px] 
+          text-dental-text mb-3">
+                Our Mission
+              </h2>
+
+              {/* MAIN HEADING */}
+              <h3 className="font-playfair font-bold text-dental-pink 
+          text-[48px] sm:text-[60px] md:text-[72px] lg:text-[80px]
+          leading-none tracking-[-2px] mb-6">
+                Care For You
+              </h3>
+
+              {/* PARAGRAPH */}
+              <p className="font-roboto text-[16px] sm:text-[17px] md:text-[18px] 
+          text-dental-dark leading-relaxed mb-10 max-w-[600px]">
+                Efficiently unleash cross-media information without cross-media value.
+                Quickly maximize timely deliverables for real-time schemas. Dramatically
+                maintain clicks-and-mortar solutions without functional solutions.
+              </p>
+
+              {/* ICONS GRID - Mobile: 1 col | Tablet+Desktop: 2 cols */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
+
+                {/* ITEM 1 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/general-icon.png" className="w-12 h-12" alt="" />
+                  <span className="font-roboto text-base text-dental-text">General Dentistry</span>
+                </div>
+
+                {/* ITEM 2 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/teeth-icon.png" className="w-16 h-16" alt="" />
+                  <span className="font-roboto text-base text-dental-text">Teeth Whitening</span>
+                </div>
+
+                {/* ITEM 3 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/aesthetic-icon.png" className="w-12 h-12" alt="" />
+                  <span className="font-roboto text-base text-dental-text">Aesthetic Dentistry</span>
+                </div>
+
+                {/* ITEM 4 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/child-icon.png" className="w-14 h-14" alt="" />
+                  <span className="font-roboto text-base text-dental-text">Child Dentistry</span>
+                </div>
+
+                {/* ITEM 5 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/oral.png" className="w-14 h-14" alt="" />
+                  <span className="font-roboto text-base text-dental-text">Oral Surgery</span>
+                </div>
+
+                {/* ITEM 6 */}
+                <div className="flex items-center gap-4">
+                  <img src="/image/icon/tooth.png" className="w-14 h-14" alt="" />
+                  <span className="font-roboto text-base text-dental-text">Tooth Extraction</span>
+                </div>
+
               </div>
             </div>
-        </motion.section>
-        {/* Values Section */}
-        <section className="md:lg:py-8relative z-10">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-[10px] gap-6 md:lg:pt-5">
-              {values.map((value, index) => (
-                <motion.div
-                  key={index}
-                  className="group border border-border rounded-2xl p-6 bg-[#131316] md:p-8 text-center transition-all duration-300 hover:border-white/10"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-4 hero-text-gradient rounded-full inline-flex items-center justify-center mb-4">
-                    <value.icon className="w-7 h-7 " />
-                  </div>
-                  {/* Title */}
-                  <h3 className="text-xl font-HindMadurai font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-[white]">
-                    {value.title}
-                  </h3>
-                  {/* Description */}
-                  <p className="text-white/70 font-HindMadurai transition-colors duration-300 text-[#909090] group-hover:text-[#cccccc]">
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
+
+            {/* IMAGE - Mobile/Tablet: Order 2 (bottom) | Desktop: Order 2 (right) */}
+            <div className="order-2 flex justify-center lg:justify-end">
+              <img
+                src={missionDentist}
+                alt="Professional dentist"
+                className="w-full max-w-[360px] sm:max-w-[450px] md:max-w-[600px] lg:max-w-[520px] 
+          h-auto rounded-full object-cover animate-fade-up"
+              />
             </div>
+
           </div>
-        </section>
-        {/* Stats Section */}
-        <section className="pt-16 md:pt-16 relative z-10">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
-              {stats.map((stat, index) => {
-                const { ref, inView } = useInView({
-                  triggerOnce: false,
-                  threshold: 0.5,
-                });
-                return (
-                  <motion.div
-                    ref={ref}
-                    key={index}
-                    className="group relative transition-all duration-300 flex flex-col items-center justify-center text-center"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: true }}
-                  >
-                    {/* Number */}
-                    <div className="text-3xl md:text-4xl font-HindMadurai mb-2 transition-transform duration-300">
-                      {inView ? (
-                        <CountUp
-                          end={stat.number}
-                          suffix={stat.suffix}
-                          duration={2}
-                        />
-                      ) : (
-                        <span>0{stat.suffix}</span>
-                      )}
-                    </div>
-                    {/* Label */}
-                    <div className="text-muted-foreground font-HindMadurai text-sm md:text-base transition-colors duration-300 group-hover:text-white/80">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+
+        </div>
+      </section>
+
+
+
+
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+
+          {/* HEADER */}
+          <div className="text-center mb-16">
+            <h2
+              className="font-playfair font-normal 
+        text-[#333C4A] 
+        text-[32px] sm:text-[36px] md:text-[40px] 
+        leading-[40px] tracking-[-0.8px] mb-3">
+              Our Team
+            </h2>
+
+            <h3
+              className="font-playfair font-bold 
+        text-[#FDABB7] 
+        text-[48px] sm:text-[60px] md:text-[70px] lg:text-[80px] 
+        leading-[50px] sm:leading-[70px] md:leading-[80px] 
+        tracking-[-2.4px] mb-5">
+              Dedicated To You!
+            </h3>
+
+            <p
+              className="font-roboto font-light 
+        text-[#191919] text-[16px] sm:text-[18px] md:text-[20px] 
+        leading-[26px] sm:leading-[28px] md:leading-[30px] 
+        max-w-[550px] mx-auto">
+              Organically grow the holistic world view of disruptive innovation
+            </p>
           </div>
-        </section>
-        {/* Our Mission Section */}
-        <section className="py-8 md:py-12 relative z-10">
-          <div className="max-w-7xl mx-auto px-6">
-            {/* Heading - Full width on mobile, part of grid on desktop */}
-            <motion.h2
-              variants={fadeInUp(0)}
-              className="text-4xl sm:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight text-center lg:hidden mb-10"
-            >
-              Our <span className="italic gradient-text">Mission</span>
-            </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image - Below heading on mobile, left side on desktop */}
-              <motion.div
-                variants={fadeInUp(0)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                className="relative h-[300px] sm:h-[400px] lg:h-[550px] order-1"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
-                  alt="Team collaboration and AI technology"
-                  className="w-full h-full object-cover rounded-2xl shadow-xl"
-                />
-              </motion.div>
+          {/* TEAM GRID: MOBILE=1 TABLET=1 DESKTOP=3 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
 
-              {/* Text Content */}
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                className="order-2"
-              >
-                {/* Hidden on mobile, visible on desktop */}
-                <motion.h2
-                  variants={fadeInUp(0)}
-                  className="hidden lg:block text-4xl sm:text-5xl lg:text-6xl font-HindMadurai font-medium leading-tight mb-6"
-                >
-                  Our <span className="italic gradient-text">Mission</span>
-                </motion.h2>
+            {/* CARD 1 */}
+            <div className="text-center">
+              <img
+                src={teamMember1}
+                className="w-[250px] h-[250px] rounded-full object-cover mx-auto mb-6"
+                alt="Everest Whiting"
+              />
 
-                <motion.p
-                  variants={fadeInUp(100)}
-                  className="text-lg text-gray-400 font-HindMadurai leading-relaxed mt-6 mb-8 max-w-3xl text-center md:text-left lg:text-left"
-                >
-                  To empower small businesses with intelligent AI automation
-                  that drives growth, efficiency, and customer satisfaction. We
-                  believe every business deserves access to cutting-edge
-                  technology that simplifies operations, captures more leads,
-                  and delivers actionable insights—all without the complexity.
-                </motion.p>
-
-                <div className="space-y-4">
-                  {[
-                    {
-                      icon: <ShieldCheck className="w-6 h-6 text-white" />,
-                      text: "Delivering Reliable AI Solutions 24/7",
-                    },
-                    {
-                      icon: <Sparkles className="w-6 h-6 text-white" />,
-                      text: "Automating Repetitive Tasks for Efficiency",
-                    },
-                    {
-                      icon: <Shield className="w-6 h-6 text-white" />,
-                      text: "Enterprise-Grade Data Security",
-                    },
-                    {
-                      icon: <Zap className="w-6 h-6 text-white" />,
-                      text: "Boosting Productivity with Smart Automation",
-                    },
-                    {
-                      icon: <MessageSquare className="w-6 h-6 text-white" />,
-                      text: "24/7 Dedicated Customer Support",
-                    },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={fadeInUp(200 + index * 50)}
-                      className="flex items-center gap-3"
-                    >
-                      <span className="flex-shrink-0">{item.icon}</span>
-                      <p className="text-white font-HindMadurai">{item.text}</p>
-                    </motion.div>
-                  ))}
+              {/* Social Icons */}
+              <div className="flex justify-center gap-4 mb-5">
+                <div className="w-9 h-9 rounded-full bg-[#3B5998] flex justify-center items-center">
+                  <Facebook className="w-[16px] h-[16px] text-white" />
                 </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-        {/* Vision Section */}
-        <section className="pt-8 md:pt-12 relative z-10">
-          <div className="max-w-7xl mx-auto px-6">
-            {/* Mobile Heading - Only shows on mobile */}
-            <motion.h2
-              variants={fadeInUp(0)}
-              className="text-4xl font-HindMadurai font-medium leading-tight text-center mb-10 lg:hidden"
-            >
-              Our <span className="italic gradient-text">Vision</span>
-            </motion.h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Text Content - First on mobile, left side on desktop */}
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                className="order-2 lg:order-1"
-              >
-                {/* Desktop Heading - Hidden on mobile */}
-                <motion.h2
-                  variants={fadeInUp(0)}
-                  className="hidden lg:block text-4xl md:text-5xl font-HindMadurai font-medium leading-tight mb-6"
-                >
-                  Our <span className="italic gradient-text">Vision</span>
-                </motion.h2>
-
-                <motion.p
-                  variants={fadeInUp(100)}
-                  className="text-lg text-gray-400 font-HindMadurai leading-relaxed mb-8 text-center md:text-left lg:text-left"
-                >
-                  At TryzenIQ, our vision is to democratize AI automation for
-                  small businesses worldwide. We envision a future where every
-                  business, regardless of size, has access to intelligent
-                  automation that captures leads, books appointments, sends
-                  reminders, and provides actionable analytics.
-                </motion.p>
-
-                <div className="space-y-4">
-                  {[
-                    {
-                      icon: <Home className="w-6 h-6 text-white" />,
-                      text: "Making AI Accessible to Every Business",
-                    },
-                    {
-                      icon: <Leaf className="w-6 h-6 text-white" />,
-                      text: "Driving Sustainable Business Growth",
-                    },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={fadeInUp(200 + index * 100)}
-                      className="flex items-center gap-3"
-                    >
-                      <span className="flex-shrink-0">{item.icon}</span>
-                      <p className="text-white font-HindMadurai">{item.text}</p>
-                    </motion.div>
-                  ))}
+                <div className="w-9 h-9 rounded-full bg-[#1DA1F2] flex justify-center items-center">
+                  <Twitter className="w-[16px] h-[16px] text-white" />
                 </div>
-              </motion.div>
+                <div className="w-9 h-9 rounded-full bg-[#007BB5] flex justify-center items-center">
+                  <Linkedin className="w-[16px] h-[16px] text-white" />
+                </div>
+              </div>
 
-              {/* Image - Second on mobile, right side on desktop */}
-              <motion.div
-                variants={fadeInUp(0)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] order-1 md:order-2"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600"
-                  alt="AI automation and business growth"
-                  className="w-full h-full object-cover rounded-2xl shadow-xl"
-                />
-              </motion.div>
+              <h4 className="font-playfair text-[30px] leading-[30px] text-[#333C4A] tracking-[-0.9px] mb-1">
+                Everest {" "}
+                <span className="font-bold">Whiting</span>
+              </h4>
+
+              <p className="font-roboto text-[15px] leading-[22px] text-[#333C4A] uppercase tracking-wide mb-4">
+                CLINIC DIRECTOR
+              </p>
+
+              <p className="font-roboto text-[16px] leading-[24px] text-[#000]/80 max-w-xl mx-auto">
+                Emphatic and enjoying treating a wide range of patients, including children,
+                oral hygiene and education is important to me as to my patients.
+              </p>
             </div>
-          </div>
-        </section>
-        <TeamSection />
-        <ContactUsPreviewSection />
-      </main>
 
-      <Footer />
-      <ScrollToTopButton />
+            {/* CARD 2 */}
+            <div className="text-center">
+              <img
+                src={teamMember2}
+                className="w-[250px] h-[250px] rounded-full object-cover mx-auto mb-6"
+                alt="Teresa Ford"
+              />
+
+              <div className="flex justify-center gap-4 mb-5">
+                <div className="w-9 h-9 rounded-full bg-[#3B5998] flex justify-center items-center">
+                  <Facebook className="w-[16px] h-[16px] text-white" />
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#1DA1F2] flex justify-center items-center">
+                  <Twitter className="w-[16px] h-[16px] text-white" />
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#007BB5] flex justify-center items-center">
+                  <Linkedin className="w-[16px] h-[16px] text-white" />
+                </div>
+              </div>
+
+              <h4 className="font-playfair text-[30px] leading-[30px] text-[#333C4A] tracking-[-0.9px] mb-1">
+                Teresa {" "}
+                <span className="font-bold">Ford</span>
+              </h4>
+
+              <p className="font-roboto text-[15px] leading-[22px] text-[#333C4A] uppercase tracking-wide mb-4">
+                SENIOR ORTHODONTIST
+              </p>
+
+              <p className="font-roboto text-[16px] leading-[24px] text-[#000]/80  mx-auto max-w-xl">
+                The qualities of excellent communication and trust form part of our
+                commitment to you and I have carefully chosen a great team of people.
+              </p>
+            </div>
+
+            {/* CARD 3 */}
+            <div className="text-center">
+              <img
+                src={teamMember3}
+                className="w-[250px] h-[250px] rounded-full object-cover mx-auto mb-6"
+                alt="Stephanie Ryan"
+              />
+
+              <div className="flex justify-center gap-4 mb-5">
+                <div className="w-9 h-9 rounded-full bg-[#3B5998] flex justify-center items-center">
+                  <Facebook className="w-[16px] h-[16px] text-white" />
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#1DA1F2] flex justify-center items-center">
+                  <Twitter className="w-[16px] h-[16px] text-white" />
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#007BB5] flex justify-center items-center">
+                  <Linkedin className="w-[16px] h-[16px] text-white" />
+                </div>
+              </div>
+
+              <h4 className="font-playfair text-[30px] leading-[30px] text-[#333C4A] tracking-[-0.9px] mb-1">
+                Stephanie {" "}
+                <span className="font-bold">Ryan</span>
+              </h4>
+
+              <p className="font-roboto text-[15px] leading-[22px] text-[#333C4A] uppercase tracking-wide mb-4">
+                SENIOR DENTAL SURGEON
+              </p>
+
+              <p className="font-roboto text-[16px] leading-[24px] text-[#000]/80 max-w-xl mx-auto">
+                Committed to delivering dentistry of the highest quality, Stephanie achieved
+                numerous awards over Europe and United States. Now he is in DentiCare.
+              </p>
+            </div>
+
+          </div>
+
+          {/* BUTTON */}
+          <div className="text-center mt-14">
+            <button
+              className="w-full sm:w-auto px-12 py-4 
+        bg-gradient-to-r from-[#FDABB7] to-[#333C4A] 
+        text-white text-[16px] font-['Roboto_Condensed'] rounded-[4px]
+        shadow-[1px_1px_3px_1px_rgba(34,34,34,0.2)]">
+              Read More About Our Team
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
     </div>
   );
 };

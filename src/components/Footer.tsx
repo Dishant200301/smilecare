@@ -1,241 +1,130 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-} from "lucide-react";
-
-// Assuming Logo is a component or a direct path to an SVG
-const Logo = "/assets/logo/svgviewer-png-output.svg"; // Adjust path as needed
-
-// X icon component
-const XIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 640 640"
-    className={className}
-    fill="currentColor" // Ensures the icon inherits text color
-  >
-    <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
-  </svg>
-);
+import { Building2, Mail, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [activeItem, setActiveItem] = useState("Home");
-  const location = useLocation();
-
-  const navItems = [{ name: "Home", path: "/" }];
-
-  useEffect(() => {
-    const current = navItems.find((item) => item.path === location.pathname);
-    if (current) setActiveItem(current.name);
-  }, [location.pathname, navItems]);
-
-  const footerLinks = {
-    Services: [
-      { name: "AI Automation", path: "/services/ai-automation" },
-      { name: "SEO", path: "/services/seo" },
-      { name: "Website Development", path: "/services/website-development" },
-      { name: "Graphics Design", path: "/services/graphics-design" },
-      { name: "Custom ERP System", path: "/services/custom-erp-system" },
-    ],
-    Solutions: [
-      { name: "Salons & Spa", path: "/business-category/salons-spa" },
-      { name: "Real Estate", path: "/business-category/real-estate-agents" },
-      { name: "Therapists", path: "/business-category/therapists-counselors" },
-      {name:"Gym & Fitness",path:"/business-category/gym-health-coach"},
-      {name:"More",path:"/business-category"}
-    ],
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      text: "hello@tryzeniq.com",
-      href: "mailto:hello@tryzeniq.com",
-    },
-    {
-      icon: Phone,
-      text: "+91 82381 69574",
-      href: "tel:+918238169574",
-    },
-    {
-      icon: MapPin,
-      text: "205, Earth plaza, Chapprabhatta",
-      href: "https://www.google.com/maps/dir/21.2596747,72.8309741/7R5J%2BR9V,+Chapprabhatta,+Ganeshpura,+Surat,+Gujarat+394520/@21.2596887,72.8285513,17z",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Facebook,
-      href: "https://www.facebook.com/profile.php?id=61576569900601",
-      label: "Facebook",
-    },
-    { icon: XIcon, href: "#", label: "X" }, // Consider using an actual Twitter/X link
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/tryzen_iq/#",
-      label: "Instagram",
-    },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/company/tryzeniq",
-      label: "LinkedIn",
-    },
-  ];
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const email = formData.get('email') as string;
-    
-    // TODO: Integrate with your email marketing service (e.g., Mailchimp, SendGrid)
-    console.log("Newsletter subscription:", email);
-    alert("Thanks for subscribing! You'll receive AI automation tips, industry insights, and exclusive offers.");
-  };
-
   return (
-    <section className="pt-12 md:pt-16 bg-background relative">
-      <footer className="relative border-t border-gray-800/60">
-        <div className="relative px-6 lg:px-12 pb-8 max-w-7xl mx-auto z-10">
-          {/* Main Grid: Adjusted from lg:grid-cols-4 to lg:grid-cols-3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pt-12">
+<footer className="relative bg-[#FDABB7] overflow-hidden pt-10 pb-12 sm:pt-14 lg:pt-20">
 
-            {/* Column 1: Company Info */}
-            <div className="flex flex-col">
-              <Link to="/" onClick={() => setActiveItem("Home")}>
-                <div className="mb-[-30px] mt-[-40px]">
-                  <img
-                    src={Logo}
-                    alt="TryzenIQ Logo"
-                    className="h-28 w-auto filter invert brightness-125"
-                  />
-                </div>
-              </Link>
-              <p className="text-text-secondary text-sm tracking-wide leading-relaxed mt-4">
-                AI assistant for small businesses. Capture more leads, book more
-                appointments, send reminders, sync with your CRM, and get
-                actionable analytics — all automated.
-              </p>
-              <div className="flex items-center gap-3 mt-6">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="text-text-secondary hover:text-foreground transition-colors duration-200 w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-foreground"
-                    >
-                      <Icon className="w-5 h-5" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+  {/* CURVE TOP */}
+  <div className="absolute top-0 left-0 right-0 z-[5] pointer-events-none">
+    <img
+      src="/image/hero-bg-3.png"
+      alt=""
+      className="w-full object-cover"
+    />
+  </div>
 
-            {/* NEW: Combined Services & Solutions Block */}
-            {/* This div acts as one column in the main grid, but internally uses a 2-column grid */}
-            {/* grid-cols-2 ensures side-by-side on mobile. gap-x-8 for mobile, md:gap-x-12 for larger screens */}
-            <div className="grid grid-cols-2 gap-x-8 md:gap-x-12">
-                {/* Services Quick Links */}
-                <div className="space-y-5">
-                  <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                    Services
-                    <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
-                  </h3>
-                  <ul className="space-y-2">
-                    {footerLinks.Services.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          to={link.path}
-                          className="text-text-secondary hover:text-foreground transition-colors text-sm"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+  {/* LIQUID BLOB BG SHAPE */}
+  <div className="absolute left-[92.5px] right-0 top-[60px] bottom-[205px] z-[5] opacity-40">
+    <img
+      src="/image/footer-bg.png"
+      className="w-full h-full object-cover  hidden md:block lg:block"
+      alt="footer pattern"
+    />
+  </div>
 
-                {/* Solutions Quick Links */}
-                <div className="space-y-5">
-                  <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                    Solutions
-                    <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
-                  </h3>
-                  <ul className="space-y-2">
-                    {footerLinks.Solutions.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          to={link.path}
-                          className="text-text-secondary hover:text-foreground transition-colors text-sm"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-            </div>
+  {/* MAIN CONTENT */}
+  <div className="relative z-[20] container mx-auto px-6 max-w-[1425px]">
 
-            {/* Column 3: Newsletter Subscription */}
-            <div className="space-y-5">
-              <h3 className="text-foreground font-semibold text-lg relative pb-2">
-                Get AI Insights
-                <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white rounded-full" />
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Subscribe for AI automation tips, industry insights, and exclusive offers to grow your business.
-              </p>
-              <form
-                onSubmit={handleNewsletterSubmit}
-                className="flex flex-row md:flex-col lg:flex-row gap-4"
-              >
-                <div className="relative">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    aria-label="Email for newsletter"
-                    className="w-full p-3 pl-6 pr-14 rounded-lg bg-background text-foreground border border-gray-700 focus:ring-2 focus:ring-foreground focus:border-transparent outline-none transition-colors duration-200"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full overflow-hidden"
-                    aria-label="Subscribe to newsletter"
-                  >
-                    {/* Expanding background circle on hover */}
-                    <span className="absolute inset-0 w-full h-full rounded-full bg-white z-10 transition-transform duration-700 ease-in-out group-hover:scale-[8] origin-center" />
+    {/* CONTACT HEADER */}
+    <div className="text-center mb-12 sm:mb-14 lg:mb-20">
+      <h2
+        className="font-playfair text-[#333C4A]
+                   text-[28px] sm:text-[34px] lg:text-[40px]
+                   tracking-[-1px]">
+        Contact Us
+      </h2>
 
-                    {/* Send icon */}
-                    <span className="absolute inset-0 z-20 flex items-center justify-center">
-                      <Send className="w-5 h-5 text-black transition-colors duration-700" />
-                    </span>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+      <p
+        className="font-playfair font-bold text-white
+                   text-[38px] sm:text-[54px] lg:text-[80px]
+                   tracking-[-2px] leading-tight
+                   mt-2 drop-shadow-[0_6px_10px_rgba(0,0,0,0.15)]">
+        +36 55 540 069
+      </p>
+    </div>
 
-          {/* Bottom Section: Copyright */}
-          <div className="border-t border-gray-800/60 mt-12 pt-6 text-center">
-            <p className="text-gray-400 text-xs sm:text-sm">
-              © 2025 TryzenIQ. All rights reserved.
-            </p>
-          </div>
+    {/* CONTACT BLOCKS */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+
+      {/* BLOCK 1 */}
+      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
+        <img
+          src="/image/icon/footer-icon-1.png"
+          className="w-[48px] sm:w-[55px] lg:w-[60px]"
+        />
+        <div>
+          <h4 className="font-playfair text-[20px] sm:text-[22px]">Our Address</h4>
+          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
+            Deák Ferenc street 19<br />
+            Budapest, 1052 Hungary
+          </p>
         </div>
-      </footer>
-    </section>
+      </div>
+
+      {/* BLOCK 2 */}
+      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
+        <img
+          src="/image/icon/footer-icon-2.png"
+          className="w-[48px] sm:w-[55px] lg:w-[60px]"
+        />
+        <div>
+          <h4 className="font-playfair text-[20px] sm:text-[22px]">Email Us</h4>
+          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
+            office@denticare.com<br />
+            help@denticare.com
+          </p>
+        </div>
+      </div>
+
+      {/* BLOCK 3 */}
+      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
+        <img
+          src="/image/icon/footer-icon-3.png"
+          className="w-[48px] sm:w-[55px] lg:w-[60px]"
+        />
+        <div>
+          <h4 className="font-playfair text-[20px] sm:text-[22px]">Working Hours</h4>
+          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
+            Monday – Friday: 8AM – 9PM<br />
+            Weekends: Closed
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    {/* DIVIDER */}
+    <div className="border-t border-white/30 pt-6 sm:pt-8"></div>
+
+    {/* COPYRIGHT + LINKS */}
+    <div className="flex flex-col sm:flex-col md:flex-row items-center justify-between gap-4">
+
+      <p className="text-white font-roboto text-[13px] sm:text-[15px] opacity-80 text-center md:text-left">
+        Copyright 2018 by BoldThemes. All rights reserved.
+      </p>
+
+      <div className="flex flex-wrap items-center justify-center gap-5 text-white font-roboto text-[14px] opacity-90">
+        <a href="#" className="hover:opacity-100">About us</a>
+        <a href="#" className="hover:opacity-100">Services</a>
+        <a href="#" className="hover:opacity-100">Pages</a>
+        <a href="#" className="hover:opacity-100">Portfolio</a>
+        <a href="#" className="hover:opacity-100">News</a>
+        <a href="#" className="hover:opacity-100">Shop</a>
+
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="hover:opacity-100 flex items-center gap-1"
+        >
+          ↑ Back to top
+        </button>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
   );
 };
 
