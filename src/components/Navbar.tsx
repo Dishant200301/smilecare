@@ -1,290 +1,273 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Clock, Facebook, Twitter, Linkedin, Instagram, X, ChevronDown } from "lucide-react";
+import {
+    Phone,
+    Home,
+    User,
+    Stethoscope,
+    FileText,
+    Menu,
+    X,
+    ArrowRight,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isAboutOpen, setIsAboutOpen] = useState(false);
     const location = useLocation();
-
-    // Helper to check if link is active
-    const isActive = (path: string) => location.pathname === path;
-
-    // Common styles
-    const activeStyle = "bg-white/20 hover:bg-white/30";
-    const inactiveStyle = "bg-[#8b6b6e] hover:bg-[#7a5d60]";
+    const [hoveredPath, setHoveredPath] = useState(location.pathname);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu when clicking outside or on a link
-    const closeMobileMenu = () => {
-        setIsMobileMenuOpen(false);
-        setIsAboutOpen(false);
-    };
+    useEffect(() => {
+        setHoveredPath(location.pathname);
+    }, [location.pathname]);
 
-    // Check if on appointments page
-    const isAppointmentsPage = location.pathname === '/appointments';
-
-    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
+            // Prevent background scroll
+            document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
+            document.body.style.width = "100%";
         } else {
-            document.body.style.overflow = 'unset';
+            // Re-enable scroll
+            document.body.style.overflow = "unset";
+            document.body.style.position = "unset";
+            document.body.style.width = "unset";
         }
+
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = "unset";
+            document.body.style.position = "unset";
+            document.body.style.width = "unset";
         };
     }, [isMobileMenuOpen]);
 
-    // Determine navbar background
-    const getNavbarBackground = () => {
-        if (isAppointmentsPage) {
-            return 'bg-gradient-to-r from-[#fdabb7] to-[#fc9aaa] shadow-lg';
-        }
-        return scrolled ? 'bg-white shadow-md' : 'bg-transparent';
-    };
+    const navLinks = [
+        { name: "Home", path: "/", icon: Home },
+        { name: "About Us", path: "/about", icon: User },
+        { name: "Services", path: "/services", icon: Stethoscope },
+        { name: "Blogs", path: "/blog", icon: FileText },
+        { name: "Contact Us", path: "/contact", icon: Phone },
+    ];
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 lg:px-20 ${getNavbarBackground()}`}>
-                {/* Desktop Top Bar - Hidden on mobile/tablet */}
-                {!scrolled && (
-                    <div className="hidden lg:block">
-                        <div className="container mx-auto px-6 flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <Link to="/">
-                                    <img src="/image/logo.png" alt="Denticare Smiles Logo" className="h-20 " />
-                                </Link>
-                            </div>
+            {/* ================= DESKTOP NAVBAR (UNCHANGED) ================= */}
+            <motion.nav className="fixed left-0 right-0 z-50 pointer-events-none flex justify-center top-2 lg:top-4">
+                <motion.div className="pointer-events-auto relative bg-white/90 backdrop-blur-md border border-white/50 shadow-lg rounded-full p-2 pl-6 flex items-center justify-between w-[92%] max-w-4xl lg:max-w-7xl">
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center gap-2.5 mr-4 lg:mr-12">
+                        <img src="/image/favicon.png" className="w-8 h-8" />
+                        <span className="text-xl font-bold text-[#1D70B8]">
+                            SmileCare
+                        </span>
+                    </Link>
 
-                            <div className="flex items-center gap-8">
-                                <div className="flex items-center gap-3">
-                                    <img src="/image/icon/phone.png" alt="Phone" className="w-10 h-10" />
-                                    <div>
-                                        <p className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-playfair text-[22.4px] leading-tight`}>+36 55 540 069</p>
-                                        <p className={`${isAppointmentsPage ? 'text-white/90' : 'text-dental-text'} text-xs`}>24/7 Emergency Phone</p>
-                                    </div>
-                                </div>
+                    {/* Desktop Links - Centered */}
+                    <ul className="hidden lg:flex items-center gap-6 flex-1 justify-center">
+                        {navLinks
+                            .filter((l) => l.path !== "/")
+                            .map((link) => {
+                                const active = location.pathname === link.path;
+                                return (
+                                    <li key={link.name} className="relative">
+                                        <Link
+                                            to={link.path}
+                                            className={`px-4 py-3.5 rounded-full text-[16px] font-medium transition-all duration-300 ${active
+                                                ? "text-white"
+                                                : "text-slate-500  hover:text-slate-700"
+                                                }`}
+                                        >
+                                            {active && (
+                                                <motion.span
+                                                    layoutId="activeNav"
+                                                    className="absolute inset-[-10px] bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end rounded-full -z-10"
+                                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                                />
+                                            )}
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                    </ul>
 
-                                <Link
-                                    to="/appointments"
-                                    className="bg-white text-[#fc9aaa] hover:bg-white/95 border-2 border-white font-roboto-condensed text-base font-semibold px-8 py-3 rounded-md transition-colors duration-200 shadow-md hover:shadow-lg"
-                                >
-                                    BOOK APPOINTMENT
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-
-                {/* Navigation Bar */}
-                <div className={`container mx-auto px-4  ${scrolled ? "py-0 lg:py-4" : "py-0 lg:py-4"} border-t border-white/20`}>
-                    <div className="flex items-center justify-between">
-                        {/* Mobile Menu Button - LEFT SIDE - Visible only on mobile/tablet */}
-                        <button
-                            onClick={() => setIsMobileMenuOpen(true)}
-                            className="lg:hidden flex flex-col gap-[5px] p-2 hover:opacity-70 transition-opacity "
-                            aria-label="Open menu"
+                    {/* CTA + Mobile Button */}
+                    <div className="flex items-center gap-3">
+                        <Link
+                            to="/appointments"
+                            className="hidden lg:flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end text-white font-bold"
                         >
-                            <span className={`w-7 h-[3px] ${isAppointmentsPage ? 'bg-white' : scrolled ? 'bg-[#fdabb7]' : 'bg-black/75'}`}></span>
-                            <span className={`w-7 h-[3px] ${isAppointmentsPage ? 'bg-white' : scrolled ? 'bg-[#fdabb7]' : 'bg-black/75'}`}></span>
-                            <span className={`w-7 h-[3px] ${isAppointmentsPage ? 'bg-white' : scrolled ? 'bg-[#fdabb7]' : 'bg-black/75'}`}></span>
-                        </button>
-
-                        {/* Mobile Logo with Color Change on Scroll - Visible only on mobile/tablet */}
-                        <div className="lg:hidden flex items-center justify-center ">
-                            <Link to="/" className="flex items-center pl-6 p-3.5">
-                                <img src="/image/favicon.png" alt="Tooth Icon" className="h-8 w-8 mr-1 " />
-                                <div className="font-playfair text-2xl ">
-                                    <span className={`${isAppointmentsPage ? 'text-white' : 'text-[#343d4b]'} font-bold`}>Denti</span>
-                                    <span className={`${isAppointmentsPage ? 'text-white' : scrolled ? 'text-[#fdabb7]' : 'text-white'}`}>Care</span>
-                                </div>
-                            </Link>
-                        </div>
-
-                        {/* Desktop Navigation - LEFT SIDE - Hidden on mobile/tablet */}
-                        <ul className="hidden lg:flex items-center gap-8">
-                            <li>
-                                <Link to="/" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-roboto-condensed text-[16px] transition-colors hover:opacity-80`}>
-                                    HOME
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/about" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-roboto-condensed text-[16px] transition-colors hover:opacity-80`}>
-                                    ABOUT US
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/services" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-roboto-condensed text-[16px] transition-colors hover:opacity-80`}>
-                                    SERVICES
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/blog" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-roboto-condensed text-[16px] transition-colors hover:opacity-80`}>
-                                    BLOGS
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/contact" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} font-roboto-condensed text-[16px] transition-colors hover:opacity-80`}>
-                                    CONTACT US
-                                </Link>
-                            </li>
-                        </ul>
-
-                        {/* Desktop Social Icons - RIGHT SIDE - Hidden on mobile/tablet */}
-                        <div className="hidden lg:flex items-center gap-4">
-                            <a href="#" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} transition-colors hover:opacity-80`}>
-                                <Facebook className="w-4 h-4" />
-                            </a>
-                            <a href="#" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} transition-colors hover:opacity-80`}>
-                                <Twitter className="w-4 h-4" />
-                            </a>
-                            <a href="#" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} transition-colors hover:opacity-80`}>
-                                <Linkedin className="w-4 h-4" />
-                            </a>
-                            <a href="#" className={`${isAppointmentsPage ? 'text-white' : 'text-dental-text'} transition-colors hover:opacity-80`}>
-                                <Instagram className="w-4 h-4" />
-                            </a>
-                        </div>
-
-                        {/* Empty div for mobile to maintain spacing */}
-                        <div className="lg:hidden w-11"></div>
-                    </div>
-                </div>
-            </nav>
-
-            {/* Mobile Sidebar Menu - Only visible on mobile/tablet */}
-            <div
-                className={`fixed inset-0 z-[100] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                    }`}
-            >
-                {/* Overlay */}
-                <div
-                    className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-                    onClick={closeMobileMenu}
-                />
-
-                {/* Sidebar - Slides from LEFT */}
-                <div
-                    className={`absolute top-0 left-0 h-full w-[85%] max-w-[360px] bg-gradient-to-b from-[#fcb0ba] to-[#e8b4b8] shadow-2xl transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-                        }`}
-                >
-                    {/* Sidebar Header with Logo and Close Button */}
-                    <div className="relative px-6 pt-6 pb-4 flex items-center justify-center border-b border-white/20">
-                        {/* Logo - Centered */}
-                        <Link to="/" onClick={closeMobileMenu} className="flex items-center">
-                            <img src="/image/favicon.png" alt="Tooth Icon" className="h-12 w-12 mr-2" />
-                            <div className="font-playfair text-2xl font-bold">
-                                <span className="text-[#343d4b]">Denti</span>
-                                <span className="text-white">Care</span>
-                            </div>
+                            Book Appointment <ArrowRight className="w-4 h-4" />
                         </Link>
 
-                        {/* Close Button - Absolute positioned top-right */}
+                        {/* Mobile Menu Toggle */}
                         <button
-                            onClick={closeMobileMenu}
-                            className="absolute right-6 text-white hover:opacity-70 transition-opacity"
-                            aria-label="Close menu"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="lg:hidden w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center transition-all"
                         >
-                            <X className="w-7 h-7 stroke-[2.5]" />
+                            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                         </button>
                     </div>
+                </motion.div>
+            </motion.nav>
 
-                    {/* Sidebar Content */}
-                    <div className="flex flex-col h-[calc(100%-88px)] overflow-y-auto">
-                        {/* Contact Info - Centered */}
-                        <div className="px-6 py-4 space-y-4 border-b border-white/20">
-                            {/* Phone */}
-                            <div className="flex items-center justify-center gap-3">
-                                <img src="/image/icon/phone.png" alt="Phone" className="w-10 h-10" />
-                                <div className="text-center">
-                                    <p className="text-white font-playfair text-lg leading-tight">+36 55 540 069</p>
-                                    <p className="text-white/80 text-xs">24/7 Emergency Phone</p>
+            {/* ================= MOBILE + TABLET MENU (Smooth Slide Down) ================= */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        key="mobile-menu"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 z-[100] lg:hidden "
+                    >
+                        {/* Backdrop Overlay */}
+                        <motion.div
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="absolute inset-0 bg-black/50 backdrop-blur-sm "
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        />
+
+                        {/* Menu Panel - Slides down from navbar */}
+                        <motion.div
+                            initial={{ y: "-100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-100%" }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 30,
+                                mass: 0.8,
+                            }}
+                            className="absolute inset-0 m-3 sm:m-6 backdrop-blur-xl bg-white border border-slate-200 rounded-[18px] shadow-2xl overflow-hidden flex flex-col"
+                        >
+                            {/* Header */}
+                            <div className="px-6 py-6 flex justify-between items-center border-b border-slate-200">
+                                <div className="flex items-center gap-2">
+                                    <img src="/image/favicon.png" className="w-8 h-8" />
+                                    <span className="text-xl font-bold text-[#1D70B8]">
+                                        SmileCare
+                                    </span>
                                 </div>
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-all"
+                                >
+                                    <X size={20} />
+                                </button>
                             </div>
 
-                            {/* Hours */}
-                            <div className="flex items-center justify-center gap-3">
-                                <img src="/image/icon/clock.png" alt="Clock" className="w-10 h-10" />
-                                <div className="text-center">
-                                    <p className="text-white font-playfair text-lg leading-tight">Monday - Friday</p>
-                                    <p className="text-white/80 text-xs">9AM - 9PM</p>
+                            {/* Navigation Links - Scrollable */}
+                            <div className="flex-1 overflow-y-auto px-4 py-4">
+                                <div className="space-y-2">
+                                    {navLinks.map((link, i) => {
+                                        const active = location.pathname === link.path;
+                                        return (
+                                            <motion.div
+                                                key={link.name}
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{
+                                                    delay: i * 0.05,
+                                                    duration: 0.3,
+                                                    ease: "easeOut",
+                                                }}
+                                            >
+                                                <Link
+                                                    to={link.path}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className={`flex items-center rounded-2xl transition-all ${active
+                                                        ? "bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end text-white shadow-md"
+                                                        : "bg-[#e4eefa] text-slate-700 hover:bg-[#e4eefa] active:bg-[#d4dff0]"
+                                                        }`}
+                                                    style={{
+                                                        gap: "12px",
+                                                        paddingLeft: "16px",
+                                                        paddingRight: "16px",
+                                                        paddingTop: "14px",
+                                                        paddingBottom: "14px",
+                                                    }}
+                                                >
+                                                    <link.icon style={{ width: "20px", height: "20px" }} className="flex-shrink-0" />
+                                                    <span style={{ fontSize: "16px", fontWeight: active ? 600 : 500 }}>
+                                                        {link.name}
+                                                    </span>
+                                                </Link>
+                                            </motion.div>
+                                        );
+                                    })}
                                 </div>
-                            </div>
-                        </div>
 
-                        {/* Navigation Menu - Centered */}
-                        <nav className="flex-1 px-6 py-6">
-                            <ul className="space-y-2">
-                                <li className="text-center">
-                                    <Link
-                                        to="/"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/") ? activeStyle : inactiveStyle}`}
-                                    >
-                                        HOME
-                                    </Link>
-                                </li>
-                                <li className="text-center">
-                                    <Link
-                                        to="/about"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/about") ? activeStyle : inactiveStyle}`}
-                                    >
-                                        ABOUT
-                                    </Link>
-                                </li>
-                                <li className="text-center">
-                                    <Link
-                                        to="/services"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/services") ? activeStyle : inactiveStyle}`}
-                                    >
-                                        SERVICES
-                                    </Link>
-                                </li>
-                                <li className="text-center">
+                                {/* Book Appointment CTA */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: navLinks.length * 0.05 + 0.1, duration: 0.3 }}
+                                    className="mb-20px"
+                                >
                                     <Link
                                         to="/appointments"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/appointments") ? activeStyle : inactiveStyle}`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center w-full rounded-2xl mt-4 bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end text-white font-bold shadow-lg hover:shadow-xl transition-all"
+                                        style={{
+                                            gap: "10px",
+                                            paddingTop: "16px",
+                                            paddingBottom: "16px",
+                                            fontSize: "16px",
+                                        }}
                                     >
-                                        BOOK APPOINTMENT
+                                        Book Appointment
+                                        <ArrowRight style={{ width: "18px", height: "18px" }} />
                                     </Link>
-                                </li>
-                                <li className="text-center">
-                                    <Link
-                                        to="/blog"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/blog") ? activeStyle : inactiveStyle}`}
+                                </motion.div>
+
+                                {/* Contact Info - Compact */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: navLinks.length * 0.05 + 0.2, duration: 0.3 }}
+                                    className="border-t border-slate-200 mt-4"
+                                    style={{ paddingTop: "16px" }}
+                                >
+                                    <div
+                                        className="flex items-center bg-slate-50 rounded-xl"
+                                        style={{
+                                            gap: "12px",
+                                            padding: "14px",
+                                        }}
                                     >
-                                        BLOGS
-                                    </Link>
-                                </li>
-                                <li className="text-center">
-                                    <Link
-                                        to="/contact"
-                                        onClick={closeMobileMenu}
-                                        className={`block px-4 py-3 text-white font-roboto-condensed text-base font-medium rounded-md transition-colors ${isActive("/contact") ? activeStyle : inactiveStyle}`}
-                                    >
-                                        CONTACT US
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+                                        <div
+                                            className="rounded-full bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end flex items-center justify-center flex-shrink-0"
+                                            style={{ width: "44px", height: "44px" }}
+                                        >
+                                            <Phone className="text-white" style={{ width: "20px", height: "20px" }} />
+                                        </div>
+                                        <div>
+                                            <p className="text-slate-500 font-medium" style={{ fontSize: "11px", marginBottom: "2px" }}>
+                                                24/7 Support
+                                            </p>
+                                            <p className="font-bold text-slate-800" style={{ fontSize: "16px" }}>
+                                                +36 55 540 069
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };

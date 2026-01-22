@@ -20,12 +20,12 @@ const BlogDetails = () => {
 
     return (
         <div className="min-h-screen bg-background">
-            <BlogHeader />
+            {/* <BlogHeader /> */}
 
-            <div className="container mx-auto px-5 md:px-10 lg:px-[62.5px]">
+            <div className="w-full">
                 <BlogArticle post={post} />
-                <BlogComments />
-                <BlogPrevNext prevPost={prevPost} />
+                {/* <BlogComments />
+                <BlogPrevNext prevPost={prevPost} /> */}
             </div>
         </div>
     );

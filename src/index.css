@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,13 +12,14 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    --foreground: 0 0% 7%;
+    /* 18,18,18 */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 0 0% 7%;
 
     --primary: 352 93% 84%;
     --primary-foreground: 0 0% 100%;
@@ -24,10 +28,11 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 0 0% 30%;
+    /* Darker muted text */
 
     --accent: 352 93% 84%;
-    --accent-foreground: 0 0% 9%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -38,10 +43,21 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    --dental-pink: 352 93% 84%;
+    --dental-pink: 208 73% 42%;
+    /* Changed to new image blue (#1D70B8) */
+    /* Changed to image blue (#5BA5CC) */
     --dental-blue: 193 82% 61%;
-    --dental-dark: 210 24% 27%;
-    --dental-text: 0 0% 9%;
+    --dental-dark: 0 0% 7%;
+    /* rgb(18,18,18) */
+    --dental-text: 0 0% 7%;
+
+    /* Blue Gradient Colors - Matched from new image strip */
+    --gradient-blue-start: 207 75% 33%;
+    /* #155A94 - Darker shade */
+    --gradient-blue-mid: 208 73% 42%;
+    /* #1D70B8 - Main shade from image */
+    --gradient-blue-end: 208 61% 55%;
+    /* #4B92D0 - Lighter shade */
 
     --sidebar-background: 0 0% 98%;
 
@@ -111,7 +127,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -123,7 +139,8 @@ All colors MUST be HSL.
   h4,
   h5,
   h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
   }
 }
 
@@ -186,4 +203,42 @@ All colors MUST be HSL.
 
 .animate-fade-down {
   animation: fade-down 1s ease-out forwards;
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 45s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
 }

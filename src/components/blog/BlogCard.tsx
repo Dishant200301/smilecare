@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Tag } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Calendar, Clock } from "lucide-react";
 import { BlogPost } from "@/types/blog";
 
 interface BlogCardProps {
@@ -10,42 +8,53 @@ interface BlogCardProps {
 
 const BlogCard = ({ post }: BlogCardProps) => {
     return (
-        <Link to={`/blog/${post.slug}`} className="block h-full">
-            <Card className="border-none shadow-sm bg-white hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden rounded-xl h-full flex flex-col cursor-pointer">
-                <CardHeader className="p-0 relative overflow-hidden aspect-[4/3]">
+        <Link to={`/blog/${post.slug}`} className="block h-full group">
+            <div className="bg-[#fafafa] rounded-3xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg">
+
+                {/* Image */}
+                <div className="rounded-3xl overflow-hidden p-4 pb-0">
                     <img
                         src={post.image}
                         alt={post.title}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-[220px] object-cover rounded-3xl transition-transform duration-500 "
                     />
-                    <div className="absolute top-4 right-4 bg-dental-dark text-white rounded-full w-12 h-12 flex flex-col items-center justify-center font-playfair shadow-md z-10">
-                        <span className="text-lg font-bold leading-none">{post.date.day}</span>
-                        <span className="text-[10px] uppercase tracking-wider">{post.date.month}</span>
-                    </div>
-                </CardHeader>
-                <CardContent className="pt-6 px-5 pb-2 flex-grow">
-                    <div className="flex flex-wrap gap-2 mb-3 items-center">
-                        <Tag className="w-3 h-3 text-dental-pink fill-dental-pink" />
-                        {post.categories.map((cat, idx) => (
-                            <span key={idx} className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                                {cat}{idx < post.categories.length - 1 ? ", " : ""}
-                            </span>
-                        ))}
-                    </div>
-                    <h3 className="font-playfair text-[25px] font-normal text-dental-text mb-3 leading-[32px] line-clamp-2 group-hover:text-dental-pink transition-colors">
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-grow flex flex-col">
+
+                    {/* Heading */}
+                    <h3 className="font-playfair font-bold text-[20px] md:text-[22px] text-[#1a1a1a] mb-3 leading-[1.3] group-hover:text-[#2B7A9B] transition-colors">
                         {post.title}
                     </h3>
-                    <p className="font-roboto text-gray-500 text-[14px] leading-[21px] line-clamp-3 mb-4 font-light">
+
+                    {/* Paragraph - 2 lines */}
+                    <p className="font-roboto text-[15px] text-[#6b7280] leading-[1.6] line-clamp-2 mb-4 flex-grow">
                         {post.excerpt}
                     </p>
-                </CardContent>
-                <CardFooter className="px-5 pb-6 pt-0">
-                    <Button variant="link" className="p-0 h-auto text-dental-pink hover:text-dental-blue font-roboto-condensed font-bold text-[14px] uppercase tracking-widest flex items-center gap-2 transition-colors">
-                        Read more <ArrowRight className="w-3 h-3" />
-                    </Button>
-                </CardFooter>
-            </Card>
+
+                    {/* Bottom Section - Icon and Text */}
+                    <div className="flex items-center gap-4 text-[#6b7280]">
+                        {/* Date */}
+                        <div className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4" />
+                            <span className="font-roboto text-[14px]">
+                                {post.date.month} {post.date.day}, {post.date.year}
+                            </span>
+                        </div>
+
+                        {/* Read Time */}
+                        <div className="flex items-center gap-2">
+                            <Clock className="w-4 h-4" />
+                            <span className="font-roboto text-[14px]">
+                                {post.readTime}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </Link>
     );
 };

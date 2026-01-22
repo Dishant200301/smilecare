@@ -18,14 +18,14 @@ const Blog = () => {
         <div className="min-h-screen bg-background">
             <BlogHero />
 
-            <section className="py-16 container mx-auto px-6 relative">
+            <section className="py-16 w-[92%] max-w-4xl md:max-w-4xl lg:max-w-7xl mx-auto relative">
                 <BlogFilters
                     categories={CATEGORIES}
                     activeCategory={activeCategory}
                     onCategoryChange={setActiveCategory}
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredPosts.map((post) => (
                         <BlogCard key={post.id} post={post} />
                     ))}

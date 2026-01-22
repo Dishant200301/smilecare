@@ -6,23 +6,29 @@ interface BlogFiltersProps {
 
 const BlogFilters = ({ categories, activeCategory, onCategoryChange }: BlogFiltersProps) => {
     return (
-        <div className="flex flex-wrap items-center gap-8 mb-12 border-b border-gray-100 pb-4">
-            {categories.map((category) => (
-                <button
-                    key={category}
-                    onClick={() => onCategoryChange(category)}
-                    className={`text-[15px] font-medium transition-all duration-300 relative pb-3 ${activeCategory === category
-                            ? "text-dental-pink font-bold"
-                            : "text-gray-500 hover:text-dental-pink"
-                        }`}
-                    aria-pressed={activeCategory === category}
-                >
-                    {category}
-                    {activeCategory === category && (
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-dental-pink rounded-full" />
-                    )}
-                </button>
-            ))}
+        <div className="overflow-x-auto mb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex justify-start md:justify-center items-center gap-3 md:gap-4 rounded-3xl mx-auto p-1 max-w-[700px] min-w-max">
+                {categories.map((category) => (
+                    <button
+                        key={category}
+                        onClick={() => onCategoryChange(category)}
+                        className={`
+                            px-4 py-2 md:px-6 md:py-3
+                            rounded-3xl
+                            whitespace-nowrap
+                            font-roboto font-medium text-[14px] md:text-[15px]
+                            transition-all duration-300 ease-in-out
+                            ${activeCategory === category
+                                ? "bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end text-white "
+                                : "bg-[#fafafa] text-[#6b7280] hover:bg-[#eef1f6] hover:text-[#2B7A9B] hover:shadow-sm"
+                            }
+                        `}
+                        aria-pressed={activeCategory === category}
+                    >
+                        {category}
+                    </button>
+                ))}
+            </div>
         </div>
     );
 };

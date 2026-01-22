@@ -37,7 +37,7 @@ const BlogComments = () => {
                 />
 
                 <div className="flex items-center space-x-3">
-                    <Checkbox id="save-info" className="w-6 h-6 rounded-full border-gray-300 data-[state=checked]:bg-dental-pink data-[state=checked]:border-dental-pink" />
+                    <Checkbox id="save-info" className="w-6 h-6 rounded-full border-gray-300 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-gradient-blue-start data-[state=checked]:via-gradient-blue-mid data-[state=checked]:to-gradient-blue-end data-[state=checked]:border-transparent" />
                     <Label htmlFor="save-info" className="font-roboto text-[16px] text-gray-600 font-normal cursor-pointer">
                         Save my name, email, and website in this browser for the next time I comment.
                     </Label>
@@ -45,7 +45,7 @@ const BlogComments = () => {
 
                 <Button
                     type="submit"
-                    className="w-[160px] h-[52px] bg-gradient-to-r from-dental-pink to-[#333C4A] hover:opacity-90 text-white font-roboto-condensed font-bold text-[14px] uppercase tracking-widest rounded-[4px] flex items-center justify-center gap-2"
+                    className="w-[160px] h-[52px] bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end hover:opacity-90 text-white font-roboto-condensed font-bold text-[14px] uppercase tracking-widest rounded-[4px] flex items-center justify-center gap-2"
                 >
                     Post Comment
                     <Send className="w-4 h-4" />

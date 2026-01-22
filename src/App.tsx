@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import About from "./pages/About";
+import ServiceDetail from "./pages/ServiceDetail";
 // Appointments Module
 import { AppointmentsPage } from "./appointments";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />

@@ -53,7 +53,7 @@ const ContactForm = () => {
 
                         <Button
                             type="submit"
-                            className="w-full h-[52px] bg-gradient-to-r from-dental-pink to-[#333C4A] hover:opacity-90 text-white font-roboto-condensed font-bold text-[14px] uppercase tracking-widest rounded-[4px] flex items-center justify-center gap-2"
+                            className="w-full h-[52px] bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end hover:opacity-90 text-white font-roboto-condensed font-bold text-[14px] uppercase tracking-widest rounded-[4px] flex items-center justify-center gap-2"
                         >
                             Submit Your Message
                             <Send className="w-4 h-4" />

@@ -20,7 +20,7 @@ const BlogPrevNext = ({ prevPost }: BlogPrevNextProps) => {
 
                 <div>
                     <div className="flex items-center gap-2 mb-1">
-                        <div className="w-6 h-6 rounded-full bg-dental-pink flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end flex items-center justify-center">
                             <ArrowLeft className="w-3 h-3 text-white" />
                         </div>
                         <span className="font-roboto text-[14px] text-gray-500 uppercase tracking-wide">Previous</span>

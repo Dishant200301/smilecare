@@ -1,130 +1,92 @@
-import { Building2, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-<footer className="relative bg-[#FDABB7] overflow-hidden pt-10 pb-12 sm:pt-14 lg:pt-20">
+    <footer className="bg-white pt-20 pb-10 lg:py-24 border-t border-gray-100">
+      <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-0">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-16 lg:gap-8">
 
-  {/* CURVE TOP */}
-  <div className="absolute top-0 left-0 right-0 z-[5] pointer-events-none">
-    <img
-      src="/image/hero-bg-3.png"
-      alt=""
-      className="w-full object-cover"
-    />
-  </div>
+          {/* Left Side - Brand Promise */}
+          <div className="lg:w-1/3 flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-0 lg:space-y-8">
+            {/* Logo Icon */}
+            <Link to="/" className="flex items-center gap-2.5 mr-4 lg:mr-12 shrink-0 group" >
+              <div className="w-12 h-12 md:w-16 md:h-16 flex rounded-full bg-dental-blue/10 items-center justify-center p-3">
+                <img src="/image/favicon.png" alt="SmileCare" className="w-8 h-8 md:w-10 md:h-10 " />
+              </div>
+            </Link>
 
-  {/* LIQUID BLOB BG SHAPE */}
-  <div className="absolute left-[92.5px] right-0 top-[60px] bottom-[205px] z-[5] opacity-40">
-    <img
-      src="/image/footer-bg.png"
-      className="w-full h-full object-cover  hidden md:block lg:block"
-      alt="footer pattern"
-    />
-  </div>
+            <div className="space-y-2">
+              <h2 className="font-playfair font-bold text-2xl md:text-4xl lg:text-5xl text-dental-dark leading-tight">
+                Brighter smiles.
+              </h2>
+              <h2 className="font-playfair font-bold text-2xl md:text-4xl lg:text-5xl text-dental-dark leading-tight">
+                Brighter lives.
+              </h2>
+            </div>
+          </div>
 
-  {/* MAIN CONTENT */}
-  <div className="relative z-[20] container mx-auto px-6 max-w-[1425px]">
+          {/* Right Side - Navigation & Contact */}
+          <div className="lg:w-1/2 grid grid-cols-2 md:grid-cols-2 gap-12 lg:gap-8">
 
-    {/* CONTACT HEADER */}
-    <div className="text-center mb-12 sm:mb-14 lg:mb-20">
-      <h2
-        className="font-playfair text-[#333C4A]
-                   text-[28px] sm:text-[34px] lg:text-[40px]
-                   tracking-[-1px]">
-        Contact Us
-      </h2>
+            {/* Column 1 - Company */}
+            <div className="space-y-6">
+              <h3 className="font-playfair font-medium text-lg text-muted-foreground">
+                Other Links
+              </h3>
+              <nav className="flex flex-col space-y-4">
+                <Link to="/about" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                  About us
+                </Link>
+                <Link to="/services" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                  Services
+                </Link>
+                <Link to="/blog" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                  Blog
+                </Link>
+                <Link to="/contact" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                  Contact us
+                </Link>
+              </nav>
+            </div>
 
-      <p
-        className="font-playfair font-bold text-white
-                   text-[38px] sm:text-[54px] lg:text-[80px]
-                   tracking-[-2px] leading-tight
-                   mt-2 drop-shadow-[0_6px_10px_rgba(0,0,0,0.15)]">
-        +36 55 540 069
-      </p>
-    </div>
+            {/* Column 2 - Contact Info */}
+            <div className="space-y-6">
+              <h3 className="font-playfair font-medium text-lg text-muted-foreground">
+                Smilebright
+              </h3>
 
-    {/* CONTACT BLOCKS */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+              <div className="space-y-4 font-roboto text-dental-dark">
+                <div className="space-y-1">
+                  <p>527 Crentist Ave</p>
+                  <p>Lehi UT 84043</p>
+                </div>
 
-      {/* BLOCK 1 */}
-      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
-        <img
-          src="/image/icon/footer-icon-1.png"
-          className="w-[48px] sm:w-[55px] lg:w-[60px]"
-        />
-        <div>
-          <h4 className="font-playfair text-[20px] sm:text-[22px]">Our Address</h4>
-          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
-            Deák Ferenc street 19<br />
-            Budapest, 1052 Hungary
+                <div className="space-y-1 pt-2">
+                  <p className="flex items-center gap-2">
+                    <a href="tel:801-555-1234" className="text-dental-pink hover:underline">801-555-1234</a>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <a href="mailto:hi@dentist.com" className="text-dental-pink hover:underline">hi@dentist.com</a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom Section - Copyright & Developer Credit */}
+        <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="font-roboto text-sm text-muted-foreground">
+            © {new Date().getFullYear()} SmileCare. All rights reserved.
+          </p>  
+          <p className="font-roboto text-sm text-muted-foreground">
+            Developed by <a href="https://tryzeniq.com/" target="_blank" rel="noopener noreferrer" className="text-dental-pink hover:underline font-medium">TryzenIQ</a>
           </p>
         </div>
       </div>
-
-      {/* BLOCK 2 */}
-      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
-        <img
-          src="/image/icon/footer-icon-2.png"
-          className="w-[48px] sm:w-[55px] lg:w-[60px]"
-        />
-        <div>
-          <h4 className="font-playfair text-[20px] sm:text-[22px]">Email Us</h4>
-          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
-            office@denticare.com<br />
-            help@denticare.com
-          </p>
-        </div>
-      </div>
-
-      {/* BLOCK 3 */}
-      <div className="flex items-center sm:items-center lg:items-center flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 text-white">
-        <img
-          src="/image/icon/footer-icon-3.png"
-          className="w-[48px] sm:w-[55px] lg:w-[60px]"
-        />
-        <div>
-          <h4 className="font-playfair text-[20px] sm:text-[22px]">Working Hours</h4>
-          <p className="font-roboto text-[14px] sm:text-[15px] opacity-90 leading-[20px]">
-            Monday – Friday: 8AM – 9PM<br />
-            Weekends: Closed
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    {/* DIVIDER */}
-    <div className="border-t border-white/30 pt-6 sm:pt-8"></div>
-
-    {/* COPYRIGHT + LINKS */}
-    <div className="flex flex-col sm:flex-col md:flex-row items-center justify-between gap-4">
-
-      <p className="text-white font-roboto text-[13px] sm:text-[15px] opacity-80 text-center md:text-left">
-        Copyright 2018 by BoldThemes. All rights reserved.
-      </p>
-
-      <div className="flex flex-wrap items-center justify-center gap-5 text-white font-roboto text-[14px] opacity-90">
-        <a href="#" className="hover:opacity-100">About us</a>
-        <a href="#" className="hover:opacity-100">Services</a>
-        <a href="#" className="hover:opacity-100">Pages</a>
-        <a href="#" className="hover:opacity-100">Portfolio</a>
-        <a href="#" className="hover:opacity-100">News</a>
-        <a href="#" className="hover:opacity-100">Shop</a>
-
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="hover:opacity-100 flex items-center gap-1"
-        >
-          ↑ Back to top
-        </button>
-      </div>
-
-    </div>
-  </div>
-</footer>
-
-
+    </footer>
   );
 };
 

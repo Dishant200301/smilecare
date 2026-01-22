@@ -81,10 +81,10 @@ const AppointmentsPage: React.FC = () => {
 
 
     return (
-        <div className="appointments-page">
+        <div className="appointments-page overflow-hidden">
             {/* Header */}
             <header className="appointments-page__header">
-                <h1 className="appointments-page__title">Book an Appointment</h1>
+                <h1 className="appointments-page__title font-playfair text-2xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-[56px] font-bold leading-[1.1] tracking-tight text-[#1E2024] max-w-3xl text-center mx-auto">Book an Appointment</h1>
                 <p className="appointments-page__subtitle">
                     Select a convenient date and time for your appointment
                 </p>
@@ -100,7 +100,7 @@ const AppointmentsPage: React.FC = () => {
                     <>
                         {/* Date Selector and Time Slots - Combined */}
                         <section className="appointments-page__section">
-                            <h2 className="appointments-page__section-title">
+                            <h2 className="appointments-page__section-title font-playfair text-xl sm:text-xl md:text-xl lg:text-2xl font-bold leading-[1.1] tracking-tight text-[#1E2024] max-w-3xl text-center mx-auto">
                                 Select Date
                             </h2>
                             <DateSelector

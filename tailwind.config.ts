@@ -53,6 +53,11 @@ export default {
           dark: "hsl(var(--dental-dark))",
           text: "hsl(var(--dental-text))",
         },
+        gradient: {
+          "blue-start": "hsl(var(--gradient-blue-start))",
+          "blue-mid": "hsl(var(--gradient-blue-mid))",
+          "blue-end": "hsl(var(--gradient-blue-end))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -70,32 +75,37 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'playfair': ['"Playfair Display"', 'serif'],
-        'roboto': ['Roboto', 'sans-serif'],
-        'roboto-condensed': ['"Roboto Condensed"', 'sans-serif'],
-        'script': ['"Playfair Display"', 'serif'],
+        'playfair': ['Inter', 'sans-serif'],
+        'roboto': ['Inter', 'sans-serif'],
+        'roboto-condensed': ['Inter', 'sans-serif'],
+        'script': ['Inter', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'satoshi': ['Satoshi', 'sans-serif'],
+        'label': ['Satoshi', 'sans-serif'],
       },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-      },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-up": "scroll-up var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        "scroll-down": "scroll-down var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "scroll-up": {
+          to: { transform: "translateY(calc(-50% - 0.5rem))" },
+        },
+        "scroll-down": {
+          from: { transform: "translateY(calc(-50% - 0.5rem))" },
+          to: { transform: "translateY(0)" },
+        },
       },
     },
   },

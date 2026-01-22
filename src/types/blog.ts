@@ -13,4 +13,5 @@ export interface BlogPost {
     year: string;
   };
   author: string;
+  readTime: string;
 }

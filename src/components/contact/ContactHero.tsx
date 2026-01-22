@@ -2,10 +2,10 @@ import heroCouple from "/image/about-hero.png";
 
 const ContactHero = () => {
     return (
-        <section className="relative bg-dental-pink w-full min-h-[600px] lg:h-[650px] overflow-hidden">
+        <section className="relative bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end w-full min-h-[600px] lg:h-[650px] overflow-hidden">
 
             {/* BG Layer */}
-            <div className="absolute inset-0 bg-dental-pink z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end z-0"></div>
 
             {/* Desktop Background Image */}
             <div className="absolute inset-0 z-10 hidden lg:block">
@@ -26,13 +26,13 @@ const ContactHero = () => {
             </div>
 
             {/* DESKTOP IMAGE (Right Side) */}
-           <div className="hidden lg:flex absolute inset-0 z-20 items-end justify-end pb-0 lg:pr-24">
-    <img
-      src={heroCouple}
-      alt="Couple"
-      className="w-[720px] h-auto object-contain animate-fade-up"
-    />
-  </div>
+            <div className="hidden lg:flex absolute inset-0 z-20 items-end justify-end pb-0 lg:pr-24">
+                <img
+                    src={heroCouple}
+                    alt="Couple"
+                    className="w-[720px] h-auto object-contain animate-fade-up"
+                />
+            </div>
 
             {/* BOTTOM WAVE IMAGE */}
             <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">
