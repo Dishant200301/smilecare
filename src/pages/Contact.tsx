@@ -35,12 +35,12 @@ const Contact = () => {
       {/* Page Header */}
       <section className="pt-16 sm:pt-20 pb-0 lg:pt-24 lg:pb-0 bg-white">
         <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto mt-12">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-5xl mx-auto">
             <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e293b] mb-4 sm:mb-6">
               Contact Us
             </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
-              The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world.
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed ">
+              The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, and specialist dental treatments.
             </p>
           </div>
         </div>

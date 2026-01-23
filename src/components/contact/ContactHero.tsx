@@ -56,7 +56,7 @@ const ContactHero = () => {
                     <p className="
             font-roboto font-light text-white 
             text-[16px] leading-[24px] opacity-85 
-            max-w-[540px] animate-fade-down
+            max-w-7xl animate-fade-down
           ">
                         Distinctively re-engineer revolutionary meta-services, change
                         management and premium architectures. Intrinsically incubate intuitive
@@ -82,7 +82,7 @@ const ContactHero = () => {
                         <p className="
               font-roboto font-light text-white 
               text-[20px] leading-[30px] opacity-85 
-              max-w-[547.4px]
+              max-w-7xl
             ">
                             Distinctively re-engineer revolutionary meta-services, change
                             management and premium architectures. Intrinsically incubate intuitive

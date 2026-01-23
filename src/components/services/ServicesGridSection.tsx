@@ -57,7 +57,7 @@ const ServicesGridSection = () => {
             <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto px-2 sm:px-4 md:px-0 lg:px-0">
 
                 {/* Heading Section */}
-                <div className="text-center max-w-4xl mx-auto mb-12 lg:mb-16 mt-12 md:mt-16">
+                <div className="text-center max-w-5xl mx-auto mb-12 lg:mb-16 mt-12 md:mt-16">
                     <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e293b] mb-4 sm:mb-6">
                         Our Services
                     </h1>
