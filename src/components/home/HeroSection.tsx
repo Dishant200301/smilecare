@@ -46,11 +46,16 @@ const HeroSection = () => {
                         {/* Left Side: Content */}
                         <div className="flex flex-col items-center md:items-start text-center md:text-left z-10 relative px-6 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-12 md:pb-48 lg:pb-64">
 
-                            {/* Pill Badge replaced with Label */}
-                            <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3 text-center md:text-left">
-                                WELCOME
-                            </span>
-
+                            {/* New Pill Badge */}
+                            <a href="/appointments" className="inline-flex items-center p-1 bg-white rounded-full shadow-sm border border-slate-100 mb-6 lg:mb-8 mx-auto md:mx-0 group cursor-pointer transition-all duration-300">
+                                <span className="px-3 py-1 rounded-full bg-[#eef6ff] text-black font-semibold text-xs sm:text-xs whitespace-nowrap tracking-wide">
+                                    Accepting new patients
+                                </span>
+                                <span className="px-3 text-xs font-semibold text-black flex items-center gap-2 group-hover:text-[#1D70B8] transition-colors">
+                                    Book today
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </a>
                             {/* Headline */}
                             <h1 className="mb-4 sm:mb-6 font-playfair text-3xl sm:text-4xl md:text-[34px] lg:text-4xl xl:text-[56px] font-bold leading-[1.1] md:leading-[1.0] lg:leading-[1.0] tracking-tight text-[#1E2024] md:max-w-4xl lg:max-w-4xl">
                                 Experience <span className="text-[#1D70B8]">Dental Excellence</span> with a Gentle Touch
