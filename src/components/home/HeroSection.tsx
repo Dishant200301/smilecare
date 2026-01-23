@@ -47,13 +47,13 @@ const HeroSection = () => {
                         <div className="flex flex-col items-center md:items-start text-center md:text-left z-10 relative px-6 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-12 md:pb-48 lg:pb-64">
 
                             {/* New Pill Badge */}
-                            <a href="/appointments" className="inline-flex items-center p-1 bg-white rounded-full shadow-sm border border-slate-100 mb-6 lg:mb-8 mx-auto md:mx-0 group cursor-pointer transition-all duration-300">
-                                <span className="px-3 py-1 rounded-full bg-[#eef6ff] text-black font-semibold text-xs sm:text-xs whitespace-nowrap tracking-wide">
+                            <a href="/appointments" className="inline-flex items-center p-0.5 md:p-1 bg-white rounded-full shadow-sm border border-slate-100 mb-6 lg:mb-8 mx-auto md:mx-0 group cursor-pointer transition-all duration-300">
+                                <span className="px-3 py-1 rounded-full bg-[#eef6ff] text-black font-semibold text-[10px] md:text-xs whitespace-nowrap tracking-wide">
                                     Accepting new patients
                                 </span>
-                                <span className="px-3 text-xs font-semibold text-black flex items-center gap-2 group-hover:text-[#1D70B8] transition-colors">
+                                <span className="px-3 text-[10px] md:text-xs font-semibold text-black flex items-center gap-2 group-hover:text-[#1D70B8] transition-colors whitespace-nowrap">
                                     Book today
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-2.5 h-2.5 md:w-3 md:h-3 group-hover:translate-x-1 transition-transform " />
                                 </span>
                             </a>
                             {/* Headline */}
