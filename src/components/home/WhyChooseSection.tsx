@@ -157,26 +157,16 @@ const WhyChooseSection = () => {
             <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto px-2 sm:px-4 md:px-0 lg:px-0">
 
                 {/* Header Section */}
-                <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20 space-y-4">
-                    <div
-                        className="inline-flex items-center justify-center gap-2 mb-0"
-                    >
-                        <span className="text-dental-pink font-roboto font-bold tracking-[0.2em] text-xs uppercase">
-                            WHY CHOOSE US
-                        </span>
-                    </div>
+                <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20 space-y-2">
+                    <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                        WHY CHOOSE US
+                    </span>
 
                     <h2
                         className="text-2xl sm:text-4xl lg:text-5xl font-playfair font-bold text-dental-dark"
                     >
                         Diagnosis of <span className="text-dental-dark">Dental Diseases</span>
                     </h2>
-
-                    <p
-                        className="font-roboto text-muted-foreground text-base md:text-lg"
-                    >
-                        We are committed to sustainability. eco-friendly initiatives.
-                    </p>
                 </div>
 
                 {/* Main Content Grid */}

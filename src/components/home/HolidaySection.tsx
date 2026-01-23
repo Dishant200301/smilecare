@@ -11,6 +11,9 @@ const HolidaySection = () => {
 
                         {/* Heading */}
                         <div>
+                            <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                                DENTAL TOURISM
+                            </span>
                             <h2 className="
             text-dental-text font-playfair
             text-[40px] sm:text-[48px] lg:text-[58px]
@@ -27,19 +30,6 @@ const HolidaySection = () => {
                                 Holiday
                             </h2>
                         </div>
-
-                        {/* Paragraph */}
-                        <p className="
-          text-dental-text font-roboto
-          text-[16px] sm:text-[18px] lg:text-[20px]
-          leading-[26px] sm:leading-[28px]
-          max-w-lg
-        ">
-                            It is well known that Hungary has become a main tourism destination.
-                            Americans have chosen Budapest the second most beautiful city in the world.
-                            Hungary has also developed to a top level in dental care and a remarkable
-                            dental tourism location for foreign and domestic patients.
-                        </p>
 
                         {/* Icons Grid */}
                         <div className="grid grid-cols-2 gap-4 sm:gap-6">

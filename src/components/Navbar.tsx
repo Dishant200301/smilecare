@@ -17,6 +17,7 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
     const [hoveredPath, setHoveredPath] = useState(location.pathname);
+    const [isLogoLoaded, setIsLogoLoaded] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,8 +64,17 @@ const Navbar = () => {
             <motion.nav className="fixed left-0 right-0 z-50 pointer-events-none flex justify-center top-2 lg:top-4">
                 <motion.div className="pointer-events-auto relative bg-white/90 backdrop-blur-md border border-white/50 shadow-lg rounded-full p-2 pl-6 flex items-center justify-between w-[92%] max-w-4xl lg:max-w-7xl">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-2.5 mr-4 lg:mr-12">
-                        <img src="/image/favicon.png" className="w-8 h-8" />
+
+                    <Link
+                        to="/"
+                        className={`flex items-center gap-2.5 mr-4 lg:mr-12 transition-opacity duration-100 ${isLogoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    >
+                        <img
+                            src="/image/favicon.png"
+                            className="w-8 h-8"
+                            onLoad={() => setIsLogoLoaded(true)}
+                            onError={() => setIsLogoLoaded(true)}
+                        />
                         <span className="text-xl font-bold text-[#1D70B8]">
                             SmileCare
                         </span>
@@ -87,9 +97,10 @@ const Navbar = () => {
                                         >
                                             {active && (
                                                 <motion.span
-                                                    layoutId="activeNav"
+                                                    initial={{ opacity: 0, scale: 0.8 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
                                                     className="absolute inset-[-10px] bg-gradient-to-br from-gradient-blue-start via-gradient-blue-mid to-gradient-blue-end rounded-full -z-10"
-                                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                                    transition={{ duration: 0.3 }}
                                                 />
                                             )}
                                             {link.name}

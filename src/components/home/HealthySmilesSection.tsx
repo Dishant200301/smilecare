@@ -27,6 +27,9 @@ const HealthySmilesSection = () => {
 
                 {/* HEADER */}
                 <div className="text-center mb-16">
+                    <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                        DENTAL SERVICES
+                    </span>
                     <h2 className="font-playfair text-[#333C4A] text-[32px] sm:text-[38px] lg:text-[40px] tracking-[-0.8px]">
                         Healthy Smiles
                     </h2>
@@ -35,11 +38,6 @@ const HealthySmilesSection = () => {
             text-[60px] sm:text-[72px] lg:text-[80px] leading-[1] tracking-[-2.4px] mt-2">
                         Everyday!
                     </h2>
-
-                    <p className="font-roboto text-[#191919] text-[15px] sm:text-[16px] lg:text-[20px]
-            max-w-[520px] mx-auto mt-6 leading-[26px] opacity-80">
-                        Get your day started with a smile: check our services to see what we can help you with!
-                    </p>
                 </div>
 
                 {/* SERVICES GRID */}
@@ -84,7 +82,7 @@ const HealthySmilesSection = () => {
                             color: "#191919"
                         },
                     ].map((service, index) => (
-                        <div key={index} className="text-center px-4 space-y-4">
+                        <div key={index} className="text-center px-4 space-y-2">
 
                             {/* ICON SAME SIZE EVERYWHERE */}
                             <div className="flex justify-center">

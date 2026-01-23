@@ -10,7 +10,7 @@ const BlogHero = () => {
               Our Blog
             </h1>
             <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
-              Stay informed with the latest dental health tips, treatment insights, and expert advice. Discover articles that help you maintain a healthy, beautiful smile.
+              Stay informed with the latest dental health tips and expert advice. Discover articles that help you maintain a healthy, beautiful smile.
             </p>
           </div>
         </div>

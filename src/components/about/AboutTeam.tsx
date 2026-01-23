@@ -37,17 +37,15 @@ const AboutTeam = () => {
             <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-0">
                 {/* HEADER */}
                 <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                        <span className="text-dental-pink font-semibold tracking-widest text-xs md:text-base uppercase">OUR TEAM</span>
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="text-dental-pink font-semibold tracking-widest text-sm md:text-base uppercase">OUR TEAM</span>
                     </div>
 
                     <h2 className="font-playfair font-bold text-4xl lg:text-5xl sm:text-5xl lg:text-[56px] text-dental-dark mb-4">
                         Our <span className="text-dental-pink">Friendly</span> Dentists Team
                     </h2>
 
-                    <p className="font-roboto text-muted-foreground text-base md:text-lg ">
-                        We are committed to sustainability. eco-friendly initiatives.
-                    </p>
+
                 </div>
 
                 {/* TEAM GRID */}

@@ -46,19 +46,10 @@ const HeroSection = () => {
                         {/* Left Side: Content */}
                         <div className="flex flex-col items-center md:items-start text-center md:text-left z-10 relative px-6 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-12 md:pb-48 lg:pb-64">
 
-                            {/* Pill Badge */}
-                            <a
-                                href="#"
-                                className="mb-6 sm:mb-8 inline-flex items-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-3 rounded-full bg-white px-2 sm:px-2.5 md:px-2 lg:px-3 py-1 sm:py-1.5 md:py-1 lg:py-1.5 shadow-sm border border-[#E6E7E8] transition-all group text-xs sm:text-sm md:text-sm lg:text-base"
-                            >
-                                <span className="inline-flex items-center gap-0 bg-[#e4eefa] text-black/70 text-[9px] sm:text-[11px] md:text-[10px] lg:text-xs font-semibold px-2 sm:px-2.5 md:px-2 lg:px-3 py-0.5 sm:py-1 md:py-0.5 lg:py-1.5 rounded-full whitespace-nowrap">
-                                    Accepting new patients
-                                </span>
-                                <span className="text-[8px] sm:text-[10px] md:text-[9px] lg:text-xs font-semibold text-black flex items-center gap-0.5 sm:gap-1 md:gap-1 lg:gap-1.5 pr-1 sm:pr-1.5 md:pr-1 lg:pr-2 group-hover:gap-2 transition-all whitespace-nowrap">
-                                    Book today
-                                    <ArrowRight className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3 md:w-3 lg:h-3.5 lg:w-3.5" />
-                                </span>
-                            </a>
+                            {/* Pill Badge replaced with Label */}
+                            <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3 text-center md:text-left">
+                                WELCOME
+                            </span>
 
                             {/* Headline */}
                             <h1 className="mb-4 sm:mb-6 font-playfair text-3xl sm:text-4xl md:text-[34px] lg:text-4xl xl:text-[56px] font-bold leading-[1.1] md:leading-[1.0] lg:leading-[1.0] tracking-tight text-[#1E2024] md:max-w-4xl lg:max-w-4xl">
@@ -113,25 +104,25 @@ const HeroSection = () => {
                                     <h2 className="text-[24px] md:text-[20px] lg:text-[40px] font-playfair font-bold text-dental-pink leading-none tracking-tight">
                                         <Counter end={500} />+
                                     </h2>
-                                    <p className="text-[10px] md:text-[9px] lg:text-xs font-medium text-muted-foreground mt-1 font-roboto">Happy Patients</p>
+                                    <p className="text-[10px] md:text-[9px] lg:text-sm font-medium text-muted-foreground mt-1 font-roboto">Happy Patients</p>
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-[24px] md:text-[20px] lg:text-[40px] font-playfair font-bold text-dental-pink leading-none tracking-tight">
                                         <Counter end={50} />+
                                     </h2>
-                                    <p className="text-[10px] md:text-[9px] lg:text-xs font-medium text-muted-foreground mt-1 font-roboto">Expert Doctors</p>
+                                    <p className="text-[10px] md:text-[9px] lg:text-sm font-medium text-muted-foreground mt-1 font-roboto">Expert Doctors</p>
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-[24px] md:text-[20px] lg:text-[40px] font-playfair font-bold text-dental-pink leading-none tracking-tight">
                                         <Counter end={150} />+
                                     </h2>
-                                    <p className="text-[10px] md:text-[9px] lg:text-xs font-medium text-muted-foreground mt-1 font-roboto">Awards Won</p>
+                                    <p className="text-[10px] md:text-[9px] lg:text-sm font-medium text-muted-foreground mt-1 font-roboto">Awards Won</p>
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-[24px] md:text-[20px] lg:text-[40px] font-playfair font-bold text-dental-pink leading-none tracking-tight">
                                         <Counter end={20} />+
                                     </h2>
-                                    <p className="text-[10px] md:text-[9px] lg:text-xs font-medium text-muted-foreground mt-1 font-roboto">Years Experience</p>
+                                    <p className="text-[10px] md:text-[9px] lg:text-sm font-medium text-muted-foreground mt-1 font-roboto">Years Experience</p>
                                 </div>
                             </div>
                         </div>

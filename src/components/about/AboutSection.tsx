@@ -42,7 +42,7 @@ const AboutSection = () => {
     return (
         <section className="py-16 lg:py-24 bg-white overflow-hidden">
             <div className="w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-0">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
                     {/* Left Column - Images */}
                     <div className="relative">
@@ -111,24 +111,16 @@ const AboutSection = () => {
                     {/* Right Column - Content */}
                     <div className="lg:pl-8 mt-12 lg:mt-0">
                         {/* Label with Icon */}
-                        <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 rounded-full bg-[#E6F0FF] flex items-center justify-center text-[#3B5998]">
-                                <Heart className="w-4 h-4" />
-                            </div>
-                            <span className="font-roboto font-bold text-[#3B5998] uppercase tracking-wider text-sm">
-                                About Us
+                        <div className="mb-2">
+                            <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block">
+                                ABOUT US
                             </span>
                         </div>
 
                         {/* Heading */}
-                        <h2 className="font-playfair font-bold text-[30px] md:text-[48px] lg:text-[48px] text-[#1a1a1a] leading-[1.1] mb-6">
+                        <h2 className="font-playfair font-bold text-[30px] md:text-[42px] lg:text-[43px] xl:text-[48px] text-[#1a1a1a] leading-[1.1] mb-6">
                             Commitment to your smile's health and beauty
                         </h2>
-
-                        {/* Paragraph */}
-                        <p className="font-roboto text-[14px] lg:text-[18px] text-[#6b7280] leading-[1.6] mb-4">
-                            The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world.
-                        </p>
 
                         {/* Stats Row */}
                         <div className="grid grid-cols-2 gap-8 mb-6 border-b border-gray-100">

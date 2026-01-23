@@ -21,15 +21,14 @@ const AboutMission = () => {
                     {/* CONTENT COLUMN */}
                     {/* Mobile: Order 1 (Top) | Desktop: Order 2 (Right) */}
                     <div className="order-1 lg:order-2 text-center lg:text-left">
+                        <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                            OUR MISSION
+                        </span>
                         <h2 className="font-playfair font-bold text-4xl lg:text-5xl text-dental-dark mb-6">
                             Our Mission
                         </h2>
 
-                        <p className="font-roboto text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                            To provide exceptional dental services that exceed patient expectations through innovation, quality craftsmanship, and a commitment to sustainability. We aim to build lasting relationships and create smiles that enhance confidence.
-                        </p>
-
-                        <ul className="space-y-4 inline-block text-left sm:block">
+                        <ul className="space-y-2 inline-block text-left sm:block">
                             {[
                                 "Fostering Sustainable Growth and Green Development",
                                 "Innovating for a Sustainable Future",
@@ -37,7 +36,7 @@ const AboutMission = () => {
                                 "Building Stronger Communities"
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start gap-3">
-                                    <div className="mt-1 flex-shrink-0 text-dental-blue">
+                                    <div className="mt-1 flex-shrink-0 text-dental-pink">
                                         <Check className="w-5 h-5" strokeWidth={3} />
                                     </div>
                                     <span className="font-roboto text-dental-dark text-[14px] md:text-lg lg:text-lg">

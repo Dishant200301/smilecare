@@ -33,17 +33,17 @@ const Footer = () => {
               <h3 className="font-playfair font-medium text-lg text-muted-foreground">
                 Other Links
               </h3>
-              <nav className="flex flex-col space-y-4">
-                <Link to="/about" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+              <nav className="flex flex-col space-y-2">
+                <Link to="/about" className="font-label text-dental-dark hover:text-dental-pink transition-colors">
                   About us
                 </Link>
-                <Link to="/services" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                <Link to="/services" className="font-label text-dental-dark hover:text-dental-pink transition-colors">
                   Services
                 </Link>
-                <Link to="/blog" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                <Link to="/blog" className="font-label text-dental-dark hover:text-dental-pink transition-colors">
                   Blog
                 </Link>
-                <Link to="/contact" className="font-label text-dental-dark hover:text-dental-blue transition-colors">
+                <Link to="/contact" className="font-label text-dental-dark hover:text-dental-pink transition-colors">
                   Contact us
                 </Link>
               </nav>
@@ -55,7 +55,7 @@ const Footer = () => {
                 Smilebright
               </h3>
 
-              <div className="space-y-4 font-roboto text-dental-dark">
+              <div className="space-y-2 font-roboto text-dental-dark">
                 <div className="space-y-1">
                   <p>527 Crentist Ave</p>
                   <p>Lehi UT 84043</p>
@@ -80,7 +80,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <p className="font-roboto text-sm text-muted-foreground">
             © {new Date().getFullYear()} SmileCare. All rights reserved.
-          </p>  
+          </p>
           <p className="font-roboto text-sm text-muted-foreground">
             Developed by <a href="https://tryzeniq.com/" target="_blank" rel="noopener noreferrer" className="text-dental-pink hover:underline font-medium">TryzenIQ</a>
           </p>

@@ -106,7 +106,7 @@ const testimonials: Testimonial[] = [
 ];
 
 const ReviewCard = ({ item }: { item: Testimonial }) => (
-    <div className="bg-white rounded-[20px] p-6 shadow-[0px_2px_12px_rgba(0,0,0,0.04)] border border-gray-100/50 flex flex-col gap-3 h-auto break-inside-avoid transform transition-transform duration-300">
+    <div className="bg-white rounded-[20px] p-6 md:p-6 lg:p-8 shadow-[0px_2px_12px_rgba(0,0,0,0.04)] border border-gray-100/50 flex flex-col gap-3 h-auto break-inside-avoid transform transition-transform duration-300">
         <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
                 <Star
@@ -119,10 +119,10 @@ const ReviewCard = ({ item }: { item: Testimonial }) => (
                 />
             ))}
         </div>
-        <h4 className="font-bold text-[#1E2024] text-sm">
+        <h4 className="font-bold text-[#1E2024] text-sm md:text-base lg:text-md">
             {item.author}
         </h4>
-        <p className="font-roboto text-gray-500 text-sm leading-relaxed">
+        <p className="font-roboto text-gray-500 text-sm md:text-base lg:text-md leading-relaxed">
             {item.content}
         </p>
     </div>
@@ -207,16 +207,16 @@ const TestimonialSection = () => {
 
                 {/* Header */}
                 <div className="mb-12 text-center items-center justify-center max-w-[600px] mx-auto">
+                    <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                        TESTIMONIALS
+                    </span>
                     <h2 className="font-playfair font-bold text-2xl sm:text-4xl lg:text-5xl text-[#1E2024] mb-3 tracking-tight">
                         Read our reviews
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-lg">
-                        We take pride in exceeding customer expectations, every single visit.
-                    </p>
                 </div>
 
                 {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 h-[600px] md:h-[700px] lg:h-[800px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 h-[600px] md:h-[700px] lg:h-[800px]">
 
                     {/* Column 1: Google Card + Reviews (Top to Bottom) */}
                     <div className="flex flex-col h-full gap-6">

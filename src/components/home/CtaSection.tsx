@@ -27,7 +27,7 @@ const CtaSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                     {/* ==== CONTENT FIRST on mobile/tablet | CONTENT RIGHT on desktop ==== */}
-                    <div className="order-1 lg:order-2 text-left space-y-4 sm:space-y-6">
+                    <div className="order-1 lg:order-2 text-left space-y-2 sm:space-y-6">
 
                         {/* Small Heading */}
                         <h3 className="

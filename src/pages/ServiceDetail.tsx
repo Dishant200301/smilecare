@@ -105,7 +105,7 @@ const ServiceDetail = () => {
                                 </div>
 
                                 {/* Contact Cards */}
-                                <div className="space-y-4">
+                                <div className="space-y-2">
 
                                     {/* Call Card */}
                                     <a

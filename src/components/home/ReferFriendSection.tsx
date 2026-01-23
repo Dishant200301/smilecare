@@ -13,8 +13,11 @@ const ReferFriendSection = () => {
                     {/* ============================
           CONTENT (Always no overlap)
       ============================= */}
-                    <div className="order-1 lg:order-2 space-y-4 animate-fade-left container mx-auto px-6 lg:pl-16 lg:pr-24">
+                    <div className="order-1 lg:order-2 space-y-2 animate-fade-left container mx-auto px-6 lg:pl-16 lg:pr-24">
                         <div>
+                            <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-3">
+                                REFERRAL PROGRAM
+                            </span>
                             <h3 className="font-playfair text-[#333C4A] text-[28px] sm:text-[38px] lg:text-[42px] leading-tight">
                                 Reward Awaits When
                             </h3>
@@ -24,13 +27,6 @@ const ReferFriendSection = () => {
                                 You Refer A Friend
                             </h1>
                         </div>
-
-                        <p className="font-roboto text-[#191919]
-          text-[16px] sm:text-[18px] leading-[27px] max-w-[580px]">
-                            If you’ve been happy with the care you’ve received and would like to
-                            share dental referrals with your friends and family, SmileCare invites
-                            you to take part in our dental referrals rewards program.
-                        </p>
 
                         {/* Tabs */}
                         <div className="flex items-center gap-12">
@@ -96,7 +92,7 @@ const ReferFriendSection = () => {
                                 </Button>
                             </form>
                         ) : (
-                            <div className="space-y-4 max-w-[580px] text-[16px] sm:text-[18px] 
+                            <div className="space-y-2 max-w-[580px] text-[16px] sm:text-[18px] 
             font-roboto text-[#191919] leading-[28px]">
                                 <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
                                 <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>

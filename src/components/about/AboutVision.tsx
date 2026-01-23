@@ -19,7 +19,7 @@ const AboutVision = () => {
                             To be the leading dental care provider, recognized for our excellence in patient care, innovative treatments, and dedication to community well-being. We envision a world where everyone wears a confident, healthy smile.
                         </p>
 
-                        <ul className="space-y-4 inline-block text-left sm:block">
+                        <ul className="space-y-2 inline-block text-left sm:block">
                             {[
                                 "Commitment to Excellence in Dental Care",
                                 "State-of-the-Art Technology Integration",
@@ -27,7 +27,7 @@ const AboutVision = () => {
                                 "Fostering Long-Term Patient Relationships"
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start gap-3">
-                                    <div className="mt-1 flex-shrink-0 text-dental-blue">
+                                    <div className="mt-1 flex-shrink-0 text-dental-pink">
                                         <Check className="w-5 h-5" strokeWidth={3} />
                                     </div>
                                     <span className="font-roboto text-dental-dark text-[14px] md:text-lg lg:text-lg">

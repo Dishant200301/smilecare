@@ -62,11 +62,11 @@ const BeforeAfterSection = () => {
                     className="mb-14 lg:mb-20 relative z-10"
                 >
                     {/* 1. Top Label */}
-                    <motion.div variants={fadeInUp} className="flex justify-center items-center gap-2 mb-4">
-                        <p className="font-roboto text-[14px] text-dental-pink font-bold tracking-wider uppercase">
-                            Our Result
-                        </p>
-                    </motion.div>
+                    <div className="text-center mb-4">
+                        <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block">
+                            OUR RESULTS
+                        </span>
+                    </div>
 
                     {/* 2. Main Heading */}
                     <motion.h2

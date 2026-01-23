@@ -49,6 +49,9 @@ const NaturalSmileSection = () => {
         "
                     >
                         <div>
+                            <span className="text-white font-bold tracking-widest text-sm uppercase block mb-3">
+                                WELCOME
+                            </span>
                             <h3 className="font-playfair text-[#333C4A]
             text-[24px] sm:text-[36px] lg:text-[40px]
             leading-tight tracking-[-0.8px]">
@@ -64,14 +67,6 @@ const NaturalSmileSection = () => {
 
                         <div className="space-y-6 lg:space-y-7">
                             <div className="w-[180px] h-[2px] bg-white opacity-70"></div>
-
-                            <p className="font-playfair text-white
-            text-[18px] sm:text-[22px] lg:text-[25px]
-            leading-[32px] lg:leading-[38px]">
-                                We at SmileCare are focused on helping you.
-                                Dynamically reinvent market-driven opportunities and interfaces.
-                            </p>
-
                             <div className="w-[180px] h-[2px] bg-white opacity-70"></div>
                         </div>
 

@@ -23,11 +23,9 @@ const HomeBlogSection = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="text-center md:text-left">
                         {/* Label */}
-                        <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                            <span className="text-dental-pink font-roboto font-semibold tracking-wider uppercase text-sm">
-                                OUR BLOG
-                            </span>
-                        </div>
+                        <span className="text-[#1D70B8] font-bold tracking-widest text-sm uppercase block mb-1 text-center md:text-left">
+                            OUR BLOG
+                        </span>
                         {/* Heading */}
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-black leading-tight">
                             Latest News
@@ -47,7 +45,7 @@ const HomeBlogSection = () => {
 
             {/* Desktop/Tablet Infinite Scroll Container */}
             <div className="hidden md:flex w-[92%] md:max-w-4xl lg:max-w-7xl mx-auto p-2 relative flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-50px),transparent_100%)]">
-                <div className="flex items-stretch justify-start animate-scroll-left hover:[animation-play-state:paused]">
+                <div className="flex items-stretch justify-start animate-scroll-left">
                     {/* First set of posts */}
                     {posts.map((post) => (
                         <div key={post.id} className="w-[280px] sm:w-[320px] md:w-[350px] flex-shrink-0 mx-4 h-full">
